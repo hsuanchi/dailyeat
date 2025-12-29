@@ -1,24 +1,17 @@
 # 文件目錄
 
-- [文件一: API 文件 (CaregiverHomepage)](#文件一-api-文件-caregiverhomepage)
-  - [建構函數](#建構函數)
-  - [Getter 方法](#getter-方法)
-  - [Setter 方法（支援鏈式呼叫）](#setter-方法支援鏈式呼叫)
-  - [功能方法](#功能方法)
-  - [使用範例](#使用範例)
-  - [Shadow DOM 隔離驗證](#shadow-dom-隔離驗證)
-  - [除錯功能](#除錯功能)
-- [文件二: 原生 JavaScript 前端函式庫開發規範指引](#文件二-原生-javascript-前端函式庫開發規範指引)
+- [文件一: API 文件 (DailyeatHomepage)](api-reference.md)
+- [Part 1: 前端開發規範 (Frontend Standards)](#part-1-前端開發規範-frontend-standards)
   - [核心理念：零建置、直接可用](#核心理念零建置直接可用)
   - [程式碼風格](#程式碼風格)
   - [Shadow DOM 封裝要求](#shadow-dom-封裝要求)
   - [JavaScript Class 封裝模式](#javascript-class-封裝模式)
   - [重要開發原則](#重要開發原則)
   - [Getter/Setter 實作檢查清單](#gettersetter-實作檢查清單)
-- [文件三: 新增頁面檢查清單 (與重構步驟)](#文件三-新增頁面檢查清單-與重構步驟)
+- [Part 2: 工作流與檢查清單 (Workflow & Checklist)](#part-2-工作流與檢查清單-workflow--checklist)
   - [快速檢查清單](#快速檢查清單)
   - [詳細步驟指引 (整合重構計畫)](#詳細步驟指引-整合重構計畫)
-- [文件四: 營養百科 - 文章風格指引](#文件四-營養百科---文章風格指引)
+- [Part 3: 內容戰略與設計系統 (Content & Design System)](#part-3-內容戰略與設計系統-content--design-system)
   - [第一章：核心原則](#第一章核心原則)
   - [第二章：內容策略與結構](#第二章內容策略與結構)
   - [第三章：技術與格式化規範](#第三章技術與格式化規範)
@@ -32,154 +25,13 @@
 
 ---
 
-# 文件一: API 文件 (CaregiverHomepage)
+# 文件一: API 文件 (DailyeatHomepage)
 
-## 建構函數
-
-```javascript
-const homepage = new DailyeatHomepagehostElement);
-```
-
-- `hostElement`: Shadow DOM 的宿主元素（必要）
-
-## Getter 方法
-
-```javascript
-homepage.getTheme(); // 取得主題設定
-homepage.getDebug(); // 取得除錯模式狀態
-homepage.getSearchPlaceholder(); // 取得搜尋框 placeholder
-homepage.getLanguage(); // 取得語言設定
-homepage.getConfig(); // 取得完整設定物件
-```
-
-## Setter 方法（支援鏈式呼叫）
-
-```javascript
-homepage
-    .setTheme('light|dark')           // 設定主題
-    .setDebug(true|false)             // 設定除錯模式
-    .setSearchPlaceholder('...')      // 設定搜尋框 placeholder
-    .setLanguage('zh-TW')             // 設定語言
-    .setConfig({...})                 // 批次設定
-```
-
-## 功能方法
-
-```javascript
-homepage.initialize(); // 初始化組件（必要）
-homepage.reset(); // 重置所有設定
-homepage.destroy(); // 銷毀組件，清理資源
-```
-
-## 使用範例
-
-### 基本初始化
-
-```javascript
-const homepage = new DailyeatHomepage
-  document.getElementById("homepage-container")
-)
-  .setTheme("light")
-  .setDebug(false)
-  .initialize();
-```
-
-### 開發模式（包含除錯）
-
-```javascript
-const homepage = new DailyeatHomepage
-  document.getElementById("homepage-container")
-)
-  .setTheme("light")
-  .setDebug(true) // 啟用除錯訊息
-  .setLanguage("zh-TW")
-  .initialize();
-
-// 檢查設定
-console.log("主題:", homepage.getTheme());
-console.log("除錯模式:", homepage.getDebug());
-```
-
-### 深色主題
-
-```javascript
-const homepage = new DailyeatHomepage
-  document.getElementById("homepage-container")
-)
-  .setTheme("dark") // 深色主題
-  .setDebug(false)
-  .initialize();
-```
-
-### 自訂搜尋框 Placeholder
-
-```javascript
-const homepage = new DailyeatHomepage
-  document.getElementById("homepage-container")
-)
-  .setSearchPlaceholder("輸入營養素名稱，例如：維生素C、鈣質...")
-  .setTheme("light")
-  .setDebug(false)
-  .initialize();
-```
-
-### 批次設定
-
-```javascript
-const homepage = new DailyeatHomepage
-  document.getElementById("homepage-container")
-)
-  .setConfig({
-    theme: "dark",
-    debug: false,
-    language: "zh-TW",
-    searchPlaceholder: "搜尋營養素...",
-  })
-  .initialize();
-```
-
-### 動態切換主題
-
-```javascript
-// 切換到深色主題
-homepage.setTheme("dark");
-
-// 切換到淺色主題
-homepage.setTheme("light");
-```
-
-## Shadow DOM 隔離驗證
-
-組件使用 Closed Shadow DOM 確保完全隔離：
-
-```javascript
-// 驗證 CSS 隔離
-const initialStyleCount = document.head.querySelectorAll("style").length;
-
-const homepage = new DailyeatHomepage
-  document.getElementById("homepage-container")
-).initialize();
-
-// 檢查主頁面的 CSS 數量是否增加
-const finalStyleCount = document.head.querySelectorAll("style").length;
-console.log("CSS 隔離:", initialStyleCount === finalStyleCount); // 應該是 true
-```
-
-## 除錯功能
-
-### 開啟除錯模式
-
-```javascript
-const homepage = new DailyeatHomepage
-  document.getElementById("homepage-container")
-)
-  .setDebug(true) // 關鍵：啟用除錯模式
-  .initialize();
-```
+> 🔗 **完整說明文件**：請參考獨立文件 [DailyeatHomepage API 參考手冊](api-reference.md)
 
 ---
 
-# 文件二: 原生 JavaScript 前端函式庫開發規範指引
+# Part 1: 前端開發規範 (Frontend Standards)
 
 ## 核心理念：零建置、直接可用
 
@@ -198,7 +50,7 @@ const homepage = new DailyeatHomepage
 - **不使用 ES Modules (import/export)**，一律使用傳統的 JavaScript 載入方式。
 - **所有 JavaScript 檔案都必須可以直接載入使用，絕對不需要任何 build、compile、transpile 等預處理程序**。
 - **所有功能都必須用 JavaScript class 封裝**，確保程式碼組織清晰。
-- Claude 在產生程式碼時一律要相容於**2022年以來的瀏覽器版本**。
+- 開發指引 (Development Guidelines) 在產生程式碼時一律要相容於**2022年以來的瀏覽器版本**。
 - **所有必要和可選的參數及設定都必須使用 getter 和 setter 方法，並採用可串接的 chainable 模式**。
 - **所有 setter 方法都要回傳 this 以支援鏈式呼叫**。
 - **關鍵需求：所有 CSS 和 JavaScript 都必須封裝在 Shadow DOM 中以實現完全隔離**。
@@ -257,7 +109,7 @@ createStyles()
 (function (global) {
     'use strict';
 
-    class DeusComponentWithShadowDOM {
+    class DailyeatComponentWithShadowDOM {
         constructor(hostElement) {
             // 建立 Shadow DOM
             this.hostElement = hostElement || document.body;
@@ -341,7 +193,7 @@ createStyles()
     }
 
     // 將類別掛載到全域物件
-    global.DeusComponentWithShadowDOM = DeusComponentWithShadowDOM;
+    global.DailyeatComponentWithShadowDOM = DailyeatComponentWithShadowDOM;
 
 })(window);
 
@@ -349,7 +201,7 @@ createStyles()
 const hostElement = document.createElement('div');
 document.body.appendChild(hostElement);
 
-const component = new DeusComponentWithShadowDOM(hostElement)
+const component = new DailyeatComponentWithShadowDOM(hostElement)
     .setTheme('dark')
     .setDebug(true)
     .setHeader('我的 Shadow DOM 組件')
@@ -371,7 +223,7 @@ const component = new DeusComponentWithShadowDOM(hostElement)
 ### 📊 Console 日誌輸出機制
 
 ```javascript
-class DeusLogger {
+class DailyeatLogger {
     constructor(debugMode = false) {
         this.debugMode = debugMode;
     }
@@ -409,7 +261,7 @@ class DeusLogger {
     /**
      * 基礎服務類別 - 展示完整的 getter/setter chainable 模式
      */
-    class DeusBaseService {
+    class DailyeatBaseService {
         constructor() {
             // 內部設定物件
             this._config = {
@@ -455,7 +307,7 @@ class DeusLogger {
     }
 
     // 將類別掛載到全域物件
-    global.DeusBaseService = DeusBaseService;
+    global.DailyeatBaseService = DailyeatBaseService;
 
 })(window);
 
@@ -465,14 +317,14 @@ class DeusLogger {
 
 /*
 // 基本鏈式呼叫 - 注意 debug 參數的使用
-const service = new DeusBaseService()
+const service = new DailyeatBaseService()
     .setApiUrl('https://api.example.com')
     .setDebug(true)                 // 啟用除錯模式
     .validate()
     .execute();
 
 // 正式環境使用 - 關閉除錯模式
-const service2 = new DeusBaseService()
+const service2 = new DailyeatBaseService()
     .setConfig({
         apiUrl: 'https://api.example.com',
         debug: false                // 關閉除錯模式，不輸出 debug 訊息
@@ -511,7 +363,7 @@ console.log('當前 debug 模式:', service.getDebug());  // 關鍵方法
 
 ---
 
-# 文件三: 新增頁面檢查清單 (與重構步驟)
+# Part 2: 工作流與檢查清單 (Workflow & Checklist)
 
 當您要為網站新增頁面，或重構舊有頁面以符合最新規範時，請按照以下步驟確保頁面完整且功能統一。
 
@@ -673,7 +525,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ---
 
-# 文件四: 營養百科 - 文章風格指引
+# Part 3: 內容戰略與設計系統 (Content & Design System)
 
 這份文件旨在為所有「營養百科」的文章建立一套統一、高標準的風格與結構。遵循此指引將有助於我們產出高品質、風格一致且對讀者極具吸引力的內容。
 
@@ -907,103 +759,19 @@ TOC 現已支援兩層式結構，並應包含 `<h3>` 標籤以提供更詳細�
 
 **圖示自動套用**: 警示圖示 (⚠️, 💡) 是由 CSS 自動添加的，**嚴禁**在 HTML 中手動插入任何 Emoji 或圖示。
 
-標準 HTML 結構：
-
-```html
-<div class="alert alert-tip">
-  <strong>營養師小撇步：</strong>
-  <p>將魚油與含有脂肪的正餐一同服用，是提升其生物利用率的關鍵。</p>
-</div>
-```
-
-<div class="example-preview">
-    <h4 class="example-preview-title">即時預覽：提示框</h4>
-    <div class="alert alert-tip" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; border-width: 1px; background: #fffbeb; color: #b45309; border-color: #fde68a;">
-        <strong style="flex-shrink: 0;">營養師小撇步：</strong>
-        <p style="margin-bottom: 0; line-height: 1.6;">將魚油與含有脂肪的正餐一同服用，是提升其生物利用率的關鍵。空腹服用會大幅降低吸收效果。</p>
-    </div>
-    <div class="alert alert-nutritionist" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; border-width: 1px; background: #eff6ff; color: #1e40af; border-color: #bfdbfe;">
-        <strong style="flex-shrink: 0;">營養師提醒：</strong>
-        <p style="margin-bottom: 0; line-height: 1.6;">這是一個專業建議，說明了為何這個營養素很重要。</p>
-    </div>
-    <div class="alert alert-doctor" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; border-width: 1px; background: #fef2f2; color: #b91c1c; border-color: #fecaca;">
-        <strong style="flex-shrink: 0;">醫師警告：</strong>
-        <p style="margin-bottom: 0; line-height: 1.6;">若您正在服用特定藥物，請在補充此營養素前諮詢您的醫師。</p>
-    </div>
-</div>
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 提示框](ui-components-library.md#1-提示框-alerts)
 
 #### 2. 資訊卡片 (`.info-cards`)
 
 用於並列呈現核心觀點或功效。**建議每個區塊使用 2-4 張卡片**以獲得最佳視覺平衡。可搭配 `.md-grid-N` 通用類別來控制桌面版的欄數。
 
-```html
-<!-- 桌面版為兩欄: md-grid-2 -->
-<div class="info-cards md-grid-2"> 
-  <div class="info-card">
-    <h4 class="info-card-title">核心功效一</h4>
-    <p class="info-card-desc">說明此功效的詳細內容...</p>
-  </div>
-  <div class="info-card">
-    <h4 class="info-card-title">核心功效二</h4>
-    <p class="info-card-desc">說明此功效的詳細內容...</p>
-  </div>
-</div>
-```
-
-<div class="example-preview">
-    <h4 class="example-preview-title">即時預覽：資訊卡片（[修改] 最多 2 張）</h4>
-    <div class="info-cards" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 1rem;">
-        <div class="info-card" style="flex: 1; min-width: 280px; max-width: calc(50% - 10px); box-sizing: border-box; background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); border: 1px solid #e5e7eb;">
-            <h4 class="info-card-title" style="font-size: 1.125rem; font-weight: 600; margin-top: 0 !important; margin-bottom: 0.5rem; color: #1f2937;">核心功效一</h4>
-            <p class="info-card-desc" style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0;">說明此功效的詳細內容，幫助讀者快速了解價值。</p>
-        </div>
-        <div class="info-card" style="flex: 1; min-width: 280px; max-width: calc(50% - 10px); box-sizing: border-box; background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); border: 1px solid #e5e7eb;">
-            <h4 class="info-card-title" style="font-size: 1.125rem; font-weight: 600; margin-top: 0 !important; margin-bottom: 0.5rem; color: #1f2937;">核心功效二</h4>
-            <p class="info-card-desc" style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0;">說明此功效的詳細內容，幫助讀者快速了解價值。</p>
-        </div>
-    </div>
-</div>
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 資訊卡片](ui-components-library.md#2-資訊卡片-info-cards)
 
 #### 3. 需求自我檢測 (`.quick-test`)
 
 **[新建議]** 此互動式元件是 `.risk-group-cards` 的**進階替代方案**，透過讓使用者勾選符合的選項，能更有效地引發讀者共鳴，觸發其自我檢測心理。
 
-```html
-<div class="quick-test">
-  <h3>Omega-3 需求評估</h3>
-  <p>請檢視您的生活與飲食習慣，是否存在以下情況？</p>
-  <div class="test-options">
-    <label class="test-option">
-      <input type="checkbox" name="need-test" />
-      <span>經常外食，飲食內容多高油、精緻澱粉</span>
-    </label>
-    <label class="test-option">
-      <input type="checkbox" name="need-test" />
-      <span>健檢報告提示三酸甘油酯等指數異常</span>
-    </label>
-    <!-- ... 其他選項 ... -->
-  </div>
-  <p style="margin-top: 20px; color: #14532d; font-weight: 600">
-    <strong>若符合 2 項以上</strong>，表示補充高品質 Omega-3 可能對您有顯著幫助。
-  </p>
-</div>
-```
-
-<div class="example-preview">
-    <h4 class="example-preview-title">即時預覽：互動式需求檢測</h4>
-    <div class="quick-test" style="background: #f0fdf4; border-radius: 20px; padding: 40px; margin: 40px 0; text-align: center;">
-        <h3 style="font-size: 1.8em; color: #14532d; margin-bottom: 20px;">Omega-3 需求評估</h3>
-        <p>請檢視您的生活與飲食習慣，是否存在以下情況？</p>
-        <div class="test-options" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px;">
-            <label class="test-option" style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 18px; cursor: pointer; transition: all 0.3s ease;">
-                <span>經常外食，飲食內容多高油、精緻澱粉</span>
-            </label>
-            <label class="test-option" style="background: linear-gradient(135deg, #ff6b35 0%, #fb923c 100%); border-color: #ff6b35; color: white; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);">
-                 <span>健檢報告提示三酸甘油酯等指數異常</span>
-            </label>
-        </div>
-    </div>
-</div>
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 需求自我檢測](ui-components-library.md#3-需求自我檢測-quick-test)
 
 #### 4. 比較表格 (`.data-table`)
 
@@ -1011,259 +779,60 @@ TOC 現已支援兩層式結構，並應包含 `<h3>` 標籤以提供更詳細�
 
 **例外情況**：若表格已置於其他本身就提供滾動功能的容器中（例如 `.comparison-table-container`），則可不必重複包裹。
 
-```html
-<div class="responsive-table-wrapper">
-  <table class="data-table">
-    <thead>
-      <tr><th>排名</th><th>食物項目</th><th>含量 (mg)</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>冠軍</td><td><strong>葵花籽</strong></td><td><strong>36.3</strong></td></tr>
-    </tbody>
-  </table>
-</div>
-```
-
-<div class="example-preview">
-    <h4 class="example-preview-title">即時預覽：比較表格</h4>
-    <div class="responsive-table-wrapper" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 20px 0; border: 1px solid #e2e8f0; border-radius: 15px;">
-        <table class="data-table" style="width: 100%; border-collapse: collapse; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1rem; border: 1px solid #e5e7eb;">
-            <thead>
-                <tr><th style="padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e5e7eb; background-color: #f9fafb; font-weight: 600; color: #374151;">排名</th><th style="padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e5e7eb; background-color: #f9fafb; font-weight: 600; color: #374151;">食物項目</th><th style="padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e5e7eb; background-color: #f9fafb; font-weight: 600; color: #374151;">含量 (mg)</th></tr>
-            </thead>
-            <tbody>
-                <tr><td style="padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e5e7eb;">冠軍</td><td style="padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e5e7eb;"><strong>葵花籽</strong></td><td style="padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e5e7eb;"><strong>36.3</strong></td></tr>
-                <tr><td style="padding: 0.75rem 1rem; text-align: left; border-bottom: 0;">亞軍</td><td style="padding: 0.75rem 1rem; text-align: left; border-bottom: 0;">杏仁</td><td style="padding: 0.75rem 1rem; text-align: left; border-bottom: 0;">29.8</td></tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 表格](ui-components-library.md#4-表格-tables)
 
 #### 5. 進階比較表格 (`.comparison-table`)
 
 外部容器 `.comparison-table-container` 已包含 `overflow-x: auto`，無需再包裹 `.responsive-table-wrapper`。
 
-```html
-<div class="comparison-table-container">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th class="comparison-header-main">比較項目</th>
-        <th class="comparison-header-option comparison-recommended">
-          <div class="option-badge">推薦</div>
-          <strong>魚油 (Fish Oil)</strong>
-        </th>
-        <th class="comparison-header-option"><strong>磷蝦油</strong></th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- ... rows ... -->
-    </tbody>
-  </table>
-</div>
-```
-
-<div class="example-preview">
-    <h4 class="example-preview-title">即時預覽：進階比較表格</h4>
-    <div class="comparison-table-container" style="overflow-x: auto; margin-bottom: 1rem; border: 1px solid #e5e7eb; border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
-        <table class="comparison-table" style="width: 100%; border-collapse: collapse; min-width: 600px;">
-            <thead>
-                <tr>
-                    <th class="comparison-header-main" style="padding: 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid #e5e7eb; background: #f9fafb; font-weight: 600; width: 25%;">比較項目</th>
-                    <th class="comparison-header-option comparison-recommended" style="padding: 1rem; text-align: center; vertical-align: top; border-bottom: 1px solid #e5e7eb; background: #fffbeb; position: relative;">
-                        <div class="option-badge" style="position: absolute; top: -1px; right: -1px; background-color: #ff6b35; color: white; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 0 14px 0 8px;">推薦</div>
-                        <strong style="font-size: 1.125rem;">魚油 (Fish Oil)</strong>
-                    </th>
-                    <th class="comparison-header-option" style="padding: 1rem; text-align: center; vertical-align: top; border-bottom: 1px solid #e5e7eb; background: #f9fafb; position: relative;">
-                        <strong style="font-size: 1.125rem;">磷蝦油 (Krill Oil)</strong>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="comparison-row">
-                    <td class="comparison-label" style="padding: 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid #e5e7eb; font-weight: 500; color: #374151; background: #fdfdfd;">生物利用率</td>
-                    <td class="comparison-cell comparison-recommended" style="padding: 1rem; text-align: center; vertical-align: top; border-bottom: 1px solid #e5e7eb; background-color: #fffbeb;">
-                        <div class="rating-badge rating-high" style="display: inline-block; padding: 0.25rem 0.75rem; border-radius: 99px; font-size: 0.875rem; font-weight: 500; background-color: #d1fae5; color: #065f46;">高</div>
-                    </td>
-                    <td class="comparison-cell" style="padding: 1rem; text-align: center; vertical-align: top; border-bottom: 1px solid #e5e7eb;">
-                        <div class="rating-badge rating-very-high" style="display: inline-block; padding: 0.25rem 0.75rem; border-radius: 99px; font-size: 0.875rem; font-weight: 500; background-color: #a7f3d0; color: #047857;">極高</div>
-                    </td>
-                </tr>
-                <tr class="comparison-row">
-                    <td class="comparison-label" style="padding: 1rem; text-align: left; vertical-align: top; border-bottom: 0; font-weight: 500; color: #374151; background: #fdfdfd;">優缺點</td>
-                    <td class="comparison-cell comparison-recommended" style="padding: 1rem; text-align: center; vertical-align: top; border-bottom: 0; background-color: #fffbeb;">
-                        <div class="pros-cons" style="text-align: left; font-size: 0.9rem;">
-                            <div class="pros" style="color: #059669; margin-bottom: 0.25rem;">+ 性價比高、研究完整</div>
-                            <div class="cons" style="color: #dc2626;">- 可能有魚腥味</div>
-                        </div>
-                    </td>
-                    <td class="comparison-cell" style="padding: 1rem; text-align: center; vertical-align: top; border-bottom: 0;">
-                        <div class="pros-cons" style="text-align: left; font-size: 0.9rem;">
-                            <div class="pros" style="color: #059669; margin-bottom: 0.25rem;">+ 吸收率極佳、無腥味</div>
-                            <div class="cons" style="color: #dc2626;">- 價格昂貴、濃度偏低</div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 進階比較表格](ui-components-library.md#進階比較表格-comparison-table)
 
 #### [新] 可折疊專業洞察卡 (`.professional-insight-card`)
 此元件使用 HTML 原生的 `<details>` 與 `<summary>` 標籤，提供一種無需 JavaScript 即可實現的「點擊展開」互動功能。它非常適合用來收納較為深入、專業，但非所有讀者都感興趣的內容（例如：詳細的病理機制、次要的研究數據等）。
 - **目的**：在保持主文流程簡潔的同時，提供給想深入了解的讀者一個探索的入口。
 - **優點**：原生、輕量、SEO友好。
 
-```html
-<details class="professional-insight-card">
-  <summary class="insight-summary">
-    <!-- Icon (可選) -->
-    <div class="insight-icon"><i class="fas fa-microscope"></i></div>
-    <!-- 標題與預覽 -->
-    <div class="insight-header">
-      <span class="insight-title">病理機制詳解：動脈粥狀硬化的分子過程</span>
-      <span class="insight-preview">這不僅僅是膽固醇堆積，而是一場發炎反應與氧化風暴。</span>
-    </div>
-    <!-- 箭頭 Icon -->
-    <i class="fas fa-chevron-down toggle-icon"></i>
-  </summary>
-  <div class="insight-content">
-    <p>現代病理學已證實...</p>
-    <ul>
-      <li><strong>1. 內皮功能障礙...</strong></li>
-      <li><strong>2. 脂質浸潤與氧化...</strong></li>
-    </ul>
-  </div>
-</details>
-```
-
-<div class="example-preview">
-    <h4 class="example-preview-title">即時預覽：專業洞察卡片</h4>
-    <details class="professional-insight-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; margin: 20px 0; overflow: hidden; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
-        <summary class="insight-summary" style="list-style: none; padding: 20px; background: #f8fafc; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background 0.2s;">
-            <div class="insight-icon" style="font-size: 1.5em; color: #be123c; margin-right: 15px;">🔬</div>
-            <div class="insight-header" style="flex: 1;">
-                <span class="insight-title" style="display: block; font-weight: 700; color: #1e293b; margin-bottom: 4px;">病理機制詳解</span>
-                <span class="insight-preview" style="display: block; font-size: 0.9em; color: #64748b;">這不僅僅是膽固醇堆積，而是一場發炎反應...</span>
-            </div>
-            <div class="toggle-icon" style="font-size: 1.2em; color: #94a3b8;">▼</div>
-        </summary>
-        <div class="insight-content" style="padding: 20px; border-top: 1px solid #e2e8f0; background: white;">
-            <p>現代病理學已證實，動脈粥狀硬化 (Atherosclerosis) 是一種慢性發炎疾病...</p>
-        </div>
-    </details>
-</div>
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 專業洞察卡](ui-components-library.md#5-專業洞察卡-professional-insight-card)
 
 #### 6. [新] 視覺化劑量圖 (`.dosage-infographic-container`)
 用於以視覺化卡片呈現不同族群的建議劑量與成分比例。
 
-```html
-<div class="dosage-infographic-container">
-  <div class="dosage-card">
-    <div class="dosage-card-header">
-      <div class="dosage-card-title">心血管保健</div>
-      <div class="dosage-card-subtitle">三高族群</div>
-    </div>
-    <div class="dosage-card-dose">1000-2000<span class="unit">mg</span></div>
-    <div class="ratio-info">
-      <div class="ratio-label">EPA : DHA ≈ 2 : 1</div>
-      <div class="ratio-bar">
-        <!-- 使用 style 傳遞動態寬度 -->
-        <div class="ratio-bar-epa" style="width: 67%"></div>
-        <div class="ratio-bar-dha" style="width: 33%"></div>
-      </div>
-    </div>
-  </div>
-  <!-- ... 其他劑量卡片 ... -->
-</div>
-<div class="ratio-legend">
-    <div class="legend-item"><span class="legend-dot" style="background-color: #ff6b35;"></span> EPA</div>
-    <div class="legend-item"><span class="legend-dot" style="background-color: #2563eb;"></span> DHA</div>
-</div>
-```
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 視覺化劑量圖](ui-components-library.md#6-視覺化劑量圖-dosage-infographic)
 
 #### 7. [新] 步驟指南 (`.step-guide-container`)
 用於呈現有順序性的流程，例如產品的挑選步驟，透過視覺化的時間軸引導讀者。
 
-```html
-<div class="step-guide-container">
-  <h3 class="step-guide-title">魚油選購的黃金評估流程</h3>
-  <ol class="step-guide">
-    <li class="step-guide-item">
-      <h4>第一步：檢視濃度</h4>
-      <p>選擇 <strong>Omega-3 總濃度 > 85%</strong> 的產品，才能確保效率。</p>
-    </li>
-    <li class="step-guide-item">
-      <h4>第二步：確認新鮮度</h4>
-      <p>尋找明確標示 <strong>TOTOX 總氧化值 < 10</strong> 的產品。</p>
-    </li>
-    <!-- ... 其他步驟 ... -->
-  </ol>
-</div>
-```
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 步驟指南](ui-components-library.md#7-步驟指南-step-guide)
 
 #### 8. [新] 正反列表 (`.dos-donts-container`)
 用於清晰地並列呈現「建議做」與「不建議做」的清單，視覺對比強烈。
 
-```html
-<div class="dos-donts-container">
-  <div class="do-list">
-    <h4><center>專業選購的 checklist</center></h4>
-    <ul class="dos-donts-list">
-      <li><p><strong>標示透明完整：</strong>應清楚列出 EPA/DHA 含量、來源與 TOTOX 值。</p></li>
-    </ul>
-  </div>
-  <div class="dont-list">
-    <h4><center>應警惕的危險信號</center></h4>
-    <ul class="dos-donts-list">
-      <li><p><strong>模糊的濃度標示：</strong>只寫「魚油 1000mg」，卻對 Omega-3 含量含糊其辭。</p></li>
-    </ul>
-  </div>
-</div>
-```
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 正反列表](ui-components-library.md#8-正反列表-dos--donts)
 
 #### 9. [新] SVG 視覺化圖表
 透過內嵌 SVG，可以創造更豐富、更具互動性的視覺化圖表，例如圓餅圖或長條圖。
 
 ##### SVG 圓餅圖範例 (`.concentration-chart-container`)
-```html
-<div class="concentration-chart-container">
-  <div class="chart-panel">
-    <h4>高品質魚油</h4>
-    <svg class="donut-chart-svg" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="45" fill="transparent" stroke="#e5e7eb" stroke-width="10"></circle>
-      <circle class="donut-fg" cx="50" cy="50" r="45" fill="transparent" stroke="#ff6b35" stroke-width="10" stroke-linecap="round" transform="rotate(-90 50 50)" style="stroke-dasharray: 282.7; stroke-dashoffset: 42.4;"></circle>
-       <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
-        <tspan class="chart-text-percent" fill="#166534">> 85%</tspan>
-        <tspan x="50%" dy="1.2em" class="chart-text-label">Omega-3</tspan>
-      </text>
-    </svg>
-    <p>每一顆都富含高純度的有效成分，確保每一次補充都高效、純淨。</p>
-  </div>
-  <!-- ... 其他圖表 ... -->
-</div>
-```
+> 📋 **代碼範例**：請參考 [UI 元件庫 - SVG 視覺化圖表](ui-components-library.md#9-svg-視覺化圖表)
 
-##### SVG 長條圖範例 (`.absorption-chart-container`)
-```html
-<div class="absorption-chart-container">
-  <h3 class="absorption-chart-title">魚油型態與吸收率效益比較</h3>
-  <svg class="absorption-svg" viewBox="0 0 200 150">
-    <g>
-      <rect x="30" y="80" width="60" height="50" rx="4" fill="#a0aec0"/>
-      <text x="60" y="105" class="bar-value">基準</text>
-      <text x="60" y="145" class="bar-label">EE 型態</text>
-    </g>
-    <g>
-      <rect x="110" y="22" width="60" height="108" rx="4" fill="#ff6b35"/>
-      <text x="140" y="42" class="bar-value">+70%</text>
-      <text x="140" y="145" class="bar-label">rTG 型態</text>
-    </g>
-  </svg>
 </div>
-```
 
-#### 10. 全局響應式設計 (Global RWD) - 整合 Checklist
+#### 11. [新] 故事引言 (`.story-intro`)
+用於文章開頭，透過感性或情境式的故事帶入主題，增加閱讀沉浸感。
+
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 故事引言](ui-components-library.md#10-文章元素)
+
+#### 12. [新] 速讀卡片 (`.quick-read-card`)
+用於提供長篇文章的「30秒精華摘要」，通常位於文章前段，方便讀者快速掌握重點。
+
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 速讀卡片](ui-components-library.md#10-文章元素)
+
+#### 13. [新] 免責聲明 (`.disclaimer`)
+統一的頁尾免責聲明樣式，確保合規性。
+
+> 📋 **代碼範例**：請參考 [UI 元件庫 - 免責聲明](ui-components-library.md#10-文章元素)
+
+#### 14. 全局響應式設計 (Global RWD) - 整合 Checklist
 
 **目標**: 整合並標準化全站的響應式設計規則，提升在所有裝置上的瀏覽體驗與未來可維護性。
 
@@ -1329,127 +898,11 @@ img, svg { max-width: 100%; height: auto; }
 
 ## 第五章：資源與範例
 
-### 完整範例：鈣質文章撰寫示範
+### 完整範例庫
 
-#### 核心概念視覺化
+更多完整範例（如：鈣質文章示範、迷思破解卡片、視覺化圖表等），請直接參考獨立文件：
 
-```html
-<div class="chart-dual-role">
-  <div class="donut-chart-visual">
-    <div class="donut-chart-segment"></div>
-    <div class="donut-chart-text">鈣的<br>雙重角色</div>
-  </div>
-  <!-- ... legend ... -->
-</div>
-```
-
-<div class="example-preview">
-    <h4 class="example-preview-title">即時預覽：鈣的雙重角色圖表</h4>
-    <div class="chart-dual-role" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-        <div class="donut-chart-visual" style="position: relative; width: 150px; height: 150px; display: flex; align-items: center; justify-content: center;">
-            <div class="donut-chart-segment" style="width: 150px; height: 150px; border-radius: 50%; background: conic-gradient(#ff6b35 0% 1%, #cbd5e1 1% 100%);"></div>
-            <div class="donut-chart-text" style="position: absolute; width: 100px; height: 100px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.9rem; font-weight: 600; color: #374151; line-height: 1.3;">鈣的<br>雙重角色</div>
-        </div>
-        <div class="donut-chart-legend" style="display: flex; flex-direction: column; gap: 1rem;">
-            <div class="legend-item legend-99" style="display: flex; align-items: flex-start; gap: 1rem;">
-            <div class="legend-value" style="font-size: 1.5rem; font-weight: 700; color: #6b7280;">99%</div>
-            <div class="legend-label" style="font-size: 0.9rem; line-height: 1.5; color: #4b5563;"><strong>結構鈣 (骨骼銀行)</strong><br>構成骨骼與牙齒的堅固建材。</div>
-            </div>
-            <div class="legend-item legend-1" style="display: flex; align-items: flex-start; gap: 1rem;">
-            <div class="legend-value" style="font-size: 1.5rem; font-weight: 700; color: #ff6b35;">1%</div>
-            <div class="legend-label" style="font-size: 0.9rem; line-height: 1.5; color: #4b5563;"><strong>離子鈣 (生命總司令)</strong><br>調控心跳、神經傳導與肌肉收縮。</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-#### 比較卡片設計 (使用 CSS 變數)
-
-```html
-<!-- 
-  [修正說明]
-  - 唯一例外：使用 CSS 自訂屬性 (Custom Property) 來傳遞「動態數值」(資料)，
-  - 而非寫死「樣式」。CSS 檔案中應定義 .absorption-bar-fill { width: var(--absorption-percent, 0%); }
--->
-<div class="absorption-bar">
-  <div class="absorption-bar-fill" style="--absorption-percent: 40%;"></div>
-</div>
-```
-
-<div class="example-preview">
-    <h4 class="example-preview-title">即時預覽：吸收率進度條 (40%)</h4>
-    <div class="absorption-bar" style="width: 100%; height: 1rem; background-color: #e5e7eb; border-radius: 5px; overflow: hidden;">
-        <div class="absorption-bar-fill" style="width: 40%; height: 100%; background-color: #ff6b35; border-radius: 5px; transition: width 0.5s ease-in-out;"></div>
-    </div>
-</div>
-
-#### 迷思破解區塊 (使用 CSS Class)
-
-```html
-<!--
-  [修正說明]
-  - 移除所有行內 style="..." 屬性。
-  - 替換為功能性的 CSS class:
-    - "md-grid-4": 控制桌面版網格佈局 (手機版預設單欄)。
-    - "card-theme-myth": 控制卡片主題樣式。
--->
-<div class="info-cards md-grid-4">
-  <div class="info-card card-theme-myth">
-    <h4 class="info-card-title title-theme-myth">迷思一：喝大骨湯補鈣？</h4>
-    <p class="info-card-desc"><strong>事實：</strong>骨頭中的鈣很難溶出...</p>
-  </div>
-  <!-- ... 其他迷思卡片 ... -->
-</div>
-```
-
-<div class="example-preview">
-    <h4 class="example-preview-title">即時預覽：迷思破解卡片</h4>
-    <div class="info-cards" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 1rem;">
-        <div class="info-card card-theme-myth" style="flex: 1; min-width: 280px; max-width: calc(50% - 10px); box-sizing: border-box; background: #fef2f2; border-radius: 15px; padding: 30px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); border: 1px solid #e5e7eb; border-top: 5px solid #f87171;">
-            <h4 class="info-card-title title-theme-myth" style="font-size: 1.125rem; font-weight: 600; margin-top: 0 !important; margin-bottom: 0.5rem; color: #b91c1c;">迷思一：喝大骨湯補鈣？</h4>
-            <p class="info-card-desc" style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0;"><strong>事實：</strong>骨頭中的鈣很難溶出，一碗大骨湯的鈣含量微乎其微。</p>
-        </div>
-        <div class="info-card card-theme-myth" style="flex: 1; min-width: 280px; max-width: calc(50% - 10px); box-sizing: border-box; background: #fef2f2; border-radius: 15px; padding: 30px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); border: 1px solid #e5e7eb; border-top: 5px solid #f87171;">
-            <h4 class="info-card-title title-theme-myth" style="font-size: 1.125rem; font-weight: 600; margin-top: 0 !important; margin-bottom: 0.5rem; color: #b91c1c;">迷思二：吃小魚乾？</h4>
-            <p class="info-card-desc" style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0;"><strong>事實：</strong>鈣含量雖高，但鈉含量也極高，且不易吸收。</p>
-        </div>
-         <div class="info-card card-theme-myth" style="flex: 1; min-width: 280px; max-width: calc(50% - 10px); box-sizing: border-box; background: #fef2f2; border-radius: 15px; padding: 30px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); border: 1px solid #e5e7eb; border-top: 5px solid #f87171;">
-            <h4 class="info-card-title title-theme-myth" style="font-size: 1.125rem; font-weight: 600; margin-top: 0 !important; margin-bottom: 0.5rem; color: #b91c1c;">迷思三：豆漿補鈣？</h4>
-            <p class="info-card-desc" style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0;"><strong>事實：</strong>傳統豆漿鈣含量低，需選擇鈣強化豆漿。</p>
-        </div>
-         <div class="info-card card-theme-myth" style="flex: 1; min-width: 280px; max-width: calc(50% - 10px); box-sizing: border-box; background: #fef2f2; border-radius: 15px; padding: 30px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); border: 1px solid #e5e7eb; border-top: 5px solid #f87171;">
-            <h4 class="info-card-title title-theme-myth" style="font-size: 1.125rem; font-weight: 600; margin-top: 0 !important; margin-bottom: 0.5rem; color: #b91c1c;">迷思四：補鈣會結石？</h4>
-            <p class="info-card-desc" style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0;"><strong>事實：</strong>適量補充通常不會，水份攝取不足才是主因。</p>
-        </div>
-    </div>
-</div>
-
-#### FAQ 互動設計
-
-```html
-<div class="faq-item">
-  <div class="faq-question">Q1: 鈣和鎂可以一起吃嗎？</div>
-  <div class="faq-answer">
-    <p><strong>A: 可以...</strong> 理想的<strong class="highlight-nutrient">鈣鎂攝取比例約為 2:1</strong>。</p>
-  </div>
-</div>
-```
-
-<div class="example-preview">
-    <h4 class="example-preview-title">即時預覽：FAQ</h4>
-    <div class="faq-item" style="border-bottom: 1px solid #e5e7eb;">
-        <div class="faq-question" style="padding: 1rem 0; font-weight: 600; cursor: pointer;">Q1: 鈣和鎂可以一起吃嗎？</div>
-        <div class="faq-answer" style="padding-bottom: 1rem; color: #374151;">
-            <p><strong>A: 可以，而且建議一起補充，但要注意比例。</strong> 理想的<strong class="highlight-nutrient">鈣鎂攝取比例約為 2:1</strong>。</p>
-        </div>
-    </div>
-    <div class="faq-item" style="border-bottom: 1px solid #e5e7eb;">
-        <div class="faq-question" style="padding: 1rem 0; font-weight: 600; cursor: pointer;">Q2: 晚上吃鈣片會睡不著嗎？</div>
-        <div class="faq-answer" style="padding-bottom: 1rem; color: #374151;">
-            <p><strong>A: 通常不會。</strong> 鈣有助於神經穩定，對睡眠可能有幫助。但若選擇碳酸鈣且消化不良，可能影響睡眠。</p>
-        </div>
-   </div>
-</div>
+> 🔗 [UI 元件程式碼範例庫 (ui-components-library.md)](ui-components-library.md)
 
 ### CSS 類別快速參考
 
@@ -1503,4 +956,12 @@ a.sub-item { /* ... */ }
 
 /* 錨點偏移 */
 [id] { scroll-margin-top: 100px; } /* [修改] 應用於所有帶 ID 的元素 */
+
+/* 新增組件 */
+.story-intro { /* ... */ }
+.quick-read-card { /* ... */ }
+.disclaimer { /* ... */ }
+.step-guide-container { /* ... */ }
+.dos-donts-container { /* ... */ }
+.share-btn { /* ... */ }
 ```

@@ -1,55 +1,56 @@
 # 任務名稱：魚油 (Omega-3) 權威網站內容矩陣建置
 
-**狀態**: `規劃中`
+**狀態**: `開發中`
 **負責人**: @Antigravity
 **預計完成日期**: 2025-01-15
-**相關連結**: `doc/draft/魚油 (Omega-3) 權威網站內容矩陣規劃大綱.md`
+**核心目標**: 建立以用戶體驗為核心的魚油 Topical Authority，解決使用者從「認知」到「購買」再到「食用」的全流程痛點。
 
 ---
 
-## 1. 任務目標 (Objective)
+## 1. 策略思維 (Strategic Mindset)
 
-建立以魚油 (Omega-3) 為核心的權威內容矩陣，透過 1 個 Hub 頁面與 7 個 Spoke 衛星頁面，構建完整的 Topical Authority。目標是為讀者提供從基礎科普、品質辨識到受眾建議與產品評測的全方位資訊，並提升網站的 SEO 權威性與轉化率。
+我們不只是「寫文章」，而是要「解決問題」。
+- **SEO 策略**: Hub Page 建立廣度 (Broad Intent)，Spoke Page 建立深度 (Specific Intent)。
+- **UX 策略**: 
+    - 減少廢話，直接給答案 (Answer First)。
+    - 善用圖表、比較表、計算機工具。
+    - 針對不同受眾 (孕婦、老人、新手) 提供客製化建議。
 
-## 2. 實作策略 (Implementation Strategy)
+## 2. 內容矩陣架構 (Content Matrix)
 
-### 2.1. 內容架構
-- **Hub Page**: 作為流量入口與百科全書，連結所有深入探討的衛星頁面。
-- **Spoke Pages**: 針對特定痛點（型態、濃度、受眾、產品評測）提供深度的專業內容。
-
-### 2.2. 檔案分配 (Matrix)
-
-| 類型 | 頁面名稱 | 檔案路徑 | 狀態 |
+| 類型 | 頁面名稱 | 讀者痛點/意圖 | 關鍵字佈局 |
 | :--- | :--- | :--- | :--- |
-| **Hub** | 魚油知識百科 (2025 全攻略) | `post/fish-oil.html` | 已有基礎，需擴充 |
-| **Spoke 1** | 型態大對決 (rTG/TG/EE) | `post/fish-oil-structure.html` | 待建立 |
-| **Spoke 2** | 品質辨識 (濃度、檢驗、新鮮度) | `post/fish-oil-quality.html` | 待建立 |
-| **Spoke 3** | 受眾建議 (孕婦與兒童) | `post/fish-oil-pregnancy-child.html` | 待建立 |
-| **Spoke 4** | 受眾建議 (銀髮與三高) | `post/fish-oil-senior.html` | 待建立 |
-| **Spoke 5** | 市場真相 (深度評測與計算機) | `post/fish-oil-market-analysis.html` | 已建立 |
-| **Spoke 6** | 來源來源比較 (魚油/藻油/磷蝦油) | `post/fish-oil-sources.html` | 待建立 |
-| **Spoke 7** | 食用指南 (吃法與常見迷思) | `post/fish-oil-guide.html` | 待建立 (部分於 FAQ) |
-| **Extra** | 魚油常見問題 (FAQ) | `post/fish-oil-faq.html` | 已建立 |
+| **Hub** | **魚油知識百科 (2025 全攻略)** | 想補充 Omega-3 但完全沒概念，需要懶人包。 | 魚油推薦, 功效, Omega-3 |
+| **Spoke 1** | **型態大對決 (rTG/TG/EE)** | 被專有名詞搞混，想知道哪個吸收好、CP值高。 | rTG魚油, 吸收率, EE型態 |
+| **Spoke 2** | **品質辨識 (濃度/檢驗)** | 怕吃到重金屬、塑化劑，不想買到濫竽充數的產品。 | 魚油濃度, IFOS, 魚油檢驗 |
+| **Spoke 3** | **受眾建議 (孕婦/兒童)** | 為了寶寶好，需要極高的安全感與精準劑量建議。 | 孕婦魚油, 兒童魚油, DHA |
+| **Spoke 4** | **受眾建議 (銀髮/三高)** | 解決三高問題，擔心藥物交互作用 (抗凝血劑)。 | 魚油降血脂, 老人魚油, 抗凝血 |
+| **Spoke 5** | **市場真相 (評測/計算)** | **[已完成]** 準備購買，想比價、看真實規格分析。 | 魚油評測, 魚油價格, 魚油排名 |
+| **Spoke 6** | **來源比較 (魚/藻/蝦)** | 素食者，或在磷蝦油與魚油間猶豫。 | 藻油, 磷蝦油, 素食魚油 |
+| **Spoke 7** | **食用指南 (吃法/迷思)** | 買了不知道怎麼吃，或吃了拉肚子想找原因。 | 魚油什麼時候吃, 副作用 |
+| **FAQ** | **常見問題集** | **[已完成]** 快速查找特定零碎問題的解答。 | 魚油FAQ, 魚油問題 |
 
-## 3. 任務拆解 (Task Breakdown)
+## 3. 執行計畫 (Execution Plan)
 
-### 第一階段：內容擴展與架構優化
-- [ ] 依據大綱擴充 `post/fish-oil.html` (Hub Page) 的內容。
-- [ ] 串聯現有的 `post/fish-oil-market-analysis.html` 與 `post/fish-oil-faq.html`。
+### Phase 1: Hub Page 權威化 (流量核心) - `post/fish-oil.html`
+- [ ] **擴充痛點切入前言**：連結現代飲食習慣，引發共鳴。
+- [ ] **視覺化「EPA vs DHA」**：製作圖表說明兩者功能差異 (護心 vs 護腦)。
+- [ ] **深化「挑選黃金標準」**：不僅列點，更要解釋「為什麼」(Why it matters)。
+- [ ] **矩陣導流設計**：在各章節加入高關聯性的 CTA 卡片，引導至 Spoke Pages。
 
-### 第二階段：衛星頁面開發 (技術與品質)
-- [ ] 建立「型態大對決」頁面 (`post/fish-oil-structure.html`)。
-- [ ] 建立「品質辨識」頁面 (`post/fish-oil-quality.html`)。
+### Phase 2: 技術與品質破除迷思 (建立信任)
+- [ ] **建立 Spoke 1 (型態)**：製作「吸收率 vs 價格」比較表，破解 rTG 神話與 EE 實用性。
+- [ ] **建立 Spoke 2 (品質)**：教導「濃度計算公式」與「IFOS 證書解讀」，避免讀者繳智商稅。
 
-### 第三階段：衛星頁面開發 (受眾與比較)
-- [ ] 建立「孕婦與兒童」專頁 (`post/fish-oil-pregnancy-child.html`)。
-- [ ] 建立「銀髮與三高」專頁 (`post/fish-oil-senior.html`)。
-- [ ] 建立「來源比較 (魚油/藻油/磷蝦油)」專頁 (`post/fish-oil-sources.html`)。
+### Phase 3: 分眾場景精準行銷 (提升轉化)
+- [ ] **建立 Spoke 3 (孕婦/兒童)**：強調「安全性」與「DHA 比例」，解決媽媽的焦慮。
+- [ ] **建立 Spoke 4 (銀髮)**：強調「藥物交互作用」警語與「吞嚥友善」顆粒建議。
+- [ ] **建立 Spoke 6 (來源)**：客觀分析環保議題與素食選擇，不盲目推銷魚油。
 
-### 第四階段：完善與整合
-- [ ] 建立「食用指南」專頁 (`post/fish-oil-guide.html`)。
-- [ ] 統一更新 `assets/js/articles-data.js` 與 `sitemap.xml`。
-- [ ] 驗證所有內部連結與標題層級。
+### Phase 4: 售後服務與體驗優化 (長尾流量)
+- [ ] **建立 Spoke 7 (食用指南)**：解決「拉肚子」、「長痘痘」等真實使用痛點 (Troubleshooting)。
+- [ ] **全站整合**：檢查所有內部連結，確保 `articles-data.js` 與 Sitemap 同步更新。
+
 
 ## 4. 影響評估 (Impact Assessment)
 
