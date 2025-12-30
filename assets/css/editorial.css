@@ -1,0 +1,314 @@
+/* ============================================= */
+/* == Modern Editorial Design System (Vanilla) == */
+/* ============================================= */
+
+:root {
+    /* -- B. Color Palette -- */
+    --brand-dark: #0F2C28;
+    /* Deep Teal: Primary Text & Backgrounds */
+    --brand-accent: #C6A87C;
+    /* Warm Sand: Highlights & Accents */
+    --brand-cream: #F9F8F4;
+    /* Cream Paper: Main Background */
+    --brand-green: #2D5B52;
+    /* Forest: Secondary Text */
+    --brand-white: #FFFFFF;
+
+    /* -- A. Typography -- */
+    --font-serif: "Noto Serif TC", serif;
+    --font-sans: "Noto Sans TC", sans-serif;
+
+    /* Spacing Scale (Tailwind Inspired) */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-4: 1rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-12: 3rem;
+    --spacing-24: 6rem;
+    /* For generous white space */
+
+    /* Borders */
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+    --radius-arch: 100px 100px 0 0;
+    /* Organic Geometry */
+}
+
+/* ============================================= */
+/* == Base Styles == */
+/* ============================================= */
+
+body {
+    background-color: var(--brand-cream);
+    color: var(--brand-dark);
+    font-family: var(--font-sans);
+    line-height: 1.8;
+    /* Relaxed leading */
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    color: var(--brand-dark);
+    letter-spacing: -0.02em;
+    /* Tracking tighter for headings */
+    font-weight: 700;
+}
+
+/* Kicker / Label Style */
+.text-label {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    /* text-xs */
+    letter-spacing: 0.1em;
+    /* tracking-widest */
+    color: var(--brand-accent);
+    font-weight: 600;
+}
+
+/* Text Link (Not Button) */
+a.editorial-link {
+    color: var(--brand-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--brand-dark);
+    transition: opacity 0.3s ease;
+    padding-bottom: 2px;
+}
+
+a.editorial-link:hover {
+    opacity: 0.7;
+    border-color: transparent;
+}
+
+/* ============================================= */
+/* == Component: Editorial Hero == */
+/* ============================================= */
+
+.editorial-hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+    padding: var(--spacing-4) var(--spacing-4) var(--spacing-12);
+    /* Asymmetric Layout on Desktop */
+}
+
+@media (min-width: 768px) {
+    .editorial-hero {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: var(--spacing-12) var(--spacing-12) var(--spacing-24);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.hero-content {
+    order: 2;
+}
+
+@media (min-width: 768px) {
+    .hero-content {
+        order: 1;
+        padding-right: var(--spacing-8);
+    }
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-6);
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    color: var(--brand-green);
+    margin-bottom: var(--spacing-8);
+}
+
+.hero-image-container {
+    order: 1;
+    position: relative;
+    /* Organic Shape: Arch or Rounded */
+    border-radius: var(--radius-arch);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    box-shadow: 0 20px 40px -10px rgba(15, 44, 40, 0.15);
+}
+
+@media (min-width: 768px) {
+    .hero-image-container {
+        order: 2;
+    }
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Image Reveal Effect */
+    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hero-image-container:hover .hero-image {
+    transform: scale(1.05);
+}
+
+/* ============================================= */
+/* == Component: Minimalist List / Grid == */
+/* ============================================= */
+
+.editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+    margin: var(--spacing-12) 0;
+}
+
+@media (min-width: 768px) {
+    .editorial-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-12);
+    }
+}
+
+.card-minimal {
+    position: relative;
+    padding: var(--spacing-8);
+    background: var(--brand-white);
+    border: 1px solid rgba(15, 44, 40, 0.05);
+    /* Very subtle border */
+    transition: all 0.4s ease;
+}
+
+.card-minimal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(15, 44, 40, 0.05);
+}
+
+.card-number {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    color: rgba(198, 168, 124, 0.2);
+    /* Low opacity accent */
+    position: absolute;
+    top: var(--spacing-4);
+    right: var(--spacing-8);
+    line-height: 1;
+}
+
+/* ============================================= */
+/* == Sections & Utilities == */
+/* ============================================= */
+
+.section-editorial {
+    padding: var(--spacing-12) var(--spacing-4);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .section-editorial {
+        padding: var(--spacing-24) var(--spacing-8);
+    }
+}
+
+.highlight-box-editorial {
+    background-color: var(--brand-white);
+    border-left: 3px solid var(--brand-accent);
+    padding: var(--spacing-8);
+    margin: var(--spacing-8) 0;
+    font-style: italic;
+    color: var(--brand-dark);
+}
+
+/* Dosage Grid Redesign */
+.dosage-grid-editorial {
+    display: grid;
+    gap: var(--spacing-4);
+}
+
+@media (min-width: 768px) {
+    .dosage-grid-editorial {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.dosage-card {
+    background: var(--brand-dark);
+    color: var(--brand-cream);
+    padding: var(--spacing-8);
+    border-radius: var(--radius-lg);
+}
+
+.dosage-card h4 {
+    color: var(--brand-accent);
+    margin-bottom: var(--spacing-2);
+}
+
+/* ============================================= */
+/* == Component: Editorial TOC == */
+/* ============================================= */
+
+.editorial-toc {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-bottom: var(--spacing-12);
+}
+
+.editorial-toc-title {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brand-green);
+    margin-bottom: var(--spacing-4);
+    display: block;
+    border-bottom: 2px solid var(--brand-dark);
+    padding-bottom: var(--spacing-2);
+    width: fit-content;
+}
+
+.editorial-toc-list {
+    list-style: none;
+    padding-left: 0;
+    border-left: 1px solid rgba(15, 44, 40, 0.1);
+}
+
+.editorial-toc-item {
+    margin: 0;
+}
+
+.editorial-toc-link {
+    display: block;
+    padding: var(--spacing-2) 0 var(--spacing-2) var(--spacing-4);
+    color: var(--brand-dark);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    /* Overlap border */
+}
+
+.editorial-toc-link:hover,
+.editorial-toc-link.active {
+    color: var(--brand-accent);
+    border-left-color: var(--brand-accent);
+    padding-left: var(--spacing-6);
+    /* Slide effect */
+    background: linear-gradient(90deg, rgba(198, 168, 124, 0.05) 0%, transparent 100%);
+}
