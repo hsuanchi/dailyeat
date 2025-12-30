@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魚油檢測工具箱：濃度計算與CP值分析 | 營養百科</title>
+    <meta name="description" content="免費魚油濃度計算機、CP值分析儀。輸入產品標示數據，立即破解魚油濃度是否達標，幫助您聰明挑選適合的 Omega-3 產品。">
+    <!-- Google Fonts: Modern Editorial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --brand-dark: #0F2C28;
+            --brand-green: #2D5B52;
+            --brand-accent: #C6A87C;
+            --brand-cream: #F9F8F4;
+            --font-serif: 'Noto Serif TC', serif;
+            --font-sans: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
+            background-color: var(--brand-cream);
+            color: var(--brand-dark);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .article-title,
+        .tool-intro h2 {
+            font-family: var(--font-serif);
+        }
+
+        .tools-hero {
+            background: var(--brand-cream);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(15, 44, 40, 0.1);
+        }
+
+        .tools-hero h1 {
+            font-size: 3em;
+            color: var(--brand-dark);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .tools-hero p {
+            color: var(--brand-green);
+            font-family: var(--font-sans);
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+            letter-spacing: 0.05em;
+            line-height: 1.6;
+        }
+
+        .tool-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .tool-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .tool-intro h2 {
+            font-size: 2.2em;
+            color: var(--brand-dark);
+            margin-bottom: 10px;
+        }
+
+        .tool-intro p {
+            font-family: var(--font-sans);
+            color: var(--brand-accent);
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            /* Kicker style */
+        }
+
+        .seo-content {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 60px;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(15, 44, 40, 0.05);
+            /* Soft shadow */
+        }
+
+        .seo-content h2,
+        .seo-content h3 {
+            color: var(--brand-dark);
+        }
+
+        .seo-content p {
+            color: var(--brand-green);
+            line-height: 1.8;
+        }
+
+        /* Breadcrumb Override */
+        .breadcrumb a {
+            color: var(--brand-green);
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: var(--brand-accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <header class="tools-hero">
+        <h1>魚油智慧工具箱</h1>
+        <p>Expert Fish Oil Analysis Tools<br>不確定手上的魚油好不好？透過科學數據分析，30秒看穿產品真實價值。</p>
+    </header>
+
+    <!-- Navigation Breadcrumb -->
+    <div style="max-width: 1000px; margin: 20px auto; padding: 0 20px;">
+        <nav class="breadcrumb">
+            <a href="../index.html">首頁</a>
+            <span class="separator">/</span>
+            <a href="fish-oil.html">魚油 (Omega-3)</a>
+            <span class="separator">/</span>
+            <span>工具箱</span>
+        </nav>
+    </div>
+
+    <!-- Tool 1: Analyzer -->
+    <section id="analyzer" class="tool-section">
+        <div class="tool-intro">
+            <h2>純度與價值分析儀</h2>
+            <p>Purity & Value Analyzer</p>
+        </div>
+
+        <!-- Tool Container -->
+        <div id="fish-oil-analyzer-container"></div>
+
+    </section>
+
+    <!-- Tool 2: Selector -->
+    <section id="selector" class="tool-section" style="background:#f9fafb; border-radius:30px;">
+        <div class="tool-intro">
+            <h2>個人化魚油挑選器</h2>
+            <p>Smart Selector</p>
+            <p style="font-size:0.95em; color:#718096; margin-top:10px;">只要 3 秒鐘，根據您的身份與需求，找出最精準的營養組合。</p>
+        </div>
+        <!-- Tool Container -->
+        <div id="fish-oil-selector-container"></div>
+    </section>
+
+    <!-- Tool 3: Comparison -->
+    <section id="comparison" class="tool-section">
+        <div class="tool-intro">
+            <h2>超級比一比</h2>
+            <p>Interactive Comparison</p>
+            <p style="font-size:0.95em; color:#718096; margin-top:10px;">魚油、藻油、磷蝦油傻傻分不清楚？一張表看懂誰才是您的命定油。</p>
+        </div>
+        <!-- Tool Container -->
+        <div id="fish-oil-comparison-container"></div>
+    </section>
+
+    <!-- SEO Content / Education -->
+    <section class="seo-content">
+        <h2 style="font-size:1.8em; margin-bottom:20px; color:#2d3748;">為什麼這很重要？</h2>
+        <div class="article-body">
+            <h3>識破「低濃度」的選購盲點</h3>
+            <p>市面上有許多魚油標榜「每顆 1000mg」，但這往往是指「膠囊總重量」，而非有效成分。如果 Omega-3 濃度只有 30%，代表您吞下的膠囊中，有 70% 都是不必要的廢油與填充物。</p>
+
+            <h3>如何解讀 CP 值？</h3>
+            <p>價格便宜不代表划算。我們建議計算「每 1 公克 Omega-3 的價格」。有時候，雖然單瓶價格較高，但因為濃度高、顆數足，換算下來的有效成分成本反而更便宜。</p>
+            <div class="alert alert-tip">
+                <strong>專家建議：</strong>
+                <p>選擇 Omega-3 濃度高於 84% 的 rTG 型態魚油，能確保最佳的吸收率與保養效率。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Simple -->
+    <footer
+        style="text-align:center; padding:40px; color:#718096; font-size:0.9em; background:#f8fafc; border-top:1px solid #e2e8f0;">
+        <p>Copyright © 2025 營養百科. All rights reserved.</p>
+        <p>本工具分析結果僅供參考，不代表醫療診斷或療效保證。</p>
+    </footer>
+
+    <!-- Script Imports -->
+    <script src="../assets/js/tools/fish-oil-analyzer.js"></script>
+    <script src="../assets/js/tools/fish-oil-selector.js"></script>
+    <script src="../assets/js/tools/fish-oil-comparison.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Analyzer
+            const containerAnalyzer = document.getElementById('fish-oil-analyzer-container');
+            if (containerAnalyzer && window.FishOilAnalyzer) {
+                new window.FishOilAnalyzer(containerAnalyzer)
+                    .setDebug(true)
+                    .initialize();
+            }
+
+            // Selector
+            const containerSelector = document.getElementById('fish-oil-selector-container');
+            if (containerSelector && window.FishOilSelector) {
+                new window.FishOilSelector(containerSelector)
+                    .setDebug(true)
+                    .initialize();
+            }
+
+            // Comparison
+            const containerComparison = document.getElementById('fish-oil-comparison-container');
+            if (containerComparison && window.FishOilComparison) {
+                new window.FishOilComparison(containerComparison)
+                    .setDebug(true)
+                    .initialize();
+            }
+        });
+    </script>
+</body>
+
+</html>

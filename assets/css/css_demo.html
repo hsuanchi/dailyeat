@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Component Demo</title>
+    <!-- Link to the main stylesheet -->
+    <link rel="stylesheet" href="article.css">
+    <!-- Link to unused css for comparison (optional) -->
+    <!-- <link rel="stylesheet" href="unused.css"> -->
+    <style>
+        body {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            border: 1px solid #e5e7eb;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .demo-section-title {
+            font-size: 1.5rem;
+            border-bottom: 2px solid #f3f4f6;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            color: #1f2937;
+            font-weight: bold;
+        }
+
+        .color-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .color-swatch-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+        }
+
+        .color-swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 8px;
+            border: 2px solid white;
+        }
+
+        .color-name {
+            font-size: 12px;
+            font-family: monospace;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="theme-rose">
+
+    <h1>Dailyeat Design System Demo</h1>
+    <p class="article-subtitle">A comprehensive guide to the styles and components defined in
+        <code>assets/css/article.css</code>.</p>
+
+    <!-- Typography -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Typography</h2>
+        <h1 class="article-title">Article Title (H1)</h1>
+        <p class="article-subtitle">Article Subtitle: A brief description of the content.</p>
+        <div class="article-body">
+            <h2>H2 Section Title</h2>
+            <p>Standard paragraph text. This demonstrates the base font size, line height, and color. <a href="#">Link
+                    styles</a> are also shown here.</p>
+            <h3>H3 Subsection Title</h3>
+            <p>More content specifically for subsection details.</p>
+            <h4>H4 Small Heading</h4>
+            <p>Used for minor sections or groupings.</p>
+            <ul>
+                <li>Unordered list item one</li>
+                <li>Unordered list item two</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Colors -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Theme Colors</h2>
+        <p>Using <code>.theme-rose</code> as context.</p>
+        <div class="color-group">
+            <div class="color-swatch-card">
+                <div class="color-swatch" style="background: var(--primary-color)"></div><span
+                    class="color-name">--primary</span>
+            </div>
+            <div class="color-swatch-card">
+                <div class="color-swatch" style="background: var(--primary-light)"></div><span
+                    class="color-name">--light</span>
+            </div>
+            <div class="color-swatch-card">
+                <div class="color-swatch" style="background: var(--primary-dark)"></div><span
+                    class="color-name">--dark</span>
+            </div>
+            <div class="color-swatch-card">
+                <div class="color-swatch" style="background: var(--primary-bg-light)"></div><span
+                    class="color-name">--bg-light</span>
+            </div>
+        </div>
+        <div class="color-group">
+            <div class="color-swatch-card">
+                <div class="color-swatch" style="background: var(--c-symptom)"></div><span
+                    class="color-name">--symptom</span>
+            </div>
+            <div class="color-swatch-card">
+                <div class="color-swatch" style="background: var(--c-cause)"></div><span
+                    class="color-name">--cause</span>
+            </div>
+            <div class="color-swatch-card">
+                <div class="color-swatch" style="background: var(--c-solution)"></div><span
+                    class="color-name">--solution</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alerts -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Alert Components</h2>
+        <div class="alert alert-nutritionist">
+            <strong>營養師提醒 (Nutritionist)：</strong>
+            <p>這是一個專業建議，說明了為何這個營養素很重要。</p>
+        </div>
+        <div class="alert alert-doctor">
+            <strong>醫師警告 (Doctor)：</strong>
+            <p>若您正在服用特定藥物，請在補充此營養素前諮詢您的醫師。</p>
+        </div>
+        <div class="alert alert-tip">
+            <strong>小撇步 (Tip)：</strong>
+            <p>將魚油與含有脂肪的正餐一同服用，是提升其生物利用率的關鍵。</p>
+        </div>
+    </div>
+
+    <!-- Story Intro -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Story Intro</h2>
+        <div class="story-intro">
+            <h3>為什麼我們需要談論這個？</h3>
+            <p>想像一下，你的血管就像一條繁忙的高速公路。日復一日的壓力與飲食習慣，就像路面上的損耗...</p>
+        </div>
+    </div>
+
+    <!-- Benefits Grid (Hero Cards) -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Benefits Grid (Hero Cards)</h2>
+        <div class="benefits-grid">
+            <div class="benefit-hero-card">
+                <div class="benefit-number">01</div>
+                <div class="benefit-content">
+                    <span class="benefit-tag">心血管</span>
+                    <h3 class="benefit-title">清除管路堆積</h3>
+                    <p class="benefit-desc">就像是血管的清道夫，<strong>Omega-3</strong> 能夠幫助帶走多餘的油脂。</p>
+                </div>
+            </div>
+            <div class="benefit-hero-card">
+                <div class="benefit-number">02</div>
+                <div class="benefit-content">
+                    <span class="benefit-tag">大腦</span>
+                    <h3 class="benefit-title">活化思緒連結</h3>
+                    <p class="benefit-desc">DHA 是大腦的重要養分，有助於維持<strong>清晰的思緒</strong>。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cards Layout -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Info Cards Layout</h2>
+        <div class="info-cards">
+            <div class="info-card">
+                <h4 class="info-card-title">核心功效一</h4>
+                <p class="info-card-desc">說明此功效的詳細內容，簡潔有力。</p>
+            </div>
+            <div class="info-card">
+                <h4 class="info-card-title">核心功效二</h4>
+                <p class="info-card-desc">說明此功效的詳細內容，與左側卡片高度一致。</p>
+            </div>
+            <div class="info-card card-theme-myth">
+                <h4 class="info-card-title title-theme-myth">常見迷思</h4>
+                <p class="info-card-desc">迷思破解：這其實是不正確的觀念。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Read Card -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Quick Read Card</h2>
+        <div class="article-content quick-read-card">
+            <div class="card-click-hint">點擊展開完整閱讀</div>
+            <h2 style="margin-top:0">快速重點整理</h2>
+            <ul>
+                <li>重點一：Omega-3 是人體必需脂肪酸。</li>
+                <li>重點二：建議每週攝取兩次深海魚類。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Tables -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Tables</h2>
+        <p>Wrapped in <code>.responsive-table-wrapper</code> for mobile scroll.</p>
+        <div class="responsive-table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>食物項目</th>
+                        <th>含量 (mg/100g)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Top 1</td>
+                        <td><strong>亞麻籽</strong></td>
+                        <td><strong>22800</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Top 2</td>
+                        <td>核桃</td>
+                        <td>9080</td>
+                    </tr>
+                    <tr>
+                        <td>Top 3</td>
+                        <td>鮭魚</td>
+                        <td>2260</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Comparison Panel -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Comparison Panel</h2>
+        <div class="comparison-card-container">
+            <div class="comparison-panel">
+                <div class="nutrient-name epa-color">EPA</div>
+                <div class="nutrient-subtitle">循環暢通專家</div>
+                <p class="nutrient-desc">專注於抗發炎與心血管保養，適合中老年人與高壓力族群。</p>
+            </div>
+            <div class="comparison-panel">
+                <div class="nutrient-name dha-color">DHA</div>
+                <div class="nutrient-subtitle">思緒晶亮推手</div>
+                <p class="nutrient-desc">專注於腦部與視網膜發育，適合孕婦、兒童與用眼過度者。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Charts & Visuals</h2>
+        <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+            <!-- Donut -->
+            <div class="chart-panel" style="background:#f9fafb; padding:20px; border-radius:12px; text-align:center;">
+                <h4>濃度佔比</h4>
+                <svg class="donut-chart-svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="transparent" stroke="#e5e7eb" stroke-width="10"></circle>
+                    <circle class="donut-fg" cx="50" cy="50" r="45" fill="transparent" stroke="#ff6b35"
+                        stroke-width="10" stroke-linecap="round" transform="rotate(-90 50 50)"
+                        style="stroke-dasharray: 282.7; stroke-dashoffset: 42.4;"></circle>
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                        <tspan class="chart-text-percent" fill="#166534">85%</tspan>
+                        <tspan x="50%" dy="1.2em" class="chart-text-label">Omega-3</tspan>
+                    </text>
+                </svg>
+            </div>
+            <!-- Bar -->
+            <div class="chart-panel" style="background:#f9fafb; padding:20px; border-radius:12px; text-align:center;">
+                <h4>吸收率比較</h4>
+                <svg class="absorption-svg" viewBox="0 0 200 150">
+                    <g>
+                        <rect x="30" y="80" width="60" height="50" rx="4" fill="#a0aec0" />
+                        <text x="60" y="105" class="bar-value">基準</text>
+                        <text x="60" y="145" class="bar-label">EE型</text>
+                    </g>
+                    <g>
+                        <rect x="110" y="22" width="60" height="108" rx="4" fill="#ff6b35" />
+                        <text x="140" y="42" class="bar-value">+70%</text>
+                        <text x="140" y="145" class="bar-label">rTG型</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Test -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Quick Test Component</h2>
+        <div class="quick-test">
+            <h3>Omega-3 需求自我評估</h3>
+            <p>請檢視您的生活與飲食習慣，是否存在以下情況？</p>
+            <div class="test-options">
+                <label class="test-option">
+                    <input type="checkbox" name="need-test" />
+                    <span>經常外食，飲食高油高鹽</span>
+                </label>
+                <label class="test-option">
+                    <input type="checkbox" name="need-test" />
+                    <span>近期感覺記憶力衰退</span>
+                </label>
+                <label class="test-option">
+                    <input type="checkbox" name="need-test" />
+                    <span>眼睛容易乾澀疲勞</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">FAQ Section</h2>
+        <div class="faq-section">
+            <div class="faq-item">
+                <div class="faq-question">Q1: 魚油甚麼時候吃最好？</div>
+                <div class="faq-answer">建議隨餐或飯後食用，因為食物中的油脂能幫助吸收。</div>
+            </div>
+            <div class="faq-item active">
+                <div class="faq-question">Q2: 孕婦可以吃魚油嗎？</div>
+                <div class="faq-answer" style="max-height: 100px; padding: 0 25px 20px;">
+                    是的，DHA對寶寶發育很重要，但請選擇檢驗合格的產品。(Demo: Active State)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Section -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">Related Articles</h2>
+        <div class="related-section">
+            <h3 class="related-title">延伸閱讀</h3>
+            <div class="related-grid" style="padding: 0 20px;">
+                <a href="#" class="related-card">
+                    <span class="related-card-tag">營養素</span>
+                    <h4 class="related-card-title">維生素D：陽光營養素</h4>
+                    <p class="related-card-desc">提升免疫力與骨骼健康不可或缺的關鍵。</p>
+                </a>
+                <a href="#" class="related-card">
+                    <span class="related-card-tag">食物</span>
+                    <h4 class="related-card-title">深海魚類指南</h4>
+                    <p class="related-card-desc">如何挑選低重金屬污染的優質魚類？</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Debug Map -->
+    <div class="demo-section">
+        <h2 class="demo-section-title">System Diagnostics Map</h2>
+        <div class="debug-map">
+            <div class="col-symptom">
+                <div class="col-header">症狀</div>
+                <div class="node-group">
+                    <div class="node" data-type="symptom">
+                        <div>頭痛</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-cause">
+                <div class="col-header">原因</div>
+                <div class="node-group">
+                    <div class="node" data-type="cause">
+                        <div>壓力</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-solution">
+                <div class="col-header">解方</div>
+                <div class="node-group">
+                    <div class="node" data-type="solution">
+                        <div>睡眠</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        <div class="disclaimer-content">
+            <h3>免責聲明</h3>
+            <p>本站內容僅供參考，不應視為醫療建議。如有健康疑慮，請諮詢專業醫師。</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
