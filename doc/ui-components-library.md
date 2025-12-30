@@ -146,6 +146,30 @@
 </div>
 ```
 
+### 食物排行榜 (`.food-ranking-container`) [新]
+用於列出富含特定營養素的食物排名。
+
+```html
+<div class="food-ranking-container">
+  <h3 class="food-ranking-title">Top 10 鎂含量食物排行榜 (每100g)</h3>
+  <ul class="food-ranking-list">
+    <li>
+      <a href="/food/pumpkin-seeds.html">
+        <span>南瓜子</span>
+        <span class="food-value">592 mg</span>
+      </a>
+    </li>
+    <li>
+      <a href="/food/flaxseeds.html">
+        <span>亞麻籽</span>
+        <span class="food-value">392 mg</span>
+      </a>
+    </li>
+    <!-- ... 其他項目 ... -->
+  </ul>
+</div>
+```
+
 ---
 
 ## 5. 專業洞察卡 (Professional Insight Card)
@@ -184,11 +208,13 @@
 ```html
 <div class="dosage-infographic-container">
   <div class="dosage-card">
-    <div class="dosage-card-header">
-      <div class="dosage-card-title">心血管保健</div>
-      <div class="dosage-card-subtitle">三高族群</div>
+    <div class="d-card-header">
+      <div class="d-card-title">心血管保健</div>
+      <div class="d-card-subtitle">三高族群</div>
     </div>
     <div class="dosage-card-dose">1000-2000<span class="unit">mg</span></div>
+    
+    <!-- 方式 A: 比例條 -->
     <div class="ratio-info">
       <div class="ratio-label">EPA : DHA ≈ 2 : 1</div>
       <div class="ratio-bar">
@@ -197,26 +223,108 @@
         <div class="ratio-bar-dha" style="width: 33%"></div>
       </div>
     </div>
+
+    <!-- 方式 B: 數據列表 -->
+    <ul class="d-list">
+        <li class="d-item"><span class="d-name">男性</span><span class="d-val">400-420 mg</span></li>
+        <li class="d-item"><span class="d-name">女性</span><span class="d-val">310-320 mg</span></li>
+    </ul>
   </div>
   <!-- ... 其他劑量卡片 ... -->
 </div>
 
-<!-- 圖例 -->
+<!-- 圖例 (僅用於方式 A) -->
 <div class="ratio-legend">
-    <div class="legend-item"><span class="legend-dot" style="background-color: #ff6b35;"></span> EPA</div>
+    <div class="legend-item"><span class="legend-dot" style="background-color: var(--primary-color);"></span> EPA</div>
     <div class="legend-item"><span class="legend-dot" style="background-color: #2563eb;"></span> DHA</div>
 </div>
 ```
 
 ---
 
-## 7. 步驟指南 (Step Guide)
+## 7. 流程圖 (Flowchart) [新]
+
+扁平化設計的步驟流程圖。
+
+```html
+<div class="flowchart">
+  <div class="flow-step">
+    <h4>發炎反應</h4>
+    <p>血管內皮受損</p>
+  </div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">
+    <h4>氧化作用</h4>
+    <p>LDL 被氧化推積</p>
+  </div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">
+    <h4>鈣化硬化</h4>
+    <p>形成斑塊阻塞血管</p>
+  </div>
+</div>
+```
+
+---
+
+## 8. 系統診斷圖 / 關聯圖 (Debug Map) [新]
+
+用於展示「症狀 -> 原因 -> 解方」的多對多關係網狀圖。
+
+```html
+<div class="debug-map">
+  <!-- 連線層 (SVG) -->
+  <svg class="connections-layer">
+    <!-- 路徑範例，需配合 JS 計算座標 -->
+    <path d="M..." class="connection" data-from="sym-1" data-to="cause-1"></path>
+  </svg>
+
+  <!-- 症狀欄 (Symptoms) -->
+  <div class="col-symptom">
+    <div class="col-header">症狀 (Symptoms)</div>
+    <div class="node-group">
+      <div class="node" id="sym-1" data-type="symptom">
+        <div><span class="node-icon">🤕</span>經常頭痛</div>
+        <span class="node-jump">➜</span>
+      </div>
+      <!-- ... -->
+    </div>
+  </div>
+
+  <!-- 原因欄 (Causes) -->
+  <div class="col-cause">
+    <div class="col-header">可能原因 (Causes)</div>
+    <div class="node-group">
+      <div class="node" id="cause-1" data-type="cause">
+        <div><span class="node-icon">🔻</span>鎂缺乏</div>
+        <span class="node-jump">➜</span>
+      </div>
+      <!-- ... -->
+    </div>
+  </div>
+
+  <!-- 解方欄 (Solutions) -->
+  <div class="col-solution">
+    <div class="col-header">建議解方 (Solutions)</div>
+    <div class="node-group">
+      <div class="node" id="sol-1" data-type="solution">
+        <div><span class="node-icon">💊</span>補充鎂</div>
+      </div>
+      <!-- ... -->
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## 9. 步驟指南 (Step Guide)
 
 有順序性的流程指引。
 
 ```html
 <div class="step-guide-container">
-  <h3 class="step-guide-title">魚油選購的黃金評估流程</h3>
+  <h3 class="step-guide-title">選購黃金評估流程</h3>
   <ol class="step-guide">
     <li class="step-guide-item">
       <h4>第一步：檢視濃度</h4>
@@ -232,7 +340,7 @@
 
 ---
 
-## 8. 正反列表 (Dos & Don'ts)
+## 10. 正反列表 (Dos & Don'ts)
 
 建議與不建議的對照清單。
 
@@ -255,7 +363,7 @@
 
 ---
 
-## 9. SVG 視覺化圖表
+## 11. SVG 視覺化圖表
 
 ### 圓餅圖 (Donut Chart)
 呈現濃度佔比。
@@ -282,7 +390,7 @@
 
 ```html
 <div class="absorption-chart-container">
-  <h3 class="absorption-chart-title">魚油型態與吸收率效益比較</h3>
+  <h3 class="absorption-chart-title">型態與吸收率效益比較</h3>
   <svg class="absorption-svg" viewBox="0 0 200 150">
     <g>
       <rect x="30" y="80" width="60" height="50" rx="4" fill="#a0aec0"/>
@@ -298,45 +406,16 @@
 </div>
 ```
 
-### 鈣的雙重角色 (Dual Role Chart)
-
-```html
-<div class="chart-dual-role">
-  <div class="donut-chart-visual">
-    <div class="donut-chart-segment"></div>
-    <div class="donut-chart-text">鈣的<br>雙重角色</div>
-  </div>
-  <div class="donut-chart-legend">
-      <div class="legend-item legend-99">
-        <div class="legend-value">99%</div>
-        <div class="legend-label"><strong>結構鈣 (骨骼銀行)</strong><br>構成骨骼與牙齒的堅固建材。</div>
-      </div>
-      <div class="legend-item legend-1">
-        <div class="legend-value">1%</div>
-        <div class="legend-label"><strong>離子鈣 (生命總司令)</strong><br>調控心跳、神經傳導與肌肉收縮。</div>
-      </div>
-  </div>
-</div>
-```
-
-### 吸收率進度條 (Absorption Bar) using CSS Variables
-
-```html
-<div class="absorption-bar">
-  <div class="absorption-bar-fill" style="--absorption-percent: 40%;"></div>
-</div>
-```
-
 ---
 
-## 10. 文章元素
+## 12. 文章元素
 
 ### 故事引言 (`.story-intro`)
 用於文章開頭。
 
 ```html
 <div class="story-intro">
-  <h3>為什麼我們需要談論Omega-3？</h3>
+  <h3>為什麼我們需要談論這個？</h3>
   <p>想像一下，你的血管就像一條繁忙的高速公路...</p>
 </div>
 ```
@@ -360,9 +439,9 @@
 
 ```html
 <div class="faq-item">
-  <div class="faq-question">Q1: 鈣和鎂可以一起吃嗎？</div>
+  <div class="faq-question">Q1: 這個可以長期吃嗎？</div>
   <div class="faq-answer">
-    <p><strong>A: 可以...</strong> 理想的<strong class="highlight-nutrient">鈣鎂攝取比例約為 2:1</strong>。</p>
+    <p><strong>A: 可以...</strong> 只要遵循建議劑量。</p>
   </div>
 </div>
 ```
