@@ -1044,6 +1044,38 @@ path.active {
     margin-bottom: 15px;
 }
 
+/* Disclaimer Section (Full Width) */
+.disclaimer {
+    background-color: #faf8f5;
+    padding: 60px 20px;
+    width: 100%;
+    margin-top: 0;
+}
+
+.disclaimer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.disclaimer-content h3 {
+    color: #475569;
+    /* Slate 600 */
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.disclaimer-content p {
+    color: #64748b;
+    /* Slate 500 */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
 .related-card-title {
     font-size: 1.3em;
     font-weight: 600;

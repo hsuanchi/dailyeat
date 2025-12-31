@@ -69,7 +69,7 @@
     <link rel="stylesheet" href="../../assets/css/article.css">
 
     <style>
-        /* Clean Group Selector Styles */
+        /* Refined Group Selector */
         .group-selector {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -82,35 +82,36 @@
             padding: 20px 15px;
             text-align: center;
             border: 1px solid #e2e8f0;
-            border-radius: 6px;
+            border-radius: 12px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
-            color: var(--brand-dark, #334155);
+            color: var(--c-text-main);
             display: flex;
             flex-direction: column;
             justify-content: center;
             height: 100%;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .group-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-color: var(--brand-primary, #0f766e);
-            color: var(--brand-primary, #0f766e);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+            background: var(--primary-bg-light);
         }
 
         .group-name {
-            font-weight: 600;
-            font-size: 1.05em;
+            font-weight: 700;
+            font-size: 1.1em;
             margin-bottom: 4px;
             display: block;
+            color: var(--primary-dark);
         }
 
         .group-desc {
             font-size: 0.85em;
-            color: #64748b;
+            color: var(--c-text-soft);
             display: block;
         }
 
@@ -124,7 +125,7 @@
         }
 
         .group-header .kicker {
-            color: var(--brand-primary, #0f766e);
+            color: var(--primary-color);
             font-size: 0.85em;
             font-weight: 700;
             text-transform: uppercase;
@@ -134,30 +135,10 @@
         }
 
         .group-header h2 {
-            font-size: 1.8em;
-            color: var(--brand-dark, #1e293b);
+            font-size: 2em;
+            color: var(--c-text-main);
             margin: 0;
-            font-weight: 700;
-        }
-
-        /* Standard Feature List Style */
-        .feature-item {
-            margin-bottom: 30px;
-            padding-left: 15px;
-            border-left: 3px solid #e2e8f0;
-        }
-
-        .feature-item h3 {
-            font-size: 1.25em;
-            margin: 0 0 10px 0;
-            color: var(--brand-dark, #334155);
-            font-weight: 600;
-        }
-
-        .feature-item p {
-            margin: 0;
-            color: #475569;
-            line-height: 1.7;
+            font-weight: 800;
         }
     </style>
 </head>
@@ -206,9 +187,9 @@
                         你是哪一種魚油需求者？從孕哺期到銀髮族，每一階段都有專屬的營養黃金比例。本文將解析人生 5 大關鍵時期的精準劑量與挑選重點。
                     </p>
                     <div class="article-meta">
-                        <span>✍️ 營養百科團隊編寫</span>
-                        <span>📅 2025 年 更新</span>
-                        <span>⏱️ 閱讀時間：10 分鐘</span>
+                        <span>營養百科團隊編寫</span>
+                        <span>2025 年 更新</span>
+                        <span>閱讀時間：10 分鐘</span>
                     </div>
                 </div>
             </header>
@@ -242,192 +223,356 @@
                         </a>
                     </div>
 
-                    <div class="" style="margin-bottom: 60px;">
-                        <h3>為什麼分眾很重要？</h3>
-                        <p>Omega-3 脂肪酸 (EPA 與 DHA) 是人體不可或缺的營養素，但不同年齡、不同狀態下，我們需要的「黃金比例」與「重點劑量」卻截然不同。</p>
-                    </div>
-                </section>
-
-                <!-- 1. Pregnant -->
-                <section id="pregnant" class="group-section">
-                    <div class="group-header">
-                        <span class="kicker">Mother & Baby</span>
-                        <h2>孕婦與哺乳期：寶寶的第一份禮物</h2>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>1. DHA > EPA (關注寶寶發育)</h3>
-                        <p>此階段重點在於「寶寶腦部與視網膜發育」。建議選擇 DHA 比例較高（或純 DHA 藻油）的產品。每日攝取量建議在 200mg~300mg DHA。</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>2. 安全性是最高原則</h3>
-                        <p>務必選擇經過 IFOS 五星認證、並標榜「重金屬檢驗合格」的小型魚油（如鯷魚）。避免大型掠食性魚類（鮪魚、鯊魚）來源。</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>3. 產前停吃迷思</h3>
-                        <p>現今多數高品質 rTG 魚油已無凝血風險。但若您有特殊凝血體質或剖腹產計畫，建議產前 2 週諮詢醫師是否改吃純藻油或暫停。</p>
-                    </div>
-                </section>
-
-                <!-- 2. Child -->
-                <section id="child" class="group-section">
-                    <div class="group-header">
-                        <span class="kicker">Future Genius</span>
-                        <h2>嬰幼兒與兒童：黃金發育期</h2>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>1. 吞嚥安全優先</h3>
-                        <p>3 歲以下幼兒建議剪開膠囊擠入副食品，或選用滴劑。3 歲以上具備咀嚼能力後，可選擇專為兒童設計的小顆咀嚼膠囊。</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>2. 口味接受度</h3>
-                        <p>小朋友味覺敏感，選擇天然水果風味（檸檬、甜橙）且無人工色素糖精的產品，能大幅提升接受度。</p>
-                    </div>
-                </section>
-
-                <!-- 3. Student -->
-                <section id="student" class="group-section">
-                    <div class="group-header">
-                        <span class="kicker">Focus & Memory</span>
-                        <h2>學生與考生：腦力與視力的雙重挑戰</h2>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>1. DHA 強化專注力</h3>
-                        <p>研究顯示，體內 DHA 濃度較高的學齡兒童，在閱讀與專注力表現上較佳。對於面臨大考的考生，高濃度 DHA 是書桌上的必備品。</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>2. 葉黃素的好搭檔</h3>
-                        <p>長時間盯著書本與螢幕，Omega-3 能緩解乾澀，若能搭配葉黃素一同補充，防護效果加倍。</p>
-                    </div>
-                </section>
-
-                <!-- 4. Adult -->
-                <section id="adult" class="group-section">
-                    <div class="group-header">
-                        <span class="kicker">Daily Balance</span>
-                        <h2>上班族：對抗壓力與慢性發炎</h2>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>1. EPA + DHA 均衡攝取</h3>
-                        <p>外食族容易攝取過多 Omega-6 (大豆油、沙拉油)，導致體內慢性發炎。需要綜合型的 EPA+DHA 來平衡發炎反應，各取所需。</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>2. 高濃度 rTG 型態</h3>
-                        <p>忙碌的現代人講求效率。選擇濃度 84% 以上的 rTG 魚油，確保每一顆膠囊都發揮最大效益，不吃進多餘油脂負擔。</p>
-                    </div>
-                </section>
-
-                <!-- 5. Senior (Integrated) -->
-                <section id="senior" class="group-section">
-                    <div class="group-header">
-                        <span class="kicker">Cardiovascular Care</span>
-                        <h2>銀髮族：心血管與認知循環</h2>
-                    </div>
-
-                    <div class="story-intro"
-                        style="text-align: center; max-width: 700px; margin: 0 auto 40px; font-size: 1.1em; color: var(--brand-dark);">
-                        <p>隨著年齡增長，身體合成 Omega-3 的能力下降，而發炎反應卻日漸增加。補充高濃度魚油，不僅是為了心血管，更是為了守護認知能力與行動力。</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>1. 心血管的守護者 (EPA)</h3>
-                        <p>幫助降低三酸甘油酯，減少血管壁發炎反應，維持血管彈性，是「通血路」的關鍵營養素。</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>2. 記憶力的煞車皮 (DHA)</h3>
-                        <p>研究指出，體內 DHA 濃度較高的長者，腦容量較大，且罹患阿茲海默症的風險較低。</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <h3>3. 關鍵靈活 (抗發炎)</h3>
-                        <p>Omega-3 的抗發炎特性，有助於緩解晨間僵硬與關節不適，讓長輩上下樓梯更輕鬆。</p>
-                    </div>
-
-                    <!-- Warning -->
-                    <div style="max-width: 800px; margin: 60px auto 0;">
-                        <h3
-                            style="font-size: 1.5em; margin-bottom: 20px; color: var(--brand-dark); font-family: var(--font-serif);">
-                            ⚠️ 藥物交互作用與禁忌</h3>
-                        <div class="alert alert-doctor">
-                            <strong>醫師是擔心的事：出血風險</strong>
-                            <p>魚油具有輕微的抗凝血作用。若同時服用強效的抗凝血藥物 (如 Warfarin, Aspirin)，需特別注意交互作用。</p>
-                        </div>
-
-                        <div class="comparison-table-container">
-                            <table class="comparison-table">
+                    <div style="margin-bottom: 60px;">
+                        <h3>一分鐘快速導覽：各族群魚油需求差異表</h3>
+                        <p>這張表格能協助您快速定位自己或家人的需求，不再買錯規格。</p>
+                        <div class="table-responsive">
+                            <table class="data-table">
                                 <thead>
                                     <tr>
-                                        <th class="comparison-header-main" style="width: 40%">藥物類型</th>
-                                        <th class="comparison-header-option">常見藥物</th>
-                                        <th class="comparison-header-option">應對建議</th>
+                                        <th style="width: 25%">族群</th>
+                                        <th>核心需求</th>
+                                        <th>關鍵成分</th>
+                                        <th>挑選決勝點</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="comparison-row">
-                                        <td class="comparison-label"><strong>抗凝血劑</strong></td>
-                                        <td class="comparison-cell">Warfarin, Heparin</td>
-                                        <td class="comparison-cell"><strong>嚴格謹慎</strong><br>需由醫師監測凝血功能。</td>
+                                    <tr>
+                                        <td><strong>孕婦/哺乳</strong></td>
+                                        <td>寶寶腦部發育、母乳營養</td>
+                                        <td><strong>高 DHA</strong> (或純藻油)</td>
+                                        <td><strong>安全性第一</strong>：IFOS 五星認證、重金屬零檢出。</td>
                                     </tr>
-                                    <tr class="comparison-row">
-                                        <td class="comparison-label"><strong>抗血小板藥物</strong></td>
-                                        <td class="comparison-cell">Aspirin (阿斯匹靈)</td>
-                                        <td class="comparison-cell"><strong>注意觀察</strong><br>一般劑量通常安全，若有瘀青應停用。</td>
+                                    <tr>
+                                        <td><strong>兒童/嬰幼兒</strong></td>
+                                        <td>腦力啟啟蒙、視力發育</td>
+                                        <td><strong>DHA</strong></td>
+                                        <td><strong>適口性</strong>：無腥味、天然水果調味、可咬破。</td>
                                     </tr>
-                                    <tr class="comparison-row">
-                                        <td class="comparison-label"><strong>降血壓藥</strong></td>
-                                        <td class="comparison-cell">各類降壓藥</td>
-                                        <td class="comparison-cell"><strong>建議監測</strong><br>魚油助降壓，留意低血壓風險。</td>
+                                    <tr>
+                                        <td><strong>考生/學生</strong></td>
+                                        <td>專注力提升、抗藍光</td>
+                                        <td><strong>高濃度 DHA</strong></td>
+                                        <td><strong>複方加乘</strong>：搭配葉黃素 (Lutein) 雙效合一。</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>上班族</strong></td>
+                                        <td>抗發炎、代謝循環、舒壓</td>
+                                        <td><strong>EPA + DHA</strong> (均衡型)</td>
+                                        <td><strong>高效率</strong>：濃度 > 84% rTG 型態 (吞一顆抵三顆)。</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>銀髮族</strong></td>
+                                        <td>心血管保養、行動力</td>
+                                        <td><strong>高 EPA</strong> (清澈暢通)</td>
+                                        <td><strong>吞嚥友善</strong>：顆粒小 (< 1.5cm)、容易吞服。</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                    <!-- Swallowing Guide -->
-                    <div style="max-width: 800px; margin: 60px auto 0;">
-                        <h3
-                            style="font-size: 1.5em; margin-bottom: 20px; color: var(--brand-dark); font-family: var(--font-serif);">
-                            吞嚥友善挑選指南</h3>
-                        <ul class="step-guide">
-                            <li class="step-guide-item">
-                                <h4>Step 1: 選擇「迷你膠囊」</h4>
-                                <p>選擇單顆 <strong>500mg - 700mg</strong> 的迷你膠囊（小於 1.5 公分），長輩吞嚥無負擔。</p>
-                            </li>
-                            <li class="step-guide-item">
-                                <h4>Step 2: 高濃度減少顆數</h4>
-                                <p>膠囊變小，<strong>濃度必須更高 (85%以上)</strong>，避免一天要吞太多顆而產生抗拒。</p>
-                            </li>
-                            <li class="step-guide-item">
-                                <h4>Step 3: rTG 型態助消化</h4>
-                                <p>長輩消化功能較弱，rTG 型態吸收率高，較不易引起腸胃不適或打嗝異味。</p>
-                            </li>
-                        </ul>
+                    <div style="margin-bottom: 60px;">
+                        <h3>為什麼分眾很重要？</h3>
+                        <p>Omega-3 脂肪酸 (EPA 與 DHA) 是人體不可或缺的營養素，但不同年齡、不同狀態下，我們需要的「黃金比例」與「重點劑量」卻截然不同。</p>
                     </div>
                 </section>
 
-                <!-- Disclaimer -->
-                <section class="disclaimer">
-                    <div class="disclaimer-content">
-                        <h3>免責聲明</h3>
-                        <p>
-                            本站資訊僅供教育與參考目的，無法取代專業醫療建議。若您正在服用抗凝血劑 (如 Aspirin, Warfarin) 或有特殊疾病，請務必諮詢醫師建議。
-                        </p>
+                <!-- 1. Pregnant -->
+                <section id="pregnant" class="section group-section">
+                    <div class="group-header">
+                        <span class="kicker">Mother & Baby (一人吃兩人補，奠定聰明起跑點)</span>
+                        <h2>孕婦與哺乳期：寶寶的第一份禮物</h2>
+                    </div>
+
+                    <p style="color: #64748b; font-size: 0.9em; margin-bottom: 30px;">
+                        (常見產品敘述關鍵字：一人吃兩人補、寶寶的第一份禮物、贏在起跑點、極淨無汙染、植物性藻油、潛能開發)</p>
+
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-card-title">1. DHA 優先</div>
+                            <div class="info-card-desc">
+                                DHA 是胎兒腦部與視網膜發育的黃金成分。建議挑選 DHA 比例高於 EPA 的配方，或選擇專利藻油。每日至少攝取 200mg ~ 300mg DHA。
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">2. 極致安全</div>
+                            <div class="info-card-desc">
+                                絕對避開大型掠食性魚類，務必確認擁有 IFOS 五星認證或第三方重金屬檢驗報告，並優先選擇小型魚種來源。
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">3. rTG 型態</div>
+                            <div class="info-card-desc">
+                                孕期容易噁心反胃，rTG 型態吸收率高、無腥味，能減少打嗝後的魚腥味不適感，讓媽咪輕鬆補充不負擔。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pharmacist Q&A -->
+                    <div class="alert alert-tip">
+                        <div>
+                            <strong>💡 藥師解惑：懷孕後期需要停吃魚油嗎？</strong>
+                            <p>建議在懷孕 32-36 週後諮詢醫師。為了避免生產時不可預期的出血風險，一般建議產前 1 個月可暫停食用「含 EPA」的魚油，改吃不含 EPA 的「純 DHA
+                                藻油」持續補充。產後約 1-2 週傷口癒合後即可恢復。</p>
+                        </div>
+                    </div>
+
+                    <div style="max-width: 800px; margin: 40px auto 0;">
+                        <h3
+                            style="font-size: 1.4em; margin-bottom: 20px; color: var(--brand-dark); text-align: center;">
+                            藻油 vs 魚油：孕媽咪該選哪種？</h3>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 30%">面向</th>
+                                        <th>藻油 (Algae)</th>
+                                        <th>魚油 (Fish Oil)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Omega-3 比例</strong></td>
+                                        <td><strong>高 DHA</strong> / 極低 EPA</td>
+                                        <td>EPA + DHA 均衡型</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>重金屬風險</strong></td>
+                                        <td>極低 (人工培養箱)</td>
+                                        <td>低 (視魚內與技術)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>適合對象</strong></td>
+                                        <td>純素者、產前一個月</td>
+                                        <td>一般保養、發炎體質</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </section>
+
+                <!-- 2. Child -->
+                <section id="child" class="section group-section">
+                    <div class="group-header">
+                        <span class="kicker">Future Genius (贏在起跑點，學習力 Up)</span>
+                        <h2>嬰幼兒與兒童：黃金發育期</h2>
+                    </div>
+
+                    <p style="color: #64748b; font-size: 0.9em; margin-bottom: 30px;">(常見產品敘述關鍵字：學習力
+                        Up、像吃糖果一樣、無腥味、聰明育兒、專注力、坐得住、不分心)</p>
+
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-card-title">1. 分齡補充策略</div>
+                            <div class="info-card-desc">
+                                0-3 歲建議選用液態滴劑或剪開膠囊滴入副食品；3 歲以上可選專為兒童設計的小顆咀嚼膠囊。
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">2. 適口性決勝負</div>
+                            <div class="info-card-desc">
+                                優先挑選透過蒸餾脫臭技術去除魚腥味的產品。選擇添加天然檸檬油、甜橙油，避免人工色素或多餘精緻糖。
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">3. 顆粒大小標準</div>
+                            <div class="info-card-desc">
+                                直徑應小於 1 公分 (10mm)，小巧好吞食。膠皮應選用容易溶解、好咬破的明膠，避免異物感。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pharmacist Q&A -->
+                    <div class="alert alert-tip">
+                        <div>
+                            <strong>💡 藥師解惑：小朋友吞不下膠囊，咬破吃有效嗎？</strong>
+                            <p>完全有效，吸收率不受影響。膠囊外殼僅是容器，咬破直接攝取魚油液體並不會破壞營養。若抗拒味道，可滴入優格或溫湯中掩蓋。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Student -->
+                <section id="student" class="section group-section">
+                    <div class="group-header">
+                        <span class="kicker">Focus & Memory (K書神隊友，專注清晰)</span>
+                        <h2>學生與考生：腦力與視力的雙重挑戰</h2>
+                    </div>
+
+                    <p style="color: #64748b; font-size: 0.9em; margin-bottom: 30px;">
+                        (常見產品敘述關鍵字：K書必備、衝刺期神隊友、清晰思緒、過目不忘、晶亮有神、雙效合一、開外掛)</p>
+
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-card-title">1. 高濃度 DHA</div>
+                            <div class="info-card-desc">
+                                DHA 是大腦與神經突觸的重要成分。選擇 DHA 濃度 > 50% 或 Omega-3 總濃度 > 80% 的產品，能提升訊息傳遞效率。
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">2. 晶亮黃金組合</div>
+                            <div class="info-card-desc">
+                                Omega-3 能幫助脂溶性葉黃素吸收，並緩解乾澀。早餐飯後同時補充魚油與葉黃素，衝刺效果加倍。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pharmacist Q&A -->
+                    <div class="alert alert-tip">
+                        <div>
+                            <strong>藥師解惑：考生吃魚油真的有用嗎？多久見效？</strong>
+                            <p>有幫助。Omega-3 需要時間累積在細胞膜上，建議在大考前 3 個月（衝刺期）就開始穩定補充，讓體內 DHA 濃度達到理想狀態。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Adult -->
+                <section id="adult" class="group-section">
+                    <div class="group-header">
+                        <span class="kicker">Daily Balance (代謝順暢，甩開負擔)</span>
+                        <h2>上班族：對抗壓力與慢性發炎</h2>
+                    </div>
+
+                    <p style="color: #64748b; font-size: 0.9em; margin-bottom: 30px;">(常見產品敘述關鍵字：84% 高濃度、rTG
+                        好吸收、一顆抵三顆、甩開囤積、代謝順暢、發炎體質、身體清潔工)</p>
+
+                    <div class="feature-item">
+                        <h3>1. EPA + DHA 均衡攝取：修正油脂失衡</h3>
+                        <p>外食族常攝取過多 Omega-6 (大豆油、炸物)，導致體內發炎指數升高，容易感到疲勞、代謝卡關。需要綜合型的 EPA+DHA 來平衡發炎反應，EPA 幫助循環與情緒穩定，DHA
+                            維持腦力。</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h3>2. 高濃度 rTG 型態：追求效率</h3>
+                        <p>選擇濃度 84% 以上的 rTG 魚油。濃度低代表吃進了多餘的飽和脂肪酸與膽固醇任務。忙碌的現代人需要「吞一顆抵三顆」的高效保養。</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h3>3. EPA 與情緒穩定</h3>
+                        <p>越來越多研究指出，高劑量的 EPA 對於緩解職場焦慮與憂鬱情緒有正向幫助，是天然的情緒穩定劑。</p>
+                    </div>
+                </section>
+
+                <!-- 5. Senior (Integrated) -->
+                <section id="senior" class="section group-section">
+                    <div class="group-header">
+                        <span class="kicker">Cardiovascular Care (樂活長青，管道暢通)</span>
+                        <h2>銀髮族：心血管與認知循環</h2>
+                    </div>
+
+                    <p style="color: #64748b; font-size: 0.9em; margin-bottom: 30px;">
+                        (常見產品敘述關鍵字：靈活關鍵、樂齡保養、管道暢通、清澈、思緒清晰不迷糊、好吞食、上下樓梯有力)</p>
+
+                    <p
+                        style="text-align: center; max-width: 700px; margin: 0 auto 40px; font-size: 1.1em; color: var(--brand-dark);">
+                        隨著年齡增長，體內合成 Omega-3 能力下降。補充高濃度魚油，是守護心血管、認知能力與行動力的全方位策略。
+                    </p>
+
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-card-title">1. 心血管守護</div>
+                            <div class="info-card-desc">
+                                追求「清澈」與「暢通」。高純度 EPA (90%+) 對降低三酸甘油酯更顯著，且不影響 LDL-C 數值。
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">2. 認知與行動力</div>
+                            <div class="info-card-desc">
+                                補充足量 DHA 保持思緒清晰；同時利用抗發炎特性緩解晨間關節僵硬，讓上下樓梯更有力。
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">3. 吞嚥友善設計</div>
+                            <div class="info-card-desc">
+                                優先選用單顆 500mg - 700mg 的「迷你膠囊」（< 1.5cm），提高長輩攝取意願。 </div>
+                            </div>
+                        </div>
+
+                        <!-- Pharmacist Q&A -->
+                        <div class="alert alert-tip">
+                            <div>
+                                <strong>藥師解惑：魚油可以跟阿斯匹靈 (Aspirin) 一起吃嗎？</strong>
+                                <p>需特別謹慎。魚油與 Aspirin、Warfarin 等藥物皆具抗凝血特性，同時服用可能增加出血風險。建議主動告知醫師並觀察是否有異常皮下瘀青。</p>
+                            </div>
+                        </div>
+
+                        <!-- Drug Interaction Table -->
+                        <!-- Drug Interaction Table -->
+                        <div style="max-width: 800px; margin: 60px auto 0;">
+                            <h3
+                                style="font-size: 1.5em; margin-bottom: 20px; color: var(--c-text-main); font-family: var(--font-serif);">
+                                藥物交互作用細節</h3>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 40%">藥物類型</th>
+                                            <th>常見藥物</th>
+                                            <th>應對建議</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>抗凝血劑</strong></td>
+                                            <td>Warfarin, Heparin</td>
+                                            <td><strong>嚴格謹慎</strong><br>需由醫師監測凝血功能。</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>抗血小板藥物</strong></td>
+                                            <td>Aspirin (阿斯匹靈)</td>
+                                            <td><strong>注意觀察</strong><br>一般劑量通常安全，若有瘀青應停用。</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>降血壓藥</strong></td>
+                                            <td>各類降壓藥</td>
+                                            <td><strong>建議監測</strong><br>魚油助降壓，留意低血壓風險。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Swallowing Guide -->
+                        <!-- Swallowing Guide -->
+                        <div style="max-width: 800px; margin: 60px auto 0;">
+                            <h3
+                                style="font-size: 1.5em; margin-bottom: 20px; color: var(--c-text-main); font-family: var(--font-serif);">
+                                長輩吞嚥行為建議</h3>
+                            <div class="dosage-infographic-container">
+                                <div class="dosage-card">
+                                    <div class="d-card-header">
+                                        <span class="d-card-title">Step 1: 選擇「迷你膠囊」</span>
+                                    </div>
+                                    <p style="font-size: 0.95em; color: var(--c-text-muted);">選擇單顆 <strong>500mg -
+                                            700mg</strong> 的迷你膠囊（小於 1.5 公分），長輩吞嚥無負擔。</p>
+                                </div>
+                                <div class="dosage-card">
+                                    <div class="d-card-header">
+                                        <span class="d-card-title">Step 2: 搭配足量溫水</span>
+                                    </div>
+                                    <p style="font-size: 0.95em; color: var(--c-text-muted);">吞服時至少飲用 150ml
+                                        溫開水，確保膠囊順利滑入食道，避免卡喉不適。</p>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+
 
                 <div id="related-articles-container"></div>
             </article>
         </main>
     </div>
+
+    <!-- Disclaimer Section (Full Width) -->
+    <section class="disclaimer">
+        <div class="disclaimer-content">
+            <h3>免責聲明</h3>
+            <p>
+                本站資訊僅供教育與參考目的，無法取代專業醫療建議。若您正在服用抗凝血劑 (如 Aspirin, Warfarin) 或有特殊疾病，請務必諮詢醫師建議。
+            </p>
+        </div>
+    </section>
 
     <!-- Footer Component Container -->
     <div id="footer-component"></div>
