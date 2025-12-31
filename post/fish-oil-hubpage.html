@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魚油專題報導 2025 | The Omega-3 Journal</title>
+    <meta name="description" content="深入探索魚油的科學真相。從 rTG 型態解析到針對孕婦、銀髮族與高壓族群的精選指南。" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/pic/Nutrition Encyclopedia.png">
+    <link rel="shortcut icon" type="image/png" href="/pic/Nutrition Encyclopedia.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/article.css">
+
+    <!-- 
+    Refactored to match post/doing/index.html style 
+    Uses inline styles for the layout structure derived from the reference 
+    to ensure standalone consistency until centralized.
+    -->
+    <style>
+        /* Base & Reset from index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #faf8f5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #faf8f5 0%, #f7f4f0 100%);
+            padding: 140px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media(min-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .hero-title {
+            font-size: 3em;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2em;
+            color: #718096;
+            margin-bottom: 40px;
+            font-family: "Noto Serif TC", serif;
+        }
+
+        .hero-btn {
+            background: #ff6b35;
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            background: #e55a2b;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin: 80px 0 40px;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .section-desc {
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Bento Grid Layout (Topics & Features) */
+        .grid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        /* Cards (Generic) */
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: #ebf8ff;
+            color: #3182ce;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .card-tag.accent {
+            background: #fff5f5;
+            color: #e53e3e;
+        }
+
+        .card-tag.green {
+            background: #f0fff4;
+            color: #38a169;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            color: #718096;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9em;
+            color: #a0aec0;
+            margin-top: auto;
+        }
+
+        /* Special Feature: rTG Deep Dive (Wide) */
+        .wide-feature {
+            grid-column: 1 / -1;
+            background: #2d3748;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media(min-width: 900px) {
+            .wide-feature {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+        }
+
+        .wide-feature .card-title {
+            color: white;
+            font-size: 2em;
+        }
+
+        .wide-feature .card-desc {
+            color: #cbd5e0;
+        }
+
+        .wide-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Tools Section (Tease) */
+        .tools-section {
+            background: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .tool-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border: 2px solid #2d3748;
+            color: #2d3748;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .tool-btn:hover {
+            background: #2d3748;
+            color: white;
+        }
+
+        /* Review List (Simplified) */
+        .review-list {
+            list-style: none;
+        }
+
+        .review-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #edf2f7;
+            transition: background 0.2s;
+        }
+
+        .review-item:hover {
+            background: #f7fafc;
+        }
+
+        .review-rank {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: #cbd5e0;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body data-article-id="hub-fish-oil">
+
+    <!-- Header Component Container -->
+    <div id="header-component"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div>
+                    <span
+                        style="color:#ff6b35; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; display:block;">2025
+                        Special Edition</span>
+                    <h1 class="hero-title">魚油專題報導<br>The Omega-3 Journal</h1>
+                    <p class="hero-subtitle">
+                        不只是補充品，而是身體抗發炎的關鍵策略。我們整合了最新的科學研究，為您拆解從選購到服用的每一個細節。
+                    </p>
+                    <a href="#paths" class="hero-btn">開始探索</a>
+                </div>
+                <div style="position: relative; display: flex; justify-content: center;">
+                    <!-- Abstract Circle Visual -->
+                    <div
+                        style="width: 350px; height: 350px; background:white; border-radius:50%; overflow:hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:center;">
+                        <img src="https://images.unsplash.com/photo-1544367563-12123d832d30?q=80&w=600&auto=format&fit=crop"
+                            alt="Deep Sea" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Dive Feature -->
+        <div class="grid-container">
+            <a href="./fish-oil-structure.html" class="feature-card wide-feature">
+                <div style="padding: 20px;">
+                    <span class="card-tag accent">Deep Dive 技術解析</span>
+                    <h2 class="card-title">為什麼我們堅持 rTG 型態？</h2>
+                    <p class="card-desc">
+                        在魚油的演化史中，rTG 型態代表了科學與自然的完美回歸。它不僅擁有酯化型 (EE) 的高濃度，更還原了天然三酸甘油脂 (TG) 的分子結構，吸收率提升 200%。
+                    </p>
+                    <div class="card-meta" style="color: #fc8181;">
+                        <span>閱讀完整報告 <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=800&auto=format&fit=crop"
+                        class="wide-img" alt="Omega-3 Molecular Structure">
+                </div>
+            </a>
+        </div>
+
+        <!-- Curated Paths (Bento Grid) -->
+        <div id="paths" class="section-header">
+            <h2 class="section-title">精選專題路徑</h2>
+            <p class="section-desc">針對不同的人生階段與需求，我們規劃了專屬的閱讀地圖。</p>
+        </div>
+
+        <div class="grid-container">
+            <!-- Pack 1: General -->
+            <a href="./fish-oil.html" class="feature-card">
+                <span class="card-tag">Guide 01: 基礎</span>
+                <h3 class="card-title">每日保養指南</h3>
+                <p class="card-desc">適合大多數人的完整入門。從濃度計算到抗發炎機制，一次搞懂如何讓魚油成為您的健康資產。</p>
+                <div class="card-meta">15 min read</div>
+            </a>
+
+            <!-- Pack 2: Groups -->
+            <a href="./fish-oil-groups.html" class="feature-card">
+                <span class="card-tag green">Guide 02: 分眾</span>
+                <h3 class="card-title">孕婦與全齡族群</h3>
+                <p class="card-desc">DHA 對寶寶大腦發育至關重要。我們同時探討了兒童、學生與素食者的藻油替代方案。</p>
+                <div class="card-meta">12 min read</div>
+            </a>
+
+            <!-- Pack 3: Senior -->
+            <a href="./fish-oil-senior.html" class="feature-card">
+                <span class="card-tag accent">Guide 03: 銀髮</span>
+                <h3 class="card-title">心血管與藥物交互</h3>
+                <p class="card-desc">當魚油遇上三高藥物，該如何安全服用？銀髮族的吞嚥困難又有什麼解決方案？</p>
+                <div class="card-meta">10 min read</div>
+            </a>
+
+            <!-- Pack 4: Reviews -->
+            <div class="feature-card" style="padding: 0; display: block; background: #fff;">
+                <div style="padding: 40px 40px 20px;">
+                    <span class="card-tag">Reviews 評測</span>
+                    <h3 class="card-title">編輯嚴選榜單</h3>
+                </div>
+                <div class="review-list">
+                    <a href="./fish-oil-market-analysis.html" class="review-item"
+                        style="text-decoration:none; color:inherit;">
+                        <span class="review-rank">01</span>
+                        <div style="flex:1">
+                            <strong>頂規醫療級高濃度</strong>
+                            <div style="font-size:0.85em; color:#718096;">94% Omega-3</div>
+                        </div>
+                        <i class="fas fa-chevron-right" style="color:#cbd5e0"></i>
+                    </a>
+                    <a href="./fish-oil-market-analysis.html" class="review-item"
+                        style="text-decoration:none; color:inherit;">
+                        <span class="review-rank">02</span>
+                        <div style="flex:1">
+                            <strong>Costco 高 CP 值款</strong>
+                            <div style="font-size:0.85em; color:#718096;">適合長期補充</div>
+                        </div>
+                        <i class="fas fa-chevron-right" style="color:#cbd5e0"></i>
+                    </a>
+                    <a href="./fish-oil-market-analysis.html" class="review-item"
+                        style="text-decoration:none; color:inherit; border-bottom:none;">
+                        <div style="text-align:center; width:100%; color:#ff6b35; font-weight:600;">看完整 10 款評測</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools CTA -->
+        <section class="tools-section">
+            <h2 class="section-title">數據化您的健康選擇</h2>
+            <p class="section-desc" style="margin-bottom: 40px;">
+                無需猜測。使用我們的計算機，根據您的體重與目標，算出精準劑量。
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="./fish-oil-tools.html" class="tool-btn">
+                    <i class="fas fa-calculator"></i>
+                    真實成本計算機
+                </a>
+                <a href="./fish-oil-tools.html" class="tool-btn"
+                    style="background:transparent; border:2px solid #cbd5e0; color:#718096;">
+                    劑量評估測驗
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Component Container -->
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/deus-header-component.js"></script>
+    <script src="../assets/js/deus-footer-component.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Header
+            const headerContainer = document.getElementById("header-component");
+            if (headerContainer && window.DeusHeaderComponent) {
+                new window.DeusHeaderComponent(headerContainer).setDebug(false);
+            }
+
+            // Footer
+            const footerContainer = document.getElementById("footer-component");
+            if (footerContainer && window.DeusFooterComponent) {
+                new window.DeusFooterComponent(footerContainer).setDebug(false);
+            }
+        });
+    </script>
+</body>
+
+</html>

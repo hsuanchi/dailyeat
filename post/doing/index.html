@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <title>營養百科 - 您的專屬營養智庫，科學選擇，健康生活</title>
+    <meta
+      name="description"
+      content="由專業營養團隊打造的「營養百科」，提供專業、易懂的健康資訊，幫助您做出明智的健康選擇，輕鬆管理個人健康。"
+    />
+    <meta
+      name="keywords"
+      content="營養素百科, 專業營養師, 健康選擇, 保健食品, 營養知識, 健康管理, 維生素, 礦物質, 魚油, 鈣質, 維生素D"
+    />
+    
+    <!-- Open Graph for Social Media -->
+    <meta property="og:site_name" content="營養百科" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/pic/Nutrition Encyclopedia.png">
+    <link rel="shortcut icon" type="image/png" href="/pic/Nutrition Encyclopedia.png">
+    <!-- JSON-LD for Structured Data (WebSite) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "營養百科",
+      "alternateName": "營養百科",
+      "url": "https://life.maxlist.xyz/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://life.maxlist.xyz/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+        line-height: 1.6;
+        color: #2d3748;
+        background: #faf8f5;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #faf8f5 0%, #f7f4f0 100%);
+        padding: 140px 20px 100px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .hero-content {
+        z-index: 2;
+        position: relative;
+      }
+
+      .hero-title {
+        font-size: 3.5em;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 30px;
+        color: #2d3748;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-title .highlight {
+        color: #ff6b35;
+      }
+
+      .mobile-only {
+        display: none;
+      }
+
+      .desktop-only {
+        display: inline;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3em;
+        color: #718096;
+        margin-bottom: 40px;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+
+      /* Search Box */
+      .search-container {
+        background: white;
+        border-radius: 50px;
+        padding: 8px;
+        display: flex;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        margin-bottom: 30px;
+        max-width: 500px;
+      }
+
+      .search-input {
+        flex: 1;
+        border: none;
+        padding: 16px 24px;
+        font-size: 1.1em;
+        border-radius: 50px;
+        outline: none;
+        color: #2d3748;
+      }
+
+      .search-input::placeholder {
+        color: #a0aec0;
+      }
+
+      .search-btn {
+        background: #ff6b35;
+        color: white;
+        border: none;
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .search-btn:hover {
+        background: #e55a2b;
+        transform: translateY(-1px);
+      }
+
+      .trust-indicators {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        color: #718096;
+        font-size: 0.95em;
+      }
+
+      .trust-indicators span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* Hero Visual */
+      .hero-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: visible;
+      }
+
+      .main-plate {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: white;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(20px);
+      }
+
+      .plate-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      /* Floating Elements */
+      .floating-element {
+        position: absolute;
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-element.vitamin {
+        top: 25%;
+        right: 10%;
+        animation-delay: 0s;
+      }
+
+      .floating-element.mineral {
+        bottom: 25%;
+        right: 5%;
+        animation-delay: 2s;
+      }
+
+      .floating-element.omega {
+        top: 45%;
+        left: 5%;
+        animation-delay: 4s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .element-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: white;
+      }
+
+      .vitamin .element-icon {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .mineral .element-icon {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .omega .element-icon {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .element-text h4 {
+        font-size: 1.1em;
+        color: #2d3748;
+        margin-bottom: 4px;
+      }
+
+      .element-text p {
+        font-size: 0.9em;
+        color: #718096;
+      }
+
+      /* Stats Section */
+      .stats {
+        padding: 80px 20px;
+        background: white;
+      }
+
+      .stats-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 40px 20px;
+        border-radius: 20px;
+        background: #faf8f5;
+        transition: transform 0.3s ease;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .stat-number {
+        font-size: 3em;
+        font-weight: 800;
+        color: #ff6b35;
+        margin-bottom: 15px;
+      }
+
+      .stat-label {
+        font-size: 1.2em;
+        font-weight: 600;
+        color: #2d3748;
+        margin-bottom: 10px;
+      }
+
+      .stat-desc {
+        color: #718096;
+        line-height: 1.6;
+      }
+
+      /* Section Headers */
+      .section-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .section-title {
+        font-size: 2.8em;
+        font-weight: 800;
+        color: #2d3748;
+        margin-bottom: 20px;
+      }
+
+      .section-subtitle {
+        font-size: 1.2em;
+        color: #718096;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      /* Popular Nutrients */
+      .popular {
+        padding: 100px 20px;
+        background: #faf8f5;
+      }
+
+      .nutrients-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .nutrient-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .nutrient-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+      }
+
+      .nutrient-header {
+        background: linear-gradient(135deg, #ff6b35 0%, #ff8f65 100%);
+        color: white;
+        padding: 30px;
+        position: relative;
+      }
+
+      .nutrient-card:nth-child(2) .nutrient-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .nutrient-card:nth-child(3) .nutrient-header {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .nutrient-card:nth-child(4) .nutrient-header {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .nutrient-card:nth-child(5) .nutrient-header {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+
+      .nutrient-card:nth-child(6) .nutrient-header {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      }
+
+      .nutrient-title {
+        font-size: 1.6em;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .nutrient-desc {
+        opacity: 0.95;
+        line-height: 1.6;
+      }
+
+      .nutrient-content {
+        padding: 30px;
+      }
+
+      .nutrient-functions h4 {
+        color: #2d3748;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .function-list {
+        list-style: none;
+      }
+
+      .function-list li {
+        padding: 8px 0;
+        color: #4a5568;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .function-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #ff6b35;
+        font-weight: bold;
+      }
+
+      /* Categories Section */
+      .categories {
+        padding: 100px 20px;
+        background: white;
+      }
+
+      .category-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .category-card {
+        background: #faf8f5;
+        border-radius: 20px;
+        padding: 40px;
+        transition: all 0.3s ease;
+      }
+
+      .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .category-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #ff6b35 0%, #ff8f65 100%);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+      }
+
+      .category-card:nth-child(2) .category-icon {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .category-card:nth-child(3) .category-icon {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .category-title {
+        font-size: 1.6em;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 20px;
+      }
+
+      .category-desc {
+        color: #4a5568;
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+
+      .category-items h4 {
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 15px;
+      }
+
+      .category-items-list {
+        color: #4a5568;
+        line-height: 1.8;
+      }
+
+      /* Tools Section */
+      .tools {
+        padding: 100px 20px;
+        background: #faf8f5;
+      }
+
+      .tools-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .tool-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .tool-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+      }
+
+      .tool-icon {
+        font-size: 4em;
+        margin-bottom: 30px;
+        display: inline-block;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .tool-title {
+        font-size: 1.6em;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 20px;
+      }
+
+      .tool-desc {
+        color: #4a5568;
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+
+      .tool-features h4 {
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .tool-features-list {
+        list-style: none;
+        text-align: left;
+      }
+
+      .tool-features-list li {
+        padding: 8px 0;
+        color: #4a5568;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .tool-features-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #ff6b35;
+        font-weight: bold;
+      }
+
+      /* Health Topics Section (New Authoritative Design) */
+      #health-topics .topic-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+      }
+
+      .auth-topic-card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-top: 5px solid #2d3748; /* Strong top border for authority */
+        border-radius: 8px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .auth-topic-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(45, 55, 72, 0.1);
+      }
+
+      .auth-topic-header {
+        margin-bottom: 16px;
+      }
+
+      .auth-topic-category {
+        font-size: 0.85em;
+        font-weight: 700;
+        color: #718096;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .auth-topic-title {
+        font-size: 1.8em;
+        font-weight: 800;
+        color: #2d3748;
+        margin-top: 4px;
+      }
+
+      .auth-topic-desc {
+        color: #4a5568;
+        line-height: 1.7;
+        margin-bottom: 24px;
+        flex-grow: 1; /* Allows cards in a row to have same height */
+      }
+
+      .auth-topic-subtopics {
+        font-size: 0.9em;
+        margin-bottom: 24px;
+        background-color: #f8fafc;
+        padding: 15px;
+        border-radius: 6px;
+        border: 1px solid #f1f5f9;
+      }
+
+      .auth-topic-subtopics h4 {
+        font-weight: 700;
+        color: #4a5568;
+        margin: 0 0 10px 0;
+      }
+
+      .auth-topic-subtopics ul {
+        list-style-type: '- ';
+        padding-left: 1.2em;
+        color: #718096;
+      }
+      
+      .auth-topic-subtopics li {
+        margin-bottom: 4px;
+      }
+
+      .auth-topic-cta {
+        font-weight: 700;
+        color: #2d3748;
+        text-decoration: none;
+        align-self: flex-start; /* Align button to the left */
+        transition: color 0.2s ease, transform 0.2s;
+        display: inline-block;
+      }
+
+      .auth-topic-cta:hover {
+        color: #ff6b35; /* Use theme color for hover accent */
+        transform: translateX(4px);
+      }
+
+
+      /* Experts Section */
+      .experts {
+        padding: 100px 20px;
+        background: white;
+      }
+
+      .articles-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .article-card {
+        background: #faf8f5;
+        border-radius: 20px;
+        padding: 40px;
+        transition: all 0.3s ease;
+      }
+
+      .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .article-tag {
+        display: inline-block;
+        background: #ff6b35;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .article-title {
+        font-size: 1.4em;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+
+      .article-summary {
+        color: #4a5568;
+        line-height: 1.6;
+      }
+
+      .article-link {
+        display: inline-block;
+        margin-top: 20px;
+        color: #ff6b35;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .article-link:hover {
+        transform: translateX(5px);
+      }
+
+      /* Trust Section */
+      .trust {
+        padding: 100px 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .trust-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .trust-item {
+        text-align: center;
+        padding: 40px 30px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+
+      .trust-item:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .trust-icon {
+        font-size: 4em;
+        margin-bottom: 25px;
+        display: inline-block;
+      }
+
+      .trust-title {
+        font-size: 1.4em;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .trust-desc {
+        opacity: 0.9;
+        line-height: 1.6;
+      }
+
+      /* FAQ Section */
+      .faq {
+        padding: 100px 20px;
+        background: #faf8f5;
+      }
+
+      .faq-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background: white;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .faq-item:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .faq-question {
+        padding: 25px 30px;
+        font-size: 1.2em;
+        font-weight: 600;
+        color: #2d3748;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .faq-question::after {
+        content: "+";
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5em;
+        color: #ff6b35;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item.active .faq-question::after {
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      .faq-answer {
+        padding: 0 30px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item.active .faq-answer {
+        padding: 0 30px 25px;
+        max-height: 300px;
+      }
+
+      .faq-answer p {
+        color: #4a5568;
+        line-height: 1.6;
+      }
+
+      /* Disclaimer */
+      .disclaimer {
+        padding: 60px 20px;
+        background: #f1f1f1;
+        text-align: center;
+      }
+
+      .disclaimer-content {
+        max-width: 900px;
+        margin: 0 auto;
+        color: #4a5568;
+        line-height: 1.6;
+      }
+
+      .disclaimer h3 {
+        color: #2d3748;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+      }
+
+      /* Animation for scroll reveal */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero {
+          padding: 100px 15px 80px;
+        }
+
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .hero-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          order: 2;
+        }
+
+        .hero-visual {
+          order: 1;
+        }
+
+        .hero-title {
+          font-size: 2em;
+          line-height: 1.3;
+        }
+        
+        .mobile-only {
+          display: inline;
+        }
+        
+        .desktop-only {
+          display: none;
+        }
+        
+        .hero-title .highlight {
+          display: inline;
+          font-size: 1em;
+          margin: 0;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1em;
+          padding: 0 10px;
+          line-height: 1.7;
+        }
+
+        .search-container {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .trust-indicators {
+          display: none;
+        }
+
+        .main-plate {
+          width: 300px;
+          height: 300px;
+          transform: translateY(0);
+        }
+
+        .hero-visual {
+          position: relative;
+          margin: 20px auto;
+          width: 320px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .floating-element {
+          position: absolute;
+          padding: 8px;
+          gap: 6px;
+          transform: scale(0.6);
+        }
+
+        .floating-element.vitamin {
+          top: 5%;
+          right: 0;
+        }
+
+        .floating-element.mineral {
+          bottom: 15%;
+          right: 0;
+        }
+
+        .floating-element.omega {
+          top: 25%;
+          left: 0;
+        }
+
+        .element-icon {
+          width: 35px;
+          height: 35px;
+          font-size: 1.2em;
+        }
+
+        .element-text h4 {
+          font-size: 0.9em;
+        }
+
+        .element-text p {
+          font-size: 0.75em;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .nutrients-grid,
+        .category-grid,
+        .tools-grid,
+        .articles-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .trust-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Component Container -->
+    <div id="header-component"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="desktop-only">您的專屬<br /></span>
+            <span class="mobile-only">您的專屬<span class="highlight">營養智庫</span><br /></span>
+            <span class="desktop-only"><span class="highlight">營養智庫</span>：<br /></span>
+            科學選擇，健康生活
+          </h1>
+          <p class="hero-subtitle">
+            由專業醫療背景營養師團隊打造，提供最權威、最易懂的營養素資訊，助您做出明智的健康決策。
+          </p>
+
+          <div class="search-container">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="搜尋您想了解的營養素，例如：維生素D、鈣質、魚油、薑黃素..."
+              id="hero-search-input"
+            />
+            <button class="search-btn">搜尋</button>
+          </div>
+
+          <div class="trust-indicators">
+            <span>✓ 100% 專業審核</span>
+            <span>✓ 最新科學依據</span>
+            <span>✓ 值得信任</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="main-plate">
+            <img
+              src="assets/images/homepage_banner.jpeg"
+              alt="營養健康餐盤"
+              class="plate-image"
+            />
+          </div>
+
+          <div class="floating-element vitamin" style="cursor: pointer" onclick="window.location.href='post/vitamin-d.html'">
+            <div class="element-icon">D</div>
+            <div class="element-text">
+              <h4>維生素D</h4>
+              <p>陽光維生素</p>
+            </div>
+          </div>
+
+          <div
+            class="floating-element mineral"
+            style="cursor: pointer"
+            onclick="window.location.href='post/probiotics.html'"
+          >
+            <div class="element-icon">Pb</div>
+            <div class="element-text">
+              <h4>益生菌</h4>
+              <p>腸道健康</p>
+            </div>
+          </div>
+
+          <div
+            class="floating-element omega"
+            style="cursor: pointer"
+            onclick="window.location.href='post/fish-oil.html'"
+          >
+            <div class="element-icon">Ω3</div>
+            <div class="element-text">
+              <h4>魚油</h4>
+              <p>心血管保護</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="stats-container">
+        <div class="stats-grid">
+          <div class="stat-item fade-in">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">營養素</div>
+            <div class="stat-desc">完整、深入的營養素資訊</div>
+          </div>
+          <div class="stat-item fade-in">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">專業審核</div>
+            <div class="stat-desc">內容經醫療背景專家嚴格審核</div>
+          </div>
+          <div class="stat-item fade-in">
+            <div class="stat-number">最新</div>
+            <div class="stat-label">科學依據</div>
+            <div class="stat-desc">內容持續更新，確保時效性</div>
+          </div>
+          <div class="stat-item fade-in">
+            <div class="stat-number">值得</div>
+            <div class="stat-label">信任</div>
+            <div class="stat-desc">專業可靠，中立客觀的健康夥伴</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Nutrients -->
+    <section class="popular" id="nutrients">
+      <div class="section-header">
+        <h2 class="section-title">探索熱門營養素</h2>
+        <p class="section-subtitle">
+          最多人關注的營養素，了解它們的關鍵功能與正確攝取方式，開啟健康生活。
+        </p>
+      </div>
+
+      <div class="nutrients-grid">
+        <a href="post/fish-oil.html" class="nutrient-card fade-in" style="text-decoration: none; color: inherit;">
+          <div class="nutrient-header">
+            <h3 class="nutrient-title">魚油</h3>
+            <p class="nutrient-desc">
+              EPA、DHA、rTG怎麼選？營養師教你讀懂6大關鍵指標，買對不買貴，聰明守護心血管與大腦健康。
+            </p>
+          </div>
+          <div class="nutrient-content">
+            <div class="nutrient-functions">
+              <h4>主要功能</h4>
+              <ul class="function-list">
+                <li>心血管保護</li>
+                <li>大腦功能支持</li>
+                <li>抗發炎作用</li>
+              </ul>
+            </div>
+          </div>
+        </a>
+
+        <a href="post/calcium.html" class="nutrient-card fade-in" style="text-decoration: none; color: inherit;">
+          <div class="nutrient-header">
+            <h3 class="nutrient-title">鈣質</h3>
+            <p class="nutrient-desc">
+              不只補骨！更是終結抽筋、失眠的關鍵礦物質。營養師教你從4大來源中，挑對最適合你的鈣。
+            </p>
+          </div>
+          <div class="nutrient-content">
+            <div class="nutrient-functions">
+              <h4>主要功能</h4>
+              <ul class="function-list">
+                <li>維持骨骼健康</li>
+                <li>肌肉收縮功能</li>
+                <li>神經傳導</li>
+              </ul>
+            </div>
+          </div>
+        </a>
+
+        <a href="post/vitamin-d.html" class="nutrient-card fade-in" style="text-decoration: none; color: inherit;">
+          <div class="nutrient-header">
+            <h3 class="nutrient-title">維生素D</h3>
+            <p class="nutrient-desc">
+              你是那80%的缺乏者嗎？哈佛研究證實「陽光荷爾蒙」能降22%自體免疫風險，預防失智。
+            </p>
+          </div>
+          <div class="nutrient-content">
+            <div class="nutrient-functions">
+              <h4>主要功能</h4>
+              <ul class="function-list">
+                <li>促進鈣質吸收</li>
+                <li>維持骨骼健康</li>
+                <li>調節免疫功能</li>
+              </ul>
+            </div>
+          </div>
+        </a>
+
+        <a href="post/folic-acid.html" class="nutrient-card fade-in" style="text-decoration: none; color: inherit;">
+          <div class="nutrient-header" style="background: linear-gradient(135deg, #34d399 0%, #6ee7b7 100%);">
+            <h3 class="nutrient-title">葉酸</h3>
+            <p class="nutrient-desc">
+              不只孕婦必備！搞懂活性葉酸的秘密，為備孕、心血管健康做出最聰明的選擇。
+            </p>
+          </div>
+          <div class="nutrient-content">
+            <div class="nutrient-functions">
+              <h4>主要功能</h4>
+              <ul class="function-list">
+                <li>胎兒正常發育</li>
+                <li>預防心血管疾病</li>
+                <li>幫助紅血球形成</li>
+              </ul>
+            </div>
+          </div>
+        </a>
+
+        <a href="post/curcumin.html" class="nutrient-card fade-in" style="text-decoration: none; color: inherit;">
+          <div class="nutrient-header">
+            <h3 class="nutrient-title">薑黃素</h3>
+            <p class="nutrient-desc">
+              你吃的薑黃可能無效！營養師揭秘吸收率提高20倍的3大關鍵，教你選對配方，讓每一分錢都花在刀口上。
+            </p>
+          </div>
+          <div class="nutrient-content">
+            <div class="nutrient-functions">
+              <h4>主要功能</h4>
+              <ul class="function-list">
+                <li>強效抗發炎</li>
+                <li>抗氧化保護</li>
+                <li>肝臟與關節保健</li>
+              </ul>
+            </div>
+          </div>
+        </a>
+
+        <a href="post/coenzyme-q10.html" class="nutrient-card fade-in" style="text-decoration: none; color: inherit;">
+          <div class="nutrient-header">
+            <h3 class="nutrient-title">輔酶Q10</h3>
+            <p class="nutrient-desc">
+              不只強心！搞懂還原型/氧化型5大功效，逆轉疲勞。40歲後必備的能量火星塞，為心臟正確補充能量。
+            </p>
+          </div>
+          <div class="nutrient-content">
+            <div class="nutrient-functions">
+              <h4>主要功能</h4>
+              <ul class="function-list">
+                <li>細胞能量產生</li>
+                <li>心血管健康</li>
+                <li>強效抗氧化</li>
+              </ul>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+      <div class="section-header">
+        <h2 class="section-title">探索營養素分類</h2>
+        <p class="section-subtitle">
+          按照營養素類型瀏覽，快速找到您需要的資訊，深入了解不同營養素的奧秘。
+        </p>
+      </div>
+
+      <div class="category-grid">
+        <div class="category-card fade-in" style="cursor: pointer;" onclick="window.location.href='#vitamins'">
+          <div class="category-icon">🌟</div>
+          <h3 class="category-title">維生素類</h3>
+          <p class="category-desc">
+            人體必需的有機化合物，雖然需求量少，但對維持正常生理功能不可或缺。它們參與新陳代謝、免疫功能、神經系統等重要生理過程。
+          </p>
+          <div class="category-items">
+            <h4>包含營養素</h4>
+            <p class="category-items-list">
+              <a href="post/vitamin-a.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">維生素A</a>、<a href="post/vitamin-b.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">維生素B群</a>、<a href="post/folic-acid.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">葉酸 (B9)</a>、<a href="post/vitamin-c.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">維生素C</a>、<a href="post/vitamin-d.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">維生素D</a>、<a href="post/vitamin-e.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">維生素E</a>、<a href="post/vitamin-k.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">維生素K</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="category-card fade-in" style="cursor: pointer;" onclick="window.location.href='#minerals'">
+          <div class="category-icon">💎</div>
+          <h3 class="category-title">礦物質類</h3>
+          <p class="category-desc">
+            人體必需的無機元素，是構成骨骼、牙齒的重要成分，也參與各種生理功能。它們在維持骨骼健康、肌肉收縮、神經傳導等方面扮演關鍵角色。
+          </p>
+          <div class="category-items">
+            <h4>包含營養素</h4>
+            <p class="category-items-list">
+              <a href="post/calcium.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">鈣</a>、<a href="post/iron.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">鐵</a>、<a href="post/magnesium.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">鎂</a>、<a href="post/zinc.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">鋅</a>、<a href="post/potassium.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">鉀</a>、碘、硒、銅、錳
+            </p>
+          </div>
+        </div>
+
+        <div class="category-card fade-in" style="cursor: pointer;" onclick="window.location.href='#other-nutrients'">
+          <div class="category-icon">🌿</div>
+          <h3 class="category-title">其他營養素</h3>
+          <p class="category-desc">
+            包括脂肪酸、胺基酸、植物化合物等，對健康有重要影響的營養成分。它們提供抗氧化、抗發炎、維持腸道健康等多種保健功能。
+          </p>
+          <div class="category-items">
+            <h4>包含營養素</h4>
+            <p class="category-items-list">
+              <a href="post/lutein.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">葉黃素</a>、<a
+                href="post/fish-oil.html"
+                style="color: #ff6b35; text-decoration: none; font-weight: 600"
+                >魚油</a
+              >、<a href="post/probiotics.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">益生菌</a>、<a href="post/collagen.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">膠原蛋白</a>、<a href="post/coenzyme-q10.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">輔酶Q10</a>、<a href="post/curcumin.html" style="color: #ff6b35; text-decoration: none; font-weight: 600">薑黃素</a>、葡萄糖胺、軟骨素、花青素、大豆異黃酮、瑪卡
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools" id="tools">
+      <div class="section-header">
+        <h2 class="section-title">您的專屬健康工具</h2>
+        <p class="section-subtitle">
+          運用專業工具，獲得個人化的營養建議，讓健康管理更輕鬆。
+        </p>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-card fade-in">
+          <div class="tool-icon">📊</div>
+          <h3 class="tool-title">劑量計算器</h3>
+          <p class="tool-desc">
+            根據您的年齡、性別、健康狀況，計算個人化的營養素建議攝取量。
+          </p>
+          <div class="tool-features">
+            <h4>適用情況</h4>
+            <ul class="tool-features-list">
+              <li>了解個人需求</li>
+              <li>調整補充劑量</li>
+              <li>避免攝取過量</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-card fade-in">
+          <div class="tool-icon">🔍</div>
+          <h3 class="tool-title">交互作用檢查器</h3>
+          <p class="tool-desc">
+            檢查不同營養素之間或與藥物的交互作用，確保安全攝取。
+          </p>
+          <div class="tool-features">
+            <h4>適用情況</h4>
+            <ul class="tool-features-list">
+              <li>同時服用多種補充品</li>
+              <li>正在服用藥物</li>
+              <li>避免不良反應</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-card fade-in">
+          <div class="tool-icon">🎯</div>
+          <h3 class="tool-title">個人化推薦</h3>
+          <p class="tool-desc">
+            基於您的健康目標和生活型態，推薦最適合的營養素組合。
+          </p>
+          <div class="tool-features">
+            <h4>適用情況</h4>
+            <ul class="tool-features-list">
+              <li>健康目標導向</li>
+              <li>生活型態考量</li>
+              <li>預算規劃</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Health Topics Section (New Authoritative Design) -->
+    <section class="experts" id="health-topics">
+      <div class="section-header">
+        <h2 class="section-title">依健康主題探索</h2>
+        <p class="section-subtitle">
+          從心血管保健到免疫強化，找到您最關心的健康議題與對應的科學實證解方。
+        </p>
+      </div>
+      <div class="topic-grid" id="health-topics-grid">
+        <!-- Authoritative topic cards will be dynamically inserted here -->
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <div class="section-header">
+        <h2 class="section-title">常見問題</h2>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item fade-in">
+          <div class="faq-question">這個網站的資訊可靠嗎？</div>
+          <div class="faq-answer">
+            <p>
+              我們的內容由具有醫療背景的專業營養師審核，所有資訊都基於科學研究和權威機構的建議。
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">我可以直接按照網站建議服用營養品嗎？</div>
+          <div class="faq-answer">
+            <p>
+              本網站提供的是一般性資訊，建議您在開始任何營養補充計劃前，先諮詢醫療專業人員。
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">這些營養素真的有效嗎？</div>
+          <div class="faq-answer">
+            <p>
+              每種營養素的效果都有科學研究支持，但效果因人而異。重要的是要有合理的期望和正確的攝取方式。
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">如何知道我需要補充哪些營養素？</div>
+          <div class="faq-answer">
+            <p>
+              可以使用我們的個人化推薦工具，或者諮詢醫療專業人員進行血液檢查。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+      <div class="disclaimer-content">
+        <h3>免責聲明</h3>
+        <p>
+          本網站提供的資訊僅供教育目的，不應用於診斷、治療或預防疾病。使用任何營養補充品前，請先諮詢合格的醫療專業人員。個人的營養需求可能因年齡、性別、健康狀況和生活型態而有所不同。
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer Component Container -->
+    <div id="footer-component"></div>
+
+    <!-- Load Components -->
+    <script src="assets/js/deus-analytics-component.js"></script>
+    <script src="assets/js/deus-header-component.js"></script>
+    <script src="assets/js/deus-footer-component.js"></script>
+    <script src="assets/js/articles-data.js"></script>
+
+    <script>
+      // Dynamically render authoritative health topic cards
+      document.addEventListener("DOMContentLoaded", function () {
+        const topicsData = [
+          {
+            slug: '心血管健康',
+            title: '心血管健康',
+            description: '從根本機制解析動脈粥狀硬化、血管鈣化與高血壓，提供基於科學實證的營養素、飲食與生活方式全方位干預策略。',
+            subtopics: ['魚油 (Omega-3) 深度評測', '輔酶 Q10 與粒線體健康', '維生素 K2 與鈣化調節', '鎂與血壓控制'],
+            link: '/category/health-topics.html#topic-心血管健康'
+          },
+          {
+            slug: '免疫強化',
+            title: '免疫強化',
+            description: '面對環境中的威脅，建立強大的免疫防線至關重要。本主題深入探討支持免疫系統所需的關鍵營養素與生活方式。',
+            subtopics: ['維生素 C：抗氧化主力', '維生素 D：免疫調節劑', '鋅：激活免疫細胞', '益生菌與腸道免疫'],
+            link: '/category/health-topics.html#topic-免疫強化'
+          },
+          {
+            slug: '骨骼與牙齒健康',
+            title: '骨骼與牙齒健康',
+            description: '骨骼不僅是身體的支架，更是儲存礦物質的銀行。了解如何透過精準營養策略，建立並維持一生的骨骼健康。',
+            subtopics: ['鈣質：不只是補骨', '維生素 D：鈣質吸收的關鍵', '維生素 K：鈣質的領航員', '鎂與骨骼密度'],
+            link: '/category/health-topics.html#topic-骨骼與牙齒健康'
+          }
+        ];
+
+        const container = document.getElementById('health-topics-grid');
+        if (!container) return;
+
+        let cardsHTML = '';
+        topicsData.forEach(topic => {
+          const subtopicsHTML = topic.subtopics.map(sub => `<li>${sub}</li>`).join('');
+          
+          cardsHTML += `
+            <div class="auth-topic-card fade-in">
+              <div class="auth-topic-header">
+                <span class="auth-topic-category">Health Topic</span>
+                <h3 class="auth-topic-title">${topic.title}</h3>
+              </div>
+              <p class="auth-topic-desc">${topic.description}</p>
+              <div class="auth-topic-subtopics">
+                <h4>包含子項目：</h4>
+                <ul>
+                  ${subtopicsHTML}
+                </ul>
+              </div>
+              <a href="${topic.link}" class="auth-topic-cta">閱讀完整主題報告 &rarr;</a>
+            </div>
+          `;
+        });
+        
+        // Add a final card to link to all topics
+        cardsHTML += `
+            <div class="auth-topic-card fade-in" style="background-color: #f8fafc; justify-content: center; align-items: center; text-align: center; border-top-color: #ff6b35;">
+                <h3 class="auth-topic-title" style="font-size: 1.5em;">探索更多主題</h3>
+                <p class="auth-topic-desc" style="flex-grow: 0; margin-bottom: 24px;">查看所有依據科學實證分類的健康主題。</p>
+                <a href="/category/health-topics.html" class="auth-topic-cta" style="background: #ff6b35; color: white; padding: 12px 24px; border-radius: 8px;">查看所有主題</a>
+            </div>
+        `;
+
+        container.innerHTML = cardsHTML;
+        
+        // Re-initialize scroll-reveal observer for the new cards
+        const newCards = container.querySelectorAll('.fade-in');
+        newCards.forEach(card => observer.observe(card));
+      });
+    </script>
+    <script>
+      // Scroll reveal animation
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // FAQ functionality
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const item = question.parentElement;
+          item.classList.toggle("active");
+
+          // Close other FAQ items
+          document.querySelectorAll(".faq-item").forEach((otherItem) => {
+            if (otherItem !== item) {
+              otherItem.classList.remove("active");
+            }
+          });
+        });
+      });
+
+      // Search functionality
+      document.querySelector(".search-btn").addEventListener("click", () => {
+        const searchValue = document
+          .querySelector(".search-input")
+          .value.toLowerCase();
+        if (searchValue) {
+          console.log("搜尋：", searchValue);
+          // 如果搜尋魚油相關關鍵字，直接導向魚油文章
+          if (
+            searchValue.includes("魚油") ||
+            searchValue.includes("omega") ||
+            searchValue.includes("ω3") ||
+            searchValue.includes("epa") ||
+            searchValue.includes("dha")
+          ) {
+            window.location.href = "post/fish-oil.html";
+            return;
+          }
+          // Implement actual search functionality here
+          alert("搜尋功能開發中，您可以直接點擊相關營養素卡片了解更多！");
+        }
+      });
+
+      // Enter key search
+      document
+        .querySelector(".search-input")
+        .addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            document.querySelector(".search-btn").click();
+          }
+        });
+
+      // Add hover effect for clickable nutrient cards
+      document.addEventListener("DOMContentLoaded", function () {
+        const clickableCards = document.querySelectorAll(
+          ".nutrient-card[onclick], .floating-element[onclick], .article-card[onclick]"
+        );
+        clickableCards.forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-15px) scale(1.02)";
+            this.style.transition = "all 0.3s ease";
+          });
+          card.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(-10px) scale(1)";
+          });
+        });
+      });
+
+      // Smooth scroll for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Initialize Components
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Analytics Component
+        if (window.DeusAnalyticsComponent) {
+          const analytics = new window.DeusAnalyticsComponent()
+            .setDebug(false) // 正式環境設為 false
+            .setEnvironment('production');
+          console.log("✅ Analytics 組件初始化完成");
+        } else {
+          console.error("❌ Analytics 組件初始化失敗");
+        }
+
+        // Initialize Header Component
+        const headerContainer = document.getElementById("header-component");
+        if (headerContainer && window.DeusHeaderComponent) {
+          const header = new window.DeusHeaderComponent(headerContainer)
+            .setDebug(false)
+            .setTheme("default");
+          console.log("✅ Header 組件初始化完成");
+        } else {
+          console.error("❌ Header 組件初始化失敗");
+        }
+
+        // Initialize Footer Component
+        const footerContainer = document.getElementById("footer-component");
+        if (footerContainer && window.DeusFooterComponent) {
+          const footer = new window.DeusFooterComponent(footerContainer)
+            .setDebug(false)
+            .setTheme("default");
+          console.log("✅ Footer 組件初始化完成");
+        } else {
+          console.error("❌ Footer 組件初始化失敗");
+        }
+      });
+    </script>
+  </body>
+</html>
