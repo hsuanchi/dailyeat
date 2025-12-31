@@ -89,7 +89,7 @@
       }
       </script>
 
-    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="stylesheet" href="../../assets/css/article.css">
 </head>
 
 <body data-article-id="card-fish-oil-quality">
@@ -100,7 +100,7 @@
     <div id="header-component"></div>
 
     <!-- Article Container -->
-    <div class="article-container with-sidebar">
+    <div class="article-container">
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="toc">
@@ -120,30 +120,28 @@
 
         <!-- Main Content -->
         <main class="article-content">
-
-            <!-- Breadcrumb -->
-            <nav class="breadcrumb" aria-label="Breadcrumb">
-                <a href="../index.html">首頁</a>
-                <span class="separator">/</span>
-                <a href="../archive.html">營養百科</a>
-                <span class="separator">/</span>
-                <a href="./fish-oil.html">魚油 (Hub)</a>
-                <span class="separator">/</span>
-                <span>品質與濃度攻略</span>
-            </nav>
-
             <!-- Article Header -->
-            <header class="article-hero fish-oil-theme">
-                <span class="article-category">專家觀點</span>
-                <h1 class="article-title">30 秒識破低品質魚油！濃度計算、重金屬檢測與 IFOS 認證完全攻略</h1>
-                <div class="article-subtitle">
-                    別再相信包裝上大大的「1000mg」！<br>
-                    那可能是魚油的總重，而不是真正有效的 Omega-3 含量。
-                </div>
-                <div class="article-meta">
-                    <span><i class="fas fa-calendar-alt"></i> 更新日期：2025-12-29</span>
-                    <span><i class="fas fa-user-md"></i> 審閱者：陳營養師</span>
-                    <span><i class="fas fa-clock"></i> 閱讀時間：8 分鐘</span>
+            <header class="article-header">
+                <div class="article-hero fish-oil-theme">
+                    <!-- Breadcrumb -->
+                    <nav class="breadcrumb" aria-label="Breadcrumb">
+                        <a href="../../index.html">首頁</a>
+                        <span class="separator">/</span>
+                        <a href="../../post/fish-oil.html">魚油 (Hub)</a>
+                        <span class="separator">/</span>
+                        <span>品質與濃度攻略</span>
+                    </nav>
+                    <span class="article-category">專家觀點</span>
+                    <h1 class="article-title">30 秒識破低品質魚油！濃度計算、重金屬檢測與 IFOS 認證完全攻略</h1>
+                    <div class="article-subtitle">
+                        別再相信包裝上大大的「1000mg」！<br>
+                        那可能是魚油的總重，而不是真正有效的 Omega-3 含量。
+                    </div>
+                    <div class="article-meta">
+                        <span><i class="fas fa-calendar-alt"></i> 更新日期：2025-12-29</span>
+                        <span>審閱者：陳營養師</span>
+                        <span>閱讀時間：8 分鐘</span>
+                    </div>
                 </div>
             </header>
 
@@ -293,20 +291,71 @@
     </div>
 
     <!-- Disclaimer Section (Full Width) -->
-    <div class="disclaimer">
+    <section class="disclaimer">
         <div class="disclaimer-content">
             <h3>免責聲明</h3>
             <p>本文提供的資訊僅供衛教參考，不能取代專業醫療建議、診斷或治療。如果您有任何健康問題或正在服用藥物，請務必諮詢您的醫師或專業醫療人員。</p>
         </div>
-    </div>
+    </section>
 
     <!-- Footer Component Container -->
     <div id="footer-component"></div>
 
     <!-- JavaScript Libraries -->
-    <script src="../assets/js/articles-data.js"></script>
-    <script src="../assets/js/layout.js"></script>
-    <script src="../assets/js/article-fish-oil.js"></script>
+    <script src="../../assets/js/deus-analytics-component.js"></script>
+    <script src="../../assets/js/deus-header-component.js"></script>
+    <script src="../../assets/js/deus-footer-component.js"></script>
+    <script src="../../assets/js/articles-data.js"></script>
+    <script src="../../assets/js/related-articles-component.js"></script>
+    <script src="../../assets/js/responsive-toc-component.js"></script>
+
+    <script>
+        // Progress Bar
+        function updateProgressBar() {
+            const scrollPosition = window.scrollY;
+            const documentHeight =
+                document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercentage = (scrollPosition / documentHeight) * 100;
+            const progressBar = document.getElementById("progressBar");
+            if (progressBar) {
+                progressBar.style.width = scrollPercentage + "%";
+            }
+        }
+
+        window.addEventListener("scroll", updateProgressBar);
+
+        // Initialize Components
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize Analytics Component
+            if (window.DeusAnalyticsComponent) {
+                new window.DeusAnalyticsComponent().setDebug(false).setEnvironment("production");
+            }
+
+            // Initialize Header Component
+            const headerContainer = document.getElementById("header-component");
+            if (headerContainer && window.DeusHeaderComponent) {
+                new window.DeusHeaderComponent(headerContainer).setDebug(false);
+            }
+
+            // Initialize Footer Component
+            const footerContainer = document.getElementById("footer-component");
+            if (footerContainer && window.DeusFooterComponent) {
+                new window.DeusFooterComponent(footerContainer).setDebug(false);
+            }
+
+            // Init Related Articles
+            const relatedContainer = document.getElementById("related-articles-container");
+            const articleId = document.body.dataset.articleId;
+            if (relatedContainer && articleId && window.RelatedArticlesComponent && typeof articlesData !== 'undefined' && typeof topicArticles !== 'undefined') {
+                new window.RelatedArticlesComponent(relatedContainer, articleId, articlesData, topicArticles).initialize();
+            }
+
+            // Init TOC
+            if (window.ResponsiveTocComponent) {
+                new window.ResponsiveTocComponent().initialize();
+            }
+        });
+    </script>
 </body>
 
 </html>

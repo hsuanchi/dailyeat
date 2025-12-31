@@ -14,7 +14,7 @@
     <!-- Open Graph -->
     <meta property="og:site_name" content="營養百科" />
 
-    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="stylesheet" href="../../assets/css/article.css">
 </head>
 
 <body data-article-id="fish-oil-faq">
@@ -25,7 +25,7 @@
     <div id="header-component"></div>
 
     <!-- Article Container -->
-    <div class="article-container with-sidebar">
+    <div class="article-container">
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="toc">
@@ -48,9 +48,9 @@
             <header class="article-header">
                 <div class="article-hero fish-oil-theme">
                     <nav class="breadcrumb">
-                        <a href="../index.html">首頁</a>
+                        <a href="../../index.html">首頁</a>
                         <span class="separator">/</span>
-                        <a href="./fish-oil.html">魚油指引</a>
+                        <a href="../../post/fish-oil.html">魚油指引</a>
                         <span class="separator">/</span>
                         <span>常見問題 FAQ</span>
                     </nav>
@@ -231,13 +231,60 @@
     <div id="footer-component"></div>
 
     <!-- Scripts -->
-    <script src="../assets/js/deus-analytics-component.js"></script>
-    <script src="../assets/js/deus-header-component.js"></script>
-    <script src="../assets/js/deus-footer-component.js"></script>
-    <script src="../assets/js/articles-data.js"></script>
-    <script src="../assets/js/related-articles-component.js"></script>
-    <script src="../assets/js/responsive-toc-component.js"></script>
-    <script src="../assets/js/article-fish-oil.js"></script>
+    <script src="../../assets/js/deus-analytics-component.js"></script>
+    <script src="../../assets/js/deus-header-component.js"></script>
+    <script src="../../assets/js/deus-footer-component.js"></script>
+    <script src="../../assets/js/articles-data.js"></script>
+    <script src="../../assets/js/related-articles-component.js"></script>
+    <script src="../../assets/js/responsive-toc-component.js"></script>
+
+    <script>
+        // Progress Bar
+        function updateProgressBar() {
+            const scrollPosition = window.scrollY;
+            const documentHeight =
+                document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercentage = (scrollPosition / documentHeight) * 100;
+            const progressBar = document.getElementById("progressBar");
+            if (progressBar) {
+                progressBar.style.width = scrollPercentage + "%";
+            }
+        }
+
+        window.addEventListener("scroll", updateProgressBar);
+
+        // Initialize Components
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize Analytics Component
+            if (window.DeusAnalyticsComponent) {
+                new window.DeusAnalyticsComponent().setDebug(false).setEnvironment("production");
+            }
+
+            // Initialize Header Component
+            const headerContainer = document.getElementById("header-component");
+            if (headerContainer && window.DeusHeaderComponent) {
+                new window.DeusHeaderComponent(headerContainer).setDebug(false);
+            }
+
+            // Initialize Footer Component
+            const footerContainer = document.getElementById("footer-component");
+            if (footerContainer && window.DeusFooterComponent) {
+                new window.DeusFooterComponent(footerContainer).setDebug(false);
+            }
+
+            // Init Related Articles
+            const relatedContainer = document.getElementById("related-articles-container");
+            const articleId = document.body.dataset.articleId;
+            if (relatedContainer && articleId && window.RelatedArticlesComponent && typeof articlesData !== 'undefined' && typeof topicArticles !== 'undefined') {
+                new window.RelatedArticlesComponent(relatedContainer, articleId, articlesData, topicArticles).initialize();
+            }
+
+            // Init TOC
+            if (window.ResponsiveTocComponent) {
+                new window.ResponsiveTocComponent().initialize();
+            }
+        });
+    </script>
 </body>
 
 </html>

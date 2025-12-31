@@ -80,7 +80,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="../assets/css/article.css">
+  <link rel="stylesheet" href="../../assets/css/article.css">
   <style>
     /* Calculator Specific Styles */
     .calculator-section {
@@ -206,27 +206,26 @@
     </aside>
 
     <main class="article-content">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">首頁</a>
-        <span class="separator">/</span>
-        <a href="../archive.html">營養百科</a>
-        <span class="separator">/</span>
-        <a href="./fish-oil.html">魚油 (Hub)</a>
-        <span class="separator">/</span>
-        <span>魚油市場評測</span>
-      </nav>
-
-      <header class="article-hero fish-oil-theme">
-        <span class="article-category">精明消費</span>
-        <h1 class="article-title">魚油市場真相：一罐300元跟3000元的差別在哪？真實成本計算機幫你算</h1>
-        <div class="article-subtitle">
-          為什麼有些魚油這麼便宜？魔鬼藏在「濃度」與「吸收率」裡。<br>
-          別再只看「售價」，學會計算「每毫克有效成本」，才不會買到一肚子廢油。
-        </div>
-        <div class="article-meta">
-          <span><i class="fas fa-calendar-alt"></i> 更新日期：2025-12-30</span>
-          <span><i class="fas fa-calculator"></i> 工具提供：營養百科研發組</span>
-          <span><i class="fas fa-clock"></i> 閱讀時間：8 分鐘</span>
+      <header class="article-header">
+        <div class="article-hero fish-oil-theme">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">首頁</a>
+            <span class="separator">/</span>
+            <a href="../../post/fish-oil.html">魚油 (Hub)</a>
+            <span class="separator">/</span>
+            <span>魚油市場評測</span>
+          </nav>
+          <span class="article-category">精明消費</span>
+          <h1 class="article-title">魚油市場真相：一罐300元跟3000元的差別在哪？真實成本計算機幫你算</h1>
+          <div class="article-subtitle">
+            為什麼有些魚油這麼便宜？魔鬼藏在「濃度」與「吸收率」裡。<br>
+            別再只看「售價」，學會計算「每毫克有效成本」，才不會買到一肚子廢油。
+          </div>
+          <div class="article-meta">
+            <span><i class="fas fa-calendar-alt"></i> 更新日期：2025-12-30</span>
+            <span>審閱者：陳營養師</span>
+            <span>閱讀時間：8 分鐘</span>
+          </div>
         </div>
       </header>
 
@@ -393,25 +392,27 @@
   </div>
 
   <!-- Disclaimer Section (Full Width) -->
-  <div class="disclaimer">
+  <section class="disclaimer">
     <div class="disclaimer-content">
       <h3>免責聲明</h3>
       <p>本頁面的計算機僅供價格試算參考，實際價格可能因通路折扣而異。所有健康建議請諮詢專業醫師。</p>
     </div>
-  </div>
+  </section>
 
   <div id="footer-component"></div>
 
-  <script src="../assets/js/articles-data.js"></script>
-  <script src="../assets/js/layout.js"></script>
-  <script src="../assets/js/article-fish-oil.js"></script>
-  <script src="../assets/js/related-articles-component.js"></script>
-  <script src="../assets/js/responsive-toc-component.js"></script>
+  <script src="../../assets/js/deus-analytics-component.js"></script>
+  <script src="../../assets/js/deus-header-component.js"></script>
+  <script src="../../assets/js/deus-footer-component.js"></script>
+  <script src="../../assets/js/articles-data.js"></script>
+  <script src="../../assets/js/related-articles-component.js"></script>
+  <script src="../../assets/js/responsive-toc-component.js"></script>
 
   <script>
     // Rule 5: All functionalities encapsulated in class and wrapped in IIFE
     (function () {
       class FishOilCalculator {
+        // ... (constructor and methods remain same)
         constructor() {
           this.btn = document.getElementById('btnCalculate');
           this.inputPrice = document.getElementById('inputPrice');
@@ -440,11 +441,6 @@
             return;
           }
 
-          // Logic:
-          // Total Omega3 in bottle (mg) = pills * omega3
-          // Price per mg = price / (pills * omega3)
-          // Cost for 1000mg = Price per mg * 1000
-
           const totalOmega3 = pills * omega3;
           const costPerMg = price / totalOmega3;
           const dailyCost = costPerMg * 1000;
@@ -452,7 +448,6 @@
           this.resultDisplay.style.display = 'block';
           this.resCost.innerText = `NT$ ${dailyCost.toFixed(1)}`; // Round to 1 decimal
 
-          // Provide some feedback
           if (dailyCost < 20) {
             this.resComment.innerText = "🎉 價格非常低廉！但請再次確認是否為低濃度(30%)產品？";
             this.resComment.style.color = "#d97706";
@@ -466,8 +461,39 @@
         }
       }
 
+      // Progress Bar
+      function updateProgressBar() {
+        const scrollPosition = window.scrollY;
+        const documentHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = (scrollPosition / documentHeight) * 100;
+        const progressBar = document.getElementById("progressBar");
+        if (progressBar) {
+          progressBar.style.width = scrollPercentage + "%";
+        }
+      }
+
+      window.addEventListener("scroll", updateProgressBar);
+
       // Initialize when DOM is ready
       document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Analytics Component
+        if (window.DeusAnalyticsComponent) {
+          new window.DeusAnalyticsComponent().setDebug(false).setEnvironment("production");
+        }
+
+        // Initialize Header Component
+        const headerContainer = document.getElementById("header-component");
+        if (headerContainer && window.DeusHeaderComponent) {
+          new window.DeusHeaderComponent(headerContainer).setDebug(false);
+        }
+
+        // Initialize Footer Component
+        const footerContainer = document.getElementById("footer-component");
+        if (footerContainer && window.DeusFooterComponent) {
+          new window.DeusFooterComponent(footerContainer).setDebug(false);
+        }
+
         new FishOilCalculator();
 
         // Init Related Articles
