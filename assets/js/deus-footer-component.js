@@ -17,11 +17,11 @@
       this._config = {
         debug: false,
         theme: "default",
-        companyName: "營養百科",
+        companyName: "Dailyeat 營養百科",
         companyDescription:
           "專業營養團隊打造的營養素百科，提供專業、易懂的健康資訊",
-        copyright: "© 2025 營養百科 版權所有",
-        email: "contact@nutrition-wiki.com",
+        copyright: "© 2025 Dailyeat 營養百科 版權所有",
+        email: "contact@dailyeat.tw",
         phone: "0800-123-456",
         socialLinks: {
           facebook: "https://www.facebook.com/people/%E7%87%9F%E9%A4%8A%E7%99%BE%E7%A7%91/61580668362044/",
@@ -275,13 +275,13 @@
 
                         <!-- Topic Navigation -->
                         <div class="footer-section">
-                            <h3>主題導覽</h3>
+                            <h3>魚油專題 (New!)</h3>
                             <ul class="footer-links">
-                                <li><a href="/post/topic-cardiovascular-health.html">心血管健康</a></li>
-                                <li><a href="/post/topic-immune-boosting-nutrients.html">免疫強化</a></li>
-                                <li><a href="/post/lutein.html">視力維護</a></li>
-                                <li><a href="/post/glucosamine.html">關節與軟骨</a></li>
-                                <li><a href="/post/probiotics.html">腸道菌群平衡</a></li>
+                                <li><a href="/post/fish-oil-hubpage.html">魚油知識首頁 (Hub)</a></li>
+                                <li><a href="/post/fish-oil.html">基礎保養指南 (Core)</a></li>
+                                <li><a href="/post/doing/fish-oil-market-analysis.html">市售產品評測 (Review)</a></li>
+                                <li><a href="/post/doing/fish-oil-tools.html">挑選計算機 (Tools)</a></li>
+                                <li><a href="/post/doing/fish-oil-groups.html">分眾選購指南</a></li>
                             </ul>
                         </div>
 

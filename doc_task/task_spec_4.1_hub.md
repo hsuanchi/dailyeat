@@ -1,44 +1,49 @@
-# 任務名稱：Hub Page (Command Center) 實作與優化
+# 任務名稱：Hub Page (Command Center) 實作與優化 - V3 原子化規格書
 
-**狀態**: `規劃中`
+**狀態**: 規劃確認中
 **負責人**: @Antigravity
-**來源**: `task_fish-oil-content-matrix.md` Section 4.1
+**戰略目標**: 將此頁面打造為「流量轉運站」，透過原子化的功能組件，將模糊的搜尋意圖轉化為精準的深度閱讀點擊。
 
 ---
 
-## 1. 任務目標 (Objective)
-建立「魚油專題首頁 (Hub)」作為知識指揮中心，透過視覺化導引與互動測驗，在 3 秒內完成用戶定向與分流。
+## 1. 原子組件規格 (Atomic Component Specs)
 
-## 2. 檔案資訊
-- **目標檔案**: `post/fish-oil-hubpage.html`
-- **版型架構**: 必須使用 `post/fish-oil.html` 的標準結構 (Header, Progress Bar, Article Container)。
-- **樣式依賴**: 
-  1. Primary: `assets/css/article.css` (Layout & Shell)
-  2. Secondary: `assets/css/editorial.css` (Font & Content Typography)
+### A1. Hero Section (正面權威引導 - 純文字版)
+- [x] **Layout**: 移除圖片，採用置中、精簡的純文字排版，減少視覺干擾。
+- [x] **視覺標語 (H1)**: 「2025 完整魚油解析：掌握 Omega-3 的科學關鍵，為健康做出聰明選擇。」
+- [x] **副標題**: 「整理市場規格與科學指標，透過導覽與工具，助你快速找到最符合需求的補充方案。」
+- [x] **Trust Badge**: 維持現有的「醫學審核通過」權威標章。
 
-## 3. 內容規格 (Content Specs)
+### Component A2: Topic Index Grid (精選專題路徑)
+- [x] **Core**: `post/fish-oil.html` (Omega-3 基礎知識)
+- [x] **Market**: `post/doing/fish-oil-market-analysis.html` (市售評比)
+- [x] **Structure**: `post/doing/fish-oil-structure.html` (rTG 深度解析)
+- [x] **Sources**: `post/doing/fish-oil-sources.html` (來源與產地)
+- [x] **Quality**: `post/doing/fish-oil-quality.html` (檢驗與認證)
+- [x] **FAQ**: `post/doing/fish-oil-faq.html` (常見問題)
 
-### A1. Hero Section (視覺聲明)
-- [ ] **大標題**: 「魚油怎麼選？別再看無效的罐頭文章。」
-- [ ] **副標題**: 「3 分鐘測驗，找到真正適合你的 Omega-3 方案。」
-- [ ] **Trust Badge**: 顯示「2025 醫學審核通過」徽章 (需設計 SVG 或圖片)。
+### Component A3: Dosage Calculator (動態決策工具)
+- [x] **Input (輸入)**: 體重 + 改善目標
+- [x] **Logic (運算)**: 體重 * 變數 (30~40)
+- [x] **Output (產出)**: 顯示建議劑量 + 動態引導連結 (CTA)
 
-### A2. 智慧測驗入口 (Interactive Quiz)
-- [ ] **功能**: 一個顯眼的 CTA 區塊或嵌入式 Widget。
-- [ ] **文案**: 「不知道從何下手？ ➜ 30秒找到你的命定魚油」。
-- [ ] **行為**: 點擊後開啟 Modal 或跳轉至 `tools.html` 的測驗錨點。
+### Component A4: Topic Filter (智慧篩選器)
+**目的 (Purpose)**: 
+解決「資訊過載」問題。讓使用者只看自己感興趣的重點，並提供通往深度內容的捷徑。
+**功能 (Function)**:
+*   **Filter UI**: 一組 Pill 形狀的 Checkbox (如：🔍 視力保健、🧠 腦力與專注、❤️ 循環健康)。
+*   **Content Display**: 
+    *   預設隱藏所有摘要卡片。
+    *   點擊 Filter 後，動態展開對應的「精華摘要卡片 (Summary Card)」。
+*   **Conversion (轉化)**: 
+    *   摘要卡片底部必須包含「Strong CTA」，例如：「[閱讀完整的視力保健魚油評測]」，連結至 Market Review 頁面。
 
-### A3. 情境分流網格 (Scenario Grid)
-- [ ] **孕婦卡片**: 文案「我需要高 DHA 且無重金屬」 -> 連結至 `post/doing/fish-oil-groups.html#pregnant`
-- [ ] **考生/上班族卡片**: 文案「我需要思緒清晰」 -> 連結至 `post/doing/fish-oil-groups.html#student`
-- [ ] **銀髮/三高卡片**: 文案「我需要高濃度 EPA 且無抗凝血風險」 -> 連結至 `post/fish-oil-senior.html`
+---
 
-### A4. 決策工具預覽 (Tools Tease)
-- [ ] **視覺**: 劑量計算機的 UI 截圖或簡化版圖示。
-- [ ] **文案**: 「體重 60kg 每天該吃幾顆？用算的才準。」
-- [ ] **連結**: 導向 `post/doing/fish-oil-tools.html`
+## 2. 交互與數據追蹤 (Interaction & Analytics)
 
-## 4. 驗收標準
-- [ ] Hero 區域視覺強烈，Trust Badge 清晰可見。
-- [ ] 所有卡片連結正確對應到子頁面 (即使子頁面尚在開發中)。
-- [ ] RWD 手機版顯示正常 (單欄堆疊)。
+*   **Click Tracking**: 所有的 CTA 按鈕 (A3 結果按鈕、A4 摘要連結) 需預留 `data-event-category="HubConversion"` 屬性，以便未來埋設 GA4 事件。
+*   **Performance**: 工具組件 (A3, A4) 需使用 Vanilla JS 撰寫，避免引入重型框架，確保 Lighthouse 效能分數 > 95。
+
+## 3. 下一步行動
+確認此細部規格無誤後，將依序實作 A3 (Calculator) 與 A4 (Filter) 組件。

@@ -21,7 +21,7 @@
 - [x] **Refactoring**: Extracted all code examples to `doc/ui-components-library.md` and linked them in `doc/writing-guide.md`.
 - [x] **API Documentation Extraction**
     - [x] Extract "File 1: API Documentation" to `doc/api-reference.md`.
-    - [x] Rename "Caregiver" to "Dailyeat" in the extracted content.
+    - [x] Rename "Dailyeat" to "Dailyeat" in the extracted content.
     - [x] Update `doc/writing-guide.md` implementation to link to the new file.
 - [x] **Global Refactoring & Standardization**
     - [x] Rename sections to "Part 1, 2, 3" structure.

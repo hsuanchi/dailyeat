@@ -49,7 +49,7 @@
          */
         loadState() {
             try {
-                const saved = localStorage.getItem('caregiver_fishoil_calc_state');
+                const saved = localStorage.getItem('dailyeat_fishoil_calc_state');
                 if (saved) {
                     const state = JSON.parse(saved);
                     if (state.price) this.inputPrice.value = state.price;
@@ -79,7 +79,7 @@
                     omega3PerServing: this.inputOmega3.value,
                     form: this.inputForm.value
                 };
-                localStorage.setItem('caregiver_fishoil_calc_state', JSON.stringify(state));
+                localStorage.setItem('dailyeat_fishoil_calc_state', JSON.stringify(state));
                 this.log('debug', 'State saved to localStorage');
             } catch (e) {
                 this.log('error', 'Failed to save state: ' + e.message);

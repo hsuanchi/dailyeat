@@ -45,7 +45,8 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #faf8f5 0%, #f7f4f0 100%);
-            padding: 140px 20px 80px;
+            padding: 140px 20px 40px;
+            /* Reduced bottom padding */
             position: relative;
             overflow: hidden;
         }
@@ -61,7 +62,9 @@
 
         @media(min-width: 768px) {
             .hero-container {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
+                text-align: center;
+                max-width: 800px;
             }
         }
 
@@ -99,7 +102,8 @@
         /* Section Headers */
         .section-header {
             text-align: center;
-            margin: 80px 0 40px;
+            margin: 20px 0 40px;
+            /* Reduced top margin */
         }
 
         .section-title {
@@ -227,8 +231,10 @@
 
         /* Tools Section (Tease) */
         .tools-section {
-            background: #fff;
-            padding: 80px 20px;
+            background: #faf8f5;
+            /* Match body background */
+            padding: 40px 20px;
+            /* Reduced padding */
             text-align: center;
         }
 
@@ -286,127 +292,117 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-container">
-                <div>
-                    <span
-                        style="color:#ff6b35; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; display:block;">2025
-                        Special Edition</span>
-                    <h1 class="hero-title">魚油專題報導<br>The Omega-3 Journal</h1>
-                    <p class="hero-subtitle">
-                        不只是補充品，而是身體抗發炎的關鍵策略。我們整合了最新的科學研究，為您拆解從選購到服用的每一個細節。
-                    </p>
-                    <a href="#paths" class="hero-btn">開始探索</a>
-                </div>
-                <div style="position: relative; display: flex; justify-content: center;">
-                    <!-- Abstract Circle Visual -->
-                    <div
-                        style="width: 350px; height: 350px; background:white; border-radius:50%; overflow:hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:center;">
-                        <img src="https://images.unsplash.com/photo-1544367563-12123d832d30?q=80&w=600&auto=format&fit=crop"
-                            alt="Deep Sea" style="width:100%; height:100%; object-fit:cover;">
+
+                <div style="text-align: center;">
+                    <div style="
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 10px;
+                        background: #FFFFFF;
+                        color: #0F2C28;
+                        padding: 8px 16px;
+                        border-radius: 9999px;
+                        font-family: 'Noto Sans TC', sans-serif;
+                        font-size: 0.8em;
+                        font-weight: 600;
+                        letter-spacing: 0.05em;
+                        margin-bottom: 30px;
+                        box-shadow: 0 4px 12px rgba(15, 44, 40, 0.08);
+                        border: 1px solid rgba(198, 168, 124, 0.3);
+                    ">
+                        <span style="color: #C6A87C; font-size: 1.1em;">★</span>
+                        <span>2025 醫學審核通過</span>
                     </div>
+                    <h1 class="hero-title" style="font-size: 2.8em; margin-bottom: 24px;">2025 完整魚油解析：<br><span
+                            style="font-size:0.6em; color:#718096; font-weight:400; display:block; margin-top:10px; line-height: 1.5;">掌握
+                            Omega-3 的科學關鍵，<br>為健康做出聰明選擇。</span></h1>
+                    <p class="hero-subtitle"
+                        style="margin: 0 auto 40px; max-width: 600px; font-size: 1.1em; line-height: 1.8;">
+                        整理市場規格與科學指標，透過導覽與工具，助你快速找到最符合需求的補充方案。
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Deep Dive Feature -->
-        <div class="grid-container">
-            <a href="./fish-oil-structure.html" class="feature-card wide-feature">
-                <div style="padding: 20px;">
-                    <span class="card-tag accent">Deep Dive 技術解析</span>
-                    <h2 class="card-title">為什麼我們堅持 rTG 型態？</h2>
-                    <p class="card-desc">
-                        在魚油的演化史中，rTG 型態代表了科學與自然的完美回歸。它不僅擁有酯化型 (EE) 的高濃度，更還原了天然三酸甘油脂 (TG) 的分子結構，吸收率提升 200%。
-                    </p>
-                    <div class="card-meta" style="color: #fc8181;">
-                        <span>閱讀完整報告 <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </div>
-                <div>
-                    <img src="https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=800&auto=format&fit=crop"
-                        class="wide-img" alt="Omega-3 Molecular Structure">
-                </div>
-            </a>
-        </div>
 
-        <!-- Curated Paths (Bento Grid) -->
-        <div id="paths" class="section-header">
-            <h2 class="section-title">精選專題路徑</h2>
-            <p class="section-desc">針對不同的人生階段與需求，我們規劃了專屬的閱讀地圖。</p>
-        </div>
 
-        <div class="grid-container">
-            <!-- Pack 1: General -->
+        <div id="paths" class="grid-container">
+            <!-- 1. Core -->
             <a href="./fish-oil.html" class="feature-card">
-                <span class="card-tag">Guide 01: 基礎</span>
-                <h3 class="card-title">每日保養指南</h3>
-                <p class="card-desc">適合大多數人的完整入門。從濃度計算到抗發炎機制，一次搞懂如何讓魚油成為您的健康資產。</p>
-                <div class="card-meta">15 min read</div>
-            </a>
-
-            <!-- Pack 2: Groups -->
-            <a href="./fish-oil-groups.html" class="feature-card">
-                <span class="card-tag green">Guide 02: 分眾</span>
-                <h3 class="card-title">孕婦與全齡族群</h3>
-                <p class="card-desc">DHA 對寶寶大腦發育至關重要。我們同時探討了兒童、學生與素食者的藻油替代方案。</p>
-                <div class="card-meta">12 min read</div>
-            </a>
-
-            <!-- Pack 3: Senior -->
-            <a href="./fish-oil-senior.html" class="feature-card">
-                <span class="card-tag accent">Guide 03: 銀髮</span>
-                <h3 class="card-title">心血管與藥物交互</h3>
-                <p class="card-desc">當魚油遇上三高藥物，該如何安全服用？銀髮族的吞嚥困難又有什麼解決方案？</p>
-                <div class="card-meta">10 min read</div>
-            </a>
-
-            <!-- Pack 4: Reviews -->
-            <div class="feature-card" style="padding: 0; display: block; background: #fff;">
-                <div style="padding: 40px 40px 20px;">
-                    <span class="card-tag">Reviews 評測</span>
-                    <h3 class="card-title">編輯嚴選榜單</h3>
+                <span class="card-tag">基礎入門</span>
+                <h3 class="card-title">Omega-3 總論</h3>
+                <p class="card-desc">什麼是 Omega-3？EPA 與 DHA 有何不同？從零開始認識魚油的健康價值。</p>
+                <div class="card-meta">
+                    <i class="fas fa-book-open"></i> 完整指南
                 </div>
-                <div class="review-list">
-                    <a href="./fish-oil-market-analysis.html" class="review-item"
-                        style="text-decoration:none; color:inherit;">
-                        <span class="review-rank">01</span>
-                        <div style="flex:1">
-                            <strong>頂規醫療級高濃度</strong>
-                            <div style="font-size:0.85em; color:#718096;">94% Omega-3</div>
-                        </div>
-                        <i class="fas fa-chevron-right" style="color:#cbd5e0"></i>
-                    </a>
-                    <a href="./fish-oil-market-analysis.html" class="review-item"
-                        style="text-decoration:none; color:inherit;">
-                        <span class="review-rank">02</span>
-                        <div style="flex:1">
-                            <strong>Costco 高 CP 值款</strong>
-                            <div style="font-size:0.85em; color:#718096;">適合長期補充</div>
-                        </div>
-                        <i class="fas fa-chevron-right" style="color:#cbd5e0"></i>
-                    </a>
-                    <a href="./fish-oil-market-analysis.html" class="review-item"
-                        style="text-decoration:none; color:inherit; border-bottom:none;">
-                        <div style="text-align:center; width:100%; color:#ff6b35; font-weight:600;">看完整 10 款評測</div>
-                    </a>
+            </a>
+
+            <!-- 2. Market Analysis -->
+            <a href="./doing/fish-oil-market-analysis.html" class="feature-card">
+                <span class="card-tag accent">購物指南</span>
+                <h3 class="card-title">2025 市售評比</h3>
+                <p class="card-desc">年度熱銷魚油怎麼選？濃度、價格、CP值綜合評測，拆解行銷話術。</p>
+                <div class="card-meta">
+                    <i class="fas fa-shopping-cart"></i> 選購攻略
                 </div>
-            </div>
+            </a>
+
+            <!-- 3. Structure -->
+            <a href="./doing/fish-oil-structure.html" class="feature-card">
+                <span class="card-tag green">深度專題</span>
+                <h3 class="card-title">rTG 型態解析</h3>
+                <p class="card-desc">為什麼專家都推 rTG？一次搞懂 TG, EE, rTG 三種型態的吸收率差異。</p>
+                <div class="card-meta">
+                    <i class="fas fa-microscope"></i> 科學解析
+                </div>
+            </a>
+
+            <!-- 4. Sources -->
+            <a href="./doing/fish-oil-sources.html" class="feature-card">
+                <span class="card-tag">原料溯源</span>
+                <h3 class="card-title">產地與來源</h3>
+                <p class="card-desc">深海魚 vs 藻油？來自哪里的魚油最純淨？認識頂級魚油的誕生地。</p>
+                <div class="card-meta">
+                    <i class="fas fa-fish"></i> 原料履歷
+                </div>
+            </a>
+
+            <!-- 5. Quality -->
+            <a href="./doing/fish-oil-quality.html" class="feature-card">
+                <span class="card-tag">安全把關</span>
+                <h3 class="card-title">檢驗與認證</h3>
+                <p class="card-desc">IFOS 五星認證是什麼？如何看懂檢驗報告，避免重金屬與塑化劑殘留。</p>
+                <div class="card-meta">
+                    <i class="fas fa-shield-alt"></i> 食安知識
+                </div>
+            </a>
+
+            <!-- 6. FAQ -->
+            <a href="./doing/fish-oil-faq.html" class="feature-card">
+                <span class="card-tag">疑難排解</span>
+                <h3 class="card-title">常見問題 FAQ</h3>
+                <p class="card-desc">什麼時候吃最好？跟什麼藥物會衝突？營養師親自解答您的所有疑問。</p>
+                <div class="card-meta">
+                    <i class="fas fa-question-circle"></i> 專家解惑
+                </div>
+            </a>
         </div>
+
+        <!-- Smart Filter Section (A4) -->
+        <section style="background: #faf8f5; border-bottom: 1px solid rgba(15, 44, 40, 0.05);">
+            <div id="hub-filter-container"></div>
+        </section>
 
         <!-- Tools CTA -->
         <section class="tools-section">
-            <h2 class="section-title">數據化您的健康選擇</h2>
-            <p class="section-desc" style="margin-bottom: 40px;">
-                無需猜測。使用我們的計算機，根據您的體重與目標，算出精準劑量。
-            </p>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="./fish-oil-tools.html" class="tool-btn">
-                    <i class="fas fa-calculator"></i>
-                    真實成本計算機
-                </a>
-                <a href="./fish-oil-tools.html" class="tool-btn"
-                    style="background:transparent; border:2px solid #cbd5e0; color:#718096;">
-                    劑量評估測驗
-                </a>
+            <div class="section-header">
+                <h2 class="section-title">自動劑量試算</h2>
+                <p class="section-desc">
+                    不知道該吃多少才有效？輸入體重與健康目標，<br>
+                    系統將依據 2025 國際權威指南，計算您專屬的 EPA/DHA 每日需求量。
+                </p>
             </div>
+            <div id="hub-calculator-container"></div>
         </section>
 
     </main>
@@ -417,6 +413,8 @@
     <!-- Scripts -->
     <script src="../assets/js/deus-header-component.js"></script>
     <script src="../assets/js/deus-footer-component.js"></script>
+    <script src="../assets/js/tools/fish-oil-hub-calculator.js"></script>
+    <script src="../assets/js/tools/fish-oil-hub-filter.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -430,6 +428,18 @@
             const footerContainer = document.getElementById("footer-component");
             if (footerContainer && window.DeusFooterComponent) {
                 new window.DeusFooterComponent(footerContainer).setDebug(false);
+            }
+
+            // Initialize Hub Calculator
+            const calcContainer = document.getElementById("hub-calculator-container");
+            if (calcContainer && window.FishOilHubCalculator) {
+                new window.FishOilHubCalculator(calcContainer).initialize();
+            }
+
+            // Initialize Hub Filter
+            const filterContainer = document.getElementById("hub-filter-container");
+            if (filterContainer && window.FishOilHubFilter) {
+                new window.FishOilHubFilter(filterContainer).initialize();
             }
         });
     </script>
