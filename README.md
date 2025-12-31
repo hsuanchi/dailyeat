@@ -223,45 +223,43 @@ const homepage = new DailyeatHomepage(
 
 本專案的內容架構採用「Hub-and-Spoke」（軸心輻射）模型，以建立主題權威性並優化 SEO。
 
--   **Hub (軸心)**: 為高層次的「主題彙整頁面」（如 `topic-cardiovascular-health.html`），圍繞特定健康目標提供全面性的指引。
--   **Spoke (輻射)**: 為基礎的「元素頁面」，深入探討單一「營養素」(`post/[nutrient].html`) 或「食物」(`food/[food-name].html`)。
+-   **Hub (軸心)**: 為高層次的「主題彙整頁面」（如 `post/fish-oil-hubpage.html`），圍繞特定健康目標提供全面性的指引。
+-   **Core (核心)**: 針對該主題的詳盡知識圖譜與核心文章（如 `post/fish-oil.html`）。
+-   **Spoke (輻射)**: 為基礎的「元素頁面」或「分眾頁面」，深入探討單一針對性主題（如 `post/doing/fish-oil-groups.html`）。
 
-所有文章都應遵循此模型的內部連結策略，即「主題頁面」連結到多個「元素頁面」，而「元素頁面」也應連回答所屬的「主題頁面」，形成緊密的內容網絡。詳細的寫作與連結指引請參閱 `doc/writing-guide.md`。
+所有文章都應遵循此模型的內部連結策略。
 
 ```
 dailyeat/
 ├── index.html                     # 主頁面文件
-├── category/
-│   ├── archive.html               # 文章總覽頁面 (動態載入)
-│   ├── health-topics.html         # 健康主題頁面 (動態載入)
-│   ├── nutrient-dashboard.html    # 互動式儀表板 (動態載入)
-│   ├── tools.html                 # 健康計算機工具箱 (整合多項工具)
-│   ├── foodWiki.html              # 食物營養資料庫頁面
-│   └── brands.html                # 合作專屬優惠頁面
-├── brand/
-│   └── betterbio.html             # BetterBio 專屬優惠頁面
-├── post/
-│   ├── [nutrient].html            # 核心營養素文章
-│   └── topic-[topic-name].html    # 主題式文章
-├── food/
-│   ├── [food-name].html           # 獨立食物營養頁面
-│   └── food_data.js               # 食物資料庫
+├── post/                          # 文章核心目錄
+│   ├── fish-oil-hubpage.html      # [Hub] 魚油專題入口 (Editorial Style)
+│   ├── fish-oil.html              # [Core] 魚油完整指南 (Article Style)
+│   ├── doing/                     # [Work-in-Progress] 進行中/重構中的 Spoke 頁面
+│   │   ├── fish-oil-groups.html   # 分眾指南
+│   │   ├── fish-oil-tools.html    # 工具箱
+│   │   └── ...
+│   ├── legacy/                    # [Archive] 舊版或備份檔案
+│   │   └── fish-oil_past.html
+│   └── [nutrient].html            # 其他核心營養素文章
+├── category/                      # 分類頁面
+│   ├── archive.html               # 文章總覽
+│   ├── tools.html                 # 綜合工具箱
+│   └── ...
 ├── assets/
+│   ├── css/
+│   │   ├── article.css            # 核心文章樣式
+│   │   └── editorial.css          # 專題/雜誌風格樣式
 │   └── js/
-│       ├── articles-data.js         # 文章與營養素的中央資料庫
-│       ├── archive-logic.js         # 文章總覽頁面的顯示邏輯
-│       ├── health-topics-logic.js   # 健康主題頁面的顯示邏輯
-│       ├── dashboard-logic.js       # 儀表板頁面的顯示邏輯
-│       └── tools-JS/               # 獨立工具組件
-│           ├── caffeine-calculator.js
-│           ├── fish-oil-calculator.js
-│           ├── cardio-risk-calculator.js
-│           ├── ionic-balance-calculator.js
-│           └── zone2-calculator.js
+│       ├── deus-header-component.js # 全站統一 Header
 │       └── ...
 ├── doc/
 │   ├── writing-guide.md           # 文章風格指引
 │   └── new-page-checklist.md      # 新增頁面檢查清單
+├── doc_task/                      # 任務管理目錄
+│   ├── todo.md                    # 待辦事項
+│   ├── task_archive/              # 歸檔任務
+│   └── ...
 ├── CLAUDE.md                     # 開發規範
 └── README.md                     # 本文件
 ```
