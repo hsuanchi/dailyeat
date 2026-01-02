@@ -1,4 +1,4 @@
-/* ============================================= */
+﻿/* ============================================= */
 /* == Article CSS (Unified from Drafts)       == */
 /* ============================================= */
 
@@ -508,10 +508,14 @@ svg {
 }
 
 /* Responsive Table */
-.table-responsive {
+.table-responsive,
+.responsive-table-wrapper {
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
 }
 
 /* Components: Alerts */
@@ -536,7 +540,7 @@ svg {
 }
 
 .alert-doctor::before {
-    content: "⚠️";
+    content: "\26A0";
 }
 
 .alert-tip {
@@ -546,7 +550,7 @@ svg {
 }
 
 .alert-tip::before {
-    content: "💡";
+    content: "\1F4A1";
 }
 
 .alert-nutritionist {
@@ -556,7 +560,7 @@ svg {
 }
 
 .alert-nutritionist::before {
-    content: "💡";
+    content: "\1F4A1";
 }
 
 .alert strong {
@@ -926,23 +930,33 @@ path.active {
 
 /* Story Section (From Fish Oil Draft) */
 .story-intro {
-    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
-    border-radius: 20px;
-    padding: 40px;
+    background: #ffffff;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 0 16px 16px 0;
+    padding: 32px 40px;
     margin: 40px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Premium soft shadow */
     position: relative;
+    overflow: hidden;
 }
 
 .story-intro h3 {
-    font-size: 1.8em;
-    color: #3730a3;
-    margin-bottom: 20px;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
 }
 
 .story-intro p {
-    font-size: 1.1em;
+    font-size: 1.05em;
     line-height: 1.8;
-    color: #4c1d95;
+    color: var(--c-text-muted);
+    position: relative;
+    z-index: 1;
 }
 
 /* Quick Test */
@@ -1275,6 +1289,13 @@ path.active {
     }
 }
 
+@media (max-width: 480px) {
+    .article-content {
+        padding: 20px;
+        /* Thinner padding for mobile to maximize width */
+    }
+}
+
 @media (max-width: 768px) {
     .article-title {
         font-size: 1.8em;
@@ -1416,15 +1437,18 @@ path.active {
 /* Benefits Grid Redesign (Numbered Hero Cards) */
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    /* Reduced gap */
     margin-top: 30px;
 }
 
 .benefit-hero-card {
     background: white;
-    border-radius: 20px;
-    padding: 30px 30px 30px 80px;
+    border-radius: 16px;
+    /* Slightly tighter radius */
+    padding: 20px 20px 20px 60px;
+    /* Reduced padding */
     /* Left padding for number */
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -1441,9 +1465,10 @@ path.active {
 
 .benefit-number {
     position: absolute;
-    left: -15px;
-    top: -15px;
-    font-size: 8rem;
+    left: -10px;
+    top: -10px;
+    font-size: 5rem;
+    /* Reduced from 8rem */
     font-weight: 900;
     color: #faf8f5;
     line-height: 1;
@@ -1475,11 +1500,19 @@ path.active {
 }
 
 .benefit-title {
-    font-size: 1.4em;
+    font-size: 1.25em;
+    /* Slightly smaller title */
     font-weight: 700;
     color: var(--c-text-main);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     line-height: 1.3;
+}
+
+.benefit-desc {
+    font-size: 0.9em;
+    /* Compact font size */
+    color: var(--c-text-muted);
+    line-height: 1.5;
 }
 
 .benefit-desc {
@@ -1732,8 +1765,10 @@ path.active {
     background: #F0F9FF;
     /* Very light blue background */
     border-radius: 24px;
-    padding: 40px;
-    margin: 40px 0;
+    border-radius: 24px;
+    padding: 30px 20px;
+    /* Reduced mobile padding */
+    margin: 30px 0;
     align-items: center;
 }
 
@@ -1906,4 +1941,81 @@ path.active {
     color: #334155;
     font-size: 1.4rem;
     margin-bottom: 15px;
+}
+
+/* Component: Navigation Link Cards (Distinct from Info Cards) */
+.nav-link-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.nav-link-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 24px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.1);
+    background: #fffafa;
+    /* Very subtle warm tint */
+}
+
+.nav-link-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--c-text-main);
+    margin-bottom: 10px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link-desc {
+    font-size: 0.95rem;
+    color: var(--c-text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    /* Pushes action to bottom */
+}
+
+.nav-link-action {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.2s ease;
+}
+
+.nav-link-card:hover .nav-link-action {
+    gap: 10px;
+}
+
+/* Variant: Secondary (Blue) */
+.nav-link-card.variant-blue {
+    border-left-color: #3b82f6;
+}
+
+.nav-link-card.variant-blue .nav-link-action {
+    color: #3b82f6;
+}
+
+/* Variant: Rose */
+.nav-link-card.variant-rose {
+    border-left-color: #e11d48;
 }
