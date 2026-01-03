@@ -21,6 +21,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="stylesheet" href="../assets/css/editorial.css">
 
     <!-- 
     Refactored to match post/doing/index.html style 
@@ -280,7 +281,21 @@
             color: #cbd5e0;
             margin-right: 20px;
         }
+
+        /* Override Editorial CSS Variables to match Site Theme */
+        :root {
+            --brand-accent: #ff6b35;
+            /* Vital Orange */
+            --brand-dark: #2d3748;
+            /* Slate 800 */
+            --brand-green: #2b6cb0;
+            /* Blue 700 (Secondary) */
+            --brand-cream: #faf8f5;
+            /* Background */
+            --brand-white: #ffffff;
+        }
     </style>
+    <link rel="stylesheet" href="/assets/css/editorial.css">
 </head>
 
 <body data-article-id="hub-fish-oil">
@@ -313,18 +328,65 @@
                         <span style="color: #C6A87C; font-size: 1.1em;">★</span>
                         <span>2025 醫學審核通過</span>
                     </div>
-                    <h1 class="hero-title" style="font-size: 2.8em; margin-bottom: 24px;">2025 完整魚油解析：<br><span
-                            style="font-size:0.6em; color:#718096; font-weight:400; display:block; margin-top:10px; line-height: 1.5;">掌握
-                            Omega-3 的科學關鍵，<br>為健康做出聰明選擇。</span></h1>
+                    <h1 class="hero-title" style="font-size: 2.8em; margin-bottom: 24px;">魚油怎麼選？<br><span
+                            style="font-size:0.6em; color:#718096; font-weight:400; display:block; margin-top:10px; line-height: 1.5;">別再看無效的罐頭文章。<br>用科學數據，找到真正適合你的
+                            Omega-3 方案。</span></h1>
                     <p class="hero-subtitle"
-                        style="margin: 0 auto 40px; max-width: 600px; font-size: 1.1em; line-height: 1.8;">
-                        整理市場規格與科學指標，透過導覽與工具，助你快速找到最符合需求的補充方案。
+                        style="margin: 0 auto 30px; max-width: 600px; font-size: 1.1em; line-height: 1.8;">
+                        我們整理了 2025 最新市場規格與醫學指標，透過 30 秒的智慧測驗，助你避開行銷陷阱，把錢花在刀口上。
                     </p>
+                    <a href="#hub-filter-container" class="hero-btn"
+                        style="box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);">
+                        <i class="fas fa-magic" style="margin-right: 8px;"></i> 30秒・找到我的命定魚油
+                    </a>
                 </div>
             </div>
         </section>
 
 
+
+        <!-- Persona Grid (Minimalist Editorial) -->
+        <section class="section-editorial" style="padding-top: 0; padding-bottom: 60px; max-width: 1240px;">
+            <div class="section-header">
+                <h2 class="section-title" style="font-size: 1.8em; font-family: var(--font-serif);">你是哪一類人？</h2>
+                <p class="section-desc">針對不同人生階段與健康需求，我們準備了專屬的選購指南。</p>
+            </div>
+
+            <div class="editorial-grid" style="margin-top: 40px; gap: 30px;">
+                <!-- 01: Pregnant/Kids -->
+                <a href="./doing/fish-oil-groups.html" class="card-minimal"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="card-number">01</div>
+                    <div class="text-label" style="margin-bottom: 15px; color: #be185d;">For Family</div>
+                    <h3 style="font-size: 1.5em; margin-bottom: 15px;">孕媽咪與兒童</h3>
+                    <p style="color: #64748b; font-size: 0.95em;">擔心重金屬影響寶寶？掌握懷孕期攝取劑量與 DHA 黃金比例，守護寶寶健康起跑點。</p>
+                </a>
+
+                <!-- 02: Students/Workers -->
+                <a href="./fish-oil.html#benefits-brain" class="card-minimal"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="card-number">02</div>
+                    <div class="text-label" style="margin-bottom: 15px; color: #2563eb;">For Performance</div>
+                    <h3 style="font-size: 1.5em; margin-bottom: 15px;">考生與上班族</h3>
+                    <p style="color: #64748b; font-size: 0.95em;">記憶力下降、眼睛酸澀？高濃度 DHA 與葉黃素的科學搭配，打造高效工作腦。</p>
+                </a>
+
+                <!-- 03: Seniors -->
+                <a href="./doing/fish-oil-groups.html" class="card-minimal"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="card-number">03</div>
+                    <div class="text-label" style="margin-bottom: 15px; color: #ea580c;">For Health</div>
+                    <h3 style="font-size: 1.5em; margin-bottom: 15px;">銀髮族與三高</h3>
+                    <p style="color: #64748b; font-size: 0.95em;">針對循環代謝問題，解析高劑量 EPA 的臨床實證與抗凝血藥物交互作用風險。</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Knowledge Bento Grid -->
+        <div class="section-header">
+            <h2 class="section-title" style="font-size: 1.8em;">深度知識庫</h2>
+            <p class="section-desc">不只懂吃，更要懂挑。從原料到檢驗，拆解魚油背後的科學真相。</p>
+        </div>
 
         <div id="paths" class="grid-container">
             <!-- 1. Core -->
@@ -389,20 +451,49 @@
         </div>
 
         <!-- Smart Filter Section (A4) -->
-        <section style="background: #faf8f5; border-bottom: 1px solid rgba(15, 44, 40, 0.05);">
+        <!-- Smart Filter Section (A4) -->
+        <section
+            style="background: var(--brand-cream); padding: 40px 0; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05);">
             <div id="hub-filter-container"></div>
         </section>
 
         <!-- Tools CTA -->
-        <section class="tools-section">
+        <!-- Tools & Calculators Section -->
+        <section class="section-editorial" style="padding-top: 60px;">
             <div class="section-header">
-                <h2 class="section-title">自動劑量試算</h2>
+                <div class="text-label" style="margin-bottom: 15px;">Smart Tools</div>
+                <h2 class="section-title" style="font-family: var(--font-serif);">健康精算師</h2>
                 <p class="section-desc">
-                    不知道該吃多少才有效？輸入體重與健康目標，<br>
-                    系統將依據 2025 國際權威指南，計算您專屬的 EPA/DHA 每日需求量。
+                    別再憑感覺補充。我們開發了兩款獨家工具，幫助您精算出最適合的劑量與最划算的產品。
                 </p>
             </div>
-            <div id="hub-calculator-container"></div>
+
+            <div class="editorial-grid" style="margin-top: 40px; gap: 30px;">
+                <!-- Tool 1: Dosage Calculator (Widget) -->
+                <div class="card-minimal" style="grid-column: span 1; padding: 40px;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <i class="fas fa-calculator" style="color: var(--brand-accent); font-size: 1.5em;"></i>
+                        <h3 style="font-size: 1.5em; font-family: var(--font-serif);">每日劑量試算</h3>
+                    </div>
+                    <p style="color: #64748b; margin-bottom: 20px;">依據 2025 權威指南，計算您專屬的 EPA/DHA 需求。</p>
+                    <div id="hub-calculator-container"></div>
+                </div>
+
+                <!-- Tool 2: Cost Calculator (Link Card) -->
+                <a href="./doing/fish-oil-market-analysis.html" class="card-minimal"
+                    style="grid-column: span 1; padding: 40px; text-decoration: none; color: inherit; display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <i class="fas fa-coins" style="color: var(--brand-accent); font-size: 1.5em;"></i>
+                        <h3 style="font-size: 1.5em; font-family: var(--font-serif);">真實成本計算機</h3>
+                    </div>
+                    <p style="color: #64748b; margin-bottom: 20px; flex-grow: 1;">
+                        便宜真的划算嗎？別被總價騙了！算出<strong>「每 1000mg Omega-3 的真實價格」</strong>，找出高 CP 值好油。
+                    </p>
+                    <div style="color: var(--brand-accent); font-weight: 700; font-size: 0.9em; margin-top: auto;">
+                        立即試算 CP 值 &rarr;
+                    </div>
+                </a>
+            </div>
         </section>
 
     </main>

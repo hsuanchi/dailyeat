@@ -797,6 +797,36 @@ svg {
     border-color: var(--c-cause);
 }
 
+/* Connection Layer for Flowchart Lines */
+.connection-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    /* Behind nodes (nodes are z-index 2) */
+}
+
+.connection-line {
+    fill: none;
+    stroke: #cbd5e1;
+    stroke-width: 2;
+    transition: all 0.4s ease;
+    opacity: 0.3;
+}
+
+.connection-line.active {
+    stroke: var(--primary-color);
+    stroke-width: 3;
+    opacity: 1;
+    filter: drop-shadow(0 2px 4px rgba(255, 107, 53, 0.2));
+    animation: dash 1s linear infinite;
+    /* Optional: dash animation if needed, but solid is fine */
+}
+
+
 .node[data-type="solution"] {
     border-left: 4px solid var(--c-solution);
 }
@@ -2018,4 +2048,168 @@ path.active {
 /* Variant: Rose */
 .nav-link-card.variant-rose {
     border-left-color: #e11d48;
+}
+
+/* ============================================= */
+/* == Quick Test / Needs Assessment Component == */
+/* ============================================= */
+
+.quick-test {
+    background: linear-gradient(145deg, #ffffff 0%, #fff7ed 100%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px -10px rgba(234, 88, 12, 0.15);
+    /* Soft Orange Shadow */
+    border: 1px solid #fed7aa;
+    /* Orange-200 */
+    position: relative;
+    overflow: hidden;
+    margin: 40px 0;
+}
+
+/* Decorative background element */
+.quick-test::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(234, 88, 12, 0.03) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.quick-test h3 {
+    text-align: center;
+    color: var(--primary-dark);
+    font-size: 1.8em;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.quick-test>p {
+    text-align: center;
+    color: var(--c-text-soft);
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 1.05em;
+    position: relative;
+    z-index: 1;
+}
+
+.test-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Interactive Option Card */
+.test-option {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    user-select: none;
+}
+
+.test-option:hover {
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Selected State */
+.test-option.selected {
+    border-color: var(--primary-color);
+    background-color: #fff7ed;
+    /* Orange-50 */
+    color: var(--primary-dark);
+}
+
+.test-option.selected span {
+    font-weight: 600;
+}
+
+/* Custom Checkbox Styling */
+.test-option input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+    /* Circle for modern look */
+    margin-right: 16px;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    background: white;
+    cursor: pointer;
+}
+
+.test-option:hover input[type="checkbox"] {
+    border-color: #94a3b8;
+}
+
+.test-option input[type="checkbox"]:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Checkmark Icon */
+.test-option input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 4px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Result Display Box */
+#test-result {
+    margin-top: 30px;
+    padding: 0;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease-out;
+    border-radius: 12px;
+}
+
+#test-result.active {
+    grid-template-rows: 1fr;
+    margin-top: 30px;
+}
+
+#test-result .result-content {
+    overflow: hidden;
+    padding: 0 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease, padding 0.4s ease;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+#test-result.active .result-content {
+    opacity: 1;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
 }

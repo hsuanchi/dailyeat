@@ -42,28 +42,29 @@ class FishOilHubFilter {
         // Pills HTML
         const pillsHtml = Object.keys(this.topics).map(key => `
             <button class="topic-pill" data-topic="${key}" style="
-                border: 1px solid #cbd5e0;
+                border: 1px solid rgba(45, 55, 72, 0.2);
                 background: white;
                 color: #2d3748;
                 padding: 10px 24px;
-                border-radius: 50px;
+                border-radius: 9999px;
                 cursor: pointer;
                 font-family: 'Noto Sans TC', sans-serif;
                 font-size: 0.95em;
                 display: flex;
                 align-items: center;
                 gap: 8px;
-                transition: all 0.2s;
+                transition: all 0.2s ease;
+                letter-spacing: 0.05em;
             ">
-                <span>${this.topics[key].icon}</span>
+                <span class="pill-icon" style="opacity: 0.6;">${this.topics[key].icon}</span>
                 ${this.topics[key].label}
             </button>
         `).join('');
 
         this.hostElement.innerHTML = `
-            <div style="max-width: 900px; margin: 0 auto; padding: 40px 20px;">
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.4em; color: #0F2C28; margin-bottom: 15px;">
+            <div style="max-width: 900px; margin: 0 auto; padding: 60px 20px;">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.8em; color: #2d3748; margin-bottom: 20px; font-weight: 700;">
                         您最想改善什麼問題？
                     </h3>
                     <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
@@ -71,23 +72,29 @@ class FishOilHubFilter {
                     </div>
                 </div>
 
-                <div id="hub-filter-content" style="min-height: 180px;">
+                <div id="hub-filter-content" style="min-height: 200px;">
                     <!-- Content will appear here -->
-                    <div style="text-align: center; color: #a0aec0; padding-top: 40px; font-size: 0.9em; font-style: italic;">
-                        點擊上方標籤，查看精華摘要...
+                    <div style="text-align: center; color: #a0aec0; padding-top: 40px; font-size: 0.95em; font-family: 'Noto Serif TC', serif; font-style: italic; opacity: 0.8;">
+                        請點擊上方標籤，為您推薦最適合的內容...
                     </div>
                 </div>
             </div>
             
             <style>
                 .topic-pill:hover {
-                    border-color: #C6A87C !important;
-                    color: #C6A87C !important;
+                    border-color: #ff6b35 !important;
+                    color: #ff6b35 !important;
+                }
+                .topic-pill:hover .pill-icon {
+                    opacity: 1 !important;
                 }
                 .topic-pill.active {
-                    background: #0F2C28 !important;
-                    color: #F9F8F4 !important;
-                    border-color: #0F2C28 !important;
+                    background: #2d3748 !important;
+                    color: #ffffff !important;
+                    border-color: #2d3748 !important;
+                }
+                .topic-pill.active .pill-icon {
+                    opacity: 1 !important;
                 }
             </style>
         `;
@@ -115,30 +122,37 @@ class FishOilHubFilter {
         container.innerHTML = `
             <div style="
                 background: white;
-                border-left: 4px solid #C6A87C;
-                padding: 30px;
-                border-radius: 0 12px 12px 0;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+                border: 1px solid rgba(45, 55, 72, 0.1);
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.03);
                 opacity: 0;
                 transform: translateY(10px);
-                animation: slideUp 0.4s forwards;
+                animation: slideUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+                text-align: left;
+                max-width: 800px;
+                margin: 0 auto;
             ">
-                <h4 style="font-family: 'Noto Serif TC', serif; font-size: 1.3em; color: #0F2C28; margin-bottom: 15px;">
+                <h4 style="font-family: 'Noto Serif TC', serif; font-size: 1.5em; color: #2d3748; margin-bottom: 15px; font-weight: 700;">
                     ${data.title}
                 </h4>
-                <p style="color: #2D5B52; line-height: 1.7; margin-bottom: 25px;">
+                <p style="color: #4a5568; line-height: 1.8; margin-bottom: 25px; font-size: 1.05em;">
                     ${data.desc}
                 </p>
                 <a href="${data.link}" style="
-                    display: inline-block;
-                    color: #C6A87C;
+                    display: inline-flex;
+                    align-items: center;
+                    color: #ff6b35;
                     font-weight: 700;
                     text-decoration: none;
-                    border-bottom: 2px solid #C6A87C;
-                    padding-bottom: 2px;
-                    transition: opacity 0.3s;
-                ">
-                    ${data.cta} <i class="fas fa-arrow-right" style="font-size: 0.8em; margin-left: 5px;"></i>
+                    border-bottom: 2px solid transparent;
+                    transition: all 0.3s;
+                    font-size: 1em;
+                "
+                onmouseover="this.style.borderBottomColor='#ff6b35'"
+                onmouseout="this.style.borderBottomColor='transparent'"
+                >
+                    ${data.cta} <i class="fas fa-arrow-right" style="font-size: 0.8em; margin-left: 8px;"></i>
                 </a>
             </div>
             <style>

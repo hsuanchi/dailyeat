@@ -218,29 +218,31 @@
                 <h2 id="section-3">3. 副作用排除大全 (Troubleshooting)</h2>
                 <p>遇到問題先別急著丟掉魚油，對照下表找原因：</p>
 
-                <div class="debug-map">
+                <div class="debug-map" id="troubleshooter">
                     <div class="col-symptom">
                         <div class="col-header">狀況 (Symptom)</div>
                         <div class="node-group">
-                            <div class="node">🤢 打嗝魚腥味</div>
-                            <div class="node">💩 拉肚子/腹瀉</div>
-                            <div class="node">🌋 長痘痘</div>
+                            <div class="node" data-type="symptom" data-group="1">🤢 打嗝魚腥味</div>
+                            <div class="node" data-type="symptom" data-group="2">💩 拉肚子/腹瀉</div>
+                            <div class="node" data-type="symptom" data-group="3">🌋 長痘痘</div>
                         </div>
                     </div>
                     <div class="col-cause">
                         <div class="col-header">可能原因 (Cause)</div>
                         <div class="node-group">
-                            <div class="node">膠囊在胃中太快溶解、空腹吃</div>
-                            <div class="node">單次劑量過高、油脂耐受差</div>
-                            <div class="node">劣質油氧化、對碘過敏</div>
+                            <div class="node" data-type="cause" data-group="1">膠囊在胃中太快溶解、空腹吃</div>
+                            <div class="node" data-type="cause" data-group="2">單次劑量過高、油脂耐受差</div>
+                            <div class="node" data-type="cause" data-group="3">劣質油氧化、對碘過敏</div>
                         </div>
                     </div>
                     <div class="col-solution">
                         <div class="col-header">解決方案 (Solution)</div>
                         <div class="node-group">
-                            <div class="node">改選 <strong>rTG型</strong> (好吸收)、<strong>冷凍後吃</strong></div>
-                            <div class="node"><strong>減半劑量</strong>、分次吃、隨餐吃</div>
-                            <div class="node">檢查 <strong>TOTOX 新鮮度</strong>、停用並諮詢</div>
+                            <div class="node" data-type="solution" data-group="1">改選 <strong>rTG型</strong>
+                                (好吸收)、<strong>冷凍後吃</strong></div>
+                            <div class="node" data-type="solution" data-group="2"><strong>減半劑量</strong>、分次吃、隨餐吃</div>
+                            <div class="node" data-type="solution" data-group="3">檢查 <strong>TOTOX 新鮮度</strong>、停用並諮詢
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -270,15 +272,22 @@
                 </div>
 
                 <!-- Cross Link Matrix -->
+                <!-- Cross Link Matrix -->
                 <h2 style="margin-top: 50px;">延伸閱讀：聰明選購</h2>
-                <div class="info-cards md-grid-2">
-                    <a href="./fish-oil-quality.html" class="info-card spoke-card">
-                        <h4 class="info-card-title">🔍 如何判斷魚油新鮮度？</h4>
-                        <p class="info-card-desc">學會看「TOTOX 總氧化數」，吃到壞油比沒吃還傷身！</p>
+                <div class="nav-link-cards">
+                    <a href="./fish-oil-quality.html" class="nav-link-card">
+                        <div class="nav-link-title">🔍 如何判斷魚油新鮮度？</div>
+                        <p class="nav-link-desc">學會看「TOTOX 總氧化數」，吃到壞油比沒吃還傷身！</p>
+                        <div class="nav-link-action">
+                            查看檢測標準 <span>&rarr;</span>
+                        </div>
                     </a>
-                    <a href="./fish-oil-senior.html" class="info-card spoke-card spoke-card-senior">
-                        <h4 class="info-card-title">💊 藥物交互作用總整理</h4>
-                        <p class="info-card-desc">再次提醒：有在吃抗凝血藥的長輩，這篇禁忌必讀。</p>
+                    <a href="./fish-oil-senior.html" class="nav-link-card variant-blue">
+                        <div class="nav-link-title">💊 藥物交互作用總整理</div>
+                        <p class="nav-link-desc">再次提醒：有在吃抗凝血藥的長輩，這篇禁忌必讀。</p>
+                        <div class="nav-link-action">
+                            查看安全須知 <span>&rarr;</span>
+                        </div>
                     </a>
                 </div>
 
@@ -320,6 +329,124 @@
 
         // Initialize Components
         document.addEventListener("DOMContentLoaded", function () {
+            // ... (Previous initializations) 
+
+            // Troubleshooter Map Interaction
+            class TroubleshooterMap {
+                constructor(containerId) {
+                    this.container = document.getElementById(containerId);
+                    if (!this.container) return;
+                    this.nodes = Array.from(this.container.querySelectorAll('.node'));
+                    this.svg = null;
+                    this.lines = [];
+                    this.resizeDebounce = null;
+
+                    this.init();
+                }
+
+                init() {
+                    this.createSVG();
+                    setTimeout(() => this.drawLines(), 100); // Initial draw delay to ensure layout
+
+                    this.nodes.forEach(node => {
+                        node.addEventListener('click', () => this.activateGroup(node.dataset.group));
+                    });
+
+                    // Handle window resize
+                    window.addEventListener('resize', () => {
+                        clearTimeout(this.resizeDebounce);
+                        this.resizeDebounce = setTimeout(() => {
+                            this.drawLines();
+                            // Re-apply active state if any
+                            const activeNode = this.container.querySelector('.node.active');
+                            if (activeNode) this.activateGroup(activeNode.dataset.group);
+                        }, 100);
+                    });
+                }
+
+                createSVG() {
+                    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                    svg.classList.add("connection-layer");
+                    this.container.prepend(svg);
+                    this.svg = svg;
+                }
+
+                drawLines() {
+                    if (!this.svg) return;
+                    // Clear existing lines
+                    this.svg.innerHTML = '';
+                    this.lines = [];
+
+                    // 1. Map nodes by group
+                    const groups = {};
+
+                    this.nodes.forEach(node => {
+                        const gId = node.dataset.group;
+                        const type = node.dataset.type;
+                        if (!groups[gId]) groups[gId] = {};
+                        groups[gId][type] = node;
+                    });
+
+                    // 2. Helper to drawing path
+                    const drawPath = (startEl, endEl, groupId) => {
+                        if (!startEl || !endEl) return;
+
+                        const containerRect = this.container.getBoundingClientRect();
+                        const startRect = startEl.getBoundingClientRect();
+                        const endRect = endEl.getBoundingClientRect();
+
+                        // Calculate relative coordinates
+                        const x1 = startRect.right - containerRect.left;
+                        const y1 = startRect.top + startRect.height / 2 - containerRect.top;
+                        const x2 = endRect.left - containerRect.left;
+                        const y2 = endRect.top + endRect.height / 2 - containerRect.top;
+
+                        // Bezier Control Points
+                        const curvature = 50;
+                        const pathData = `M ${x1} ${y1} C ${x1 + curvature} ${y1}, ${x2 - curvature} ${y2}, ${x2} ${y2}`;
+
+                        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                        path.setAttribute("d", pathData);
+                        path.classList.add("connection-line");
+                        path.dataset.group = groupId; // Link line to group
+
+                        this.svg.appendChild(path);
+                        this.lines.push(path);
+                    };
+
+                    // 3. Draw connection: Symptom -> Cause -> Solution
+                    Object.keys(groups).forEach(gId => {
+                        const g = groups[gId];
+                        if (g.symptom && g.cause) drawPath(g.symptom, g.cause, gId);
+                        if (g.cause && g.solution) drawPath(g.cause, g.solution, gId);
+                    });
+                }
+
+                activateGroup(groupId) {
+                    // Nodes visual state
+                    this.nodes.forEach(n => {
+                        n.classList.remove('active', 'dimmed');
+                        if (n.dataset.group === groupId) {
+                            n.classList.add('active');
+                        } else {
+                            n.classList.add('dimmed');
+                        }
+                    });
+
+                    // Lines visual state
+                    this.lines.forEach(line => {
+                        line.classList.remove('active');
+                        if (line.dataset.group === groupId) {
+                            line.classList.add('active');
+                            // Move active line to front
+                            this.svg.appendChild(line);
+                        }
+                    });
+                }
+            }
+
+            new TroubleshooterMap('troubleshooter');
+
             // Initialize Analytics Component
             if (window.DeusAnalyticsComponent) {
                 new window.DeusAnalyticsComponent().setDebug(false).setEnvironment("production");
