@@ -104,6 +104,63 @@
   </script>
 
   <link rel="stylesheet" href="../assets/css/article.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Critical Mobile RWD Fix -->
+  <style>
+    @media (max-width: 768px) {
+
+      html,
+      body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative;
+      }
+
+      .sidebar {
+        display: none !important;
+      }
+
+      .article-container {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        box-sizing: border-box !important;
+        grid-template-columns: 1fr !important;
+      }
+
+      .article-content,
+      .article-body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+      }
+
+      img,
+      iframe,
+      video,
+      table {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+
+      /* Ensure knowledge hub doesn't force width */
+      .knowledge-hub-container {
+        max-width: 100% !important;
+        width: auto !important;
+      }
+
+      .hub-map-container {
+        width: 100% !important;
+        max-width: 320px !important;
+        /* Limit size on mobile */
+        aspect-ratio: 1 / 1 !important;
+        margin: 0 auto !important;
+      }
+    }
+  </style>
 </head>
 
 <body data-article-id="card-fish-oil">
@@ -143,7 +200,7 @@
           <nav class="breadcrumb">
             <a href="../index.html">首頁</a>
             <span class="separator">/</span>
-            <span>魚油功效總整理：不只降血脂護心！還能改善乾眼、活化大腦、穩定情緒與調節慢性發炎的完整食用指南</span>
+            <span>魚油功效完整指南</span>
           </nav>
           <span class="article-category">營養素指引</span>
           <h1 class="article-title">魚油功效總整理：不只降血脂護心！還能改善乾眼、活化大腦、穩定情緒與調節慢性發炎的完整食用指南</h1>
@@ -210,7 +267,7 @@
             簡單來說，魚油是從深海魚類脂肪中提煉出的黃金油脂。它含有豐富的 <strong>Omega-3 多元不飽和脂肪酸 (EPA +
               DHA)</strong>，這不只是心血管的守護者，更是<strong>活化大腦、改善乾眼症、穩定情緒與調節慢性發炎</strong>的關鍵營養素。由於人體無法自行合成，必須透過飲食或補充品才能攝取。
           </p>
-          <div class="info-cards md-grid-2">
+          <div class="info-cards">
             <div class="info-card">
               <h4 class="info-card-title">EPA (二十碳五烯酸)</h4>
               <p class="info-card-desc">
@@ -535,7 +592,7 @@
               克的鮭魚或鯖魚</strong>。對於大多數現代人而言，要「穩定地」透過飲食達到此劑量具有一定挑戰性。</p>
           <p>此外，食物鏈頂端的大型魚類可能含有較高的重金屬風險。下表整理了食物來源的優缺點，供您參考：</p>
 
-          <div class="responsive-table-wrapper">
+          <div class="table-responsive">
             <table class="data-table">
               <thead>
                 <tr>
@@ -656,7 +713,7 @@
           <h2>進階比較分析：魚油 vs. 磷蝦油 vs. 亞麻籽油</h2>
           <p>除了魚油，市面上還有磷蝦油、藻油、亞麻籽油等選擇。到底素食者該選哪一種？環保主義者又該怎麼挑？一張表看懂差異。</p>
 
-          <div class="responsive-table-wrapper">
+          <div class="table-responsive">
             <table class="data-table">
               <thead>
                 <tr>

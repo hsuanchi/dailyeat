@@ -58,6 +58,10 @@
 - **嚴格禁止：避免將 CSS 注入到主頁面中**。
 - **debug 參數必須遵循 getter/setter + chainable 模式：`.setDebug(true).getDebug()`**。
 - **當 debug 為 false 時，不得在 console 輸出任何除錯訊息**。
+- **響應式設計 (RWD) 鐵律**：
+  - **絕對禁止固定寬度**：所有容器寬度必須使用百分比 (e.g., `100%`) 或 `max-width`。禁止對主容器設定 `min-width`。
+  - **內容溢出保護**：所有可能過寬的元素（表格、程式碼區塊、長字串）必須設定 `overflow-x: auto` 或適當的斷行屬性 (`word-break: break-all`)。
+  - **全域安全網**：HTML/Body 層級應設定 `overflow-x: hidden` 以防止意外的水平捲動。
 
 ## Shadow DOM 封裝要求
 
@@ -219,6 +223,12 @@ const component = new DailyeatComponentWithShadowDOM(hostElement)
 - [ ] 包含 debug 參數控制
 - [ ] 提供 destroy 方法清理資源
 - [ ] **驗證無任何 CSS 洩漏到主頁面**
+
+### 📱 RWD 響應式檢查清單
+- [ ] **表格檢查**：所有表格是否都已包裹在 `.table-responsive` 容器中？
+- [ ] **長字串檢查**：麵包屑 (Breadcrumb) 或 URL 是否過長導致手機版面撐開？必要時請截斷文字。
+- [ ] **固定寬度檢查**：確認沒有元件使用固定的 `width` (如 `width: 600px`)，尤其是在 `media query` 之外。
+- [ ] **水平溢出測試**：使用手機瀏覽器或開發者工具 (320px 寬度) 測試是否有水平捲軸出現。
 
 ### 📊 Console 日誌輸出機制
 
