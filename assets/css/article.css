@@ -798,6 +798,241 @@ svg {
 }
 
 /* Connection Layer for Flowchart Lines */
+
+/* ============================================= */
+/* == Market Review Page Specific Styles      == */
+/* ============================================= */
+
+/* Review Cards */
+.review-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 0;
+    margin-bottom: 40px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.review-header {
+    background: #f8fafc;
+    padding: 20px 25px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.review-title {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.review-badges {
+    display: flex;
+    gap: 10px;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.badge-rtg {
+    background: #ffedd5;
+    color: #9a3412;
+}
+
+.badge-conc {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.review-body {
+    padding: 25px;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+@media(min-width: 768px) {
+    .review-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.review-specs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.review-specs li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e2e8f0;
+    color: #64748b;
+}
+
+.review-specs strong {
+    color: #334155;
+}
+
+.review-verdict {
+    margin-top: 20px;
+    background: #f0f9ff;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #0ea5e9;
+    font-size: 0.95rem;
+}
+
+.pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.pros,
+.cons {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.pros {
+    background: #f0fdf4;
+    color: #166534;
+}
+
+.cons {
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+.pros-list li,
+.cons-list li {
+    margin-bottom: 5px;
+}
+
+/* Calculator Styles */
+.calculator-section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin: 40px 0;
+    border: 1px solid #e2e8f0;
+}
+
+.calc-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: all 0.3s;
+}
+
+.calc-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.calc-result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f0fdf4;
+    border-radius: 12px;
+    border: 1px solid #bbf7d0;
+    display: none;
+    text-align: center;
+}
+
+.result-value {
+    font-size: 2.5em;
+    color: #166534;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+/* Trust Signals */
+.trust-box {
+    background: #fff;
+    border: 2px solid var(--primary-color);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.trust-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.trust-item i {
+    font-size: 2em;
+    color: var(--primary-color);
+}
+
+/* FAQ Section */
+.faq-section {
+    margin: 40px 0;
+}
+
+.faq-item {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.faq-answer {
+    padding: 20px;
+    color: #475569;
+}
+
 .connection-layer {
     position: absolute;
     top: 0;
