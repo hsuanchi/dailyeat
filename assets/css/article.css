@@ -63,12 +63,34 @@ th,
 li,
 a {
     word-break: break-word;
+    /* Ensure text wraps */
+}
+
+/* Ensure Headings Wrap */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    word-break: break-word;
+    hyphens: auto;
 }
 
 img,
-svg {
+svg,
+video,
+iframe {
     max-width: 100%;
     height: auto;
+}
+
+/* Prevent Horizontal Scroll Globally */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
 }
 
 /* All elements with an ID are potential scroll targets */
@@ -1955,10 +1977,17 @@ path.active {
    ========================================= */
 @media (max-width: 768px) {
 
-    /* 1. Reduce Container Padding */
+    /* 1. Reduce Container Padding & Fix Grid */
     .article-container {
         padding-top: 80px;
         gap: 0;
+        grid-template-columns: 1fr;
+        /* Force single column */
+    }
+
+    .sidebar {
+        display: none;
+        /* Hide desktop sidebar on mobile */
     }
 
     /* 2. Compact Hero Section */
@@ -2017,6 +2046,20 @@ path.active {
         padding: 4px 8px;
         border-radius: 6px;
     }
+
+    /* 7. Reduce Content Padding */
+    .article-content {
+        padding: 30px 20px;
+    }
+
+    /* 8. Relax Grid for Small Screens */
+    .benefits-grid,
+    .dosage-grid,
+    .nav-link-cards,
+    .test-options {
+        grid-template-columns: 1fr;
+        /* Stack vertically on small mobile */
+    }
 }
 
 /* =========================================
@@ -2035,6 +2078,13 @@ path.active {
     /* Reduced mobile padding */
     margin: 30px 0;
     align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+    /* Safety constraint */
+}
+
+.hub-map-container {
+    max-width: 100%;
 }
 
 @media (min-width: 900px) {
