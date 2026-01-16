@@ -24,11 +24,30 @@
 
 ### 關鍵字與內容漏斗 (Keyword Funnel)
 
-| 階段 (Stage) | 搜尋意圖 (Intent) | 關鍵字範例 | 我們的對策內容 (Article/Tool) | 核心 KPI |
-| :--- | :--- | :--- | :--- | :--- |
-| **Top (Awareness)** | **資訊型** <br> (想了解知識) | 魚油功效<br>EPA DHA 差別<br>rTG 是什麼 | `post/fish-oil.html`<br>`post/fish-oil-structure.html` | 流量 (Traffic)<br>建立信任 |
-| **Middle (Consideration)** | **調查型** <br> (比較規格) | 魚油推薦 2025<br>rTG 魚油比較<br>IFOS 認證查詢 | `post/fish-oil-hubpage.html`<br>`post/fish-oil-market-analysis.html` | 停留時間 (Dwell Time)<br>點擊導購 |
-| **Bottom (Conversion)** | **交易型** <br> (決定購買) | 高濃度魚油哪裡買<br>吞嚥困難魚油<br>[品牌] 評價 | `post/fish-oil-senior.html` (分眾)<br>`post/fish-oil-tools.html` (工具) | 轉換率 (CVR)<br>成交 |
+
+*   **階段 1: Awareness (資訊型 - Top of Funnel)**
+    *   **使用者意圖**: 想了解魚油的基本知識、功效、專有名詞（如 rTG, EPA/DHA）。
+    *   **關鍵字範例**: 魚油功效, EPA DHA 差別, rTG 是什麼
+    *   **對策內容 (Articles)**:
+        *   `post/fish-oil.html` (核心知識)
+        *   `post/fish-oil-structure.html` (rTG/EE/TG 結構解析)
+    *   **核心 KPI**: 流量 (Traffic), 建立信任
+
+*   **階段 2: Consideration (調查型 - Middle of Funnel)**
+    *   **使用者意圖**: 開始比較規格、尋找推薦、查詢認證。
+    *   **關鍵字範例**: 魚油推薦 2025, rTG 魚油比較, IFOS 認證查詢
+    *   **對策內容 (Articles)**:
+        *   `post/fish-oil-hubpage.html` (專題首頁/分流)
+        *   `post/fish-oil-market-analysis.html` (市場評測/比較)
+    *   **核心 KPI**: 停留時間 (Dwell Time), 點擊導購
+
+*   **階段 3: Conversion (交易型 - Bottom of Funnel)**
+    *   **使用者意圖**: 決定購買，尋找特定受眾產品或計算劑量。
+    *   **關鍵字範例**: 高濃度魚油哪裡買, 吞嚥困難魚油, [品牌] 評價
+    *   **對策內容 (Articles)**:
+        *   `post/fish-oil-senior.html` (銀髮/特殊族群分眾)
+        *   `post/fish-oil-tools.html` (劑量/成本計算工具)
+    *   **核心 KPI**: 轉換率 (CVR), 成交
 
 ---
 

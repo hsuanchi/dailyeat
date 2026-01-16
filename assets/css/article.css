@@ -2559,3 +2559,33 @@ body {
     min-width: 600px;
     width: 100%;
 }
+
+/* Call to Action Button */
+.button-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e2e8f0;
+    color: #475569;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    max-width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.button-cta:hover {
+    background: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.button-cta i {
+    margin-right: 8px;
+    flex-shrink: 0;
+}

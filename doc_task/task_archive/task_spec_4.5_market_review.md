@@ -6,6 +6,29 @@
 
 ---
 
+## Current HTML Structure
+### `post/doing/fish-oil-market-analysis.html`
+- H1: 【2025 最新實測】10 款熱門魚油推薦評比：營養師教你從濃度、rTG 型態與 IFOS 認證挑選
+- H2: 為什麼你需要補充魚油？30 秒快速導讀
+- H2: 2. 魚油挑選的 5 大黃金法則
+  - H3: 法則一：濃度是關鍵 (Omega-3 > 80%)
+  - H3: 法則二：型態決定吸收率 (rTG vs TG vs EE)
+  - H3: 法則三：看懂原料商 (KD, Vivomega, Solutex)
+  - H3: 法則四：新鮮度 (TOTOX 指標)
+  - H3: 法則五：EPA 與 DHA 的黃金比例
+- H2: 3. 2025 年 Top 10 人氣魚油品牌深度開箱
+  - H3: 1. 大研生醫 德國頂級魚油 (Daiken)
+  - H3: 2. Vitabox 挪威高濃度魚油
+  - H3: 3. 營養師輕食 1000 頂級超臨界魚油
+  - H3: 4. Costco Kirkland 科克蘭魚油
+  - H3: 5. 三得利 (Suntory) DHA&EPA+芝麻明 E
+- H2: 4. 魚油評比總結與 CP 值精算 (Comparison Matrix)
+  - H3: 魚油真實 CP 值計算機
+- H2: 5. 醫學實證與副作用 (PubMed 解析)
+- H2: 6. 常見問題 FAQ
+- H2: 延伸閱讀
+- H3: 免責聲明 (Disclaimer)
+
 ## 1. 任務目標 (Objective)
 建立「權威感 (Authority)」、「解決選擇障礙 (User Intent)」、「高轉換率」的評測頁面。
 遵循 Google E-E-A-T 原則，強調親身經歷 (Experience) 與專業背書 (Expertise)。

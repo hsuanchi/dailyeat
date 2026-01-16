@@ -6,6 +6,24 @@
 
 ---
 
+## Current HTML Structure
+### `post/fish-oil-hubpage.html`
+- H1: 魚油怎麼選？別再看無效的罐頭文章。
+- H2: 你是哪一類人？
+  - H3: 孕媽咪與兒童
+  - H3: 考生與上班族
+  - H3: 銀髮族與三高
+- H2: 深度知識庫
+  - H3: Omega-3 總論
+  - H3: 2025 市售評比
+  - H3: rTG 型態解析
+  - H3: 產地與來源
+  - H3: 檢驗與認證
+  - H3: 常見問題 FAQ
+- H2: 健康精算師
+  - H3: 每日劑量試算
+  - H3: 真實成本計算機
+
 ## 1. 原子組件規格 (Atomic Component Specs)
 
 ### A1. Hero Section (正面權威引導 - 純文字版)
