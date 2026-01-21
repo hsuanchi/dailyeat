@@ -179,15 +179,11 @@
 ```html
 <details class="professional-insight-card">
   <summary class="insight-summary">
-    <!-- Icon (FontAwesome) -->
-    <div class="insight-icon"><i class="fas fa-microscope"></i></div>
     <!-- 標題與預覽 -->
     <div class="insight-header">
       <span class="insight-title">病理機制詳解：動脈粥狀硬化的分子過程</span>
       <span class="insight-preview">這不僅僅是膽固醇堆積，而是一場發炎反應與氧化風暴。</span>
     </div>
-    <!-- 箭頭 Icon -->
-    <i class="fas fa-chevron-down toggle-icon"></i>
   </summary>
   <div class="insight-content">
     <p>現代病理學已證實...</p>
@@ -284,9 +280,10 @@
     <div class="col-header">症狀 (Symptoms)</div>
     <div class="node-group">
       <div class="node" id="sym-1" data-type="symptom">
-        <div><span class="node-icon">🤕</span>經常頭痛</div>
+        <div>經常頭痛</div>
         <span class="node-jump">➜</span>
       </div>
+
       <!-- ... -->
     </div>
   </div>
@@ -296,9 +293,10 @@
     <div class="col-header">可能原因 (Causes)</div>
     <div class="node-group">
       <div class="node" id="cause-1" data-type="cause">
-        <div><span class="node-icon">🔻</span>鎂缺乏</div>
+        <div>鎂缺乏</div>
         <span class="node-jump">➜</span>
       </div>
+
       <!-- ... -->
     </div>
   </div>
@@ -308,8 +306,9 @@
     <div class="col-header">建議解方 (Solutions)</div>
     <div class="node-group">
       <div class="node" id="sol-1" data-type="solution">
-        <div><span class="node-icon">💊</span>補充鎂</div>
+        <div>補充鎂</div>
       </div>
+
       <!-- ... -->
     </div>
   </div>

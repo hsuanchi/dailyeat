@@ -737,20 +737,20 @@ const articlesData = [
     {
         id: 'card-fish-oil-guide',
         parent: 'card-fish-oil',
-        type: '實用指南',
-        goals: ['正確吃法', '副作用排除'],
-        name: '食用與副作用指南',
-        en_name: 'Usage Guide',
-        func: '解決拉肚子、長痘痘等副作用與最佳吃法教學',
+        type: '選購與指南',
+        goals: ['正確吃法', '副作用排除', '聰明消費'],
+        name: '選購與副作用指南',
+        en_name: 'Selection & Usage',
+        func: '公開 5 大選購指標，並解決拉肚子等副作用與教學最佳吃法',
         status: '完整',
         link: '/post/fish-oil-guide.html',
-        title: '魚油什麼時候吃？飯前還飯後？營養師親授「3不2要」正確吃法與副作用排除',
+        title: '魚油怎麼挑？什麼時候吃？藥師公開 5 大選購關鍵與服用指南',
         category: "other",
         published: "2025-12-30",
-        modified: "2025-12-30",
+        modified: "2026-01-21",
         tag: "實用指南",
-        description: "魚油吃錯等於白吃？營養師揭密魚油最佳食用時機（飯前vs飯後），獨家傳授「3不2要」法則提升吸收率。還有詳細的副作用排除指南：吃魚油拉肚子、長痘痘、打嗝有魚腥味該怎麼辦？",
-        keywords: "魚油什麼時候吃, 魚油副作用, 魚油拉肚子, 魚油長痘痘, 魚油打嗝, 魚油吃法"
+        description: "魚油怎麼挑才有效？藥師公開「濃度、rTG、IFOS」5大選購指標！同步揭密最佳食用時機（飯前vs飯後）與副作用排除指南，一篇搞懂魚油怎麼買、怎麼吃。",
+        keywords: "魚油怎麼挑, 魚油選購, 魚油濃度, rTG魚油, 魚油什麼時候吃, 魚油副作用, 魚油拉肚子, 魚油吃法"
     },
     {
         id: 'card-fish-oil-faq',
@@ -1000,25 +1000,7 @@ const articlesData = [
         description: '一個用於探索、篩選和分析營養補充品的動態儀表板，幫助您依據不同健康目標找到最適合的營養素。',
         keywords: '儀表板, 資料庫, 篩選, 健康目標, 營養素'
     }
-    },
-{
-    id: 'card-fish-oil-market-analysis',
-        parent: 'card-fish-oil',
-            goal: '精明消費',
-                title: '魚油市場真相：真實成本與規格評測 - 破解價格迷思的終極分析',
-                    link: '/post/fish-oil-market-analysis.html',
-                        description: '深度解析市售魚油的真實成本與規格。我們分析了各大品牌的濃度、型態與價格，提供透明的性價比評測與即時計算工具，助您破解行銷迷思，做出最聰明的購買選擇。',
-                            keywords: '魚油價格, 魚油計算機, 魚油成本, 魚油評測, 魚油推薦, 魚油性價比, rTG價格, Omega-3濃度計算',
-                                type: '文章',
-                                    name: '魚油市場評測',
-                                        en_name: 'Market Analysis',
-                                            func: '真實成本計算機與價格評測',
-                                                status: '完整',
-                                                    category: 'spoke',
-                                                        published: '2025-12-30',
-                                                            modified: '2025-12-30',
-                                                                tag: '精明消費'
-}
+
 ];
 
 /**

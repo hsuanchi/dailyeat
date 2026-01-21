@@ -54,7 +54,6 @@ body {
     line-height: 1.8;
     color: var(--c-text-main);
     background: #faf8f5;
-    overflow-x: hidden;
 }
 
 p,
@@ -86,11 +85,17 @@ iframe {
 }
 
 /* Prevent Horizontal Scroll Globally */
-html,
-body {
-    overflow-x: hidden;
+/* Prevent Horizontal Scroll Globally */
+html {
     width: 100%;
     position: relative;
+    /* overflow-x: hidden; REMOVED to fix sticky */
+}
+
+body {
+    width: 100%;
+    position: relative;
+    /* overflow-x: hidden; REMOVED to fix sticky */
 }
 
 /* All elements with an ID are potential scroll targets */
@@ -137,21 +142,32 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding: 100px 20px 60px;
-    display: grid;
-    grid-template-columns: 280px 1fr;
+    display: flex;
+    /* Changed from grid to flex to better control sticky behavior if grid was causing issues, though grid usually works too. Stick with Flex for clarity or ensure Grid alignment is top */
+    align-items: flex-start;
+    /* Crucial for sticky: Ensures the sidebar doesn't stretch to full height of container */
     gap: 60px;
     position: relative;
 }
 
 .sidebar {
     position: sticky;
-    top: 100px;
-    height: fit-content;
-    max-height: calc(100vh - 120px);
+    top: 120px;
+    /* Adjusted to be below the sticky header */
+    width: 280px;
+    /* Fixed width for sidebar */
+    flex-shrink: 0;
+    max-height: calc(100vh - 140px);
+    /* prevent it from being taller than viewport */
     overflow-y: auto;
+    /* Allow internal scrolling if TOC is long */
 }
 
 .article-content {
+    flex: 1;
+    /* Take remaining width */
+    min-width: 0;
+    /* Prevent flex overflow */
     background: white;
     border-radius: 20px;
     padding: 50px;
@@ -206,7 +222,9 @@ body {
     color: var(--primary-color);
     background: var(--primary-bg-light);
     border-left-color: var(--primary-color);
-    font-weight: 600;
+    font-weight: 700;
+    padding-left: 16px;
+    /* Slightly indent active item */
 }
 
 .toc-list a:hover {
@@ -218,8 +236,6 @@ body {
 
 .toc-list a:not(.sub-item) {
     font-weight: 600;
-    background: rgba(0, 0, 0, 0.02);
-    /* Slight background for main items */
     margin-bottom: 4px;
 }
 
@@ -555,20 +571,10 @@ body {
     margin: 30px 0;
 }
 
-.alert::before {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin-right: 12px;
-}
-
 .alert-doctor {
     background-color: #fef2f2;
     border-color: #dc2626;
     color: #991b1b;
-}
-
-.alert-doctor::before {
-    content: "\26A0";
 }
 
 .alert-tip {
@@ -577,18 +583,10 @@ body {
     color: #14532d;
 }
 
-.alert-tip::before {
-    content: "\1F4A1";
-}
-
 .alert-nutritionist {
     background-color: #eff6ff;
     border-color: #60a5fa;
     color: #1e40af;
-}
-
-.alert-nutritionist::before {
-    content: "\1F4A1";
 }
 
 .alert strong {
@@ -739,10 +737,7 @@ body {
     background: white;
 }
 
-.insight-icon {
-    font-size: 1.5em;
-    color: var(--primary-color);
-}
+
 
 /* Component: System Diagnostics Map */
 .debug-map {
@@ -1030,10 +1025,7 @@ body {
     color: #475569;
 }
 
-.trust-item i {
-    font-size: 2em;
-    color: var(--primary-color);
-}
+
 
 /* FAQ Section */
 .faq-section {
@@ -1100,10 +1092,7 @@ body {
     border-color: var(--c-solution);
 }
 
-.node-icon {
-    margin-right: 8px;
-    font-size: 1.1em;
-}
+
 
 .node-jump {
     opacity: 0;
@@ -1565,15 +1554,19 @@ path.active {
 /* Responsive adjustments */
 @media (max-width: 1024px) {
     .article-container {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        /* Stack vertically on mobile */
         gap: 0;
     }
 
     .sidebar {
         display: none;
+        /* Hide sidebar on mobile/tablet as per original design */
     }
 
     .article-content {
+        width: 100%;
+        /* Full width on mobile */
         padding: 30px;
     }
 
