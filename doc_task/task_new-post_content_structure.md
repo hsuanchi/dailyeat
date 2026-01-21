@@ -72,51 +72,56 @@
 
 ---
 
-## 第四篇方向. 行為效益：健康投資學 (Behavioral ROI)
-> **定位**: 價值錨定 (Value) | **核心詞**: 魚油價格, 成本, 投資回報
+## 第四篇方向. 安全指南：2026 藥物交互作用與禁忌多重宇宙 (Safety & Interactions)
+> **定位**: 高階防禦 (Advanced Defense) | **核心詞**: $TXA_2$, Warfarin, 抗凝血機制, 藥物動力學
 
-*   **H1：健康投資學：魚油價格與價值換算，為什麼它是 CP 值最高的「健康複利」？**
-*   **H2：價值錨定 (Cost Analysis)**
-    *   熱量 (50顆核桃)、時間 (3hr備餐)、金錢 ($210 vs $1200鮭魚)
-*   **H2：協同效應 (Synergy)** - 魚油 = 身體增幅器 (運動修復/大腦升級)
-*   **H2：營養投資組合 (Portfolio)**
-    *   **基建股**: 魚油 (地基)
-    *   **動能股**: B群 (提神) | **防禦股**: 鋅 (修復)
-    *   **科技股**: 葉黃素 (護眼) | **房產股**: 鈣 (骨骼) | **現金流**: Vit C (抗氧)
-*   **H2：行為替代邊界** - 魚油不能取代運動，但能輔助流動性
+*   **H1：魚油副作用與藥物交互作用全書：從藥理機制到臨床禁忌 (附 2026 禁忌紅綠燈圖表)**
+*   **H2：致命組合？魚油不能跟什麼藥一起吃 (交互作用分析)**
+    *   *Mechanism*: 解析 Omega-3 如何透過抑制血小板 $TXA_2$ (Thromboxane A2) 合成，與抗凝血藥產生協同效應。
+    *   *(Giveaway Summary)*: 「魚油交互作用禁忌包含抗凝血劑（如 Warfarin / Coumadin）、抗血小板藥物（如 Aspirin / Plavix）及部分活血中藥 (丹參 / 銀杏)。併服可能延長凝血時間，建議處置前 14 天停用。」
+    *   *(Visual)*: [魚油禁忌紅綠燈圖表：藥物/保健品/食物 停看聽]
+    *   *(Schema)*: [Drug Interaction Table] 標記結構化資料，讓 Google 抓取藥物衝突清單。
+*   **H2：常見副作用的生化解方 (Side Effects Breakdown)**
+    *   *Topic*: 腹瀉 (脂肪酶不足)、胃食道逆流、魚腥味打嗝。
+    *   *(Giveaway Summary)*: 「腸胃副作用多源於油脂氧化或乳化不全。選擇 rTG 型態可提高脂肪酶 (Lipase) 作用效率，隨餐服用則能利用食物基質緩衝胃酸，大幅減少不適。」
+*   **H2：特殊族群停藥時機 (Surgery & Pregnancy)**
+    *   *(Giveaway Summary)*: 「鑑於抗血栓特性，美國麻醉醫學會建議重大手術、拔牙、生產前 2 週務必停用高劑量魚油，以免術中出血難止。」
+*   **H2：網路迷思破解：魚油會溶解保麗龍是毒素？**
+    *   *(Giveaway Summary)*: 「這僅是 EE 型態魚油的『極性相似相溶』化學反應，證明其為乙酯型結構，絕非含有腐蝕性強酸或塑化劑，人體消化機制與保麗龍完全不同。」
 
 >  **SEO Impact Report (本篇戰略目標)**
-> *   **Primary Keywords**: 魚油cp值, 魚油價格, 健康投資, 魚油好處 (1k)
-> *   **Secondary Keywords**: 魚油B群, 魚油葉黃素, 魚油鈣, 魚油一天吃幾顆, 魚油成本
-> *   **Target Audience**: 精打細算族、長期保養者、對於「要吃多久」有疑慮的人
-> *   **User Intent (意圖)**: `Retention` - 「這東西長期吃很貴，請給我一個繼續花錢的強力理由。」
-> *   **Business Goal**: 提升客單價 (AOV) 與回購率 (LTV)，推廣「組合包」銷售。
+> *   **Primary Keywords**: 魚油副作用, 魚油不能跟什麼吃, Warfarin魚油, 魚油抗凝血
+> *   **Target Audience**: 謹慎型買家、慢性病患、尋求專業建議的照護者
+> *   **User Intent**: `Safety / Medical Info`
+> *   **Traffic Strategy (SEO 2.0)**:
+>     1.  **Information Gain**: 捨棄通用的「能吃/不能吃」，改提供具體的「藥物學名 (Generic Name)」與「生化路徑 ($TXA_2$)」，滿足 Google 對 YMYL 內容的深度要求。
+>     2.  **Visual Bait**: 「禁忌紅綠燈」圖表極具分享價值 (Shareability)，能創造外部連結 (Backlinks)。
 
 ---
 
-## 第五篇方向. 送禮指南：全年度節慶與品牌攻略 (Gifting & Brands)
-> **定位**: 社交 & 節慶流量 (Seasonal Traffic) | **核心詞**: 過年禮盒, 母親節/父親節禮物, 品牌推薦, 伴手禮
+## 第五篇方向. 機制深度：臨床醫學與中西醫觀點 (Clinical & Mechanism)
+> **定位**: 權威巔峰 (Authority) | **核心詞**: REDUCE-IT, VLDL, LPL, 血瘀體質, 2026 指引
 
-*   **H1：2026 健康禮盒推薦：從過年到三節，為什麼魚油是「零失誤」的送禮首選？**
-*   **H2：節慶與季節行事曆 (Seasonal Strategy) - 掌握送禮時機**
-    *   **冬季/春節 (CNY)**: 天冷護心策略 - 為什麼該把「烏魚子/肉乾」換成魚油？(高熱量 vs 降血脂)
-    *   **5月/母親節 (Mother's Day)**: 熟齡情緒保養 - 針對更年期媽咪的「好心情配方」
-    *   **8月/父親節 (Father's Day)**: 職場代謝支援 - 給應酬爸爸的「甘油三酯清道夫」
-*   **H2：食品禮盒 PK 戰 (Food Comparison)**
-    *   **魚油 vs 滴雞精/燕窩**: 實用派 vs 傳統派，誰的「健康續航力」更久？
-    *   **魚油 vs 堅果塔/糕餅**: 避開「糖油炸彈」，送健康不送負擔
-*   **H2：品牌面子學 (Brand Matrix) - 送誰該買哪個牌子？**
-    *   **送長輩/長官 (Premium)**: 選擇「大研生醫/娘家/白蘭氏」等知名大廠 (強調廣告信任感)
-    *   **送平輩/好市多會員 (Value)**: 「Costco 科克蘭/萊萃美」的大罐裝哲學 (強調高 CP 值)
-    *   **送精品控 (Niche)**: 「Nordic Naturals/WHC」等頂級進口貨 (強調純度極致)
-*   **H2：送禮安全須知** - 再次確認用藥史 (抗凝血劑)
+*   **H1：魚油降血脂的科學與實證：從 REDUCE-IT 試驗到中醫「血瘀」觀點**
+*   **H2：2026 最新臨床指引 (Clinical Guidelines)**
+    *   引用 AHA (美國心臟協會) 與 ESC (歐洲心臟學會) 對於高純度 EPA (IPE) 的治療地位認定。
+*   **H2：魚油如何降低三酸甘油酯？ (Mechanism Breakdown)**
+    *   *Mechanism*: 引用 REDUCE-IT 臨床數據，詳解 EPA 抑制肝臟合成 VLDL 與促進 $LPL$ (脂蛋白脂解酶) 活性的雙重路徑。
+    *   *(Giveaway Summary)*: 「降三酸甘油酯需倚賴高純度 EPA。機制為減少肝臟 VLDL 脂肪合成並加速血液中 TG 清除，臨床建議每日攝取 2g-4g 方具顯著意義 (降低 25-30%)。」
+*   **H2：膽固醇悖論：LDL 顆粒變大 (Particle Size) 的真相**
+    *   *Concept*: 引入「非高密度脂蛋白膽固醇 (Non-HDL-C)」觀念。
+    *   *(Giveaway Summary)*: 「魚油雖可能微幅增加 LDL 濃度，但會改變其顆粒型態為『大而輕 (Large Buoyant)』的無害型，反而降低動脈粥狀硬化風險。」
+*   **H2：亞洲視角：中醫如何看魚油改善「血瘀」體質？**
+    *   *Perspective*: 結合「活血化瘀」概念，探討 Omega-3 對氣血循環的現代解釋。
+    *   *(Giveaway Summary)*: 「在中醫觀點，高血脂屬『痰濕』與『血瘀』範疇。魚油的抗凝血特性與『活血藥』異曲同工，能改善微循環瘀阻，適合氣滯血瘀型體質調理。」
 
 >  **SEO Impact Report (本篇戰略目標)**
-> *   **Primary Keywords**: 過年禮盒, 長輩禮物, 父親節/母親節禮物, 魚油禮盒
-> *   **Secondary Keywords**: 送長輩保健食品, 探病禮物, 魚油送禮, 魚油禮盒推薦, 適合老人的魚油
-> *   **Target Audience**: 節慶送禮者、孝親子女、職場送禮
-> *   **User Intent (意圖)**: `Seasonal Transactional` - 「我要送禮（有時間壓力），請推薦我不失禮又體面的選擇。」
-> *   **Business Goal**: 拓展非剛需市場，利用節慶流量創造營收高峰。
+> *   **Primary Keywords**: 魚油降血脂, REDUCE-IT, 魚油中醫, 血瘀體質
+> *   **Target Audience**: 高知識份子、三高族群、重視實證醫學與中醫調理的華人讀者
+> *   **User Intent**: `Deep Research`
+> *   **Traffic Strategy (SEO 2.0)**:
+>     1.  **Authority (權威)**: 引用具體臨床試驗 (REDUCE-IT) 與指標 (Non-HDL-C)，建立高於一般內容農場的專業護城河。
+>     2.  **Uniqueness (獨特性)**: 加入「中醫視角」，在西方營養學主導的 SERP 中創造顯著的差異化 (Differentiation)，吸引亞洲華語圈讀者。
 
 ---
 

@@ -702,6 +702,34 @@ SEO 目的： 增加站內停留時間與頁面權重傳遞。
 3.  **強調重點**：使用 `<strong>` 或 `<span class="highlight-nutrient">` 來凸顯。
 4.  **精簡圖示 (Icon) 使用**：**原則禁止，例外手動**。絕不使用 Emoji。
 
+### 5. 內容專業化與優化技巧 (Content Professionalization)
+
+為符合 2026 年 Google E-E-A-T (經驗、專業、權威、信任) 的高標準，請遵循以下原則：
+
+#### A. 提升學術權威感 (Expertise)
+-   **LaTeX 提升質感**：生化機制或化學成分建議使用 LaTeX 呈現（如 $EPA (C_{20}H_{30}O_2)$、吸收率公式），大幅提升視覺專業度。
+-   **強制引用文獻**：每篇知識文**至少引用 2-3 個權威來源** (PubMed, NIH, REDUCE-IT 試驗等)，並使用腳註或超連結標註。
+
+#### B. 建立信任感 (Trust)
+-   **負面提醒 (Negative Disclaimers)**：主動說明「誰不能吃」或「魚油無法取代藥物」。這種「反向操作」能證明我們是客觀的知識提供者，而非單純推銷。
+
+#### C. 資訊增益 (Information Gain)
+Google 偏好獨創內容。文章中應包含：
+-   **原創圖表**：如「交互作用紅綠燈」、「成本效益對照表」。
+-   **獨特觀點**：如結合「中醫血瘀體質」或「台灣氣候保存建議」等在地化/跨領域視角。
+
+#### D. Giveaway Summary (白話摘要)
+**[2026 SEO 核心規則]** 嚴格執行：在每個 **H2 標題下方**，必須緊接著一段 **50-80 字** 的 `<p>` 結論摘要，直接回答標題問題。
+-   *格式*：「**白話摘要**：(直接回答 + 簡短原因/機制)」。
+-   *目的*：搶佔 Google 第 0 位精選摘要 (Featured Snippets)。
+
+#### E. 使用者轉化與商業邏輯 (UX & Business)
+-   **轉化漏斗連結**：
+    1.  **支柱文章** (流量入口) ➜ 導流至 **SOP**。
+    2.  **SOP** (教育選擇) ➜ 導流至 **產品評測**。
+    3.  **產品評測** (購買決策) ➜ 導流至 **商品頁**。
+-   **分眾 CTA (Call to Action)**：文末提供高價值誘因（如「健康 ROI 計算表」、「檢驗報告查核清單」PDF）以獲取名單。
+
 
 
 #### TOC 目錄結構建議 (整合 Checklist 強調)
@@ -1073,6 +1101,10 @@ img, svg { max-width: 100%; height: auto; }
 
 1.  **基礎 Meta 標籤**：確實填寫 `<title>`、`<meta name="description">`。
 2.  **JSON-LD 結構化資料**：**此為必填項目**。包含 `Article`, `WebSite`, `BreadcrumbList`。
+    -   **進階 Schema (2026 SEO 必備)**：
+        -   **SOP/教學文**：務必部署 `HowTo Schema`，標示步驟圖文。
+        -   **產品評測 (Review)**：務必部署 `Product` 與 `Review Schema`，呈現星星評分與價格區間。
+        -   **醫療知識 (QA)**：QA 區塊務必部署 `FAQPage Schema`。
 3.  **全站品牌識別 (Site Name) 設定**。
 
 ## 第五章：資源與範例
@@ -1142,5 +1174,3 @@ a.sub-item { /* ... */ }
 .disclaimer { /* ... */ }
 .step-guide-container { /* ... */ }
 .dos-donts-container { /* ... */ }
-.share-btn { /* ... */ }
-```
