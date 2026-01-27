@@ -2534,7 +2534,7 @@ path.active {
    ========================================= */
 html,
 body {
-    overflow-x: hidden;
+    /* overflow-x: hidden; REMOVED to allow position: sticky to work */
     /* Prevent horizontal scroll globally */
     max-width: 100vw;
 }
@@ -2581,4 +2581,361 @@ body {
 .button-cta i {
     margin-right: 8px;
     flex-shrink: 0;
+}
+
+/* ============================================= */
+/* == 2026 Fish Oil Review Updates (New)      == */
+/* ============================================= */
+
+/* Market Analysis Section */
+.market-analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.analysis-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    /* Soft Shadow */
+}
+
+.analysis-card h3 {
+    margin-top: 0 !important;
+    /* Reset default article h3 margin */
+    margin-bottom: 25px !important;
+    font-size: 1.3em !important;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 15px;
+}
+
+/* Comparison Box (Costco vs iHerb) */
+.comparison-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--primary-color);
+    /* Orange accent */
+}
+
+.comparison-box h4 {
+    margin-top: 0 !important;
+    color: #1e293b !important;
+    font-size: 1.1em !important;
+}
+
+.comparison-box ul {
+    margin-bottom: 0 !important;
+    padding-left: 20px !important;
+}
+
+.comparison-box li {
+    font-size: 0.95em;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+/* Social Sentiment (PTT/Dcard) */
+.sentiment-item {
+    display: flex;
+    /* Flex layout for tag + content */
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.sentiment-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+    /* Prevent tag from shrinking */
+}
+
+.tag-red {
+    background: #fee2e2;
+    color: #991b1b;
+    /* Red-800 */
+}
+
+.tag-yellow {
+    background: #fef9c3;
+    color: #854d0e;
+    /* Yellow-800 */
+}
+
+.sentiment-item strong {
+    display: block;
+    color: #1e293b;
+    margin-bottom: 4px;
+    font-size: 1.05em;
+}
+
+.sentiment-item p {
+    margin: 0 !important;
+    font-size: 0.95em;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* Top Picks Cards (New Segmentation) */
+.top-picks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.pick-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    /* For header gradient */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    /* Stronger shadow */
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.pick-card:hover {
+    transform: translateY(-5px);
+}
+
+.pick-header {
+    padding: 25px 20px;
+    text-align: center;
+    color: white;
+}
+
+.pick-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    backdrop-filter: blur(4px);
+}
+
+.pick-header h4 {
+    margin: 0 !important;
+    font-size: 1.3em !important;
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Theme Variants for Pick Cards */
+.best-overall .pick-header {
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    /* Gold */
+}
+
+.best-value .pick-header {
+    background: linear-gradient(135deg, #4ade80 0%, #16a34a 100%);
+    /* Green */
+}
+
+.best-niche .pick-header {
+    background: linear-gradient(135deg, #f472b6 0%, #db2777 100%);
+    /* Pink */
+}
+
+.pick-body {
+    padding: 25px;
+    text-align: center;
+    flex: 1;
+    /* Push footer down if needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pick-body p {
+    font-size: 0.95em;
+    color: #475569;
+    margin-bottom: 20px !important;
+}
+
+.btn-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+    /* Uses orange from root */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.btn-text:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Sentiment Analysis Layout (2-Col) */
+.sentiment-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+@media (min-width: 768px) {
+    .sentiment-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.sentiment-pros h4,
+.sentiment-cons h4 {
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+    font-size: 1.1em !important;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sentiment-pros h4 {
+    color: #15803d !important;
+    /* Green-700 */
+}
+
+.sentiment-cons h4 {
+    color: #b91c1c !important;
+    /* Red-700 */
+}
+
+.sentiment-pros ul {
+    padding-left: 20px !important;
+    margin: 0 !important;
+}
+
+.sentiment-pros li {
+    font-size: 0.95em;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+/* TBD Data Placeholder */
+.tbd-data {
+    margin-bottom: 30px;
+    /* Increase spacing */
+}
+
+/* =========================================
+   Sentiment Collapsible (Accordion)
+   ========================================= */
+details.sentiment-details {
+    margin-top: 15px;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 15px;
+}
+
+details.sentiment-details>summary {
+    list-style: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--primary-color, #ea580c);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    user-select: none;
+    font-size: 1.05em;
+}
+
+/* Hide default triangle */
+details.sentiment-details>summary::-webkit-details-marker {
+    display: none;
+}
+
+details.sentiment-details>summary:hover {
+    color: #c2410c;
+    transform: translateX(4px);
+}
+
+details.sentiment-details>summary::after {
+    content: '\f078';
+    /* FontAwesome chevron-down */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+details.sentiment-details[open]>summary::after {
+    transform: rotate(180deg);
+}
+
+.sentiment-content {
+    margin-top: 15px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Raw Quotes Table Style */
+.quote-table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+.quote-table th,
+.quote-table td {
+    padding: 10px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.quote-table th {
+    background: #f1f5f9;
+    color: #475569;
+    font-weight: 600;
+}
+
+.quote-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    background: #e2e8f0;
+    color: #64748b;
 }

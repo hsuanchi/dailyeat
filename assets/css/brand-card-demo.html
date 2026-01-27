@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Card CSS Variants Demo</title>
+    <!-- Link to the main stylesheet for base styles -->
+    <link rel="stylesheet" href="article.css">
+    <!-- Link to fontawesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #f1f5f9;
+        }
+
+        .demo-intro {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* --- Variant A: Premium Minimalist (Elegant & Clean) --- */
+        .variant-a-container {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #334155;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Positioning - A */
+        .pos-card-a {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px 24px;
+            border-radius: 12px;
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .pos-card-a::before {
+            content: '\f10d';
+            /* quote icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2rem;
+            color: #e2e8f0;
+            z-index: 0;
+        }
+
+        .pos-card-a-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pos-card-a strong {
+            display: block;
+            color: #0f172a;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        /* Rating - A */
+        .rating-card-a {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 25px;
+        }
+
+        .rating-score-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #f59e0b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #b45309;
+            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.15);
+            flex-shrink: 0;
+        }
+
+        .rating-details-a {
+            flex-grow: 1;
+        }
+
+        .rating-stars-a {
+            color: #f59e0b;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .verdict-tag-a {
+            background: #fffbeb;
+            color: #b45309;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 8px;
+            border: 1px solid #fcd34d;
+        }
+
+        /* Analysis - A */
+        .analysis-grid-a {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .analysis-grid-a {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .analysis-col-a h5 {
+            margin: 0 0 15px 0;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .analysis-col-a.pros h5 {
+            color: #166534;
+            border-color: #dcfce7;
+        }
+
+        .analysis-col-a.cons h5 {
+            color: #991b1b;
+            border-color: #fee2e2;
+        }
+
+        .analysis-list-a {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .analysis-list-a li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .analysis-list-a li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .analysis-col-a.pros li::before {
+            background: #22c55e;
+        }
+
+        .analysis-col-a.cons li::before {
+            background: #ef4444;
+        }
+
+
+        /* --- Variant B: Modern Card (Depth & Glass) --- */
+        .variant-b-container {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #fdfdfd;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        /* Positioning - B */
+        .pos-card-b {
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.08);
+            /* Blue glow */
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .pos-icon-b {
+            background: #3b82f6;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+        }
+
+        .pos-content-b strong {
+            display: block;
+            color: #1e3a8a;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* Rating - B */
+        .rating-card-b {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 25px;
+            border-top: 5px solid #fbbf24;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rating-card-b::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24, #fcd34d);
+        }
+
+        .rating-big-score-b {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #d97706;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .rating-stars-b {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(251, 191, 36, 0.3);
+        }
+
+        .verdict-box-b {
+            background: #fffbeb;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: #92400e;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* Analysis - B */
+        .analysis-card-b {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .analysis-row-b {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+
+        .analysis-row-b:hover {
+            transform: translateY(-2px);
+        }
+
+        .analysis-row-b.pros {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+        }
+
+        .analysis-row-b.cons {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+        }
+
+        .tag-pill-b {
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .tag-pill-b.pros {
+            background: #22c55e;
+            box-shadow: 0 2px 4px rgba(34, 197, 94, 0.3);
+        }
+
+        .tag-pill-b.cons {
+            background: #ef4444;
+            box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+        }
+
+        .analysis-text-b {
+            font-size: 0.95rem;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        h3.section-header {
+            margin-top: 50px;
+            margin-bottom: 20px;
+            background: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            color: #1e293b;
+        }
+
+        p.section-desc {
+            margin-bottom: 25px;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="demo-intro">
+        <h1>fish-oil-market-analysis.html - Brand Card Design Variants</h1>
+        <p>Comparison of new styles for Positioning, Recommendation, and Analysis sections.</p>
+    </div>
+
+    <!-- Variant A -->
+    <h3 class="section-header">Variant A: Premium Minimalist (Elegant)</h3>
+    <p class="section-desc">Focus on clean typography, whitespace, and subtle hierarchy.</p>
+
+    <div class="variant-a-container">
+        <!-- 2. Positioning -->
+        <h4 style="margin-top:0;">2. Positioning Box</h4>
+        <div class="pos-card-a">
+            <div class="pos-card-a-content">
+                <strong>長輩界的 LV</strong>
+                雖然貴，但「娘家」二字對長輩有無可取代的安撫作用與信任感。
+            </div>
+        </div>
+
+        <!-- 3. Rating -->
+        <h4>3. Rating Section</h4>
+        <div class="rating-card-a">
+            <div class="rating-score-circle">4.0</div>
+            <div class="rating-details-a">
+                <div class="rating-stars-a">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+                <div class="rating-verdict-a">
+                    <span class="verdict-tag-a">小編總評</span>
+                    <strong>孝親首選。</strong> 無腦送禮求穩，這款無敵；CP 值雖低，但「心意」值最高。
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Analysis -->
+        <h4>4. Netizen Analysis</h4>
+        <div class="analysis-grid-a">
+            <div class="analysis-col-a pros">
+                <h5><i class="fas fa-check-circle"></i> 優勢 (Pros)</h5>
+                <ul class="analysis-list-a">
+                    <li>96% 濃度市場無對手，技術頂尖。</li>
+                    <li>藥局通路廣，長輩信任感極高。</li>
+                    <li>包裝設計精美，適合送禮。</li>
+                </ul>
+            </div>
+            <div class="analysis-col-a cons">
+                <h5><i class="fas fa-exclamation-circle"></i> 劣勢 (Cons)</h5>
+                <ul class="analysis-list-a">
+                    <li>價格天價，被認為包含高額廣告費。</li>
+                    <li>年輕族群認為太老氣。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Variant B -->
+    <h3 class="section-header">Variant B: Modern Card (Depth & Visuals)</h3>
+    <p class="section-desc">Focus on visual impact, depth, shadows, and distinct blocks.</p>
+
+    <div class="variant-b-container">
+        <!-- 2. Positioning -->
+        <h4 style="margin-top:0;">2. Positioning Box</h4>
+        <div class="pos-card-b">
+            <div class="pos-icon-b"><i class="fas fa-crosshairs"></i></div>
+            <div class="pos-content-b">
+                <strong>長輩界的 LV</strong>
+                雖然貴，但「娘家」二字對長輩有無可取代的安撫作用與信任感。
+            </div>
+        </div>
+
+        <!-- 3. Rating -->
+        <h4>3. Rating Section</h4>
+        <div class="rating-card-b">
+            <div class="rating-big-score-b">4.0</div>
+            <div class="rating-stars-b">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                    class="fas fa-star"></i><i class="far fa-star"></i>
+            </div>
+            <div class="verdict-box-b">
+                <i class="fas fa-heart"></i> 小編總評：孝親首選，心意無價。
+            </div>
+        </div>
+
+        <!-- 4. Analysis -->
+        <h4>4. Netizen Analysis</h4>
+        <div class="analysis-card-b">
+            <div class="analysis-row-b pros">
+                <div class="tag-pill-b pros">PROS</div>
+                <div class="analysis-text-b">
+                    96% 濃度市場無對手，藥局通路廣，長輩信任感極高。包裝設計精美。
+                </div>
+            </div>
+            <div class="analysis-row-b cons">
+                <div class="tag-pill-b cons">CONS</div>
+                <div class="analysis-text-b">
+                    價格天價，被認為包含高額廣告費；年輕族群認為太老氣。
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

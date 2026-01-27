@@ -1,0 +1,277 @@
+/* --- New Brand Review Card Layout (v2026 Redesign) --- */
+.brand-review-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin-bottom: 40px;
+    border: 1px solid #e2e8f0;
+}
+
+.brand-review-header {
+    background: #f8fafc;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.brand-review-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.brand-review-body {
+    padding: 25px;
+}
+
+/* Section 1: Product Specs Table */
+.review-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 12px;
+    border-left: 4px solid #3b82f6;
+    padding-left: 10px;
+    line-height: 1.2;
+}
+
+.review-specs-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 25px;
+    border: 1px solid #f1f5f9;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.95rem;
+}
+
+.review-specs-table tr:nth-child(odd) {
+    background: #fcfcfc;
+}
+
+.review-specs-table th,
+.review-specs-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.review-specs-table th {
+    width: 25%;
+    color: #64748b;
+    font-weight: 600;
+    background: #f8fafc;
+    white-space: nowrap;
+}
+
+.review-specs-table td {
+    color: #334155;
+    font-weight: 500;
+}
+
+/* Mobile Table Adaptation */
+@media (max-width: 600px) {
+
+    .review-specs-table th,
+    .review-specs-table td {
+        display: block;
+        width: 100%;
+        border-bottom: none;
+    }
+
+    .review-specs-table th {
+        padding-bottom: 2px;
+        color: #94a3b8;
+        font-size: 0.85rem;
+        background: transparent;
+    }
+
+    .review-specs-table td {
+        padding-top: 2px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .review-specs-table tr:last-child td {
+        border-bottom: none;
+    }
+}
+
+/* Section 2: Market Positioning (Updated Variant A) */
+.review-position-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 20px 24px;
+    border-radius: 12px;
+    position: relative;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    color: #334155;
+    line-height: 1.6;
+}
+
+.review-position-box::before {
+    content: '\f10d';
+    /* quote icon (FontAwesome) */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2rem;
+    color: #e2e8f0;
+    z-index: 0;
+}
+
+.review-position-box-content {
+    position: relative;
+    z-index: 1;
+}
+
+.review-position-box strong {
+    display: block;
+    color: #0f172a;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+/* Section 3: Recommendation Rating (Updated Variant A) */
+.review-rating-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 25px;
+}
+
+.rating-score-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #fff;
+    border: 4px solid #f59e0b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #b45309;
+    box-shadow: 0 4px 6px rgba(245, 158, 11, 0.15);
+    flex-shrink: 0;
+}
+
+.rating-details {
+    flex-grow: 1;
+}
+
+.rating-stars {
+    color: #f59e0b;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.verdict-tag {
+    background: #fffbeb;
+    color: #b45309;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-right: 8px;
+    border: 1px solid #fcd34d;
+}
+
+.rating-verdict {
+    font-size: 0.95rem;
+    color: #b45309;
+}
+
+/* Mobile Adaptation for Rating Box */
+@media (max-width: 600px) {
+    .review-rating-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Section 4: Netizen Analysis (Updated Variant A - Grid) */
+.review-analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 600px) {
+    .review-analysis-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.analysis-col h5 {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+}
+
+.analysis-col.pros h5 {
+    color: #166534;
+    border-color: #dcfce7;
+}
+
+.analysis-col.cons h5 {
+    color: #991b1b;
+    border-color: #fee2e2;
+}
+
+.analysis-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.analysis-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.analysis-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.analysis-col.pros li::before {
+    background: #22c55e;
+}
+
+.analysis-col.cons li::before {
+    background: #ef4444;
+}
+
+/* Footer: Sentiment Collapsible */
+.brand-review-footer {
+    border-top: 1px solid #e2e8f0;
+}
