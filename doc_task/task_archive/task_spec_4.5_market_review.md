@@ -20,7 +20,7 @@
   - H3: 1. 大研生醫 德國頂級魚油 (Daiken)
   - H3: 2. Vitabox 挪威高濃度魚油
   - H3: 3. 營養師輕食 1000 頂級超臨界魚油
-  - H3: 4. Costco Kirkland 科克蘭魚油
+  - H3: 4.  Kirkland 科克蘭魚油
   - H3: 5. 三得利 (Suntory) DHA&EPA+芝麻明 E
 - H2: 4. 魚油評比總結與 CP 值精算 (Comparison Matrix)
   - H3: 魚油真實 CP 值計算機

@@ -279,7 +279,7 @@
                             <ul class="footer-links">
                                 <li><a href="/post/fish-oil-hubpage.html">魚油知識首頁 (Hub)</a></li>
                                 <li><a href="/post/fish-oil.html">基礎保養指南 (Core)</a></li>
-                                <li><a href="/post/doing/fish-oil-market-analysis.html">市售產品評測 (Review)</a></li>
+                                <li><a href="/post/fish-oil-market-analysis.html">市售產品評測 (Review)</a></li>
                                 <li><a href="/post/doing/fish-oil-tools.html">挑選計算機 (Tools)</a></li>
                                 <li><a href="/post/doing/fish-oil-groups.html">分眾選購指南</a></li>
                             </ul>

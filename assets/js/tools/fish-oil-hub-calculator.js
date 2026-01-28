@@ -122,7 +122,7 @@ class FishOilHubCalculator {
                 break;
             default: // general
                 multiplier = 30;
-                link = './doing/fish-oil-market-analysis.html';
+                link = './fish-oil-market-analysis.html';
                 linkText = '查看 2025 綜合評比 →';
         }
 
