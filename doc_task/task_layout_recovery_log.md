@@ -42,73 +42,43 @@
       </div>
 ```
 
-### 步驟 2：系統性縮排修正 (Systematic Indentation Fix)
-使用正則表達式 (Regex) 進行全文件批量替換，將錯誤縮排統一標準化。
+### 步驟 2：系統性縮排修正 (Systematic Indentation Fix - Manual Approach)
 
-## 高效率手動編寫與修復 SOP (Efficient Manual Editing Guide)
+由於自動化腳本或正規表達式 (Regex) 容易因匹配誤差導致結構損壞（例如 Vitabox 案例），最安全且精確的方法是**依據標準階層進行手動修正**。
 
-當未來遇到類似的大型 HTML 結構錯亂時，建議依照以下 SOP 進行高效率修復，避免逐行修改的低效地獄。
+#### 1. 確立標準縮排階層 (Standard Indentation Hierarchy)
+請嚴格遵守以下縮排規則，以確保視覺層級一致：
 
-### 工具準備
-*   **編輯器**：VS Code
-*   **模式**：開啟「取代」功能 (`Ctrl + H`) -> 啟用「正則表達式」模式 (`Alt + R`，圖示為 `.*`)
+| 層級 (Level) | 元素範例 (Elements) | 縮排數 (Spaces) | 備註 |
+| :--- | :--- | :--- | :--- |
+| **Root** | 頁面最外層容器 | 0 - 6 | 視父層級 `.col-lg-8` 而定 |
+| **Level 1 (Brand Wrapper)** | `<!-- Brand Comment -->` <br> `<h3 class="review-title">` <br> `<p>` (品牌簡介) <br> `<div class="brand-review-card">` | **8 spaces** | 這是品牌區塊的基準線 |
+| **Level 2 (Card Container)** | `<div class="brand-review-header">` <br> `<div class="brand-review-body">` | **10 spaces** | 位於 Card 內部 |
+| **Level 3 (Content Block)** | `<div class="review-section-title">` <br> `<table class="review-specs-table">` <br> `<div class="review-position-box">` <br> `<div class="review-rating-box">` <br> `<div class="review-analysis-grid">` <br> **「品牌深度分析」標題與內容** | **12 spaces** | 所有主要內容皆應在此層級 |
+| **Level 4 (Inner List/Text)** | `<th>`, `<td>` <br> `<li>` (在 `<ul>` 內) <br> `<p>` (在深度分析內) | **14 - 16 spaces** | 視父容器而定 |
 
-### 批量修復指令表 (Regex Cheat Sheet)
+#### 2. 手動修正操作指引 (Manual Fixing SOP)
+當發現某個品牌區塊跑版時，請執行以下檢查：
 
-請依序執行以下 5 組取代操作，即可瞬間修復 90% 的縮排問題：
+1.  **定位基準線**：找到該品牌的 `<!-- 3.x BrandName -->` 註解與 `<h3>` 標題，確認它們是否為 **8 空格**。
+2.  **檢查 Body 容器**：確認 `<div class="brand-review-body">` 是否為 **10 空格**。
+3.  **校正內容區塊**：選取所有內容（如「品牌深度分析」章節），使用 `Tab` 或 `Shift + Tab` 將其整體調整至 **12 空格**。
+    *   *常見錯誤*：誤將「品牌深度分析」縮排至 8 或 10 空格，導致與其他章節（如「市場定位」）不對齊。
+4.  **檢查閉合標籤 (Critical)**：
+    *   確認 `brand-review-body` 的結尾 `</div>` 位於 **10 空格**。
+    *   確認 `brand-review-card` 的結尾 `</div>` 位於 **8 空格**。
+    *   *Vitabox 案例教訓*：若內容縮排正確但仍然跑版，通常是少了一個 `</div>` 或多了一個 `</div>`，導致下一個品牌被「吃」進去。
 
-| 順序 | 目標元素 | 查找內容 (Regex Find) | 替換內容 (Replace With) | 說明 |
-| :--- | :--- | :--- | :--- | :--- |
-| **1** | **品牌註解** | `^  <!-- 3\.` | `        <!-- 3.` | 統一品牌分隔線縮排 (8格) |
-| **2** | **H3 標題** | `^  <h3 class="review-title"` | `        <h3 class="review-title"` | 統一品牌標題縮排 (8格) |
-| **3** | **文字段落** | `^  <p>([^<])` | `        <p>$1` | 統一內文縮排 (8格)，`$1` 保留原內容 |
-| **4** | **卡片容器** | `^  <div class="brand-review-card">` | `        <div class="brand-review-card">` | 統一卡片外框縮排 (8格) |
-| **5** | **卡片內部容器** | `^    <div class="brand-review-(header\|body)">` | `          <div class="brand-review-$1">` | 統一 Header/Body 容器 (10格) |
-| **6** | **內部元件** | `^      <(div\|table\|ul\|details)` | `            <$1` | 修正內層標題/表格/列表 (12格) |
-| **7** | **表格行 (TR)** | `^        <tr` | `              <tr` | 修正表格行 (14格) |
-| **8** | **表格欄 (TH/TD)** | `^          <(th\|td)` | `                <$1` | 修正表格欄位 (16格) |
+#### 3. 複製對照法 (Visual Template Matching)
+若不確定縮排是否正確，請直接參考 **Sports Research (SR)** 區塊，該區塊結構最為完整且標準：
 
-### 預防措施 (Prevention)
-1.  **使用 `task_boundary`**：在大量編輯前，務必確認任務範圍。
-2.  **檢查閉合標籤**：每次插入大型 HTML 區塊後，立即檢查 `</div>` 數量是否平衡。可利用 VS Code 的縮排輔助線或 "Fold/Unfold" 功能快速確認結構。
-3.  **複製標準模板**：新增品牌時，不要憑空手寫，請複製一個結構正確的品牌（如 `BetterBio` 區塊）作為模板，再修改內容。
-
----
-**附註**：正確的品牌區塊 HTML 結構參考（以 BetterBio 為標準範例）
 ```html
-        <!-- 3.1 BetterBio -->
-        <h3 class="review-title" id="brand-betterbio">好好生醫魚悅魚油 (BetterBio Joy Fish Oil)</h3>
-        <p>由醫師、營養師、藥師組成的專業團隊創立的「好好生醫 BetterBio」,推出的魚悅魚油採用挪威百年大廠 VIVO MEGA 原料,擁有高濃度 85% Omega-3 的 rTG
-          型態配方。強調「健康好愉悅」的核心理念,專為現代忙碌生活、3C 族群與追求高品質保健食品的消費者設計。</p>
-        <div class="brand-review-card">
-          <div class="brand-review-header">
-            <h3>好好生醫魚悅魚油 85% Omega-3</h3>
-            <div class="review-badges">
-              <span class="badge badge-rtg">rTG 85%</span>
-              <span class="badge badge-ifos">IFOS 5星</span>
-              <span class="badge" style="background:#dcfce7;color:#166534;">高EPA配方</span>
-            </div>
-          </div>
-
-          <div class="brand-review-body">
-            <!-- 1. Specs -->
-            <div class="review-section-title">1. 產品規格與官方說明</div>
-            <table class="review-specs-table">
-              <tr>
-                <th>產品全名</th>
-                <td>魚悅魚油 (膠囊食品) 85% Omega-3 高濃度高EPA 挪威魚油<br>
-                  <em style="font-size: 0.9em; color: #64748b;">Joy Fish Oil Concentrate 85% omega-3 rTG Joy Fish Oil
-                    with 720 EPA and 240 DHA</em>
-                </td>
-              </tr>
-              <!-- (略: 其他規格欄位, 縮排皆為 14 spaces) -->
-            </table>
-
             <!-- 2. Positioning -->
             <div class="review-section-title">2. 市場定位</div>
             <div class="review-position-box">
               <div class="review-position-box-content">
-                <strong>專業團隊研發,高品質首選。</strong>...
+                <strong>跨境電商的絕對霸主,價格效率屠夫。</strong> 以震撼的成本優勢(娘家的 10 倍、MIHONG 的 1.5 倍價格效率)對本土品牌構成「降維打擊」。專攻追求科學數據與極致 CP
+                值的年輕男性與專業人士,是 PTT Fitness 版與 E-shopping 版的不二之選。唯一門檻是海外物流等待期與關稅障礙。
               </div>
             </div>
 
@@ -117,25 +87,77 @@
             <div class="review-rating-box">
               <div class="rating-score-circle">4.5</div>
               <div class="rating-details">
-                 <!-- (略) -->
+                <div class="rating-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="rating-verdict">
+                  <span class="verdict-tag">Dailyeat評價</span>
+                  <strong>國際高標,價格屠夫,理性數據派首選。</strong> 若能接受跨境購物門檻,SR
+                  在價格效率與原料純度上對本土品牌形成降維打擊。唯一風險是關稅與物流,以及美國規格的巨大膠囊(Horse Pills)對部分使用者的吞嚥挑戰。
+                </div>
               </div>
             </div>
+
+            <!-- 品牌深度分析 -->
+            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
+
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">規格驗證與科學解讀 -
+              規格破壞者的誕生</h4>
+            <p>Sports Research 是 2026 年台灣魚油市場的「規格破壞者」,透過 iHerb 平台直接衝擊本土品牌。</p>
+            <ul style="line-height: 1.8; margin-bottom: 20px;">
+              <li><strong>Triple Strength 配方：</strong>單顆 1250mg 魚油中含有 <strong style="color: #c2410c;">1040mg
+                  Omega-3</strong> (690mg EPA / 260mg DHA),濃度高達 <strong>83%</strong>。</li>
+              <li><strong>IFOS 五星認證：</strong>每一批次均公開檢驗報告,透明度滿分。</li>
+              <li><strong>原料獨特性：</strong>不同於本土品牌多用混種鯷魚,SR 採用 <strong> Wild Alaska
+                  Pollock(阿拉斯加狹鱈)</strong>。單一魚種來源使得溯源管理更為容易,且擁有 <strong style="color: #16a34a;">MSC 永續漁業認證</strong>。
+              </li>
+              <li><strong>SR-rTG 技術：</strong>雖然標示為 TG,但實為經過再酯化的高濃度 rTG,兼具濃度與吸收。</li>
+            </ul>
+
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">價格結構與「降維打擊」經濟效率
+            </h4>
+            <div class="responsive-table-wrapper">
+              <table class="data-table" style="margin-bottom: 20px;">
+                <thead>
+                  <tr>
+                    <th>項目</th>
+                    <th>數據</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>市場價格(iHerb)</td>
+                    <td>90 粒裝約 USD 18-25 (約 NT$580-870)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>單顆成本</strong></td>
+                    <td><strong style="color: #16a34a;">約 NT$9.66</strong></td>
+                  </tr>
+                  <!-- 省略部分表格內容以從簡，但保持縮排結構 -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 省略部分深度分析內容 -->
 
             <!-- 4. Analysis -->
             <div class="review-section-title">4. 網友評價分析整理</div>
             <div class="review-analysis-grid">
-               <!-- (略) -->
+              <div class="analysis-col pros">
+                <h5><i class="fas fa-check-circle"></i> 優勢</h5>
+                <ul class="analysis-list">
+                  <li>83% rTG + IFOS 五星認證,規格完勝同價位競品。</li>
+                  <li>價格效率震撼:娘家的 10 倍、MIHONG 的 1.5 倍。</li>
+                  <li>單一魚種(阿拉斯加狹鱈)+MSC 認證,溯源管理扎實。</li>
+                </ul>
+              </div>
+              <div class="analysis-col cons">
+                <h5><i class="fas fa-exclamation-circle"></i> 劣勢</h5>
+                <ul class="analysis-list">
+                  <li><strong>關稅障礙:</strong> 台灣海關「半年 6 次、單筆 NT$2,000」免稅額度限制,囤貨困難。</li>
+                  <li><strong>物流等待:</strong> 7-14 天配送期,急用者不適合。</li>
+                </ul>
+              </div>
             </div>
-
-            <!-- 品牌深度分析 Container -->
-            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
-            
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">規格驗證...</h4>
-            <p>...</p>
-            <ul style="line-height: 1.8; margin-bottom: 20px;">
-              <li>...</li>
-            </ul>
-
-          </div> <!-- End of brand-review-body -->
-        </div> <!-- End of brand-review-card -->
 ```
