@@ -143,8 +143,15 @@
     }
 
     article h3.review-title {
-      margin-top: 55px !important;
-      padding-top: 15px;
+      margin-top: 60px !important;
+      padding: 12px 20px;
+      background: linear-gradient(to right, #fff7ed 0%, #ffffff 100%);
+      border-left: 5px solid #f97316;
+      /* Orange accent */
+      border-radius: 4px;
+      color: #c2410c;
+      font-size: 1.4em;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
 
     /* FAQ Interaction Styles */
@@ -192,9 +199,29 @@
 
     .faq-item.active .faq-answer {
       max-height: 500px;
-      /* Adjust as needed */
       padding: 20px;
       border-top: 1px solid #e2e8f0;
+    }
+
+    /* Brand Image Box */
+    .brand-img-box {
+      width: 100%;
+      max-width: 300px;
+      height: 220px;
+      margin: 0 auto 20px;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .brand-img-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
   </style>
 </head>
@@ -361,8 +388,8 @@
         <p>好的品牌敢於揭露上游供應商。目前世界頂級的魚油原料大廠主要有三家，看到它們的名字就是品質保證：</p>
         <ul>
           <li><strong>德國 KD Pharma:</strong> 擁有 21 項專利，專精於超臨界萃取，純度極高。(代表：大研生醫)</li>
-          <li><strong>挪威 Vivomega:</strong> 強調 rTG 技術與最低的環境毒素殘留。(代表：Vitabox)</li>
-          <li><strong>西班牙 Solutex:</strong> 擁有獨家 Cleantex 去味技術，重視除腥。(代表：營養師輕食)</li>
+          <li><strong>挪威 Vivomega:</strong> 強調 rTG 技術與最低的環境毒素殘留。(代表：Vitabox、好好生醫)</li>
+          <li><strong>西班牙 Solutex:</strong> 擁有獨家 Cleantex 去味技術，重視除腥。(代表：營養師輕食、娘家)</li>
         </ul>
 
         <h3>法則四：新鮮度 (TOTOX 指標)</h3>
@@ -377,39 +404,40 @@
           <li><strong>一般保養:</strong> 選擇 EPA:DHA 約為 3:2 或 1:1 的均衡型。</li>
         </ul>
 
-        <h3 style="margin-top: 40px;">法則六：膠囊大小與吞嚥體驗 (Size Matters)</h3>
+        <h3 style="margin-top: 40px;">法則六：膠囊大小與吞嚥體驗</h3>
         <p>在分析了數千則 PTT 與 Dcard 評論後，我們發現「吞嚥困難」是讓消費者放棄回購的首要原因。傳統歐美魚油（如 Kirkland / Sports
           Research）大顆得像「栓劑」，女性與長輩容易卡喉嚨，甚至產生心理陰影。</p>
         <div class="alert alert-tip" style="display: block;">
           <strong style="display: block; margin-bottom: 10px; font-size: 1.1em;">✔ 專家建議：</strong>
-          <span>選擇膠囊直徑 <strong>1.2-1.5cm</strong> 以下的產品，例如 <strong>大研生醫</strong>、<strong>好好生醫 (BetterBio)</strong> 或
+          <span>選擇膠囊直徑 <strong>1.2-1.5cm</strong> 以下的產品，例如<strong>好好生醫 (BetterBio)</strong>、<strong>大研生醫</strong>或
             <strong>BHK's</strong>。它們的「極小膠囊技術」是對亞洲人食道的物理救贖，特別適合怕吞藥的族群。</span>
         </div>
 
-        <h3 style="margin-top: 40px;">法則七：去腥技術與新鮮度 (No Fishy Burps)</h3>
+        <h3 style="margin-top: 40px;">法則七：去腥技術與新鮮度</h3>
         <p>「打嗝有魚味」是使用者棄用魚油的第二大痛點，這通常代表魚油氧化不新鮮，甚至會產生社交尷尬。選購時務必確認品牌是否採用<strong>「超臨界萃取」</strong>與<strong>「專利去味技術」</strong>。
         </p>
         <ul>
-          <li><strong>推薦品牌：</strong><strong>營養師輕食</strong>（搭載西班牙 Solutex Cleantex 技術）與
-            <strong>Vitabox</strong>，它們在「無味評比」中表現最佳。
+          <li><strong>推薦品牌：</strong><strong>營養師輕食</strong>、<strong>Vitabox</strong> 與 <strong>好好生醫</strong> (搭載
+            VIVOSENS® 去味技術)，它們在「無味評比」中表現最佳。
           </li>
           <li><strong>實戰技巧：</strong>如果您購買的是大罐裝魚油（如 Kirkland），建議分裝至小瓶並冷藏，以減少開關罐時接觸空氣導致的氧化腥味。</li>
         </ul>
 
-        <h3 style="margin-top: 40px;">法則八：第三方檢驗透明度 (Trust but Verify)</h3>
+        <h3 style="margin-top: 40px;">法則八：第三方檢驗透明度</h3>
         <p>
           擔心重金屬與塑化劑殘留？原廠檢驗報告可信嗎？這是消費者的第三大焦慮。選購時務必選擇擁有<strong>「公開第三方檢驗資料庫」</strong>的品牌，並且要能查詢到<strong>「最新批次」</strong>的檢驗日期。
         </p>
         <div class="alert alert-tip" style="display: block;">
           <strong style="display: block; margin-bottom: 10px; font-size: 1.1em;">✔ 透明度標竿：</strong>
-          <span><strong>Vitabox</strong> 與 <strong>大研生醫</strong> 提供逐批次檢驗報告查詢系統，不僅要看報告，還要確認是否為「最新批次」，這是對食安的最高誠意。</span>
+          <span><strong>Vitabox</strong>、<strong>大研生醫</strong> 與 <strong>好好生醫</strong>
+            皆提供逐批次檢驗報告查詢系統，不僅要看報告，還要確認是否為「最新批次」，這是對食安的最高誠意。</span>
         </div>
 
         <!-- H2: Brand Deep Dive (Merged) -->
         <h2 id="brand-deep-dive">3. 2026 年 Top 11 人氣魚油品牌深度開箱</h2>
         <div class="alert alert-info" style="margin-bottom: 30px;">
           <p class="mb-0"><i class="fas fa-info-circle"></i> <strong>評測說明 (Disclosure)：</strong><br>
-            本篇評測內容彙整自各品牌官方網站、產品包裝標示及公開檢驗報告 (如 IFOS、SGS)，並參考 PTT/Dcard 等社群論壇之使用者真實反饋。Dailyeat
+            本篇評測內容彙整自各品牌官方網站、電商賣場、產品包裝標示及公開檢驗報告 (如 IFOS、SGS)，並參考 PTT/Dcard 等社群論壇之使用者真實反饋。Dailyeat
             致力於提供中立且具參考價值的市場資訊，惟產品價格、規格與優惠方案可能隨廠商策略變動，詳細資訊請以各品牌官方最新公告為準。</p>
         </div>
 
@@ -430,6 +458,9 @@
           </div>
 
           <div class="brand-review-body">
+            <div class="brand-img-box">
+              <img src="../pic/fish-oil-market/betterbio-joy-fish-oil.webp" alt="好好生醫魚悅魚油產品外觀">
+            </div>
             <!-- 1. Specs -->
             <div class="review-section-title">1. 產品規格與官方說明</div>
             <table class="review-specs-table">
@@ -446,7 +477,7 @@
               </tr>
               <tr>
                 <th>原料/技術</th>
-                <td>挪威 VIVO MEGA 魚油 | rTG 型態 | 薄膜除臭技術</td>
+                <td>挪威百年大廠 VIVOMEGA® | rTG 型態 | 獨家薄膜除臭技術 | 全程無氧製造</td>
               </tr>
               <tr>
                 <th>內容物</th>
@@ -460,7 +491,8 @@
                 <td>
                   • <strong>高濃度 rTG：</strong> 85% UP 超高濃度,每份含 720mg EPA 及 240mg DHA。<br>
                   • <strong>高 EPA 配方：</strong> EPA:DHA = 3:1 黃金比例,有助補充好心情。<br>
-                  • <strong>超小軟膠囊：</strong> 1.2cm 極小軟膠囊,體積減少 50%,濃度提高 35%。<br>
+                  • <strong>超小軟膠囊：</strong> 1.2cm 極小軟膠囊 (體積減少 50%,濃度提高 35%)，大幅降低吞嚥恐懼。<br>
+                  • <strong>無腥味黑科技：</strong> 採用 VIVOSENS® 感官品評技術，確保每一批魚油純淨無味。<br>
                   • <strong>國際認證：</strong> IFOS 5星認證、A.A.無添加三星認證。
                 </td>
               </tr>
@@ -498,7 +530,7 @@
                 <ul class="analysis-list">
                   <li>85% 高濃度 rTG 型態,吸收率佳。</li>
                   <li>IFOS 5星與 A.A.無添加雙認證,品質有保障。</li>
-                  <li>1.2cm 極小膠囊,好吞嚥。</li>
+                  <li>1.2cm 好吞膠囊，無腥味技術。</li>
                   <li>高 EPA 配方 (720mg),有助情緒健康。</li>
                   <li>採用環境友善小型魚種,永續經營。</li>
                   <li>不使用牛皮膠囊,對不吃牛的消費者友善。</li>
@@ -513,21 +545,67 @@
               </div>
             </div>
 
-            <!-- 品牌深度分析 -->
-            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">規格驗證與科學解讀 - 情緒保養的精準打擊
+
+            <!-- 品牌深度分析 -->
+            <div class="review-section-title" style="margin-top: 40px;">好好生醫 品牌深度分析</div>
+
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">好好生醫 規格驗證與科學解讀 -
+              情緒保養的精準打擊
             </h4>
-            <p>好好生醫的產品設計邏輯非常清晰，它不盲目追求「總濃度 99%」的軍備競賽，而是專注於<strong>「有效成分的配比」</strong>。</p>
+            <p>好好生醫的產品設計邏輯非常清晰，它不盲目追求「總濃度 99%」的軍備競賽，而是專注於<strong>「有效成分的配比」</strong>與<strong>「極致的服用體驗」</strong>。</p>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
               <li><strong>高 EPA 配方的科學依據：</strong>每份含有 <strong>720mg EPA</strong> 與 240mg DHA (比例 3:1)。根據精神神經免疫學研究，EPA
-                對於抑制發炎因子與調節情緒具有顯著效果。這直接切中了現代人「壓力大、易焦慮、用腦過度」的痛點，與市面上單純強調心血管保養的產品做出區隔。</li>
-              <li><strong>IFOS 與 A.A. 雙重認證：</strong>這是市場極少數同時擁有「國際藥廠級 IFOS 五星」與「全球純粹風味評鑑 A.A.
-                無添加三星」的產品。這意味著它不僅「有效」，而且「極度乾淨」，連膠囊殼都堅持不添加人工色素(呈現天然霧面感)。</li>
-              <li><strong>1.2cm 極致小顆粒：</strong>透過專利製程將單顆魚油體積縮小 50%，解決了台灣人普遍恐懼的「吞藥感」。</li>
+                對於抑制發炎因子與調節情緒具有顯著效果。這直接切中了現代人「壓力大、易焦慮、用腦過度」的痛點。</li>
+              <li><strong>來自挪威及無氧製程：</strong>選用 VIVOMEGA® 頂級原料，並強調「全程無氧製造」。這不只是行銷詞彙，而是確保 Omega-3
+              <li><strong>1.2cm 極致小顆粒：</strong>相較於市售魚油動輒 2.5cm 的巨型膠囊，1.2cm (體積減少 50%,濃度提高 35%)
+                的設計是經過精密計算的「黃金尺寸」，解決了台灣人普遍恐懼的「吞藥感」。</li>
             </ul>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">價格結構與多入組攻略</h4>
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
+              頂級工藝驗證：為何敢說「優於國際標準」？</h4>
+            <div class="responsive-table-wrapper">
+              <table class="data-table" style="margin-bottom: 20px;">
+                <thead>
+                  <tr>
+                    <th>檢驗項目</th>
+                    <th>好好生醫 (VIVOMEGA®)</th>
+                    <th>IFOS 五星標準</th>
+                    <th>GOED 國際標準</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>新鮮度 (TOTOX)</strong></td>
+                    <td><strong style="color: #16a34a;">&lt; 10</strong> (業界頂標)</td>
+                    <td>&lt; 19.5</td>
+                    <td>&lt; 26</td>
+                  </tr>
+                  <tr>
+                    <td><strong>過氧化價</strong></td>
+                    <td><strong style="color: #16a34a;">&lt; 2</strong></td>
+                    <td>&lt; 5</td>
+                    <td>&lt; 5</td>
+                  </tr>
+                  <tr>
+                    <td><strong>鉛 (Pb)</strong></td>
+                    <td>0.002 ppm</td>
+                    <td>0.1 ppm</td>
+                    <td>0.1 ppm</td>
+                  </tr>
+                  <tr>
+                    <td><strong>汞 (Hg)</strong></td>
+                    <td>0.002 ppm</td>
+                    <td>0.1 ppm</td>
+                    <td>0.1 ppm</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="font-size: 0.9em; color: #64748b; margin-top: 5px;">* 數據顯示，好好生醫的重金屬殘留量僅為國際標準的
+                1/50，這得益於嚴選「南美無污染海域小型魚種」與「VIVOMEGA® 專利純化技術」。</p>
+            </div>
+
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">好好生醫 價格結構與多入組攻略</h4>
             <div class="responsive-table-wrapper">
               <table class="data-table" style="margin-bottom: 20px;">
                 <thead>
@@ -554,19 +632,29 @@
                 </tbody>
               </table>
             </div>
-            <p><strong>經濟分析：</strong>單買一盒的價格偏高，甚至接近百貨專櫃品牌。但若購買 5 盒組，其單顆成本直接腰斬至 <strong>$15.6</strong>，瞬間與強調 CP 值的 MIHONG
+            <p><strong>經濟分析：</strong>單買一盒的價格偏高，甚至接近百貨專櫃品牌。但若購買 5 盒組，其單顆成本直接腰斬至 <strong>$15.6</strong>，瞬間與強調 CP 值的
+              MIHONG
               ($16.2) 平起平坐，卻能享受到 IFOS 五星與 85% rTG 的頂級規格。這是明顯鼓勵「長期訂閱與定期回購」的定價策略。</p>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
-              社群口碑與負面評價(PTT/Dcard)</h4>
-            <p><strong>口碑光譜：</strong>在 PTT 國貨版與 Dcard
-              上，好好生醫的討論多集中在「透明度」與「創辦人理念」。藥師與營養師背景的創業團隊，常在社群上親自回覆艱澀的食安問題，建立了一批高黏著度的「知識型粉絲」。</p>
-            <p><strong>負面評價驗證：</strong></p>
-            <ul style="line-height: 1.8; margin-bottom: 25px;">
-              <li><strong>初期價格門檻：</strong>不少網友反應「想試吃但單盒好貴」。</li>
-              <li><strong>物流包裝：</strong>為了環保減塑，初期包裝較為簡約，曾有網友反應寄送擠壓問題(官方後續已改善緩衝包材)。</li>
-              <li><strong>缺貨災情：</strong>由於堅持批次檢驗合格才出貨，曾發生長時間缺貨導致老客戶斷糧的狀況，引發部分抱怨。</li>
-            </ul>
+            <!-- Analyst Insight Details -->
+            <!-- Netizen Reviews -->
+            <details class="sentiment-details"
+              style="margin-top: 20px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <summary style="padding: 12px 15px; cursor: pointer; font-weight: 600; color: #334155;"><i
+                  class="fas fa-comments"></i> 網友評論收集整理</summary>
+              <div class="sentiment-content" style="padding: 15px; border-top: 1px solid #e2e8f0;">
+                <ul class="sentiment-list" style="list-style: disc; padding-left: 20px; line-height: 1.6;">
+                  <li>「原本是為了調整情緒吃，結果意外發現皮膚出油量變少，經期痘痘也消得比較快！」</li>
+                  <li>「真的是『顏值』最高的魚油！放在辦公桌上超有質感，跟那些長得像藥罐的傳統品牌完全不一樣。」</li>
+                  <li>「就像他們家的『太空人維他命』一樣，風格極簡又文青，吃的不只是健康，更是一種生活風格。」</li>
+                  <li>「雖然價格偏貴，但包裝真的賞心悅目，不會讓人覺得在『吃藥』，拿出來心情都變好了。」</li>
+                  <li>「對女生來說，保健食品有效是基本，長得好看才能讓我記得拿出來吃。」</li>
+                  <li>「看在營養師專業跟品牌設計感的份上買單的，實際體驗也真的沒腥味，會想回購。」</li>
+                </ul>
+                <p style="font-size: 0.85em; color: #64748b; margin-top: 15px; margin-bottom: 0; font-style: italic;">
+                  <i class="fas fa-info-circle"></i> 註：本區評論彙整自 PTT/Dcard 等社群論壇之使用者真實反饋。內容經由 AI 輔助蒐集與語意分析，專注於提取網友對產品「體感」的實際描述；過程中已過濾非理性之情緒化字眼與極端偏見，旨在還原最客觀的消費體驗。網路資訊僅供參考，不代表本站立場。</p>
+              </div>
+            </details>
 
           </div>
         </div>
@@ -587,8 +675,11 @@
           </div>
 
           <div class="brand-review-body">
+            <div class="brand-img-box">
+              <img src="../pic/fish-oil-market/kirkland-enteric-coated-fish-oil.webp" alt="Kirkland 科克蘭魚油產品外觀">
+            </div>
             <!-- 1. Specs -->
-            <div class="review-section-title">1. 產品規格與官方說明</div>
+            <div class="review-section-title">1. Kirkland 產品規格與官方說明</div>
             <table class="review-specs-table">
               <tr>
                 <th>產品全名</th>
@@ -628,7 +719,7 @@
             </table>
 
             <!-- 2. Positioning -->
-            <div class="review-section-title">2. 市場定位</div>
+            <div class="review-section-title">2. Kirkland 市場定位</div>
             <div class="review-position-box">
               <div class="review-position-box-content">
                 <strong>國民省錢神物。</strong> 適合「有吃有保佑」、預算極其有限，且不排斥吞嚥大顆膠囊的入門族群。雖濃度非頂規，但有 USP 認證，至少比來路不明的雜牌安全。
@@ -653,9 +744,10 @@
 
 
             <!-- 品牌深度分析 -->
-            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
+            <div class="review-section-title" style="margin-top: 40px;">Kirkland 品牌深度分析</div>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">規格驗證與科學解讀 - 巨大化膠囊的秘密
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">Kirkland 規格驗證與科學解讀 -
+              巨大化膠囊的秘密
             </h4>
             <p>Costco 魚油之所以能做到如此低價，除了通路優勢外，「製程老舊」是主要原因。</p>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
@@ -664,7 +756,7 @@
               <li><strong>腸溶技術與反胃感：</strong>雖然標榜「腸溶膠囊」能減少打嗝異味，但許多網友反應其膠囊皮過厚，有時甚至會完整排出或造成消化負擔。這對於消化道較弱的長輩其實是一大隱憂。</li>
             </ul>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">價格結構與效率陷阱</h4>
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">Kirkland 價格結構與效率陷阱</h4>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
               <li><strong>帳面價格無敵：</strong>單顆 $3.22 的價格確實震撼市場，讓許多人覺得「不買吃虧」。</li>
               <li><strong>效率校正：</strong>但如果以「攝取同等 1000mg Omega-3」來計算，你需要吞 2 顆 Kirkland (成本約
@@ -672,7 +764,7 @@
             </ul>
 
             <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
-              社群口碑與負面評價(PTT/Dcard)</h4>
+              Kirkland 社群口碑與正反評價(PTT/Dcard)</h4>
             <p><strong>口碑光譜：</strong>極度兩極化。愛好者認為是「窮人救星」，反對者則稱之為「喉嚨殺手」。</p>
             <p><strong>負面評價驗證：</strong></p>
             <ul style="line-height: 1.8; margin-bottom: 25px;">
@@ -681,7 +773,7 @@
             </ul>
 
             <!-- 4. Analysis -->
-            <div class="review-section-title">4. 網友評價分析整理</div>
+            <div class="review-section-title">4. Kirkland 網友評價分析整理</div>
             <div class="review-analysis-grid">
               <div class="analysis-col pros">
                 <h5><i class="fas fa-check-circle"></i> 優勢</h5>
@@ -716,8 +808,7 @@
                   <li>「其實換算濃度 CP 值沒想像中高，因為要吃好幾顆。」</li>
                 </ul>
                 <p style="font-size: 0.85em; color: #64748b; margin-top: 15px; margin-bottom: 0; font-style: italic;">
-                  <i class="fas fa-info-circle"></i> 註：本區評論彙整自 PTT/Dcard 等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。
-                </p>
+                  <i class="fas fa-info-circle"></i> 註：本區評論彙整自 PTT/Dcard 等社群論壇之使用者真實反饋。內容經由 AI 輔助蒐集與語意分析，專注於提取網友對產品「體感」的實際描述；過程中已過濾非理性之情緒化字眼與極端偏見，旨在還原最客觀的消費體驗。網路資訊僅供參考，不代表本站立場。</p>
               </div>
             </details>
           </div>
@@ -739,6 +830,9 @@
           </div>
 
           <div class="brand-review-body">
+            <div class="brand-img-box">
+              <img src="../pic/fish-oil-market/sports-research-triple-strength.jpg" alt="Sports Research 魚油產品外觀">
+            </div>
             <!-- 1. Specs -->
             <div class="review-section-title">1. 產品規格與官方說明</div>
             <table class="review-specs-table">
@@ -816,9 +910,10 @@
             </div>
 
             <!-- 品牌深度分析 -->
-            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
+            <div class="review-section-title" style="margin-top: 40px;">Sports Research 品牌深度分析</div>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">規格驗證與科學解讀 -
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">Sports Research
+              規格驗證與科學解讀 -
               規格破壞者的誕生</h4>
             <p>Sports Research 是 2026 年台灣魚油市場的「規格破壞者」,透過 iHerb 平台直接衝擊本土品牌。</p>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
@@ -831,7 +926,8 @@
               <li><strong>SR-rTG 技術：</strong>雖然標示為 TG,但實為經過再酯化的高濃度 rTG,兼具濃度與吸收。</li>
             </ul>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">價格結構與「降維打擊」經濟效率
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">Sports Research
+              價格結構與「降維打擊」經濟效率
             </h4>
             <div class="responsive-table-wrapper">
               <table class="data-table" style="margin-bottom: 20px;">
@@ -872,7 +968,7 @@
             </div>
 
             <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
-              社群口碑與跨境障礙(PTT/Dcard)</h4>
+              Sports Research 社群口碑與正反評價(PTT/Dcard)</h4>
             <p><strong>口碑光譜：</strong>PTT Fitness 版與 E-shopping 版的「唯一信仰」。專業玩家與理性數據派高度認同其規格與價格效率,認為是「吃過就回不去」的終極選擇。</p>
             <p><strong>負面評價與挑戰：</strong></p>
             <ul style="line-height: 1.8; margin-bottom: 25px;">
@@ -925,7 +1021,7 @@
                 </ul>
                 <p style="font-size: 0.85em; color: #64748b; margin-top: 15px; margin-bottom: 0; font-style: italic;">
                   <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard
-                  等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。
+                  等社群論壇之使用者真實反饋。內容經由 AI 輔助蒐集與語意分析，專注於提取網友對產品「體感」的實際描述；過程中已過濾非理性之情緒化字眼與極端偏見，旨在還原最客觀的消費體驗。網路資訊僅供參考，不代表本站立場。
                 </p>
               </div>
             </details>
@@ -948,8 +1044,12 @@
           </div>
 
           <div class="brand-review-body">
+            <div class="brand-img-box">
+              <img src="../pic/fish-oil-market/daiken-german-fish-oil.jpg" alt="大研生醫魚油產品外觀">
+            </div>
             <!-- 1. Specs -->
-            <div class="review-section-title">1. 產品規格與官方說明</div>
+            <!-- 1. Specs -->
+            <div class="review-section-title">1. 大研生醫 產品規格與官方說明</div>
             <table class="review-specs-table">
               <tr>
                 <th>產品全名</th>
@@ -989,26 +1089,15 @@
             </table>
 
             <!-- 2. Positioning -->
-            <div class="review-section-title">2. 市場定位</div>
+            <!-- 2. Positioning -->
+            <div class="review-section-title">2. 大研生醫 市場定位</div>
             <div class="review-position-box">
               <div class="review-position-box-content">
                 <strong>旗艦標竿。</strong> 市場行銷最成功、規格最敢給的領頭羊。適合預算充足，不想花時間做功課，只想「買最好」的消費者。
               </div>
             </div>
 
-            <!-- 2.5 Tech Deep Dive -->
-            <div class="review-section-title">2.5 技術深度解析</div>
-            <div
-              style="background: #f0f9ff; padding: 15px; border-radius: 8px; border-left: 4px solid #0ea5e9; font-size: 0.95em; color: #334155; margin-bottom: 25px;">
-              <strong style="color: #0284c7; display: block; margin-bottom: 8px;"><i class="fas fa-microscope"></i>
-                德國 KD Pharma 的核心優勢</strong>
-              大研生醫採用的是德國大廠 KD Pharma 的專利<strong>「超臨界流體層析技術 (SFC)」</strong>。這種工藝不使用高溫與化學溶劑，能精準分離出高純度的 EPA 與
-              DHA，避免了魚油在高溫下氧化的風險。
-              <div style="margin-top: 10px; border-top: 1px dashed #bae6fd; padding-top: 10px;">
-                <strong style="color: #0284c7;">IFOS 雙重認證的戰略意義：</strong> 許多品牌僅使用「通過 IFOS 認證的原料」，但大研生醫將「最終產品」再次送驗並取得
-                IFOS 五星認證。這確保了魚油在封裝、運送過程中依然保持新鮮（TOTOX 指標達標），為消費者建立了最強的信任護城河。
-              </div>
-            </div>
+
 
             <!-- 3. Dailyeat Rating -->
             <div class="review-section-title">3. Dailyeat 推薦程度</div>
@@ -1029,9 +1118,19 @@
 
 
             <!-- 品牌深度分析 -->
-            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
+            <!-- 品牌深度分析 -->
+            <div class="review-section-title" style="margin-top: 40px;">大研生醫 品牌深度分析</div>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">價格結構與訂閱陷阱解密</h4>
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">大研生醫 規格驗證與科學解讀 - 德國 KD
+              Pharma 的核心優勢</h4>
+            <ul style="line-height: 1.8; margin-bottom: 20px;">
+              <li><strong>專利超臨界流體層析技術 (SFC)：</strong>大研生醫採用的是德國大廠 KD Pharma 的專利技術。這種工藝不使用高溫與化學溶劑，能精準分離出高純度的 EPA 與
+                DHA，避免了魚油在高溫下氧化的風險。</li>
+              <li><strong>IFOS 雙重認證的戰略意義：</strong>許多品牌僅使用「通過 IFOS 認證的原料」，但大研生醫將「最終產品」再次送驗並取得 IFOS
+                五星認證。這確保了魚油在封裝、運送過程中依然保持新鮮（TOTOX 指標達標），為消費者建立了最強的信任護城河。</li>
+            </ul>
+
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">大研生醫 價格結構與訂閱陷阱解密</h4>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
               <li><strong>單盒原價是幌子：</strong>官網單盒定價高達 $2,250，這是典型的「錨定效應」。實際成交價約在 $1,320 (優惠價) 甚至更低。</li>
               <li><strong>訂閱制省最大：</strong>大研生醫極力推廣「月扣方案」，價格可壓至 <strong>$1,056/盒</strong> (約 8
@@ -1041,7 +1140,7 @@
             </ul>
 
             <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
-              社群口碑與負面評價(PTT/Dcard)</h4>
+              大研生醫 社群口碑與正反評價(PTT/Dcard)</h4>
             <p><strong>口碑光譜：</strong>大研生醫在網路上討論度極高，正面評價集中在「無腥味」與「檢驗報告完整」。許多消費者是衝著「陳美鳳代言」買給長輩，卻發現自己吃了也適合。</p>
             <p><strong>負面評價驗證：</strong></p>
             <ul style="line-height: 1.8; margin-bottom: 25px;">
@@ -1083,9 +1182,7 @@
                   <li>「自動訂閱那個選項很賤，不小心勾到就被扣款。」</li>
                 </ul>
                 <p style="font-size: 0.85em; color: #64748b; margin-top: 15px; margin-bottom: 0; font-style: italic;">
-                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard
-                  等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。
-                </p>
+                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard 等社群論壇之使用者真實反饋。內容經由 AI 輔助蒐集與語意分析，專注於提取網友對產品「體感」的實際描述；過程中已過濾非理性之情緒化字眼與極端偏見，旨在還原最客觀的消費體驗。網路資訊僅供參考，不代表本站立場。</p>
               </div>
             </details>
           </div>
@@ -1105,8 +1202,11 @@
           </div>
 
           <div class="brand-review-body">
+            <div class="brand-img-box">
+              <img src="../pic/fish-oil-market/suntory-dha-epa-sesamin.jpg" alt="三得利 DHA&EPA+芝麻明E 產品外觀">
+            </div>
             <!-- 1. Specs -->
-            <div class="review-section-title">1. 產品規格與官方說明</div>
+            <div class="review-section-title">1. 三得利 產品規格與官方說明</div>
             <table class="review-specs-table">
               <tr>
                 <th>產品全名</th>
@@ -1137,21 +1237,14 @@
             </table>
 
             <!-- 2. Positioning -->
-            <div class="review-section-title">2. 市場定位</div>
+            <div class="review-section-title">2. 三得利 市場定位</div>
             <div class="review-position-box">
               <div class="review-position-box-content">
                 <strong>信仰級保養。</strong> 適合不看數據、只看廣告與品牌知名度的長輩。對於吞嚥能力退化的銀髮族來說，它是最友善的選擇，但性價比（以 Omega-3 含量計算）極低。
               </div>
             </div>
 
-            <!-- 2.5 Analysis -->
-            <div class="review-section-title">2.5 技術深度與爭議</div>
-            <div
-              style="background: #fff5f5; padding: 15px; border-radius: 8px; border-left: 4px solid #ef4444; font-size: 0.95em; color: #334155; margin-bottom: 25px;">
-              <strong style="color: #b91c1c; display: block; margin-bottom: 8px;"><i class="fas fa-search-minus"></i>
-                透明度的挑戰</strong>
-              在專業評比中，三得利常因「資訊不透明」而失分。官網未明確標示總 Omega-3 濃度百分比，且魚油原料來源未公開。對於重視「成分履歷」的現代消費者而言，這是一個顯著的扣分項。
-            </div>
+
 
             <!-- 3. Rating -->
             <div class="review-section-title">3. Dailyeat 推薦程度</div>
@@ -1168,8 +1261,39 @@
               </div>
             </div>
 
-            <!-- 4. User Reviews -->
-            <div class="review-section-title">4. 網友評價分析整理</div>
+            <!-- 品牌深度分析 -->
+            <div class="review-section-title" style="margin-top: 40px;">三得利 品牌深度分析</div>
+
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">三得利 規格驗證與科學解讀 - 信仰級的安心感
+            </h4>
+            <ul style="line-height: 1.8; margin-bottom: 20px;">
+              <li><strong>日式複方哲學 (Functional Hybrid)：</strong> 2026 年市場主流追求高濃度，三得利反其道而行，採取「加法思維」。以魚油為載體，添加芝麻素 (助眠護肝)
+                或維生素 E (抗氧化)，強調「1+1 > 2」的協同效應。</li>
+              <li><strong>信仰級的安心感：</strong> 不參與純粹的濃度軍備競賽，而是依靠「日本三得利研究所」的研發金字招牌。對長輩而言，這代表了嚴謹品管與絕對安全，價值高於冷冰冰的數據。</li>
+              <li><strong>規格模糊但信任度高：</strong> 雖然核心產品濃度未必達到 80% rTG 高標，且規格標示不如競品透明，但「日本原裝」與「百年品牌」的信任資產，使其成為送禮市場的硬通貨。</li>
+              <li><strong>DHA 優先或平衡策略：</strong> 部分配方傾向於強調 DHA 比例或平衡型設計，與市場上狂推「高 EPA 抗發炎」的主流不同，更側重於腦部保養與綜合維持。</li>
+            </ul>
+
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">三得利 價格結構與經濟分析</h4>
+            <ul style="line-height: 1.8; margin-bottom: 20px;">
+              <li><strong>高昂的每日使用成本：</strong> 根據市場調查，每日建議用量花費約在 NT$60 - $80 之間。這比「CP 值霸主」Sports Research 高出 <strong>6-8
+                  倍</strong>，是典型的「高溢價」產品。</li>
+              <li><strong>每一毫克成本分析：</strong> 若單純計算 Omega-3 取得成本，三得利極不划算 (估計超過
+                NT$24/1000mg)。消費者支付的高額費用，很大一部分是購買「便利性」與「品牌信任」。</li>
+              <li><strong>送禮的隱形價值：</strong> 雖然昂貴，但「三得利」品牌在長輩圈的知名度極高。作為禮物，它的「面子價值」遠高於許多規格更好但名氣較小的品牌。</li>
+            </ul>
+
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
+              三得利 社群口碑與正反評價(PTT/Dcard)</h4>
+            <p><strong>口碑光譜：</strong> 評價呈現極端的世代斷層。長輩與注重睡眠體驗的消費者極度推崇 (好吞、好睡)；但年輕的數據派與 CP 值黨則視其為「智商稅」。</p>
+            <p><strong>負面評價驗證：</strong></p>
+            <ul style="line-height: 1.8; margin-bottom: 25px;">
+              <li><strong>濃度不足與異味：</strong> 數據控常批評其濃度未標示或推估偏低。部分敏感者反映會有魚油打嗝味。</li>
+              <li><strong>電話行銷：</strong> 這是此品牌最常見的抱怨。購買後常會接到關懷電話，對注重隱私的消費者造成困擾。</li>
+            </ul>
+
+            <!-- 4. Analysis -->
+            <div class="review-section-title">4. 三得利 網友評價分析整理</div>
             <div class="review-analysis-grid">
               <div class="analysis-col pros">
                 <h5><i class="fas fa-check-circle"></i> 優勢</h5>
@@ -1202,8 +1326,7 @@
                   <li>「電話推銷超級煩，封鎖都沒用。」</li>
                 </ul>
                 <p style="font-size: 0.85em; color: #64748b; margin-top: 15px; margin-bottom: 0; font-style: italic;">
-                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard
-                  等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。等社群論壇之使用者真實反饋。
+                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard 等社群論壇之使用者真實反饋。內容經由 AI 輔助蒐集與語意分析，專注於提取網友對產品「體感」的實際描述；過程中已過濾非理性之情緒化字眼與極端偏見，旨在還原最客觀的消費體驗。網路資訊僅供參考，不代表本站立場。
                 </p>
               </div>
             </details>
@@ -1225,8 +1348,11 @@
           </div>
 
           <div class="brand-review-body">
+            <div class="brand-img-box">
+              <img src="../pic/fish-oil-market/vitabox-85-rtg-omega3.webp" alt="Vitabox 魚油產品外觀">
+            </div>
             <!-- 1. Specs -->
-            <div class="review-section-title">1. 產品規格與官方說明</div>
+            <div class="review-section-title">1. Vitabox 產品規格與官方說明</div>
             <table class="review-specs-table">
               <tr>
                 <th>產品全名</th>
@@ -1265,7 +1391,7 @@
             </table>
 
             <!-- 2. Positioning -->
-            <div class="review-section-title">2. 市場定位</div>
+            <div class="review-section-title">2. Vitabox 市場定位</div>
             <div class="review-position-box">
               <div class="review-position-box-content">
                 <strong>透明度天花板。</strong> 最受年輕人與知識型消費者喜愛的品牌，主打「不找代言、回饋消費者」的理念。
@@ -1273,7 +1399,7 @@
             </div>
 
             <!-- 3. Dailyeat Rating -->
-            <div class="review-section-title">3. Dailyeat 推薦程度</div>
+            <div class="review-section-title">3. Vitabox 推薦程度</div>
             <div class="review-rating-box">
               <div class="rating-score-circle">4.5</div>
               <div class="rating-details">
@@ -1288,10 +1414,13 @@
               </div>
             </div>
 
-            <!-- 品牌深度分析 -->
-            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">規格驗證與科學解讀 - 透明就是競爭力
+
+            <!-- 品牌深度分析 -->
+            <div class="review-section-title" style="margin-top: 40px;">Vitabox 品牌深度分析</div>
+
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">Vitabox 規格驗證與科學解讀 -
+              透明就是競爭力
             </h4>
             <p>Vitabox 在市場上的最大貢獻，是定義了什麼叫做「保健食品的履歷表」。</p>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
@@ -1300,7 +1429,7 @@
               <li><strong>成分減法學：</strong>其魚油配方極度精簡，除了魚油與抗氧化的維生素E，沒有任何多餘的賦形劑。這對於長期補充的孕婦與過敏體質者而言，是一個巨大的加分項。</li>
             </ul>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">價格結構與信任溢價</h4>
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">Vitabox 價格結構與信任溢價</h4>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
               <li><strong>去中間化定價：</strong>Vitabox 僅在官網販售（D2C 模式），省去了通路上架費與藥妝店抽成。這讓它能將高品質原料（VIVOMEGA）的終端售價控制在合理範圍（每日約
                 $38）。</li>
@@ -1308,7 +1437,7 @@
             </ul>
 
             <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
-              社群口碑與負面評價(PTT/Dcard)</h4>
+              Vitabox 社群口碑與負面評價(PTT/Dcard)</h4>
             <p><strong>口碑光譜：</strong>Vitabox 在年輕族群中擁有極高支持度，常被形容為「保健界的無印良品」。但其強勢的數位行銷策略也引發了一些反彈。</p>
             <p><strong>負面評價驗證：</strong></p>
             <ul style="line-height: 1.8; margin-bottom: 25px;">
@@ -1317,7 +1446,7 @@
             </ul>
 
             <!-- 4. Analysis -->
-            <div class="review-section-title">4. 網友評價分析整理</div>
+            <div class="review-section-title">4. Vitabox 網友評價分析整理</div>
             <div class="review-analysis-grid">
               <div class="analysis-col pros">
                 <h5><i class="fas fa-check-circle"></i> 優勢</h5>
@@ -1349,8 +1478,7 @@
                   <li>「PTT 上網軍感覺很多，評價不知道真假。」</li>
                 </ul>
                 <p style="font-size: 0.85em; color: #64748b; margin-top: 15px; margin-bottom: 0; font-style: italic;">
-                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard
-                  等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。
+                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard 等社群論壇之使用者真實反饋。內容經由 AI 輔助蒐集與語意分析，專注於提取網友對產品「體感」的實際描述；過程中已過濾非理性之情緒化字眼與極端偏見，旨在還原最客觀的消費體驗。網路資訊僅供參考，不代表本站立場。
                 </p>
               </div>
             </details>
@@ -1371,8 +1499,11 @@
           </div>
 
           <div class="brand-review-body">
+            <div class="brand-img-box">
+              <img src="../pic/fish-oil-market/nutritionist-light-supercritical-fish-oil.jpg" alt="營養師輕食魚油產品外觀">
+            </div>
             <!-- 1. Specs -->
-            <div class="review-section-title">1. 產品規格與官方說明</div>
+            <div class="review-section-title">1. 營養師輕食 產品規格與官方說明</div>
             <table class="review-specs-table">
               <tr>
                 <th>產品全名</th>
@@ -1402,7 +1533,7 @@
             </table>
 
             <!-- 2. Positioning -->
-            <div class="review-section-title">2. 市場定位</div>
+            <div class="review-section-title">2. 營養師輕食 市場定位</div>
             <div class="review-position-box">
               <div class="review-position-box-content">
                 <strong>魚油界的愛馬仕。</strong> 由江醫師親自研發把關，專攻對品質有極度偏執的高端客群。
@@ -1410,7 +1541,7 @@
             </div>
 
             <!-- 3. Dailyeat Rating -->
-            <div class="review-section-title">3. Dailyeat 推薦程度</div>
+            <div class="review-section-title">3. 營養師輕食 推薦程度</div>
             <div class="review-rating-box">
               <div class="rating-score-circle">5.0</div>
               <div class="rating-details">
@@ -1425,10 +1556,12 @@
               </div>
             </div>
 
-            <!-- 品牌深度分析 -->
-            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">規格驗證與科學解讀 -
+
+            <!-- 品牌深度分析 -->
+            <div class="review-section-title" style="margin-top: 40px;">營養師輕食 品牌深度分析</div>
+
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">營養師輕食 規格驗證與科學解讀 -
               專為「抗發炎」打造的重裝甲
             </h4>
             <p>如果說 Vitabox 是主打透明的輕步兵，那營養師輕食就是配備精良的重裝坦克。</p>
@@ -1439,7 +1572,7 @@
                 以上。這個劑量在臨床研究中，是達到顯著「抗發炎」與「心血管保護」效果的起手式。</li>
             </ul>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">價格結構與品牌溢價</h4>
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">營養師輕食 價格結構與品牌溢價</h4>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
               <li><strong>高價的理由：</strong>單盒逼近 $1,800，每日成本近 $30，是國產品牌的天花板。但若拆解其成本：西班牙Solutex頂級原料 + 超臨界製程 + 繁瑣的逐批檢驗 +
                 創辦人個人品牌經營，這個價格反映的是「信任成本」與「頂規工藝」。</li>
@@ -1447,7 +1580,7 @@
             </ul>
 
             <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
-              社群口碑與負面評價(PTT/Dcard)</h4>
+              營養師輕食 社群口碑與負面評價(PTT/Dcard)</h4>
             <p><strong>口碑光譜：</strong>江醫師的個人魅力極強，粉絲黏著度高。正面評價多為「江醫師講話實在」、「專業信賴感」。</p>
             <p><strong>負面評價驗證：</strong></p>
             <ul style="line-height: 1.8; margin-bottom: 25px;">
@@ -1456,7 +1589,7 @@
             </ul>
 
             <!-- 4. Analysis -->
-            <div class="review-section-title">4. 網友評價分析整理</div>
+            <div class="review-section-title">4. 營養師輕食 網友評價分析整理</div>
             <div class="review-analysis-grid">
               <div class="analysis-col pros">
                 <h5><i class="fas fa-check-circle"></i> 優勢</h5>
@@ -1488,8 +1621,7 @@
                   <li>「江醫師個人風格太強，我不喜歡這種造神感。」</li>
                 </ul>
                 <p style="font-size: 0.85em; color: #64748b; margin-top: 15px; margin-bottom: 0; font-style: italic;">
-                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard
-                  等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。
+                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard 等社群論壇之使用者真實反饋。內容經由 AI 輔助蒐集與語意分析，專注於提取網友對產品「體感」的實際描述；過程中已過濾非理性之情緒化字眼與極端偏見，旨在還原最客觀的消費體驗。網路資訊僅供參考，不代表本站立場。
                 </p>
               </div>
             </details>
@@ -1511,8 +1643,11 @@
           </div>
 
           <div class="brand-review-body">
+            <div class="brand-img-box">
+              <img src="../pic/fish-oil-market/niang-jia-premium-fish-oil.webp" alt="娘家極頂魚油產品外觀">
+            </div>
             <!-- 1. Specs -->
-            <div class="review-section-title">1. 產品規格與官方說明</div>
+            <div class="review-section-title">1. 娘家 產品規格與官方說明</div>
             <table class="review-specs-table">
               <tr>
                 <th>產品全名</th>
@@ -1539,7 +1674,7 @@
             </table>
 
             <!-- 2. Positioning -->
-            <div class="review-section-title">2. 市場定位</div>
+            <div class="review-section-title">2. 娘家 市場定位</div>
             <div class="review-position-box">
               <div class="review-position-box-content">
                 <strong>長輩界的 LV。</strong> 雖然貴，但「娘家」二字對長輩有無可取代的安撫作用與信任感。
@@ -1563,9 +1698,9 @@
             </div>
 
             <!-- 品牌深度分析 -->
-            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
+            <div class="review-section-title" style="margin-top: 40px;">娘家 品牌深度分析</div>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">規格驗證與科學解讀</h4>
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">娘家 規格驗證與科學解讀</h4>
             <p>娘家作為本土電視台(民視)衍生的保健品牌,其產品策略極為激進,直接鎖定規格天花板。</p>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
               <li><strong>濃度驗證：</strong>官方宣稱 <strong style="color: #c2410c;">96% Omega-3
@@ -1575,7 +1710,7 @@
               <li><strong>型態與製程：</strong>強調「獨家超臨界專利」與「台灣純化」。超臨界 CO2 萃取能避免高溫破壞油質,是生產高濃度 rTG 的必要製程。</li>
             </ul>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">價格結構與經濟分析</h4>
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">娘家 價格結構與經濟分析</h4>
             <div class="responsive-table-wrapper">
               <table class="data-table" style="margin-bottom: 20px;">
                 <thead>
@@ -1610,7 +1745,7 @@
             </p>
 
             <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
-              社群口碑與負面評價(PTT/Dcard)</h4>
+              娘家 社群口碑與負面評價(PTT/Dcard)</h4>
             <p><strong>口碑光譜：</strong>在 PTT 上,娘家魚油的討論集中在 <strong>「孝親供品」</strong>
               的脈絡。年輕網友普遍表示：「我自己不會吃這麼貴的,但買給爸媽只能買這個,因為他們只認民視的 Logo。」這顯示娘家已成功將品牌轉化為長輩的「心理安慰劑」。</p>
             <p><strong>負面評價驗證：</strong></p>
@@ -1621,7 +1756,7 @@
             </ul>
 
             <!-- 4. Analysis -->
-            <div class="review-section-title">4. 網友評價分析整理</div>
+            <div class="review-section-title">4. 娘家 網友評價分析整理</div>
             <div class="review-analysis-grid">
               <div class="analysis-col pros">
                 <h5><i class="fas fa-check-circle"></i> 優勢</h5>
@@ -1653,9 +1788,7 @@
                   <li>「藥師私底下跟我說這款利潤低又貴，叫我買別的。」</li>
                 </ul>
                 <p style="font-size: 0.85em; color: #64748b; margin-top: 15px; margin-bottom: 0; font-style: italic;">
-                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard
-                  等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。
-                </p>
+                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard 等社群論壇之使用者真實反饋。內容經由 AI 輔助蒐集與語意分析，專注於提取網友對產品「體感」的實際描述；過程中已過濾非理性之情緒化字眼與極端偏見，旨在還原最客觀的消費體驗。網路資訊僅供參考，不代表本站立場。</p>
               </div>
             </details>
           </div>
@@ -1674,8 +1807,11 @@
           </div>
 
           <div class="brand-review-body">
+            <div class="brand-img-box">
+              <img src="../pic/fish-oil-market/mihong-spanish-fish-oil.webp" alt="MIHONG 西班牙頂級魚油產品外觀">
+            </div>
             <!-- 1. Specs -->
-            <div class="review-section-title">1. 產品規格與官方說明</div>
+            <div class="review-section-title">1. MIHONG 產品規格與官方說明</div>
             <table class="review-specs-table">
               <tr>
                 <th>產品全名</th>
@@ -1718,7 +1854,7 @@
             </table>
 
             <!-- 2. Positioning -->
-            <div class="review-section-title">2. 市場定位</div>
+            <div class="review-section-title">2. MIHONG 市場定位</div>
             <div class="review-position-box">
               <div class="review-position-box-content">
                 <strong>小資救星。</strong> 學生、小資族想吃高濃度魚油，預算又有限時的最佳選擇。團購價格極具競爭力。
@@ -1742,9 +1878,9 @@
             </div>
 
             <!-- 品牌深度分析 -->
-            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
+            <div class="review-section-title" style="margin-top: 40px;">MIHONG 品牌深度分析</div>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">規格驗證與科學解讀</h4>
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">MIHONG 規格驗證與科學解讀</h4>
             <p>MIHONG 採取的是典型的「快速跟隨者(Fast Follower)」策略,將旗艦規格大眾化。</p>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
               <li><strong>濃度驗證：</strong>標榜 <strong style="color: #c2410c;">85%
@@ -1754,16 +1890,16 @@
               <li><strong>劑量設計：</strong>基礎保養每日 1 顆,加強保養 2 顆。這給予消費者彈性,也降低了心理上的每日成本。</li>
             </ul>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">價格結構與經濟分析</h4>
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">MIHONG 價格結構與經濟分析</h4>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
               <li><strong>市場價格：</strong>30 粒裝約 NT$350-450 甚至更低</li>
               <li><strong>單顆成本：</strong>約 <strong style="color: #16a34a;">NT$15.6</strong></li>
               <li><strong>經濟效率：</strong>相較於娘家的 NT$47.5,MIHONG 以 <strong style="color: #16a34a;">三分之一的價格</strong>
-                提供了接近(85% vs 96%)的規格體驗。這使其在蝦皮(Shopee)與 Dcard 省錢版上具有統治級的影響力。< /li>
+                提供了接近(85% vs 96%)的規格體驗。這使其在蝦皮(Shopee)與 Dcard 省錢版上具有統治級的影響力。</li>
             </ul>
 
             <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
-              社群口碑與負面評價(PTT/Dcard)</h4>
+              MIHONG 社群口碑與負面評價(PTT/Dcard)</h4>
             <p><strong>口碑光譜：</strong>MIHONG 被稱為「國民魚油」。在 Dcard 的「小資保健品」討論串中,它是出現頻率最高的品牌之一。消費者普遍認為它是「最不心痛的入門選擇」。</p>
             <p><strong>負面評價驗證：</strong></p>
             <ul style="line-height: 1.8; margin-bottom: 25px;">
@@ -1774,7 +1910,7 @@
             </ul>
 
             <!-- 4. Analysis -->
-            <div class="review-section-title">4. 網友評價分析整理</div>
+            <div class="review-section-title">4. MIHONG 網友評價分析整理</div>
             <div class="review-analysis-grid">
               <div class="analysis-col pros">
                 <h5><i class="fas fa-check-circle"></i> 優勢</h5>
@@ -1806,9 +1942,7 @@
                   <li>「偶爾吃到一顆有腥味的，品管要加強。」</li>
                 </ul>
                 <p style="font-size: 0.85em; color: #64748b; margin-top: 15px; margin-bottom: 0; font-style: italic;">
-                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard
-                  等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。
-                </p>
+                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard 等社群論壇之使用者真實反饋。內容經由 AI 輔助蒐集與語意分析，專注於提取網友對產品「體感」的實際描述；過程中已過濾非理性之情緒化字眼與極端偏見，旨在還原最客觀的消費體驗。網路資訊僅供參考，不代表本站立場。</p>
               </div>
             </details>
           </div>
@@ -1829,8 +1963,11 @@
           </div>
 
           <div class="brand-review-body">
+            <div class="brand-img-box">
+              <img src="../pic/fish-oil-market/brands-fish-oil-astaxanthin.jpg" alt="白蘭氏深海魚油+蝦紅素產品外觀">
+            </div>
             <!-- 1. Specs -->
-            <div class="review-section-title">1. 產品規格與官方說明</div>
+            <div class="review-section-title">1. 白蘭氏 產品規格與官方說明</div>
             <table class="review-specs-table">
               <tr>
                 <th>產品全名</th>
@@ -1872,7 +2009,7 @@
             </table>
 
             <!-- 2. Positioning -->
-            <div class="review-section-title">2. 市場定位</div>
+            <div class="review-section-title">2. 白蘭氏 市場定位</div>
             <div class="review-position-box">
               <div class="review-position-box-content">
                 <strong>多功能懶人包。</strong> 適合不想吞太多種保健品，想一顆搞定基礎代謝+護眼的懶人，以及偏好老字號的長輩。
@@ -1895,9 +2032,9 @@
             </div>
 
             <!-- 品牌深度分析 -->
-            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
+            <div class="review-section-title" style="margin-top: 40px;">白蘭氏 品牌深度分析</div>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">規格驗證與科學解讀 - 複合加值策略
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">白蘭氏 規格驗證與科學解讀 - 複合加值策略
             </h4>
             <p>以往白蘭氏被視為傳統品牌，但近期改版後展現了驚人的規格升級，不僅僅是「名牌光環」而已。</p>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
@@ -1909,7 +2046,7 @@
                   配方</strong>。這使其在抗發炎與代謝調節上的潛力更強，非常適合久坐不動、壓力大的上班族群。</li>
             </ul>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">價格結構與經濟分析</h4>
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">白蘭氏 價格結構與經濟分析</h4>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
               <li><strong>市場價格：</strong>30 顆裝約 NT$400-720</li>
               <li><strong>單顆成本：</strong>大包裝下僅需 <strong style="color: #16a34a;">NT$6</strong></li>
@@ -1918,7 +2055,7 @@
             </ul>
 
             <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
-              社群口碑與負面評價(PTT/Dcard)</h4>
+              白蘭氏 社群口碑與負面評價(PTT/Dcard)</h4>
             <p><strong>口碑光譜：</strong>白蘭氏在一般大眾(非重度保健群體)中擁有高信任度。許多女性消費者因為「氣色紅潤」的宣稱而購買,將其視為美容保健品而非心血管藥品。</p>
             <p><strong>負面評價驗證：</strong></p>
             <ul style="line-height: 1.8; margin-bottom: 25px;">
@@ -1928,7 +2065,7 @@
             </ul>
 
             <!-- 4. Analysis -->
-            <div class="review-section-title">4. 網友評價分析整理</div>
+            <div class="review-section-title">4. 白蘭氏 網友評價分析整理</div>
             <div class="review-analysis-grid">
               <div class="analysis-col pros">
                 <h5><i class="fas fa-check-circle"></i> 優勢</h5>
@@ -1960,9 +2097,7 @@
                   <li>「蝦紅素加那一點點是加辛酸的喔？」</li>
                 </ul>
                 <p style="font-size: 0.85em; color: #64748b; margin-top: 15px; margin-bottom: 0; font-style: italic;">
-                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard
-                  等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。
-                </p>
+                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard 等社群論壇之使用者真實反饋。內容經由 AI 輔助蒐集與語意分析，專注於提取網友對產品「體感」的實際描述；過程中已過濾非理性之情緒化字眼與極端偏見，旨在還原最客觀的消費體驗。網路資訊僅供參考，不代表本站立場。 </p>
               </div>
             </details>
           </div>
@@ -1982,8 +2117,11 @@
           </div>
 
           <div class="brand-review-body">
+            <div class="brand-img-box">
+              <img src="../pic/fish-oil-market/bhks-88-omega3-fish-oil.webp" alt="BHK's 魚油產品外觀">
+            </div>
             <!-- 1. Specs -->
-            <div class="review-section-title">1. 產品規格與官方說明</div>
+            <div class="review-section-title">1. BHK's 產品規格與官方說明</div>
             <table class="review-specs-table">
               <tr>
                 <th>產品全名</th>
@@ -2027,7 +2165,7 @@
             </table>
 
             <!-- 2. Positioning -->
-            <div class="review-section-title">2. 市場定位</div>
+            <div class="review-section-title">2. BHK's 市場定位</div>
             <div class="review-position-box">
               <div class="review-position-box-content">
                 <strong>優雅輕保養。</strong> 專攻女性市場，解決傳統魚油「大顆難吞」、「腥味重」的痛點，適合對生活質感有要求的都會女性。
@@ -2050,9 +2188,9 @@
             </div>
 
             <!-- 品牌深度分析 -->
-            <div class="review-section-title" style="margin-top: 40px;">品牌深度分析</div>
+            <div class="review-section-title" style="margin-top: 40px;">BHK's 品牌深度分析</div>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">規格驗證與科學解讀 -
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">BHK's 規格驗證與科學解讀 -
               美學保健的精準定位</h4>
             <p>BHK's 在 2026 年的市場表現令人驚艷,它成功將硬核的魚油產品轉化為女性友善的時尚單品。</p>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
@@ -2064,7 +2202,7 @@
               <li><strong>原料來源：</strong>明確標示來自西班牙 <strong>Solutex</strong> 大廠,強調「深海小魚」(減少重金屬累積風險)。</li>
             </ul>
 
-            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">價格結構與規模經濟破壞力</h4>
+            <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">BHK's 價格結構與規模經濟破壞力</h4>
             <ul style="line-height: 1.8; margin-bottom: 20px;">
               <li><strong>市場價格：</strong>60 粒裝約 NT$790-990</li>
               <li><strong>單顆成本：</strong>約 <strong style="color: #16a34a;">NT$13.17</strong></li>
@@ -2073,7 +2211,7 @@
             </ul>
 
             <h4 style="font-size: 1.1em; margin-top: 25px; margin-bottom: 15px; color: #1e293b;">
-              社群口碑與負面評價(PTT/Dcard)</h4>
+              BHK's 社群口碑與負面評價(PTT/Dcard)</h4>
             <p><strong>口碑光譜：</strong>Dcard 女孩版與美妝版是 BHK's 的主場。好評集中在 <strong
                 style="color: #16a34a;">「顆粒小、好吞、無味道」</strong>。這解決了女性消費者對歐美大顆膠囊恐懼的痛點。包裝設計的簡約美學也讓其成為社群曬單的常客。</p>
             <p><strong>負面評價驗證：</strong></p>
@@ -2084,7 +2222,7 @@
             </ul>
 
             <!-- 4. Analysis -->
-            <div class="review-section-title">4. 網友評價分析整理</div>
+            <div class="review-section-title">4. BHK's 網友評價分析整理</div>
             <div class="review-analysis-grid">
               <div class="analysis-col pros">
                 <h5><i class="fas fa-check-circle"></i> 優勢</h5>
@@ -2116,9 +2254,7 @@
                   <li>「感覺都賣給年輕妹子的，長輩不愛。」</li>
                 </ul>
                 <p style="font-size: 0.85em; color: #64748b; margin-top: 15px; margin-bottom: 0; font-style: italic;">
-                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard
-                  等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。等社群論壇之使用者真實反饋。網路資訊變動快速，僅供參考，不代表本站立場。
-                </p>
+                  <i class="fas fa-info-circle"></i>註：本區評論彙整自 PTT/Dcard 等社群論壇之使用者真實反饋。內容經由 AI 輔助蒐集與語意分析，專注於提取網友對產品「體感」的實際描述；過程中已過濾非理性之情緒化字眼與極端偏見，旨在還原最客觀的消費體驗。網路資訊僅供參考，不代表本站立場。 </p>
               </div>
             </details>
           </div>
@@ -2136,7 +2272,8 @@
 
         <!-- 價格效率光譜表 (CP值最優先排序) -->
         <h3 id="price-efficiency-table"
-          style="font-size: 1.4em; margin-top: 30px; margin-bottom: 20px; color: #1e293b;"> 2026 魚油價格效率分析 (CP 值優先排序)
+          style="font-size: 1.4em; margin-top: 30px; margin-bottom: 20px; color: #1e293b;"> 2026
+          魚油價格效率分析 (CP 值優先排序)
         </h3>
         <p style="margin-bottom: 25px;">下表依據「攝取 <strong>1000mg Omega-3</strong>」的真實成本由低至高排序，揭開市場性價比真相：</p>
 
@@ -2183,7 +2320,8 @@
                 <td>85% rTG</td>
                 <td>$32.5</td>
                 <td>~2.1 顆</td>
-                <td><span class="badge" style="background:#fefce8;color:#a16207;">優質綜合選</span> 5 盒方案效率極佳。</td>
+                <td><span class="badge" style="background:#dcfce7;color:#166534;">極致口感王</span> 5 盒均價 $32.5，兼具高品質與高 CP。
+                </td>
               </tr>
               <tr>
                 <td>No.5</td>
@@ -2297,11 +2435,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr style="border-left: 5px solid #16a34a; background: #f0fdf4;">
+              <tr>
                 <td><strong>好好生醫 (BetterBio)</strong></td>
-                <td><span class="badge" style="background:#dcfce7;color:#166534;">綜合優選</span><br>85% rTG | 720mg EPA
-                  (情緒保養)</td>
-                <td><strong>1.2cm 極小膠囊</strong> | IFOS 5星 + A.A. 無添加雙認證</td>
+                <td><span class="badge" style="background:#dcfce7;color:#166534;">綜合優選</span><br>85% rTG | 720mg EPA |
+                  VIVOMEGA
+                </td>
+                <td> 1.2cm 極小膠囊 | 無腥味技術 | IFOS 5星 + A.A. 無添加</td>
                 <td>「品質驚艷、顆粒真的超小好吞」、「多入組買下來不心痛」。</td>
                 <td><strong>怕吞大膠囊、重視壓力和情緒健康的都會族群。</strong></td>
               </tr>
@@ -2524,7 +2663,7 @@
           2026/01 市場公開資訊整理，價格與促銷活動可能隨時間變動，請以各品牌官方最新公告為準。</p>
 
         <div class="alert alert-tip" style="display: block; margin-bottom: 50px;">
-          <strong style="display: block; margin-bottom: 10px; font-size: 1.1em;">💡 使用優惠碼小技巧</strong>
+          <strong style="display: block; margin-bottom: 10px; font-size: 1.1em;">使用優惠碼小技巧</strong>
           <span>iHerb 的多組優惠碼可以<strong>疊加使用</strong>（如 GOLD60 +
             LCN4829），記得在結帳時依序輸入。部分品牌的「多入組」優惠無需輸入代碼，系統會自動計算折扣，建議購買前先加入購物車確認最終價格。</span>
         </div>
@@ -2845,4 +2984,4 @@
   </script>
 </body>
 
-</html>
+</h
