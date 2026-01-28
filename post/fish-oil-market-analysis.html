@@ -146,6 +146,56 @@
       margin-top: 55px !important;
       padding-top: 15px;
     }
+
+    /* FAQ Interaction Styles */
+    .faq-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      background: #fff;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question {
+      padding: 20px;
+      font-weight: 700;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8fafc;
+    }
+
+    .faq-question::after {
+      content: '\f078';
+      /* FontAwesome chevron-down */
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      transition: transform 0.3s ease;
+      color: #64748b;
+    }
+
+    .faq-item.active .faq-question::after {
+      transform: rotate(180deg);
+      color: #3b82f6;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease;
+      padding: 0 20px;
+      background: #fff;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      /* Adjust as needed */
+      padding: 20px;
+      border-top: 1px solid #e2e8f0;
+    }
   </style>
 </head>
 
@@ -160,9 +210,9 @@
         <ul class="toc-list">
           <li><a href="#quick-guide" class="toc-link">30秒快速導讀</a></li>
           <li><a href="#golden-rules" class="toc-link">2. 魚油挑選 8 大黃金法則</a></li>
-          <li><a href="#science-truth" class="toc-link">3. 科學機制與真相</a></li>
+
           <li>
-            <a href="#brand-deep-dive" class="toc-link">4. 2026 年 Top 11 人氣魚油品牌深度開箱</a>
+            <a href="#brand-deep-dive" class="toc-link">3. 2026 年 Top 11 人氣魚油品牌深度開箱</a>
             <ul class="sub-toc" style="padding-left: 15px; margin: 5px 0 10px 0; border-left: 2px solid #e2e8f0;">
               <li><a href="#brand-betterbio"
                   style="font-size:0.9em; display:block; padding:3px 10px; color:#64748b;">好好生醫
@@ -191,7 +241,7 @@
             </ul>
           </li>
           <li>
-            <a href="#comparison-matrix" class="toc-link">5. CP 值精算與總結</a>
+            <a href="#comparison-matrix" class="toc-link">4. CP 值精算與總結</a>
             <ul style="list-style: none; padding-left: 15px; margin-top: 5px;">
               <li><a href="#price-efficiency-table"
                   style="font-size:0.9em; display:block; padding:3px 10px; color:#64748b;">價格效率分析</a></li>
@@ -199,9 +249,9 @@
                   style="font-size:0.9em; display:block; padding:3px 10px; color:#64748b;">規格比較表</a></li>
             </ul>
           </li>
-          <li><a href="#promotional" class="toc-link">6. 優惠代碼與活動</a></li>
-          <li><a href="#medical-evidence" class="toc-link">7. 醫學實證功效</a></li>
-          <li><a href="#faq" class="toc-link">8. 常見問答</a></li>
+          <li><a href="#promotional" class="toc-link">5. 優惠代碼與活動</a></li>
+          <li><a href="#medical-evidence" class="toc-link">6. 醫學實證與選購策略</a></li>
+          <li><a href="#faq" class="toc-link">7. 深度常見問答</a></li>
           <li><a href="fish-oil.html" class="toc-link">返回魚油指南</a></li>
         </ul>
       </div>
@@ -249,11 +299,10 @@
         <p><strong>本文將為您解答：</strong>如何辨識真正的高品質魚油、哪些痛點會讓你放棄回購、CP 值的真相是什麼，以及 10
           大熱門品牌（大研、Vitabox、BetterBio、Kirkland...）的真實評價。</p>
 
-        <p
-          style="margin-top: 35px; padding: 20px; background: #f8fafc; border-left: 4px solid #3b82f6; border-radius: 4px;">
-          💡 <strong>想直接看比較結果？</strong><br>
+        <p style="margin-top: 35px; padding: 20px; background: #eef2ff; border-radius: 8px; color: #1e1b4b;">
+          <strong>想直接看比較結果？</strong><br>
           如果您已經了解魚油的基本知識，可以直接跳到
-          <a href="#comparison-matrix" style="color: #3b82f6; font-weight: 600; text-decoration: underline;">第 5 章：10
+          <a href="#comparison-matrix" style="color: #4f46e5; font-weight: 700; text-decoration: underline;">第 5 章：10
             款品牌 CP 值比較表 →</a>
         </p>
 
@@ -356,68 +405,8 @@
           <span><strong>Vitabox</strong> 與 <strong>大研生醫</strong> 提供逐批次檢驗報告查詢系統，不僅要看報告，還要確認是否為「最新批次」，這是對食安的最高誠意。</span>
         </div>
 
-        <!-- H2: Science & Truth -->
-        <h2 id="science-truth">3. 進階：魚油的科學機制與隱藏真相</h2>
-        <p>在進入品牌評測前，我們必須先釐清一些容易被廣告誤導的觀念。為什麼有人說「魚油要吃兩週才有效」？為什麼有些人吃了會「反胃」？這背後都有生理學的依據。</p>
-
-        <h3>3.1 藥物動力學：為什麼無法「速效」？</h3>
-        <p>許多消費者期待吃完魚油馬上精神變好，這是不切實際的。Omega-3 的運作機制是透過<strong>「細胞膜置換 (Membrane Remodeling)」</strong>。</p>
-        <div class="info-cards">
-          <div class="info-card">
-            <h4><i class="fas fa-hourglass-half"></i> 細胞膜重塑需要時間</h4>
-            <p>Omega-3 必須取代細胞膜上原有的 Omega-6 (如花生四烯酸)，這個過程類似「換建材」。研究顯示，紅血球細胞膜達到穩定濃度通常需要<strong>數週至數個月</strong>。請給身體一點時間。
-            </p>
-          </div>
-          <div class="info-card">
-            <h4><i class="fas fa-brain"></i> 精神神經免疫學</h4>
-            <p>針對情緒改善(如憂鬱)，<strong>EPA</strong> 透過抑制促發炎因子(IL-6, TNF-α)來保護神經系統。這就是為什麼選購「好心情魚油」時，EPA 濃度比總 Omega-3 更重要。</p>
-          </div>
-        </div>
-
-        <h3 style="margin-top: 30px;">3.2 副作用解密：反胃與腥味的真相</h3>
-        <p>「打嗝有魚味」是使用者棄用魚油的主因。這通常源於兩點：</p>
-        <ul style="list-style: none; padding-left: 0;">
-          <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #10b981; margin-right: 8px;"></i>
-            <strong>油脂氧化 (TOTOX 過高)：</strong> 不新鮮的魚油含有醛類與酮類，導致噁心感。
-          </li>
-          <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #10b981; margin-right: 8px;"></i>
-            <strong>胃部提早崩解：</strong> 傳統膠囊在胃酸中溶解，油脂氣味直接回衝。解決方案是選擇<strong>「腸溶膠囊」</strong>或<strong>「超臨界萃取」</strong>的高脫臭產品。
-          </li>
-        </ul>
-
-        <h3 style="margin-top: 30px;">3.3 如何判斷評論的可信度？</h3>
-        <p>網路上魚油評價真假難辨，我們建議採用「資訊三角驗證法」：</p>
-        <div class="responsive-table-wrapper">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>來源類型</th>
-                <th>價值</th>
-                <th>盲點</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>專業評測 (藥師/營養師)</strong></td>
-                <td>提供<strong>「硬指標」</strong>(濃度、原料、認證)。重視數據與法規。</td>
-                <td>較少提及長期主觀感受；易受廠商提供資料限制 (如未公開則無法評論)。</td>
-              </tr>
-              <tr>
-                <td><strong>社群輿情 (PTT/Dcard)</strong></td>
-                <td>揭露<strong>「體感真相」</strong>(好吞嗎？會反胃嗎？)。</td>
-                <td>主觀差異大；需具備辨識「網軍/葉配」的能力。</td>
-              </tr>
-              <tr>
-                <td><strong>品牌宣稱 (官網)</strong></td>
-                <td>了解產品設計理念與獨家技術。</td>
-                <td>視為「待驗證的假設」，不能全信，需搭配第三方資料佐證。</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
         <!-- H2: Brand Deep Dive (Merged) -->
-        <h2 id="brand-deep-dive">4. 2026 年 Top 11 人氣魚油品牌深度開箱</h2>
+        <h2 id="brand-deep-dive">3. 2026 年 Top 11 人氣魚油品牌深度開箱</h2>
         <div class="alert alert-info" style="margin-bottom: 30px;">
           <p class="mb-0"><i class="fas fa-info-circle"></i> <strong>評測說明 (Disclosure)：</strong><br>
             本篇評測內容彙整自各品牌官方網站、產品包裝標示及公開檢驗報告 (如 IFOS、SGS)，並參考 PTT/Dcard 等社群論壇之使用者真實反饋。Dailyeat
@@ -2138,7 +2127,7 @@
 
 
         <!-- Comparison Matrix & Calculator -->
-        <h2 id="comparison-matrix">5. 魚油推薦評比總結：10款品牌 CP 值精算與排名</h2>
+        <h2 id="comparison-matrix">4. 魚油推薦評比總結：10款品牌 CP 值精算與排名</h2>
         <p>在看完感性的品牌故事後，我們需要理性的數據來做最終決策。我們將所有產品的價格標準化，計算出「每一毫克 Omega-3」的真實成本。這個表格將殘酷地揭開包裝下的真相，讓你知道誰才是真正的 CP 值之王，誰又在收智商稅。
         </p>
         <p>我們將所有數據攤開，讓數學告訴你真相。</p>
@@ -2194,7 +2183,7 @@
                 <td>85% rTG</td>
                 <td>$32.5</td>
                 <td>~2.1 顆</td>
-                <td><span class="badge">優質綜合選</span> 5 盒方案效率極佳。</td>
+                <td><span class="badge" style="background:#fefce8;color:#a16207;">優質綜合選</span> 5 盒方案效率極佳。</td>
               </tr>
               <tr>
                 <td>No.5</td>
@@ -2214,6 +2203,14 @@
               </tr>
               <tr>
                 <td>No.7</td>
+                <td><strong>BHK's</strong></td>
+                <td>88% rTG</td>
+                <td>$37.5</td>
+                <td>~2.3 顆</td>
+                <td><span class="badge" style="background:#fce7f3;color:#be185d;">女性最愛</span> 單價低但所需顆數較多。</td>
+              </tr>
+              <tr>
+                <td>No.8</td>
                 <td><strong>Vitabox</strong></td>
                 <td>85%+ rTG</td>
                 <td>$38.0</td>
@@ -2221,28 +2218,72 @@
                 <td><span class="badge">透明安全選</span> 買的是食安履歷。</td>
               </tr>
               <tr style="background: #fef2f2;">
-                <td>No.8</td>
+                <td>No.9</td>
+                <td><strong>白蘭氏 (Brands)</strong></td>
+                <td>TG + 蝦紅素</td>
+                <td><strong style="color: #dc2626;">> $60.0</strong></td>
+                <td>>3 顆</td>
+                <td><span class="badge">複方加值</span> 需考量有效 Omega-3 成本。</td>
+              </tr>
+              <tr style="background: #fef2f2;">
+                <td>No.10</td>
                 <td><strong>娘家 (Niang Jia)</strong></td>
                 <td>96% rTG</td>
                 <td><strong style="color: #dc2626;">$95.0</strong></td>
                 <td>~1.8 顆</td>
                 <td><span class="badge" style="background:#fef2f2;color:#991b1b;">信任稅</span> 長輩信仰與送禮價值。</td>
               </tr>
+              <tr style="background: #fef2f2;">
+                <td>No.11</td>
+                <td><strong>三得利 (Suntory)</strong></td>
+                <td>TG/EE (未標)</td>
+                <td><strong style="color: #dc2626;">> $140.0</strong></td>
+                <td>>4 顆</td>
+                <td><span class="badge">信仰無價</span> 買的是日系品牌安心感。</td>
+              </tr>
             </tbody>
           </table>
         </div>
+        <p class="table-disclaimer"
+          style="font-size: 0.8em; color: #94a3b8; text-align: center; margin-top: 10px; margin-bottom: 30px;">註：本表數據基於
+          2026/01 市場公開資訊整理，價格與促銷活動可能隨時間變動，請以各品牌官方最新公告為準。</p>
 
 
         <h3 id="quality-comparison-table" class="review-title" style="margin-top: 40px; margin-bottom: 20px;">2025
           市售魚油規格比較表：體驗、認證與品質綜合評比</h3>
-        <p>單看 CP 值並不夠。為了幫助您做出最理性的決策，這張表格彙整了所有產品的「軟實力」，包含認證、膠囊大小及網友真實反饋。我們建議您結合以下 **2026 魚油市場三大核心分析** 來閱讀此表：</p>
-        <ul style="margin-bottom: 30px; line-height: 1.8; color: #334155;">
-          <li><strong>溢價與價值的平衡：</strong> 魚油市場存在高達 **14 倍的溢價鴻溝** ($6.4 vs $95)。排名較後的頂規品牌（如 BetterBio、大研）通常投入更多在 **1.2cm
-            極小膠囊技術** 與 **高 EPA 比例**，雖然提升了售價，但能降低吞嚥恐懼並針對特定需求（如情緒保養）。</li>
-          <li><strong>隱形紅利與大量採購：</strong> 透過「5 入組」等優惠方案，頂級品牌的 CP 值可提升 30% 以上，使其真實成本足以與中價位品項競爭，這證明了「高規平取」的存在。</li>
-          <li><strong>性價比王者的盲點：</strong> 追求極限 CP 值（如 Kirkland）往往意味著必須忍受巨大的膠囊與較重的腥味。若因體驗不佳導致服用頻率降低，再低的成本反而成了最大的健康效益浪費。
-          </li>
-        </ul>
+        <div class="market-insight-box"
+          style="background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; margin-bottom: 30px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+          <h4
+            style="margin-top: 0; margin-bottom: 15px; color: #1e293b; font-size: 1.1em; display: flex; align-items: center;">
+            <span
+              style="background: #3b82f6; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; margin-right: 10px; font-size: 0.8em;"><i
+                class="fas fa-search"></i></span>
+            2026 魚油市場三大核心分析
+          </h4>
+          <p style="color: #64748b; margin-bottom: 20px; font-size: 0.95em;">單看價格並不夠，為了做出最理性的決策，請結合以下市場觀察來閱讀下方的規格比較表：
+          </p>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+              <i class="fas fa-check-circle" style="color: #3b82f6; margin-top: 5px; margin-right: 12px;"></i>
+              <div style="color: #334155; font-size: 0.95em; line-height: 1.6;">
+                <strong>14 倍價差的真相：</strong> 高價品牌（如 BetterBio、大研）的溢價主要來自「1.2cm 極小膠囊」與「高純度
+                EPA」。這雖提高了售價，卻能大幅降低吞嚥恐懼，並提供更精準的情緒保養效益。
+              </div>
+            </li>
+            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+              <i class="fas fa-check-circle" style="color: #3b82f6; margin-top: 5px; margin-right: 12px;"></i>
+              <div style="color: #334155; font-size: 0.95em; line-height: 1.6;">
+                <strong>多入組的隱形紅利：</strong> 透過「5 盒團購」方案，頂級品牌的 CP 值可提升 30% 以上，真實日均成本與中階產品差距不大，實現「高規平價」。
+              </div>
+            </li>
+            <li style="display: flex; align-items: flex-start;">
+              <i class="fas fa-check-circle" style="color: #3b82f6; margin-top: 5px; margin-right: 12px;"></i>
+              <div style="color: #334155; font-size: 0.95em; line-height: 1.6;">
+                <strong>性價比的潛在成本：</strong> 追求極致便宜（如 Kirkland）往往需忍受巨大膠囊與較重腥味。若因體驗不佳導致常常忘記吃，再低的成本都是浪費。
+              </div>
+            </li>
+          </ul>
+        </div>
 
         <div class="responsive-table-wrapper" style="margin-bottom: 30px;">
           <table class="data-table">
@@ -2293,12 +2334,41 @@
                 <td><strong>注重食安細節、懷孕中或產後需要補充的媽媽。</strong></td>
               </tr>
               <tr>
+                <td><strong>MIHONG (米鴻)</strong></td>
+                <td><span class="badge" style="background:#ecfccb;color:#3f6212;">網購 CP 王</span><br>85% rTG | 西班牙
+                  Solutex</td>
+                <td>高濃度入門款 | 單盒價格親民</td>
+                <td>「窮學生救星」、「便宜治百病，偶爾有腥味」。</td>
+                <td><strong>預算有限的小資族、學生、租屋族團購。</strong></td>
+              </tr>
+              <tr>
+                <td><strong>BHK's</strong></td>
+                <td><span class="badge" style="background:#fce7f3;color:#be185d;">女性最愛</span><br>88% rTG | 小顆粒設計</td>
+                <td>IFOS 5星認證 | 美學包裝無腥味</td>
+                <td>「包裝超美、完全沒味道」、「小顆好吞，適合女生」。</td>
+                <td><strong>重視生活質感、討厭藥味的年輕女性。</strong></td>
+              </tr>
+              <tr>
                 <td><strong>娘家</strong></td>
                 <td><span class="badge" style="background:#fef2f2;color:#991b1b;">長輩信任</span><br>96% rTG (極頂版) | 高 EPA
                 </td>
                 <td>電視台背書 | 西班牙 Solutex 原料</td>
                 <td>「孝親神器，只要是娘家的長輩就吃」、「價格是盤子價」。</td>
                 <td><strong>送禮給父母長輩、求品牌名氣與信任度的族群。</strong></td>
+              </tr>
+              <tr>
+                <td><strong>白蘭氏</strong></td>
+                <td><span class="badge" style="background:#fff7ed;color:#c2410c;">複方保養</span><br>TG 型態 | 含蝦紅素</td>
+                <td>老字號品牌 | 晶亮+代謝雙效</td>
+                <td>「一顆搞定很方便」、「濃度不高但有蝦紅素」。</td>
+                <td><strong>懶得吞多種保健品、想兼顧護眼的綜合保養族。</strong></td>
+              </tr>
+              <tr>
+                <td><strong>三得利</strong></td>
+                <td><span class="badge">日系信仰</span><br>複方成分 | 芝麻素適合入睡</td>
+                <td>水滴狀極小顆粒 | 日本原裝進口</td>
+                <td>「阿嬤只認這個」、「好吞好睡，但真的貴」。</td>
+                <td><strong>對日本品牌有偏好、吞嚥困難的銀髮長輩。</strong></td>
               </tr>
               <tr>
                 <td><strong>Kirkland</strong></td>
@@ -2310,6 +2380,9 @@
             </tbody>
           </table>
         </div>
+        <p class="table-disclaimer"
+          style="font-size: 0.8em; color: #94a3b8; text-align: center; margin-top: 10px; margin-bottom: 30px;">
+          註：本表之「網友評價」與「體驗評比」係彙整自網路社群與公開資訊之主觀反饋，僅供參考，實際體驗可能因人而異，請以個人感受為準。</p>
 
         <div class="calculator-section" id="costCalculator" style="margin-top: 30px; margin-bottom: 30px;">
           <h3 class="calculator-title"><i class="fas fa-calculator"></i> 魚油真實 CP 值計算機</h3>
@@ -2344,7 +2417,7 @@
 
 
         <!-- Promotional Codes & Deals -->
-        <h2 id="promotional">6. 2026年優惠代碼與活動資訊總表</h2>
+        <h2 id="promotional">5. 2026年優惠代碼與活動資訊總表</h2>
         <p>為了方便讀者直接使用，以下彙整各品牌在 <strong>2026 年 1-2 月期間</strong>的關鍵優惠代碼與活動資訊。請注意優惠活動可能隨時變動，建議在購買前至官網確認最新資訊。</p>
 
         <div class="responsive-table-wrapper" style="margin-top: 30px; margin-bottom: 50px;">
@@ -2446,6 +2519,9 @@
             </tbody>
           </table>
         </div>
+        <p class="table-disclaimer"
+          style="font-size: 0.8em; color: #94a3b8; text-align: center; margin-top: 10px; margin-bottom: 30px;">註：本表數據基於
+          2026/01 市場公開資訊整理，價格與促銷活動可能隨時間變動，請以各品牌官方最新公告為準。</p>
 
         <div class="alert alert-tip" style="display: block; margin-bottom: 50px;">
           <strong style="display: block; margin-bottom: 10px; font-size: 1.1em;">💡 使用優惠碼小技巧</strong>
@@ -2455,50 +2531,127 @@
 
         <!-- Medical Evidence -->
 
-        <h2 id="medical-evidence">7. 吃魚油有用嗎？2025 醫學實證功效與副作用完整解析</h2>
-        <p><strong>魚油的核心功效</strong>包括：降低三酸甘油酯、輔助心血管健康、改善憂鬱情緒、抗發炎、以及支持大腦與視力發育。然而，網路上關於魚油的功效傳言滿天飛，究竟哪些是真的？哪些是誇大療效？</p>
-        <p>本章節彙整了 2024-2025 年發表的 PubMed 權威醫學文獻，針對憂鬱症、心血管保養與副作用風險進行實證解析。請依照科學證據來調整您的補充策略，而非盲目跟風。</p>
-        <div class="alert alert-tip" style="display: block;">
-          <strong style="display: block; margin-bottom: 10px; font-size: 1.1em;">想了解更完整的魚油功效？</strong>
-          <span>我們另有一篇專文詳細解析魚油的各種功效、適用族群與科學機制。<a href="../../post/fish-oil.html"
-              style="color: #ea580c; font-weight: 600; text-decoration: underline;">前往閱讀《魚油完整指南》→</a></span>
-        </div>
-        <div class="professional-insight-card">
-          <div class="insight-content">
-            <h4><i class="fas fa-brain"></i> 憂鬱症與情緒</h4>
-            <p>根據 2024 年發表的《PubMed》系統性回顧 (Meta-analysis) 指出，<strong>高劑量 EPA (每日 1g-2g)</strong>
-              對於重度憂鬱症 (MDD)
-              患者具有顯著的輔助改善效果。研究機制認為，EPA 能穿越血腦屏障，降低神經發炎反應。但對於輕度焦慮或青少年患者的療效尚無定論，建議以醫師處方為主。</p>
+        <!-- Chapter 6: Selection Strategy based on Efficacy -->
+        <h2 id="medical-evidence">6. 醫學實證與選購策略：該買哪一種？</h2>
+        <p>魚油並非「萬能神藥」，不同的健康需求需要對應不同的「規格」。盲目追求高濃度若選錯成分 (EPA vs DHA)，可能事半功倍。雖然本站不能涉及醫療效能宣稱，但根據 2026
+          最新國際臨床指引與文獻，我們可以歸納出以下<strong>三大選購策略</strong>：</p>
 
-            <h4><i class="fas fa-heartbeat"></i> 心血管與高劑量風險</h4>
-            <p>雖然適量魚油護心，但 2025 年最新回顧提醒：<strong>超高劑量 (>4g/day)</strong> 可能增加心房顫動 (AF) 的風險。一般保養建議控制在每日
-              1000-2000mg
-              之間，最為安全有效。</p>
-          </div>
-        </div>
+        <div class="strategy-cards"
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
 
-        <!-- FAQ -->
-        <h2 id="faq">8. 常見問題 FAQ</h2>
-        <p>魚油該飯前吃還是飯後吃？跟鈣片一起吃會不會結石？孕婦到底能不能吃？這些看似簡單卻困擾許多人的問題，我們整理了最完整的解答。這裡沒有模稜兩可的說法，只有基於營養學理的明確建議，助您發揮魚油的最大效益。</p>
-        <div class="faq-section">
-          <div class="faq-item">
-            <div class="faq-question">Q: 魚油什麼時候吃最好？</div>
-            <div class="faq-answer">
-              <p><strong>A: 隨餐或飯後吃。</strong> 魚油是脂溶性營養素，需要食物中的油脂來幫助膽汁分泌與乳化，空腹吃吸收率極差，還容易打嗝有腥味。</p>
+          <!-- Strategy 1: Mood & Inflammation -->
+          <div class="strategy-card"
+            style="background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+            <div class="card-header" style="display: flex; align-items: center; margin-bottom: 15px;">
+              <span
+                style="background: #dbeafe; color: #1e40af; padding: 6px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9em; margin-right: 10px;">策略
+                A</span>
+              <h4 style="margin: 0; font-size: 1.1em; color: #1e293b;">情緒保養與抗發炎</h4>
+            </div>
+            <p style="color: #64748b; font-size: 0.95em; line-height: 1.6; margin-bottom: 15px;">
+              <strong>關鍵指標：高濃度 EPA (>80%)</strong><br>
+              針對現代高壓生活、憂鬱情緒或身體慢性發炎。研究顯示 EPA 對於抑制促發炎因子 (IL-6) 效果顯著優於 DHA。
+            </p>
+            <div style="background: #f8fafc; padding: 12px; border-radius: 8px;">
+              <span style="font-size: 0.85em; color: #475569; display: block; font-weight: 600;">🎯 推薦選擇：</span>
+              <span style="font-size: 0.9em; color: #0f172a;">BetterBio (85% rTG), 大研生醫 (99% rTG)</span>
             </div>
           </div>
+
+          <!-- Strategy 2: Cardiovascular & Metabolism -->
+          <div class="strategy-card"
+            style="background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+            <div class="card-header" style="display: flex; align-items: center; margin-bottom: 15px;">
+              <span
+                style="background: #dcfce7; color: #166534; padding: 6px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9em; margin-right: 10px;">策略
+                B</span>
+              <h4 style="margin: 0; font-size: 1.1em; color: #1e293b;">循環代謝與長期保養</h4>
+            </div>
+            <p style="color: #64748b; font-size: 0.95em; line-height: 1.6; margin-bottom: 15px;">
+              <strong>關鍵指標：足量劑量 + 長期財力</strong><br>
+              重點在於「天天吃、長期吃」。劑量需達到每日 1000-2000mg Omega-3，因此「價格可負擔性」是長期依從性的關鍵。
+            </p>
+            <div style="background: #f8fafc; padding: 12px; border-radius: 8px;">
+              <span style="font-size: 0.85em; color: #475569; display: block; font-weight: 600;">🎯 推薦選擇：</span>
+              <span style="font-size: 0.9em; color: #0f172a;">Kirkland (俗擱大碗), Sports Research (高CP)</span>
+            </div>
+          </div>
+
+          <!-- Strategy 3: Pregnancy & Infant -->
+          <div class="strategy-card"
+            style="background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+            <div class="card-header" style="display: flex; align-items: center; margin-bottom: 15px;">
+              <span
+                style="background: #fce7f3; color: #9d174d; padding: 6px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9em; margin-right: 10px;">策略
+                C</span>
+              <h4 style="margin: 0; font-size: 1.1em; color: #1e293b;">孕哺媽咪與寶寶</h4>
+            </div>
+            <p style="color: #64748b; font-size: 0.95em; line-height: 1.6; margin-bottom: 15px;">
+              <strong>關鍵指標：高 DHA + 極致安全</strong><br>
+              DHA 是胎兒大腦與視網膜發育的關鍵原料。首重「重金屬檢驗」與「無添加」，確保母嬰絕對安全。
+            </p>
+            <div style="background: #f8fafc; padding: 12px; border-radius: 8px;">
+              <span style="font-size: 0.85em; color: #475569; display: block; font-weight: 600;">🎯 推薦選擇：</span>
+              <span style="font-size: 0.9em; color: #0f172a;">Vitabox (全透明履歷), Nordic Naturals</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-warning" style="margin-top: 30px;">
+          <strong style="display: block; margin-bottom: 8px;">⚠️ 關於「抗凝血」的重要提醒</strong>
+          <span>若您正在服用抗凝血藥物 (如 Warfarin) 或即將進行手術，高劑量魚油可能會延長凝血時間。請務必在手術前 2 週暫停食用，並諮詢您的主治醫師。</span>
+        </div>
+
+        <!-- Chapter 7: Deep Dive FAQ -->
+        <h2 id="faq">7. 深度常見問答：解決你「買不下手」的疑惑</h2>
+        <p>看完了這麼多評比，為什麼你可能還在猶豫？我們收集了消費者最常糾結的 4 個「靈魂拷問」，直接說大實話，希望能幫助你跨出健康投資的第一步。</p>
+
+        <div class="faq-section">
+          <!-- Q1 -->
           <div class="faq-item">
-            <div class="faq-question">Q: 孕婦可以吃魚油嗎？</div>
+            <div class="faq-question">Q1: 價差 10 倍真的是「智商稅」嗎？便宜真的沒好貨？</div>
             <div class="faq-answer">
-              <p><strong>A: 可以，且非常建議。</strong> 補充足夠的 DHA
-                有助於寶寶神經發育。但建議選擇檢驗合格、無重金屬殘留的品牌。若擔憂凝血問題，可於生產前一個月諮詢醫師後決定是否暫停。
+              <p><strong>A: 便宜不代表壞，但代表「低效率」與「高熱量」。</strong></p>
+              <p>市售魚油的成本主要來自三大塊：<strong>濃度提純技術</strong> (30% vs 90%)、<strong>型態轉化</strong> (TG vs
+                rTG)、以及<strong>第三方認證費</strong> (IFOS)。</p>
+              <ul style="margin-top: 10px; margin-bottom: 0;">
+                <li><strong>低價魚油 (如 Costco)：</strong> 省去了昂貴的提純與轉化步驟，雖然 Omega-3 總量夠，但你也同時吞下了較多的無用油脂 (飽和脂肪、膽固醇)
+                  與熱量。適合預算型、不怕吞嚥者。</li>
+                <li><strong>高價魚油 (如 Daiken/BetterBio)：</strong> 您花錢買的是「純度」(不吃進壞油)、「吸收率」(rTG) 與「安心感」(檢驗)。適合追求精準保養、腸胃敏感者。
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="faq-item">
+            <div class="faq-question">Q2: rTG 型態真的比 EE/TG 好很多嗎？還是行銷話術？</div>
+            <div class="faq-answer">
+              <p><strong>A: 吸收率確實較好，但「體感舒適度」才是真正差異。</strong></p>
+              <p>研究顯示 rTG 的生物利用率約為 EE 型態的 1.7 倍 (短期)。但對於長期使用者來說，rTG
+                最大的價值在於<strong>「好消化、不易脹氣、較少魚腥味反芻」</strong>。如果您的腸胃強健，吃便宜的 TG 型態靠「以量取勝」也是一種策略；但若您容易消化不良，rTG 絕對值得多花的每一分錢。
               </p>
             </div>
           </div>
+
+          <!-- Q3 -->
           <div class="faq-item">
-            <div class="faq-question">Q: 魚油跟藻油怎麼選？</div>
+            <div class="faq-question">Q3: 好市多那麼大罐，吃到後來會壞掉嗎？</div>
             <div class="faq-answer">
-              <p><strong>A: 吃素選藻油，一般人選魚油。</strong> 藻油是素食者的唯一選擇。若無素食需求，魚油的 EPA 含量通常較高，價格也較親民。</p>
+              <p><strong>A: 這是一個很現實的風險。</strong> 魚油極易氧化 (Oxidation)，大罐裝 (幾百顆) 每天開關瓶蓋接觸空氣，通常吃到最後幾週 <strong>過氧化價
+                  (TOTOX)</strong> 會升高，導致腥味變重甚至變質。
+                <br><strong>💡 解決方案：</strong>買回來後分裝成小瓶 (一週份)，其餘冷藏保存；或是直接選擇「PTP 獨立排裝」的品牌 (如 Vitabox, 大研)，確保每一顆到入口前都是最新鮮的。
+              </p>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="faq-item">
+            <div class="faq-question">Q4: 藻油跟魚油怎麼選？素食者只能吃藻油嗎？</div>
+            <div class="faq-answer">
+              <p><strong>A: 素食者選藻油，一般人看需求。</strong></p>
+              <p>藻油是利用微藻萃取，優點是<strong>無重金屬汙染疑慮</strong>且<strong>適合素食者</strong>。早期的藻油多以 DHA 為主，但現在技術已能做到高 EPA
+                藻油。對於一般人來說，魚油的性價比 (Omega-3/價格) 目前仍優於藻油，除非您對海鮮過敏或有嚴格環保理念，否則高品質魚油仍是首選。</p>
             </div>
           </div>
         </div>
@@ -2522,14 +2675,26 @@
   </div>
 
   <!-- Disclaimer Section (Full Width) -->
-  <section class="disclaimer">
-    <div class="disclaimer-content">
-      <div class="disclaimer-content">
-        <h3>免責聲明</h3>
-        <p>本站無法提供任何醫療診斷或治療建議。本篇評測文章為獨立製作，內容基於編輯團隊的個人檢驗體驗、產品包裝標示與網路公開資訊 (如 IFOS/SGS
-          報告)。產品價格、規格與成分可能隨時間或廠商策略變動，購買前請務必再次確認官方最新資訊。</p>
-        <p style="margin-top: 10px;">所有關於健康、營養補充品的相關論述，皆無法替代專業醫師或藥師的諮詢。若您有特殊疾病、正在服用藥物 (特別是抗凝血劑)
-          或為孕哺婦女，請務必在食用任何保健食品前，諮詢您的主治醫師。本站不對任何因使用本站資訊而導致的結果承擔法律責任。</p>
+  <section class="disclaimer" style="padding: 40px 0; background: #f8fafc; border-top: 1px solid #e2e8f0;">
+    <div class="disclaimer-content" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+      <h3
+        style="font-size: 0.85em; color: #94a3b8; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">
+        免責聲明與法律權益告知 (Legal Disclaimer)</h3>
+      <div style="font-size: 0.75em; color: #94a3b8; line-height: 1.8; text-align: justify;">
+        <p style="margin-bottom: 8px;"><strong>1. 非醫療建議聲明：</strong>
+          本站（Dailyeat）所有內容僅供公眾衛教資訊參考，絕非醫療診斷、治療或預防疾病之建議。所有關於健康、營養補充品之論述，皆無法替代專業醫師或藥師之親自諮詢。若您有特殊疾病、正在服用藥物（特別是抗凝血劑、降血壓藥等）或為孕哺婦女，請務必在食用任何保健食品前，諮詢您的主治醫師。食用後若有身體不適，應立即停止使用並就醫。
+        </p>
+
+        <p style="margin-bottom: 8px;"><strong>2. 內容獨立性與正確性聲明：</strong> 本篇評測文章為編輯團隊基於發布當時之市場公開資訊（包含品牌官網、產品包裝標示、第三方檢驗報告如
+          IFOS/SGS/Eurofins）所製作之獨立評論。本站與文中所提之任何品牌無直接僱傭關係，亦不保證所有資訊之即時正確性。廠商可能隨時更改產品配方、規格、包裝、價格或促銷方案，消費者購買前務必再次確認官方最新資訊。本站不對因依賴本站資訊而導致的任何形式損失承擔法律責任。
+        </p>
+
+        <p style="margin-bottom: 8px;"><strong>3. 評論主觀性與個體差異：</strong>
+          文中提及之「體感」、「口味」、「吞嚥感受」等描述，均屬編輯團隊或網路評論主觀體驗，僅供參考，不代表適用於所有消費者。魚油之保健功效因人而異，受個人體質、生活習慣、飲食狀態等多重因素影響，本站不保證產品之特定功效。
+        </p>
+
+        <p style="margin-bottom: 0;"><strong>4. 智慧財產權與商標聲明：</strong> 本文提及之所有品牌名稱、商標、產品圖片，其版權均歸屬各該原廠商所有。本站僅基於「合理使用（Fair
+          Use）」原則進行評論與新聞報導之用。未經本站書面授權，禁止轉載、改寫或進行任何形式之商業利用。</p>
       </div>
     </div>
   </section>
@@ -2649,6 +2814,32 @@
         if (window.ResponsiveTocComponent) {
           new window.ResponsiveTocComponent().initialize();
         }
+
+        // FAQ Interactive Logic
+        class FAQManager {
+          constructor() {
+            this.faqItems = document.querySelectorAll('.faq-item');
+            this.init();
+          }
+
+          init() {
+            this.faqItems.forEach(item => {
+              const question = item.querySelector('.faq-question');
+              if (question) {
+                question.addEventListener('click', () => {
+                  // Toggle current item
+                  item.classList.toggle('active');
+
+                  // Optional: Close others? (Accordion style)
+                  // this.faqItems.forEach(otherItem => {
+                  //   if (otherItem !== item) otherItem.classList.remove('active');
+                  // });
+                });
+              }
+            });
+          }
+        }
+        new FAQManager();
       });
     })();
   </script>
