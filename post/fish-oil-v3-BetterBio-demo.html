@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V3 Content Demo - BetterBio (Sequential Layout)</title>
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="stylesheet" href="../assets/css/brand-card.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Demo specific styles */
+        body {
+            padding: 50px;
+            background: #fdfdfd;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Image Switcher Styles */
+        .image-switcher {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .main-image-viewport {
+            width: 100%;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            margin-bottom: 12px;
+        }
+
+        .main-image-viewport img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnail-list {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .thumb {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 4px;
+            object-fit: contain;
+            opacity: 0.6;
+            transition: all 0.2s;
+        }
+
+        .thumb:hover,
+        .thumb.active {
+            opacity: 1;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 1px #ff6b35;
+        }
+
+        /* Real Test Section Styles (No Badge) */
+        .real-test-section {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 20px;
+        }
+
+        .real-test-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .real-test-image-box {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 4 / 3;
+        }
+
+        .real-test-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .test-point {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #f1f5f9;
+        }
+
+        .test-point:last-child {
+            border-bottom: none;
+        }
+
+        .test-point strong {
+            color: #334155;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1.05em;
+        }
+
+        /* Manual Reviews & Soft Highlight */
+        .manual-review-card {
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .highlight-text {
+            background-color: #fff9db;
+            /* Soft yellow highlight */
+            padding: 0 2px;
+            font-weight: 500;
+            border-bottom: 1px solid #ffec99;
+        }
+
+        .review-source {
+            text-align: right;
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-top: 8px;
+        }
+
+        .review-link {
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-left: 6px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="demo-container">
+        <h1>V3 內容實測展示：好好生醫 (修訂版)</h1>
+
+        <h3 class="review-title" id="brand-betterbio">好好生醫魚悅魚油 (BetterBio) - 測評心得</h3>
+
+        <p>這是一款在設計感與規格上都極具競爭力的產品。由專業團隊研發，視覺上非常精緻，但內容物是否同樣頂級？我們直接深入實測。</p>
+
+        <div class="brand-review-card">
+            <div class="brand-review-header">
+                <h3>好好生醫 魚悅魚油 85% Omega-3</h3>
+                <div class="review-badges">
+                    <span class="badge badge-rtg">rTG 85%</span>
+                    <span class="badge badge-ifos">IFOS 5星</span>
+                    <span class="badge" style="background:#f0fdf4;color:#166534;">高濃度 EPA</span>
+                </div>
+            </div>
+
+            <div class="brand-review-body">
+                <!-- PART 1: Official Image Switcher -->
+                <div class="image-switcher" id="official-switcher">
+                    <div class="main-image-viewport">
+                        <img id="main-view" src="../pic/fish-oil-market/betterbio-joy-fish-oil-official.webp"
+                            alt="好好生醫官方產品圖">
+                    </div>
+                    <div class="thumbnail-list">
+                        <img class="thumb active" src="../pic/fish-oil-market/betterbio-joy-fish-oil-official.webp"
+                            onclick="switchImage(this)" alt="正面展示">
+                        <img class="thumb" src="https://placehold.co/300x300?text=Side+View" onclick="switchImage(this)"
+                            alt="側面展示">
+                        <img class="thumb" src="https://placehold.co/300x300?text=Specs+View"
+                            onclick="switchImage(this)" alt="成分標示">
+                    </div>
+                </div>
+
+                <div class="review-section-title">產品規格與科學解讀</div>
+                <table class="review-specs-table">
+                    <tr>
+                        <th>產品容量</th>
+                        <td>60 粒/瓶 (每份 2 粒)</td>
+                    </tr>
+                    <tr>
+                        <th>原料來源</th>
+                        <td>挪威 VIVOMEGA® | 85% 總濃度 | rTG 型態</td>
+                    </tr>
+                    <tr>
+                        <th>核心成分</th>
+                        <td>每份含 720mg EPA + 240mg DHA (3:1 黃金比例)</td>
+                    </tr>
+                </table>
+
+                <!-- PART 2: Real Test Section (Multi-Photo, No Badge) -->
+                <div class="real-test-section">
+                    <div class="review-section-title">Dailyeat 編輯部實測感受</div>
+
+                    <div class="real-test-grid">
+                        <div class="real-test-image-box">
+                            <img src="../pic/fish-oil-market/betterbio-joy-fish-oil-review.webp" alt="膠囊大小比較">
+                        </div>
+                        <div class="real-test-image-box">
+                            <img src="https://placehold.co/400x300?text=Package+Texture" alt="包裝細節">
+                        </div>
+                    </div>
+
+                    <div class="real-test-content">
+                        <div class="test-point">
+                            <strong>極致小巧的 1.2cm 膠囊</strong>
+                            這是目前市面上最有感的優勢，比常見魚油縮小了近 50%，吞嚥時幾乎沒有異物感，非常推薦給平時怕吞大膠囊的人。
+                        </div>
+                        <div class="test-point">
+                            <strong>清爽的檸檬去腥處理</strong>
+                            即使直接咬破也聞不到魚腥味，取而代之的是淡淡的檸檬清香。這種處理也解決了吃完後「打嗝有魚味」的尷尬問題。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deep Dive (Concise) -->
+                <div class="review-section-title" style="margin-top: 40px;">Dailyeat 測評室觀點</div>
+
+                <div style="background: #fff; padding: 5px 0;">
+                    <p><strong>1. 新鮮度是隱形關鍵：</strong> 雖然 IFOS 標準 TOTOX 為 26，但這款實測常控制在 <strong>10
+                            以下</strong>，極度新鮮的油質反映在零腥味的口感上。</p>
+                    <p><strong>2. 精準的情緒定位：</strong> 3:1 的 EPA/DHA 比例，適合現代高壓上班族追求穩定情緒與對抗微發炎的需求。</p>
+                    <p><strong>3. 買愈多愈划算：</strong> 單盒約 $23/粒頗貴，但五盒組降至 <strong>$15.6/粒</strong>，即可用小資預算買到最頂級的挪威原料。</p>
+                </div>
+
+                <!-- Pros/Cons Table Deleted (As per request) -->
+
+                <!-- Expanded & Highlighted Reviews -->
+                <div class="review-section-title" style="margin-top: 40px;">社群網友真實心得</div>
+                <div class="manual-review-reviews">
+                    <div class="manual-review-card">
+                        「<span class="highlight-text">沒腥味這點是真的</span>，我有咬破過。之前吃某牌咬破差點吐出來，這款居然<span
+                            class="highlight-text">有點像檸檬油</span>，吃完打嗝也不臭。」<a href="https://www.ptt.cc/bbs/BeautySalon"
+                            target="_blank" class="review-link">查看原文</a>
+                        <div class="review-source">— PTT 網友</div>
+                    </div>
+                    <div class="manual-review-card">
+                        「這款真的<span class="highlight-text">無敵小顆</span>，非常適合像我這種有吞嚥障礙的人。雖然單買貴，但跟同事<span
+                            class="highlight-text">湊團購就非常有 CP 值</span>。」<a href="https://www.dcard.tw/f/savemoney"
+                            target="_blank" class="review-link">查看原文</a>
+                        <div class="review-source">— Dcard 網友</div>
+                    </div>
+                    <div class="manual-review-card">
+                        「本來覺得魚油都一樣，但換這款後<span class="highlight-text">專注力明顯有差</span>，可能跟高 EPA 有關。包裝也很有質感，擺著都會想吃。」<a
+                            href="#" class="review-link">查看原文</a>
+                        <div class="review-source">— 電商驗證買家</div>
+                    </div>
+                    <div class="manual-review-card">
+                        「<span class="highlight-text">出貨速度驚人</span>，昨天下午訂今天就到了。原本怕檸檬味很假，結果很自然，<span
+                            class="highlight-text">長輩接受度很高</span>。」<a href="#" class="review-link">查看原文</a>
+                        <div class="review-source">— 蝦皮買家</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Switcher Script -->
+    <script>
+        function switchImage(thumb) {
+            const mainImg = document.getElementById('main-view');
+            const thumbs = document.querySelectorAll('.thumb');
+
+            // Update Main View
+            mainImg.style.opacity = '0';
+            setTimeout(() => {
+                mainImg.src = thumb.src;
+                mainImg.style.opacity = '1';
+            }, 200);
+
+            // Update Active State
+            thumbs.forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
