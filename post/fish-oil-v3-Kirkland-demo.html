@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V3 Content Demo - Kirkland (Sequential Layout)</title>
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="stylesheet" href="../assets/css/brand-card.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Demo specific styles */
+        body {
+            padding: 50px;
+            background: #fdfdfd;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Image Switcher Styles - Layout 3/4 + 1/4 */
+        .image-switcher {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            height: 400px;
+        }
+
+        .main-image-viewport {
+            flex: 3;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 1px solid #f1f5f9;
+            border-radius: 8px;
+            margin-bottom: 0;
+        }
+
+        .main-image-viewport img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnail-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+        }
+
+        .thumb {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 4px;
+            object-fit: contain;
+            opacity: 0.6;
+            transition: all 0.2s;
+            background: #fff;
+        }
+
+        .thumb:hover,
+        .thumb.active {
+            opacity: 1;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 1px #ff6b35;
+        }
+
+        /* Real Test Section Styles (No Badge) */
+        .real-test-section {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 20px;
+        }
+
+        /* Nutritionist Review Section */
+        .manual-review-card {
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .highlight-text {
+            background-color: #fff9db;
+            padding: 0 2px;
+            font-weight: 500;
+            border-bottom: 1px solid #ffec99;
+        }
+
+        .review-source {
+            text-align: right;
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-top: 8px;
+        }
+
+        .review-link {
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-left: 6px;
+            text-decoration: none;
+        }
+
+        /* Responsive Nutritionist Layout */
+        .nutritionist-layout {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .nutritionist-col-avatar {
+            width: 50px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .nutritionist-col-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .nutritionist-col-img {
+            width: 90px;
+            height: 90px;
+            flex-shrink: 0;
+            margin-top: 5px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .nutritionist-col-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 576px) {
+            .nutritionist-layout {
+                flex-wrap: wrap;
+            }
+
+            .nutritionist-col-avatar {
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+
+            .nutritionist-col-content {
+                flex-basis: calc(100% - 75px);
+            }
+
+            .nutritionist-col-img {
+                width: 100%;
+                height: 200px;
+                margin-top: 10px;
+                order: 3;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="demo-container">
+        <h1>V3 內容實測展示：Kirkland (科克蘭)</h1>
+
+        <h3 class="review-title" id="brand-kirkland">Kirkland 科克蘭魚油 - 測評心得</h3>
+
+        <p>這款是好市多長年的銷售冠軍，也是許多台灣家庭的入門首選。我們將帶您直擊它的「真實吞嚥感」與「氣味測試」，看看這款價格破壞者是否值得入手。</p>
+
+        <div class="brand-review-card">
+            <!-- MODULE 1: Header -->
+            <div class="brand-review-header">
+                <h3>Kirkland Signature 科克蘭 新型緩釋魚油</h3>
+                <div class="review-badges">
+                    <span class="badge" style="background:#dbeafe;color:#1e40af;">國民價格霸主</span>
+                    <span class="badge">USP 認證</span>
+                </div>
+            </div>
+
+            <div class="brand-review-body">
+                <!-- MODULE 2: Image Switcher (Placeholders) -->
+                <div class="image-switcher" id="official-switcher">
+                    <div class="main-image-viewport">
+                        <img id="main-view"
+                            src="https://placehold.co/600x600/f1f5f9/94a3b8?text=Kirkland+Official+Image"
+                            alt="Kirkland 官方產品圖">
+                    </div>
+                    <div class="thumbnail-list">
+                        <img class="thumb active" src="https://placehold.co/150x150/f1f5f9/94a3b8?text=Front"
+                            onclick="switchImage(this)" alt="正面展示">
+                        <img class="thumb" src="https://placehold.co/150x150/f1f5f9/94a3b8?text=Detail"
+                            onclick="switchImage(this)" alt="產品細節">
+                        <img class="thumb" src="https://placehold.co/150x150/f1f5f9/94a3b8?text=Label"
+                            onclick="switchImage(this)" alt="成分標示">
+                    </div>
+                </div>
+
+                <!-- MODULE 3: Specs -->
+                <div class="review-section-title">1. 產品規格與官方說明</div>
+                <table class="review-specs-table">
+                    <tr>
+                        <th>產品全名</th>
+                        <td>Kirkland Signature 科克蘭 Nuevo 緩釋魚油軟膠囊<br>
+                            <em style="font-size: 0.9em; color: #64748b;">Kirkland Signature Enteric Coated Fish Oil
+                                Concentrate 1200mg</em>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>規格/成本</th>
+                        <td>180 粒/瓶 | 1粒/日 | 單價 <strong>$3.22/粒</strong> (極低)</td>
+                    </tr>
+                    <tr>
+                        <th>原料/技術</th>
+                        <td>產地:加拿大 | 魚種:沙丁魚、鯷魚、鯖魚 | 濃縮 EE/TG 混合型態</td>
+                    </tr>
+                    <tr>
+                        <th>內容物</th>
+                        <td>
+                            • 魚油 (濃縮魚油、維生素E)<br>
+                            • 膠囊成分：<span style="color:#ef4444;">明膠 (豬來源)</span>、甘油、水、D-山梨醇
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>官方重點</th>
+                        <td>
+                            • <strong>USP 認證：</strong> 美國藥典認證，品質符合國際基礎標準。<br>
+                            • <strong>特殊緩釋：</strong> 腸溶膜衣設計，減少魚腥味回流打嗝。<br>
+                            • <strong>超大容量：</strong> 一瓶可吃半年，CP 值極高。<br>
+                            • <strong>注意警語：</strong> 膠囊含豬皮明膠，素食者不可食；顆粒較大請小心吞嚥。
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- MODULE 4: Nutritionist Real Test -->
+                <div class="real-test-section" id="nutritionist-real-test">
+                    <div class="review-section-title">Dailyeat 營養師實測報告</div>
+
+                    <div class="manual-review-reviews" style="margin-bottom: 30px;">
+
+                        <!-- Review Item 1: Yumi (Swallowing Challenge) -->
+                        <div class="manual-review-card nutritionist-layout">
+                            <div class="nutritionist-col-avatar">
+                                <div
+                                    style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 5px;">
+                                    <img src="https://placehold.co/50x50/ffcfcf/white?text=Yumi" alt="Yumi"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div style="font-size: 0.75em; font-weight: 700; color: #334155;">營養師<br>Yumi</div>
+                            </div>
+                            <div class="nutritionist-col-content">
+                                <div
+                                    style="background: #f8fafc; padding: 15px; border-radius: 12px; border-top-left-radius: 2px;">
+                                    <p style="margin: 0; font-size: 0.95em; color: #475569; line-height: 1.5;">
+                                        這 真 的 是 <span class="highlight-text"
+                                            style="background:#fee2e2; border-color:#fca5a5;">巨型膠囊</span>！長度將近
+                                        2.5cm，對於食道較窄的女生來說非常有挑戰性。我有幾次吞下去時明顯感覺到<span class="highlight-text"
+                                            style="background:#fee2e2; border-color:#fca5a5;">卡在喉嚨依然有異物感</span>，建議一定要配大量溫水，或者分次吞食。如果是買給長輩，我會比較擔心嗆到的風險。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="nutritionist-col-img">
+                                <img src="https://placehold.co/90x90/e2e8f0/64748b?text=Test" alt="膠囊大小實測">
+                            </div>
+                        </div>
+
+                        <!-- Review Item 2: Sophie (Smell & Experience) -->
+                        <div class="manual-review-card nutritionist-layout" style="margin-top: 20px;">
+                            <div class="nutritionist-col-avatar">
+                                <div
+                                    style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 5px;">
+                                    <img src="https://placehold.co/50x50/d9f99d/white?text=Sophie" alt="Sophie"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div style="font-size: 0.75em; font-weight: 700; color: #334155;">營養師<br>Sophie</div>
+                            </div>
+                            <div class="nutritionist-col-content">
+                                <div
+                                    style="background: #f8fafc; padding: 15px; border-radius: 12px; border-top-left-radius: 2px;">
+                                    <p style="margin: 0; font-size: 0.95em; color: #475569; line-height: 1.5;">
+                                        雖然標榜腸溶膠囊可以減少味道，但打開罐子時還是聞得到一股<span
+                                            class="highlight-text">明顯的魚腥味</span>。如果不小心咬破，那個味道真的會讓人卻步。另外要注意台灣天氣潮濕，這一大罐
+                                        180 顆吃到後面幾個月，膠囊很容易沾黏在一起，建議開封後要盡快吃完或分裝保存。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="nutritionist-col-img">
+                                <img src="https://placehold.co/90x90/e2e8f0/64748b?text=Bottle" alt="罐裝實測">
+                            </div>
+                        </div>
+
+                        <!-- Review Item 3: Shawn (CP Value) -->
+                        <div class="manual-review-card nutritionist-layout" style="margin-top: 20px;">
+                            <div class="nutritionist-col-avatar">
+                                <div
+                                    style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 5px;">
+                                    <img src="https://placehold.co/50x50/bfdbfe/white?text=Shawn" alt="Shawn"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div style="font-size: 0.75em; font-weight: 700; color: #334155;">營養師<br>Shawn</div>
+                            </div>
+                            <div class="nutritionist-col-content">
+                                <div
+                                    style="background: #f8fafc; padding: 15px; border-radius: 12px; border-top-left-radius: 2px;">
+                                    <p style="margin: 0; font-size: 0.95em; color: #475569; line-height: 1.5;">
+                                        如果你的預算非常有限，Kirkland 絕對是<span class="highlight-text">價格上的王者</span>。單顆 $3.22
+                                        幾乎是市售競品的零頭。雖然濃度只有約 50%，但因為便宜，就算一天吃兩顆來補足劑量，成本依然很低。適合不在意吞嚥體驗、追求極致 CP 值的省錢一族。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE 5: Rating -->
+                <div class="review-section-title">Dailyeat 整體推薦程度</div>
+                <div class="review-rating-box">
+                    <div class="rating-score-circle" style="border-color: #cbd5e1; color: #64748b;">2.5</div>
+                    <div class="rating-details">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                                class="far fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <div class="rating-verdict">
+                            <span class="verdict-tag" style="background:#e2e8f0; color:#475569;">入門基礎級</span>
+                            <strong>預算捍衛者。</strong> 雖然在吞嚥體驗與濃度規格上表現落後，但憑藉強大的價格優勢與 USP 認證，依然是高 CP 值的入門選擇。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE 6: User Reviews -->
+                <div class="review-section-title" style="margin-top: 40px;">社群網友與電商平台真實心得</div>
+                <div class="manual-review-reviews">
+                    <div class="manual-review-card">
+                        「真的<span class="highlight-text">超级大一顆</span>，每次吞都要做心理建設，好幾次差點噎到。後來都還要先喝一大口水潤喉才敢吞。」
+                        <a href="#" class="review-link">查看 Dcard 評論</a>
+                        <div class="review-source">— Kirkland_魚油_Dcard 買家評論心得</div>
+                    </div>
+
+                    <div class="manual-review-card">
+                        「便宜是便宜，但<span class="highlight-text"
+                            style="background:#fee2e2; border-color:#fca5a5;">打嗝真的會有魚腥味</span>，而且吃完嘴巴會油油的。現在都改買濃度高一點的小顆魚油了。」
+                        <a href="#" class="review-link">查看 PTT 評論</a>
+                        <div class="review-source">— Kirkland_魚油_PTT Model 買家評論心得</div>
+                    </div>
+
+                    <div class="manual-review-card">
+                        「Costco 特價時買超划算，一罐可以全家人吃很久。<span class="highlight-text">有 USP 認證</span>至少吃起來比較安心，反正就是吃保養的。」
+                        <a href="#" class="review-link">查看 Costco 官網評論</a>
+                        <div class="review-source">— Kirkland_魚油_Costco 官方評論心得</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Switcher Script -->
+    <script>
+        function switchImage(thumb) {
+            const mainImg = document.getElementById('main-view');
+            const thumbs = document.querySelectorAll('.thumb');
+
+            // Update Main View
+            mainImg.style.opacity = '0';
+            setTimeout(() => {
+                mainImg.src = thumb.src;
+                mainImg.style.opacity = '1';
+            }, 200);
+
+            // Update Active State
+            thumbs.forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

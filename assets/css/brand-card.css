@@ -275,3 +275,152 @@
 .brand-review-footer {
     border-top: 1px solid #e2e8f0;
 }
+
+/* --- V3 Update: Image Switcher Styles --- */
+.image-switcher {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    height: 400px;
+}
+
+.main-image-viewport {
+    flex: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #f1f5f9;
+    border-radius: 8px;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.main-image-viewport img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.thumbnail-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.thumb {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px;
+    object-fit: contain;
+    opacity: 0.6;
+    transition: all 0.2s;
+    background: #fff;
+}
+
+.thumb:hover,
+.thumb.active {
+    opacity: 1;
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 1px #ff6b35;
+}
+
+/* --- V3 Update: Real Test & Nutritionist Styles --- */
+.real-test-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 20px;
+}
+
+.manual-review-card {
+    background: #f8fafc;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.highlight-text {
+    background-color: #fff9db;
+    padding: 0 2px;
+    font-weight: 500;
+    border-bottom: 1px solid #ffec99;
+}
+
+.review-source {
+    text-align: right;
+    font-size: 0.85em;
+    color: #94a3b8;
+    margin-top: 8px;
+}
+
+.review-link {
+    font-size: 0.85em;
+    color: #94a3b8;
+    margin-left: 6px;
+    text-decoration: none;
+}
+
+/* --- V3 Update: Responsive Nutritionist Layout --- */
+.nutritionist-layout {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.nutritionist-col-avatar {
+    width: 50px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.nutritionist-col-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.nutritionist-col-img {
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+    margin-top: 5px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.nutritionist-col-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 576px) {
+    .nutritionist-layout {
+        flex-wrap: wrap;
+    }
+
+    .nutritionist-col-avatar {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .nutritionist-col-content {
+        flex-basis: calc(100% - 75px);
+    }
+
+    .nutritionist-col-img {
+        width: 100%;
+        height: 200px;
+        margin-top: 10px;
+        order: 3;
+    }
+}

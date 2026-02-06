@@ -18,21 +18,42 @@
 
 ## 2. 實作策略 (Implementation Strategy)
 
-### 2.1. 內容策略與規範
-- **Trust-First Writing**: 在每個品牌區塊增加「Dailyeat 真實親測體驗」，以第一人稱（我們/我）描述感受。
-- **Image Strategy**: 
-    - **官方圖**: 提供多張高品質產品圖，並實作**切換/輪播功能** (左側 4/5 大圖，右側 1/5 預覽縮圖，增加專業感)。
-    - **實測圖**: 增加多張實拍圖片以提升可信度，**不使用**「編輯部實拍」等額外標籤文字。
-- **Data Integrity (Product Specs)**: 產品規格表必須嚴格遵守 `BetterBio Demo` 的格式，包含以下 5 個欄位：
-    1. **產品全名**: 完整中英文品名 (含英文小字，且必須補上「品牌名稱」前綴，如 BetterBio 好好生醫 ...)。
-    2. **規格/成本**: 顆數、每顆劑量、建議吃法。
-    3. **原料/技術**: 產地、型態 (rTG)、製程技術。
-    4. **內容物**: 詳細成分列表 (含膠囊成分)。
-    5. **官方重點**: 條列式官方行銷賣點 (Highlight)。
-- **Deep Dive Analysis**: 必須精簡。使用條列式文字解讀數據（如 TOTOX、價格），並在重點處使用 Highlight (黃底)。
-- **No Pros/Cons Table**: 刪除全文中的「優缺點總評比較表」，避免與深度分析內容重複。
-- **Community Curation**: 網友評論需手動策展，增加評論數量，對優點/關鍵字進行**柔性 Highlight (畫重點)**，且來源格式必須統一為「產品名稱_來源 買家評論心得」。
-- **No Icon Policy**: 全文禁止使用任何 Icon，保持純文字排版質感。
+### 2.1. 內容策略與標準作業規範 (Standard Content SOP)
+> **Baseline**: 以 `post/fish-oil-v3-BetterBio-demo.html` 為黃金標準 (Gold Standard)。所有新品牌評測必須嚴格遵守以下結構與順序。
+
+#### A. 區塊結構順序 (Section Order)
+每個品牌的 `<div class="brand-review-card">` 內部必須依序包含以下 5 個模組：
+
+1.  **Header (品牌與標章)**
+    *   `h3`: 品牌全名 + 產品名稱
+    *   `.review-badges`: 必須包含 2-3 個標章 (如 `IFOS 5星`, `rTG 85%`, `高EPA配方`)。
+2.  **Body (視覺與規格)**
+    *   **Image Switcher**: 必須使用 `image-switcher` 結構。
+        *   左側 `main-image-viewport` (3/4 寬度)
+        *   右側 `thumbnail-list` (1/4 寬度, 垂直排列, 3-4 張縮圖)
+    *   **Spec Table**: 必須包含 5 個固定欄位 (產品全名, 規格/成本, 原料/技術, 內容物, 官方重點)。
+3.  **Nutritionist Real Test (營養師親測)**
+    *   **Title**: `Dailyeat 營養師實測報告`
+    *   **Format**: 使用 `.manual-review-card` 搭配 Flexbox 佈局。
+    *   **Components**: 
+        *   左側 Avatar Column (頭像 + 職稱)
+        *   中間 Content Column (灰底對話框 style, 關鍵字需加上 `.highlight-text` 黃底)
+        *   右側 Photo Thumbnail (實測照片 90x90px)
+    *   **Quantity**: 3 位營養師 (Yumi/Sophie/Shawn) 分別針對「吞嚥/氣味」、「包裝/體驗」、「數據/CP值」進行評論。
+4.  **Rating (Dailyeat 評分)**
+    *   **Title**: `Dailyeat 整體推薦程度`
+    *   **Format**: `.review-rating-box` (左側分數圓圈 + 右側星級與短評)。
+5.  **User Reviews (社群口碑)**
+    *   **Title**: `社群網友與電商平台真實心得`
+    *   **Format**: `.manual-review-reviews` 包裹多個 `.manual-review-card`。
+    *   **Content**: 需手動策展 3 則 (Momo/Shopee/Official/PTT/Dcard)，關鍵字畫重點。
+    *   **Source**: 必須標註來源並附上 `查看原文` 連結。
+
+#### B. 寫作與視覺規範 (Style Guide)
+- **Trust-First Tone**: 全文維持「第一人稱（我們/我）」視角。
+- **No Icons**: 禁止使用 FontAwesome icon 於內文中，保持乾淨。
+- **Highlighting**: 使用 `.highlight-text` (黃底) 來強調評論中的正面關鍵字 (如「無腥味」、「好吞」)。
+- **Detailed Data**: 規格表中的「內容物」需完整列出膠囊成分 (明膠來源)。
 
 ### 2.2. 文章結構 (H1-H4) (略...)
 
@@ -63,35 +84,41 @@ post/
 - [x] **官方圖切換功能**: 已在 BetterBio Demo 中完成開發，作為標準與樣板。
 
 ### Phase 3: [獨立任務 B] 品牌單頁實測 (Modular Execution)
-依序為每個品牌建立獨立 Demo 頁面，完成內容與圖片優化：
+依序為每個品牌建立獨立 Demo 頁面，每一次執行都必須包含以下 5 大標準模組的建置與填寫：
 
 - [ ] **好好生醫 (BetterBio)**:
     - [x] `fish-oil-v3-BetterBio-demo.html` 建立與改名。
-    - [x] 內容：精簡化觀點，移除優缺點表。
-    - [x] **Image Layout**: 官方圖欄位調整為左側 3/4 大圖，右側 1/4 預覽縮圖。
-    - [x] **Nutritionist Reviews**: 增加營養師評論區塊（3位營養師心得 + 小頭像）。
-    - [ ] **Action**: 將完成的 HTML 區塊合併回主文章。
+    - [x] **Header**: 品牌標章 (IFOS/rTG/高EPA)。
+    - [x] **Body**: 官方圖 Switcher + 5 欄規格表。
+    - [x] **Nutritionist**: 3 位營養師實測心得 (吞嚥/包裝/數據)。
+    - [x] **Rating/Reviews**: Dailyeat 評分 + 3 則網友真實評論策展。
+    - [x] **Action**: 將完成的 HTML 區塊合併回主文章。
 
 - [ ] **Kirkland (科克蘭)**:
-    - [ ] 建立 `post/fish-oil-v3-Kirkland-demo.html` (複製 BetterBio 模板)。
-    - [ ] 撰寫：大顆粒吞嚥挑戰 (實測圖)、價格優勢分析。
-    - [ ] 合併回主文章。
+    - [x] 建立 `post/fish-oil-v3-Kirkland-demo.html` (複製 BetterBio 模板)。
+    - [x] **Header**: 設定品牌標章 (USP/價格霸主)。
+    - [x] **Body**: 建立規格表 (注意: 圖片若無可暫缺，保留 placeholder)。
+    - [x] **Nutritionist**: 撰寫實測心得 (重點: 大顆粒吞嚥挑戰)。
+    - [x] **Rating/Reviews**: 設定評分 (2.5分) + 策展網友評論 (吞嚥困難/便宜)。
+    - [x] 合併回主文章。
 
 - [ ] **Sports Research (SR)**:
-    - [ ] 建立 `post/fish-oil-v3-SR-demo.html`。
-    - [ ] 撰寫：iHerb 跨境購買體驗、高濃度 IFOS 驗證。
-    - [ ] 合併回主文章。
+    - [x] 建立 `post/fish-oil-v3-SR-demo.html`。
+    - [x] **Standard Modules**: 依序完成 Header/Body/Nutritionist/Rating/Reviews。
+    - [x] **Focus**: iHerb 跨境體驗與 IFOS 認證。
+    - [x] 合併回主文章。
 
 - [ ] **大研生醫 (Daiken)**:
     - [ ] 建立 `post/fish-oil-v3-Daiken-demo.html`。
-    - [ ] 撰寫：MOMO 通路霸主、與 BetterBio 的規格對決。
+    - [ ] **Standard Modules**: 依序完成 Header/Body/Nutritionist/Rating/Reviews。
+    - [ ] **Focus**: Momo 王者與高濃度對決。
     - [ ] 合併回主文章。
 
-- [ ] **其餘品牌 (Batch 1)**:
-    - [ ] 三得利 (Suntory)、Vitabox、營養師輕食 -> 建立個別 Demo 並優化。
+- [ ] **其餘品牌 (Batch 1 - Suntory/Vitabox/Dietician)**:
+    - [ ] 建立個別 Demo 並實作 5 大標準模組。
     
-- [ ] **其餘品牌 (Batch 2)**:
-    - [ ] 娘家、MIHONG、白蘭氏、BHK's -> 建立個別 Demo 並優化。
+- [ ] **其餘品牌 (Batch 2 - NiangJia/MIHONG/Brands/BHK's)**:
+    - [ ] 建立個別 Demo 並實作 5 大標準模組。
 
 ### Phase 4: [獨立任務 C] 網友評論策展 (Highlight)
 - [ ] **內容擴充**: 增加 PTT/Dcard/Shopee/Momo 評論數量。

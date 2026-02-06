@@ -225,6 +225,62 @@
             margin-left: 6px;
             text-decoration: none;
         }
+
+        /* Responsive Nutritionist Layout */
+        .nutritionist-layout {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .nutritionist-col-avatar {
+            width: 50px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .nutritionist-col-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .nutritionist-col-img {
+            width: 90px;
+            height: 90px;
+            flex-shrink: 0;
+            margin-top: 5px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .nutritionist-col-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 576px) {
+            .nutritionist-layout {
+                flex-wrap: wrap;
+            }
+
+            .nutritionist-col-avatar {
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+
+            .nutritionist-col-content {
+                flex-basis: calc(100% - 75px);
+            }
+
+            .nutritionist-col-img {
+                width: 100%;
+                height: 200px;
+                margin-top: 10px;
+                order: 3;
+            }
+        }
     </style>
 </head>
 
@@ -313,9 +369,9 @@
                     <div class="manual-review-reviews" style="margin-bottom: 30px;">
 
                         <!-- Review Item 1: Yumi (Experience: Size + Taste) -->
-                        <div class="manual-review-card" style="display: flex; gap: 15px; align-items: flex-start;">
+                        <div class="manual-review-card nutritionist-layout">
                             <!-- Avatar Column -->
-                            <div style="width: 50px; flex-shrink: 0; text-align: center;">
+                            <div class="nutritionist-col-avatar">
                                 <div
                                     style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 5px;">
                                     <img src="https://placehold.co/50x50/ffcfcf/white?text=Yumi" alt="Yumi"
@@ -327,7 +383,7 @@
                             </div>
 
                             <!-- Content Column -->
-                            <div style="flex: 1;">
+                            <div class="nutritionist-col-content">
                                 <div
                                     style="background: #f8fafc; padding: 15px; border-radius: 12px; border-top-left-radius: 2px;">
 
@@ -341,18 +397,15 @@
                             </div>
 
                             <!-- Photo Thumbnail Column -->
-                            <div
-                                style="width: 90px; height: 90px; flex-shrink: 0; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; margin-top: 5px;">
-                                <img src="../pic/fish-oil-market/betterbio-joy-fish-oil-review.webp" alt="膠囊實測"
-                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="nutritionist-col-img">
+                                <img src="../pic/fish-oil-market/betterbio-joy-fish-oil-review.webp" alt="膠囊實測">
                             </div>
                         </div>
 
                         <!-- Review Item 2: Sophie (Lifestyle: Packaging + Design) -->
-                        <div class="manual-review-card"
-                            style="display: flex; gap: 15px; align-items: flex-start; margin-top: 20px;">
+                        <div class="manual-review-card nutritionist-layout" style="margin-top: 20px;">
                             <!-- Avatar Column -->
-                            <div style="width: 50px; flex-shrink: 0; text-align: center;">
+                            <div class="nutritionist-col-avatar">
                                 <div
                                     style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 5px;">
                                     <img src="https://placehold.co/50x50/d9f99d/white?text=Sophie" alt="Sophie"
@@ -365,7 +418,7 @@
                             </div>
 
                             <!-- Content Column -->
-                            <div style="flex: 1;">
+                            <div class="nutritionist-col-content">
                                 <div
                                     style="background: #f8fafc; padding: 15px; border-radius: 12px; border-top-left-radius: 2px;">
 
@@ -377,19 +430,16 @@
                                 </div>
                             </div>
 
-                            <!-- Photo Thumbnail Column (Placeholder) -->
-                            <div
-                                style="width: 90px; height: 90px; flex-shrink: 0; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; margin-top: 5px;">
-                                <img src="../pic/fish-oil-market/betterbio-joy-fish-oil-official.webp" alt="PTP 獨立排裝實測"
-                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            <!-- Photo Thumbnail Column -->
+                            <div class="nutritionist-col-img">
+                                <img src="../pic/fish-oil-market/betterbio-joy-fish-oil-official.webp" alt="PTP 獨立排裝實測">
                             </div>
                         </div>
 
                         <!-- Review Item 3: Shawn (Data: Specs + CP Value) -->
-                        <div class="manual-review-card"
-                            style="display: flex; gap: 15px; align-items: flex-start; margin-top: 20px;">
+                        <div class="manual-review-card nutritionist-layout" style="margin-top: 20px;">
                             <!-- Avatar Column -->
-                            <div style="width: 50px; flex-shrink: 0; text-align: center;">
+                            <div class="nutritionist-col-avatar">
                                 <div
                                     style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 5px;">
                                     <img src="https://placehold.co/50x50/bfdbfe/white?text=Shawn" alt="Shawn"
@@ -401,7 +451,7 @@
                             </div>
 
                             <!-- Content Column -->
-                            <div style="flex: 1;">
+                            <div class="nutritionist-col-content">
                                 <div
                                     style="background: #f8fafc; padding: 15px; border-radius: 12px; border-top-left-radius: 2px;">
 
@@ -427,10 +477,21 @@
 
                 </div>
 
-                <!-- Deep Dive (Concise) -->
-
-
-                <!-- Pros/Cons Table Deleted (As per request) -->
+                <!-- 3. Dailyeat Rating -->
+                <div class="review-section-title">Dailyeat 整體推薦程度</div>
+                <div class="review-rating-box">
+                    <div class="rating-score-circle">4.7</div>
+                    <div class="rating-details">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="rating-verdict">
+                            <span class="verdict-tag">Dailyeat評價</span>
+                            <strong>專業品質保證。</strong> 高濃度 rTG 配方搭配 IFOS 5星認證,專業團隊把關,適合追求高品質與有感保養的消費者。
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Expanded & Highlighted Reviews -->
                 <div class="review-section-title" style="margin-top: 40px;">社群網友與電商平台真實心得</div>
@@ -461,11 +522,7 @@
                     </div>
                 </div>
 
-                <!-- 3. Dailyeat Verdict -->
-                <div class="rating-verdict" style="margin-top: 30px; border-top: 1px solid #f1f5f9; padding-top: 20px;">
-                    <span class="verdict-tag">Dailyeat評價</span>
-                    <strong>專業品質保證。</strong> 高濃度 rTG 配方搭配 IFOS 5星認證,專業團隊把關,適合追求高品質與有感保養的消費者。
-                </div>
+
 
             </div>
         </div>
