@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V3 Content Demo - Sports Research (Sequential Layout)</title>
+    <title>V3 Content Demo - Daiken (Sequential Layout)</title>
     <link rel="stylesheet" href="../assets/css/article.css">
     <link rel="stylesheet" href="../assets/css/brand-card.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -33,10 +33,12 @@
             gap: 15px;
             margin-bottom: 30px;
             height: 400px;
+            /* Fixed height for consistency */
         }
 
         .main-image-viewport {
             flex: 3;
+            /* Takes 3/4 space */
             height: 100%;
             display: flex;
             align-items: center;
@@ -45,6 +47,7 @@
             border: 1px solid #f1f5f9;
             border-radius: 8px;
             margin-bottom: 0;
+            /* Remove bottom margin */
         }
 
         .main-image-viewport img {
@@ -56,15 +59,20 @@
 
         .thumbnail-list {
             flex: 1;
+            /* Takes 1/5 space */
             display: flex;
             flex-direction: column;
+            /* Vertical list */
             gap: 10px;
             overflow-y: auto;
+            /* Scroll if too many thumbs */
         }
 
         .thumb {
             width: 100%;
+            /* Full width of container */
             aspect-ratio: 1/1;
+            /* Square thumbnails */
             border: 1px solid #e2e8f0;
             border-radius: 4px;
             cursor: pointer;
@@ -90,6 +98,103 @@
             padding-top: 20px;
         }
 
+        .real-test-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .real-test-image-box {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 4 / 3;
+        }
+
+        .real-test-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .test-point {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #f1f5f9;
+        }
+
+        .test-point:last-child {
+            border-bottom: none;
+        }
+
+        .test-point strong {
+            color: #334155;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1.05em;
+        }
+
+        /* Nutritionist Review Section */
+        .nutritionist-review-section {
+            margin-top: 30px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .nutritionist-card {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .nutritionist-card:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .nutritionist-avatar {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nutritionist-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nutritionist-content {
+            flex: 1;
+        }
+
+        .nutritionist-name {
+            font-weight: 700;
+            color: #334155;
+            font-size: 0.95em;
+            margin-bottom: 4px;
+        }
+
+        .nutritionist-comment {
+            font-size: 0.9em;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
         /* Nutritionist Review Section */
         .manual-review-card {
             background: #f8fafc;
@@ -101,6 +206,7 @@
 
         .highlight-text {
             background-color: #fff9db;
+            /* Soft yellow highlight */
             padding: 0 2px;
             font-weight: 500;
             border-bottom: 1px solid #ffec99;
@@ -181,33 +287,32 @@
 <body>
 
     <div class="demo-container">
-        <h1>V3 內容實測展示：Sports Research (SR)</h1>
+        <h1>V3 內容實測展示：大研生醫 (Daiken)</h1>
 
-        <h3 class="review-title" id="brand-sr">Sports Research (iHerb) - 測評心得</h3>
+        <h3 class="review-title" id="brand-daiken">大研生醫德國頂級魚油 (Daiken) - 測評心得</h3>
 
-        <p>來自美國的 iHerb 銷售冠軍，被 PTT 網友譽為「價格破壞者」。我們特別從海外訂購實測，看看這款規格數據近乎完美的產品，實際體驗是否真的無懈可擊。</p>
+        <p>擁有強大知名度與代言人的大研生醫，是 Momo 購物網的長年銷售冠軍。我們實測發現，它在濃度檢驗與規格上確實展現了「台廠資優生」的水準，但價格策略也同樣「高級」。</p>
 
         <div class="brand-review-card">
-            <!-- MODULE 1: Header -->
             <div class="brand-review-header">
-                <h3>Sports Research Omega-3 三倍強效魚油</h3>
+                <h3>大研生醫 德國頂級魚油 (84% Omega-3)</h3>
                 <div class="review-badges">
                     <span class="badge badge-ifos">IFOS 5星</span>
-                    <span class="badge badge-rtg">rTG 83%</span>
-                    <span class="badge" style="background:#dbeafe;color:#1e40af;">MSC 永續認證</span>
+                    <span class="badge badge-rtg">rTG 84%</span>
+                    <span class="badge" style="background:#fef2f2;color:#b91c1c;">Momo 銷售冠軍</span>
                 </div>
             </div>
 
             <div class="brand-review-body">
-                <!-- MODULE 2: Image Switcher (Placeholders) -->
+                <!-- PART 1: Official Image Switcher -->
                 <div class="image-switcher" id="official-switcher">
                     <div class="main-image-viewport">
-                        <img id="main-view" src="../pic/fish-oil-market/sports-research-triple-strength.jpg"
-                            alt="Sports Research 官方產品圖">
+                        <img id="main-view" src="../pic/fish-oil-market/daiken-german-fish-oil.jpg" alt="大研生醫官方產品圖">
                     </div>
                     <div class="thumbnail-list">
-                        <img class="thumb active" src="../pic/fish-oil-market/sports-research-triple-strength.jpg"
+                        <img class="thumb active" src="../pic/fish-oil-market/daiken-german-fish-oil.jpg"
                             onclick="switchImage(this)" alt="正面展示">
+                        <!-- Placeholders for details -->
                         <img class="thumb" src="https://placehold.co/150x150/f1f5f9/94a3b8?text=Detail"
                             onclick="switchImage(this)" alt="產品細節">
                         <img class="thumb" src="https://placehold.co/150x150/f1f5f9/94a3b8?text=Label"
@@ -215,49 +320,51 @@
                     </div>
                 </div>
 
-                <!-- MODULE 3: Specs -->
+                <!-- 1. Specs -->
                 <div class="review-section-title">1. 產品規格與官方說明</div>
                 <table class="review-specs-table">
                     <tr>
                         <th>產品全名</th>
-                        <td>Sports Research Omega-3 Fish Oil Triple Strength (三倍強效魚油)<br>
-                            <em style="font-size: 0.9em; color: #64748b;">Triple Strength Omega-3 Fish Oil (1250mg)</em>
+                        <td>Daiken 大研生醫 德國頂級魚油軟膠囊<br>
+                            <em style="font-size: 0.9em; color: #64748b;">Daiken German Top Fish Oil (Omega-3 84%,
+                                EPA+DHA 80%)</em>
                         </td>
                     </tr>
                     <tr>
                         <th>規格/成本</th>
-                        <td>90 粒/瓶 | 1粒/日 | 單價 <strong>$9.66/粒</strong> | 每日成本 $9.66</td>
+                        <td>60 粒/瓶 (每粒含膠囊：820 mg) | 建議2粒/日 | <span class="highlight-text">特價波動大</span> (需搭配多入組)</td>
                     </tr>
                     <tr>
                         <th>原料/技術</th>
-                        <td>阿拉斯加狹鱈 (Wild Alaska Pollock) | SR-rTG 型態 | 超臨界萃取</td>
+                        <td>德國 KD Pharma 大廠 | rTG 型態 | 超臨界流體萃取技術</td>
                     </tr>
                     <tr>
                         <th>內容物</th>
                         <td>
-                            • 魚油 (濃縮魚油、混合生育醇)<br>
-                            • 膠囊成分：<span style="color:#16a34a;">明膠 (魚來源)</span>、甘油、純水
+                            • 魚油 (魚油、混合濃縮生育醇)<br>
+                            • 膠囊成分：明膠 (豬)、甘油、純水
                         </td>
                     </tr>
                     <tr>
                         <th>官方重點</th>
                         <td>
-                            • <strong>Triple Strength：</strong> 濃度高達 <strong>83%</strong>，單顆含 1040mg Omega-3。<br>
-                            • <strong>IFOS 五星：</strong> 批次檢驗透明公開，品質達國際頂標。<br>
-                            • <strong>單一魚種：</strong> 採用野生阿拉斯加狹鱈，除了新鮮，更具備 MSC 永續認證。<br>
-                            • <strong>SR-rTG：</strong> 獨家再酯化技術，兼顧高濃度與吸收率。
+                            • <strong>頂級原料：</strong> 100% 德國 KD Pharma 原料，來源純粹。<br>
+                            • <strong>高濃度驗證：</strong> 經 SGS 檢驗 Omega-3 達 97.7% (高於標示值的 84%)。<br>
+                            • <strong>小顆好吞：</strong> 膠囊體積適中，易於長輩與小孩吞嚥。<br>
+                            • <strong>國際獎項：</strong> 連續榮獲 Monde Selection 特級金獎。
                         </td>
                     </tr>
                 </table>
 
-                <!-- MODULE 4: Nutritionist Real Test -->
+                <!-- PART 2: Nutritionist Real Test Block -->
                 <div class="real-test-section" id="nutritionist-real-test">
                     <div class="review-section-title">Dailyeat 營養師實測報告</div>
 
                     <div class="manual-review-reviews" style="margin-bottom: 30px;">
 
-                        <!-- Review Item 1: Yumi (Swallowing Challenge) -->
+                        <!-- Review Item 1: Yumi (Size + Experience) -->
                         <div class="manual-review-card nutritionist-layout">
+                            <!-- Avatar Column -->
                             <div class="nutritionist-col-avatar">
                                 <div
                                     style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 5px;">
@@ -266,23 +373,23 @@
                                 </div>
                                 <div style="font-size: 0.75em; font-weight: 700; color: #334155;">營養師<br>Yumi</div>
                             </div>
+                            <!-- Content Column -->
                             <div class="nutritionist-col-content">
                                 <div
                                     style="background: #f8fafc; padding: 15px; border-radius: 12px; border-top-left-radius: 2px;">
                                     <p style="margin: 0; font-size: 0.95em; color: #475569; line-height: 1.5;">
-                                        這款在美國被稱為 "Horse Pills" (給馬吃的藥丸) 真的不是浪得虛名。雖然比 Costco 小一點點，但依然是 <span
-                                            class="highlight-text"
-                                            style="background:#fee2e2; border-color:#fca5a5;">2.5cm
-                                            等級的巨型膠囊</span>。不過它的膠囊皮比較光滑，比起霧面的 Kirkland 稍微好吞一點。但如果你不擅長吞藥，建議還是要三思。
+                                        這款膠囊大小與好好生醫非常接近，都屬於<span
+                                            class="highlight-text">非常好吞嚥的小顆粒</span>。實際測試吞嚥時幾乎沒有異物感，對於害怕吞大藥丸的人來說非常友善。氣味部分剪開後有淡淡的魚油清香，雖然沒有到完全無味，但已經處理得非常乾淨。
                                     </p>
                                 </div>
                             </div>
+                            <!-- Photo (Placeholder) -->
                             <div class="nutritionist-col-img">
-                                <img src="https://placehold.co/90x90/e2e8f0/64748b?text=Size" alt="膠囊實測">
+                                <img src="https://placehold.co/90x90/e2e8f0/64748b?text=Test" alt="膠囊實測">
                             </div>
                         </div>
 
-                        <!-- Review Item 2: Sophie (Smell & Material) -->
+                        <!-- Review Item 2: Sophie (Packaging) -->
                         <div class="manual-review-card nutritionist-layout" style="margin-top: 20px;">
                             <div class="nutritionist-col-avatar">
                                 <div
@@ -296,15 +403,17 @@
                                 <div
                                     style="background: #f8fafc; padding: 15px; border-radius: 12px; border-top-left-radius: 2px;">
                                     <p style="margin: 0; font-size: 0.95em; color: #475569; line-height: 1.5;">
-                                        油質非常清澈！剪開後幾乎<span class="highlight-text">完全沒有腥味</span>，這點讓我非常驚艷。IFOS
-                                        五星認證的新鮮度確實反映在體感上。另外它使用的是<span class="highlight-text">魚膠囊 (Fish
-                                            Gelatin)</span>，這對於不吃豬牛的消費者來說是非常貼心的細節，這在台灣市售產品中比較少見。
+                                        包裝質感做得很好，不愧是送禮首選。不過要留意它的<span class="highlight-text">價格機制</span>，官網與 Momo
+                                        的價差有時會非常大，單買一罐很不划算，通常要買到 5 罐以上搭配活動折扣，CP 值才會出來。如果是長期保養族群，建議趁大檔期囤貨。
                                     </p>
                                 </div>
                             </div>
+                            <div class="nutritionist-col-img">
+                                <img src="https://placehold.co/90x90/e2e8f0/64748b?text=Pack" alt="包裝實測">
+                            </div>
                         </div>
 
-                        <!-- Review Item 3: Shawn (CP Value) -->
+                        <!-- Review Item 3: Shawn (Comparison) -->
                         <div class="manual-review-card nutritionist-layout" style="margin-top: 20px;">
                             <div class="nutritionist-col-avatar">
                                 <div
@@ -318,9 +427,9 @@
                                 <div
                                     style="background: #f8fafc; padding: 15px; border-radius: 12px; border-top-left-radius: 2px;">
                                     <p style="margin: 0; font-size: 0.95em; color: #475569; line-height: 1.5;">
-                                        這就是所謂的<span class="highlight-text">「規格破壞者」</span>。83% 高濃度 rTG 加上 IFOS
-                                        認證，在台灣通常要賣到兩三千元，但 SR 透過 iHerb 只要幾百塊。單顆就能補足 1040mg Omega-3，每日成本不到 10
-                                        元，這對所有本土品牌來說都是降維打擊。如果你會用 iHerb，這絕對是首選。
+                                        直接拿它跟 BetterBio 對決，兩者都是高濃度 rTG 小膠囊的頂尖選手。大研生醫贏在<span class="highlight-text">通路方便性
+                                            (Momo)</span> 與德國 KD 原料的名氣；BetterBio 則贏在透明度 (TOTOX) 與 PTP
+                                        獨立排裝的細節。兩者都是閉眼買不會錯的選擇，就看你對包裝形式的偏好。
                                     </p>
                                 </div>
                             </div>
@@ -328,10 +437,10 @@
                     </div>
                 </div>
 
-                <!-- MODULE 5: Rating -->
+                <!-- 3. Dailyeat Rating -->
                 <div class="review-section-title">Dailyeat 整體推薦程度</div>
                 <div class="review-rating-box">
-                    <div class="rating-score-circle">4.5</div>
+                    <div class="rating-score-circle">4.6</div>
                     <div class="rating-details">
                         <div class="rating-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
@@ -339,30 +448,38 @@
                         </div>
                         <div class="rating-verdict">
                             <span class="verdict-tag">Dailyeat評價</span>
-                            <strong>國際高標，價格屠夫。</strong> 在原料純度與價格效率上幾乎無對手。唯一扣分點是巨大的膠囊尺寸與海外購物的物流門檻。
+                            <strong>台廠資優生。</strong> 規格硬實力極強，德國 KD 原料加上高濃度檢驗報告，是可靠的選擇。唯獨價格策略較依賴多件優惠。
                         </div>
                     </div>
                 </div>
 
-                <!-- MODULE 6: User Reviews -->
+                <!-- Expanded & Highlighted Reviews -->
                 <div class="review-section-title" style="margin-top: 40px;">社群網友與電商平台真實心得</div>
                 <div class="manual-review-reviews">
+                    <!-- Momo Review -->
                     <div class="manual-review-card">
-                        「已經回購第五罐了，<span class="highlight-text">濃度高又沒怪味</span>，吃一顆抵兩顆。雖然要等快兩週才收到，但這個價格完全值得等待。」
-                        <a href="#" class="review-link">查看 iHerb 評論</a>
-                        <div class="review-source">— SR_魚油_iHerb 台灣買家評論心得</div>
+                        「Momo 配送超快，這是第二次回購了。看上它的 <span class="highlight-text">84%
+                            高濃度</span>，雖然價格比較硬，但既然要吃就要吃有效的。顆粒真的很小，吞嚥完全沒障礙。」
+                        <a href="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=8187056" target="_blank"
+                            class="review-link">查看 Momo 評論</a>
+                        <div class="review-source">— 大研生醫_魚油_Momo 購物網 買家評論心得</div>
                     </div>
 
+                    <!-- Shopee Review -->
                     <div class="manual-review-card">
-                        「健身教練推薦吃的，抗發炎效果不錯。但真的<span class="highlight-text">很大顆</span>，第一次吃有被嚇到，建議要配多一點水。」
-                        <a href="#" class="review-link">查看 PTT Fitness 評論</a>
-                        <div class="review-source">— SR_魚油_PTT Fitness 買家評論心得</div>
+                        「趁蝦皮活動買的，搭配折價券很划算。出貨包裝很仔細，<span class="highlight-text">效期也很新</span>。長期吃下來覺得思緒比較清晰，會繼續支持。」
+                        <a href="https://shopee.tw/product/8187056/9062791990" target="_blank" class="review-link">查看
+                            Shopee 評論</a>
+                        <div class="review-source">— 大研生醫_魚油_Shopee 官方旗艦店 買家評論心得</div>
                     </div>
 
+                    <!-- Official/General Review -->
                     <div class="manual-review-card">
-                        「<span class="highlight-text">單一魚種來源</span>讓我比較放心，不用擔心是混充的雜魚油。IFOS 報告每批都有 update，感覺很負責。」
-                        <a href="#" class="review-link">查看 Dcard 評論</a>
-                        <div class="review-source">— SR_魚油_Dcard 買家評論心得</div>
+                        「給長輩吃的，看<span class="highlight-text">陳美鳳代言</span>覺得比較安心。IFOS
+                        五星認證和高濃度檢驗報告都有公開，吃進去的東西還是要選大品牌才有保障。」
+                        <a href="https://www.daikenshop.com/product.php?p_id=2" target="_blank"
+                            class="review-link">查看官網評論</a>
+                        <div class="review-source">— 大研生醫_魚油_大研生醫官網 買家評論心得</div>
                     </div>
                 </div>
 
